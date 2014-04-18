@@ -1,8 +1,13 @@
 #!/usr/bin/python3
 
-# This updater code is released under the GPL v3. The license
-# is included with the rest of the icon suit on GitHub. This
-# script is written and maintained by Joshua Fogg for Numix.
+# Base script for the safe hardcoded icon fixer.
+# Copyright (C) 2014  Joshua Fogg
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License (version 3+) as 
+# published by the Free Software Foundation. You should have received
+# a copy of the GNU General Public License along with this program.  
+# If not, see <http://www.gnu.org/licenses/>.
 
 from os import environ, execlpe, geteuid, listdir
 from os.path import expanduser
