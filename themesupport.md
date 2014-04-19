@@ -75,7 +75,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Tomate | ✓ |   |
 | TypeCatcher | ✓ |   |
 | Uberwriter | ✓ | ✓ |
-| Uberwriter | ✓ |   |
+| Unison GTK | ✓ |   |
 | Valentina Studio | ✓ |   |
 | Wireframe Sketcher | ✓ |   |
 | Viber | ✓ |   |

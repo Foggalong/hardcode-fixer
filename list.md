@@ -75,6 +75,7 @@ This is a complete list of all the applications the fixer currently supports and
 | Tomate | tomate | No status |
 | TypeCatcher | typecatcher | Fixed as of 0.2-1 |
 | Uberwriter | uberwriter | No status |
+| Unison GTK | unison-gtk | No status |
 | Valentina Studio | vstudio | No status |
 | Wireframe Sketcher | wireframe-sketcher | No status |
 | Viber | viber | No status |
