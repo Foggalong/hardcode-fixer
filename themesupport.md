@@ -3,7 +3,7 @@ Theme Support
 
 Even if an application is supported by the fixer and a theme follows the standard names from here it doesn't necessarily mean that theme has icons every application. Here's a lit of currently supported icons across the themes who work with us.
 
-| Application Name | Numix | Moka^1 |
+| Application Name | Numix | Moka¹ |
 | :---------------: | :---------------: | :---------------: |
 | 2048 | ✓ |   |
 | Android Studio | ✓ | ✓ |
@@ -75,6 +75,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Tomate | ✓ |   |
 | TypeCatcher | ✓ |   |
 | Uberwriter | ✓ | ✓ |
+| Uberwriter | ✓ |   |
 | Valentina Studio | ✓ |   |
 | Wireframe Sketcher | ✓ |   |
 | Viber | ✓ |   |
