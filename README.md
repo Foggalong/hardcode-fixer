@@ -13,7 +13,7 @@ Report it! It is an issue that should be reported to the relevant bug trackers, 
 
 ...well?
 ==============
-That's where this program (script!) comes in. It goes through out database of hardcoded icons and makes any corrections on your system that need to be made. It needs root access as they are mostly stored in root locations but is completely secure and open source for your examination. It makes the change by copying the original icon to the standard location and changing the launcher to reflect the move. This means that regardless of the theme you use there'll be no breakage.
+That's where this program (script!) comes in. It goes through out database of hardcoded icons and makes any corrections on your system that need to be made. It needs root access as they are mostly stored in root locations but is completely secure and open source for your examination. It makes the change by ~~copying the original icon to the standard location~~ and changing the launcher to reflect the move (currently only changes launcher. Fast fix coming). This means that regardless of the theme you use there'll be no breakage.
 
 What about themeing?
 ==============
