@@ -21,8 +21,8 @@ When fixing the icons it changes the name to a standardised one from our databas
 
 Which icon themes support it?
 ==============
-Currently Numix, ~~Moka~~ and ~~Nitrux~~. However we're constantly contacting  designers and developers to get them involved. If you are one, give me an email and we'll talk about getting you on board.
+Currently only [Numix](http://numixproject.org/). However we're constantly contacting  designers and developers to get them involved. If you are one, [give me an email](mailto:joshua.h.fogg@gmail.com) and we'll talk about getting you on board.
 
 I'm not a developer! How can I help?
 ==============
-Report any applications you find with hardcoded icons to us so that we can have the most complete fixer possible. Every little helps!
+[Report any applications](https://github.com/Foggalong/hardcode-fixer/issues) you find with hardcoded icons to us so that we can have the most complete fixer possible. Every little helps!
