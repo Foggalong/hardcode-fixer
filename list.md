@@ -1,83 +1,82 @@
-Hard Coded Icons
+Supported Applications
 ================
 
-When making applications some developers choose to hard code their icons. This is a bad practice as it makes it impossible for icon themes to change them. Other than reporting these issues upstream there's not much that can be done about this.
+This is a complete list of all the applications the fixer currently supports and the respective standardised icon name. If you know of a hardcoded application icon which isn't in this list [please report it.](https://github.com/Foggalong/hardcode-fixer/issues). Because the end goal of the fixer is to stop hardcoded icons existing below there are links to any upstream bug reports that exist. Again, if you know of one we don't let us know!
 
-However, this problem can be dealt with manually. Below is a list of all the hard coded icons that Numix has its own Circle icons for. The icon change can be manually made by changing the ```icon``` line of the ```application.desktop``` file in ```/usr/share/applications/``` as specified. The list also includes Steam games which list ```steam``` as their icon.
-
-For example, take the **Format Junkie** application. Currently ```formatjunkie.desktop``` has the icon line ```Icon=/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png``` but there's a numix icon for it called ```fjt.svg```. Using your text editor of choice simple replace ```/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png``` with ```fjt``` and the change will be made.
-
-Obviously this is just a temporary solution and to fix the problem for good upstream issues need to be filed for all these hard coded icons. To see the upstream report for an icon just click on the link in the icon's name below. No link? Then file that upstream now! Are we missing any reports? [File that issue with us!](https://github.com/numixproject/numix-icon-theme-circle/issues/new)
-
-| Application Name | Current Icon Location | Numix Icon Name |
+| Application Name | Icon Name | Upstream Status |
 | :---------------: | :---------------: | :---------------: |
-| 2048 | /usr/share/2048/meta/apple-touch-icon.png | 2048 |
-| [Android Studio](https://code.google.com/p/android/issues/detail?id=67582) | /opt/android-studio/bin/idea.png | androidstudio |
-| [Arista](https://github.com/danielgtaylor/arista/issues/164) | /usr/share/arista/ui/icon.svg | arista |
-| Bastion (Steam) | steam | steam_icon_107100 |
-| [Conky Manager](https://bugs.launchpad.net/conky-manager/+bug/1296810) | /usr/share/pixmaps/conky-manager.png | conky-manager |
-| Diagnose Graphics Issues | /usr/share/xdiagnose/icons/microscope.svg | microscope |
-| Dogecoin-qt (AUR) | /usr/share/pixmaps/dogecoin.png | dogecoin |
-| Dota 2 (Steam) | steam | steam_icon_570 |
-| Driver Manager | /usr/share/icons/hicolor/scalable/apps/driver-manager.svg | jockey |
-| Easy Life | /usr/share/pixmaps/easylife.png | easylife |
-| Fade In | /usr/share/fadein/icon_app/fadein_icon_128x128.png | fadein |
-| FileBot | /usr/share/filebot/icon.svg | filebot |
-| Format Junkie | /opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png | fjt |
-| [Gcolor2](http://sourceforge.net/p/gcolor2/feature-requests/11/)| /usr/share/pixmaps/gcolor2/gcolor2.xpm | gcolor2 |
-| [Gespeaker](https://github.com/muflone/gespeaker/issues/49) | /usr/share/gespeaker/data/icons/gespeaker.svg | gespeaker | 
-| GNOME Weather | org.gnome.Weather.Application | gnome-weather |
-| GNUcview | /usr/share/pixmaps/guvcview/guvcview.png | guvcview |
-| GNU Octave | /usr/share/octave/3.6.4/imagelib/octave-logo.svg | octave |
-| GoldenDict | /usr/share/pixmaps/goldendict.png | goldendict |
-| Graphic Network Simulator | /usr/share/pixmaps/gns3.xpm | gns |
-| Grisbi | /usr/share/pixmaps/grisbi/grisbi.svg | grisbi |
-| Guake | /usr/share/pixmaps/guake/guake.png | guake |
-| HipChat | hipchat.png | hipchat |
-| [HPLJ](https://bugs.launchpad.net/ubuntu/+source/foo2zjs/+bug/1299552) | /usr/share/pixmaps/hplj1020_icon | printer |
-| Intel Graphics Installer | /usr/share/intel-linux-graphics-installer/images/logo.png | intel-installer |
-| [IntelliJ IDEA](http://youtrack.jetbrains.com/issue/IDEA-122364) | /opt/idea-IC/bin/idea.png | idea |
-| Kerbal Space Program.desktop | steam | steam_icon_220200 |
-| Klavaro | /usr/share/icons/hicolor/24x24/apps/klavaro.png | klavaro |
-| Left 4 Dead 2.desktop | steam | steam_icon_550 |
-| Left 4 Dead 2 Beta.desktop | steam | steam_icon_223530 |
-| Lightworks | /usr/share/lightworks/Icons/App.png | lightworks |
-| Lucky Backup | /usr/share/pixmaps/luckybackup.png | luckybackup |
-| Master PDF Editor | /opt/master-pdf-editor/master-pdf-editor.png | master-pdf-editor |
-| Mint Audio Tag | /usr/lib/linuxmint/mintInstall/icon.svg | audio-tag-tool |
-| Mint Backup | /usr/lib/linuxmint/mintBackup/icon.png | mintbackup |
-| Mint Software Manager | /usr/lib/linuxmint/mintInstall/icon.svg | software-manager |
-| My Weather Indicator | /opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png | indicator-weather |
-| Netbeans | /usr/share/netbeans/7.0.1/nb/netbeans.png | netbeans |
-| Ninja IDE | /usr/share/ninja-ide/img/icon.png | ninja-ide |
-| Nitro | /usr/share/nitrotasks/media/nitrotasks.png | nitrotasks |
-| NotifyOSD | /usr/share/notifyosdconf/not.png | notifyosdconf |
-| OmegaT | /usr/share/omegat/images/OmegaT.xpm | omegat |
+| 2048 | 2048 | No status |
+| Android Studio | androidstudio | [Status](https://code.google.com/p/android/issues/detail?id=67582) |
+| Aptik | aptik | Fixed as of 1.4 |
+| Arista | arista | [Status](https://github.com/danielgtaylor/arista/issues/164) |
+| Bastion (Steam) | steam_icon_107100 | No status |
+| Conky Manager | conky-manager | [Status](https://bugs.launchpad.net/conky-manager/+bug/1296810)
+| Diagnose Graphics Issues | microscope | No status |
+| Dogecoin-qt (AUR) | dogecoin | No status |
+| Dota 2 (Steam) | steam_icon_570 | No status |
+| Driver Manager | jockey | No status |
+| Easy Life | easylife | No status |
+| Fade In | fadein | No status |
+| FileBot | filebot | No status |
+| Format Junkie | fjt | No status |
+| Gcolor2 | gcolor2 | [Status](http://sourceforge.net/p/gcolor2/feature-requests/11/)| /usr/share/pixmaps/gcolor2/gcolor2.xpm) |
+| Gespeaker | gespeaker | [Status](https://github.com/muflone/gespeaker/issues/49) |
+| GNOME Weather | gnome-weather | No status |
+| GNUcview | guvcview | No status |
+| GNU Octave | octave | No status |
+| GoldenDict | goldendict | No Status |
+| GPRename | gprename | Fixed as of 20140325 |
+| Graphic Network Simulator | gns | No Status |
+| Grisbi | grisbi | No status |
+| Guake | guake | No status |
+| HipChat | hipchat | No status |
+| HPLJ | printer | [Status](https://bugs.launchpad.net/ubuntu/+source/foo2zjs/+bug/1299552) |
+| Intel Graphics Installer | intel-installer | No status |
+| IntelliJ IDEA | idea | [Status](http://youtrack.jetbrains.com/issue/IDEA-122364) | /opt/idea-IC/bin/idea.png)
+| Kerbal Space Program (Steam) | steam_icon_220200 | No status |
+| Klavaro | klavaro | No status |
+| Left 4 Dead 2 (Steam) | steam | steam_icon_550 | No status
+| Left 4 Dead 2 Beta (Steam) | steam_icon_223530 | No status
+| Lightworks | lightworks | No status
+| Lucky Backup | luckybackup | No status
+| Master PDF Editor | master-pdf-editor | No status |
+| Mint Audio Tag | audio-tag-tool | No status |
+| Mint Backup | mintbackup | No status |
+| Mint Software Manager | software-manager | No status |
+| My Weather Indicator | indicator-weather | No status |
+| Netbeans | netbeans | No status |
+| Ninja IDE | ninja-ide | No status |
+| Nitro | nitrotasks | No status |
+| NotifyOSD | notifyosdconf | No status |
+| OmegaT | omegat | No status |
 | Oracle SQL Developer | /opt/oracle-sqldeveloper/icon.png | N/A |
-| PacmanXG | /usr/share/pixmaps/pacmanxg.png | pacmanxg |
-| Pamac (Install) | /usr/share/pamac/icons/32x32/apps/pamac.png | system-software-install |
-| Pamac (Update) | /usr/share/pamac/icons/32x32/apps/pamac.png | system-software-update |
-| pgAdmin3 | /usr/share/pgadmin3/pgAdmin3.png |pgAdmin3 |
-| [pgModeler](https://github.com/pgmodeler/pgmodeler/issues/441) | etc/pgmodeler/pgmodeler_logo.png | NYA |
-| PHP Storm | PhpStorm-133.803/bin/webide.png | phpstorm |
-| Pycharm | /home/radio/Descargas/pycharm-community-3.1.1/bin/pycharm.png | pycharm |
-| pyRenamer | /usr/share/pyrenamer/pyrenamer.png | pyrenamer |
-| [Python 2.6](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python2.6.xpm | python2.6 |
-| [Python 2.7](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python2.7.xpm | python2.7 |
-| [Python 3.0](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python3.0.xpm | python3.0 |
-| [Python 3.1](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python3.1.xpm | python3.1 |
-| [Python 3.2](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python3.2.xpm | python3.2 |
-| [Python 3.3](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python3.3.xpm | python3.3 |
-| [Python 3.4](http://bugs.python.org/issue21096) | /usr/share/pixmaps/python3.4.xpm | python3.4 |
-| Quick List Editor | /usr/share/pixmaps/qle_pix/logoqle2.svg | logoqle2 |
-| Robomongo | robomongo.png | robomongo |
-| SmartGitHG | smartgithg.png | smartgithg |
-| Springseed | /usr/share/pixmaps/springseed/springseed.svg | springseed |
-| [Synergy](http://synergy-foss.org/spit/issues/details/3971/#) | /usr/share/icons/synergy.ico | synergy |
-| Tomate | /usr/share/tomate/media/tomate.png | tomate |
-| Uberwriter | /opt/extras.ubuntu.com/uberwriter/share/uberwriter/media/uberwriter.svg | uberwriter |
-| Wireframe Sketcher | /usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png | wireframe-sketcher.svg |
-| Valentina Studio | /opt/VStudio/Resources/vstudio.png | vstudio |
-| Viber | /usr/share/pixmaps/viber.png | viber |
-| YouTube-DL GUI | /usr/share/pixmaps/youtube-dlg.png | youtube-dl |
-| Zenmap | /usr/share/zenmap/pixmaps/zenmap.png | zenmap |
+| PacmanXG | pacmanxg | No status |
+| Pamac (Install) | system-software-install | No status |
+| Pamac (Update) | system-software-update | No status |
+| Pencil | pencil | Fixed in latest version |
+| pgAdmin3 | pgAdmin3 | No status |
+| pgModeler | pgmodeler | [Status](https://github.com/pgmodeler/pgmodeler/issues/441)
+| PHP Storm | phpstorm | No status |
+| Pycharm | pycharm | No status |
+| pyRenamer | pyrenamer | No status |
+| Python 2.6 | python2.6 | [Status](http://bugs.python.org/issue21096)
+| Python 2.7 | python2.7 | [Status](http://bugs.python.org/issue21096)
+| Python 3.0 | python3.0 | [Status](http://bugs.python.org/issue21096)
+| Python 3.1 | python3.1 | [Status](http://bugs.python.org/issue21096)
+| Python 3.2 | python3.2 | [Status](http://bugs.python.org/issue21096)
+| Python 3.3 | python3.3 | [Status](http://bugs.python.org/issue21096)
+| Python 3.4 | python3.4 | [Status](http://bugs.python.org/issue21096)
+| Quick List Editor | logoqle2 | No status |
+| Robomongo | robomongo | No status |
+| SmartGitHG | smartgithg | No status |
+| Springseed | springseed | No status |
+| Synergy | synergy | [Status](http://synergy-foss.org/spit/issues/details/3971/#)
+| TimeShift | timeshift | Fixed as of 1.4 |
+| Tomate | tomate | No status |
+| TypeCatcher | typecatcher | Fixed as of 0.2-1 |
+| Uberwriter | uberwriter | No status |
+| Valentina Studio | vstudio | No status |
+| Wireframe Sketcher | wireframe-sketcher | No status |
+| Viber | viber | No status |
+| YouTube-DL GUI | youtube-dl | No status |
+| Zenmap | zenmap | No status |
