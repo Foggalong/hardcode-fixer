@@ -18,19 +18,6 @@ from hardcoded import Hardcoded
 # -f for fix, -u for unfix
 script, mode = argv
 
-warning_message = """
-Because most launchers are in /usr/share/applications/
-fixing their hardcoded icon lines requites root privlages.\n"""
-
-# Aquires root
-euid = geteuid()
-if euid != 0:
-	print(warning_message)
-	print("Asking for root password...")
-	args = ['sudo', executable] + argv + [environ]
-	execlpe('sudo', *args)
-print("\nAquired root!")
-
 # List of known apps that use hardcoded icons
 hardcoded_list = [
 	# .desktop name needed Hardcoded("Android Studio", "/opt/android-studio/bin/idea.png", " androidstudio")
@@ -88,30 +75,46 @@ hardcoded_list = [
 	# .desktop name needed Hardcoded("YouTube-DL GUI", "/usr/share/pixmaps/youtube-dlg.png", "youtube-dl")
 ]
 
+def aquireRoot():
+	warning_message = """
+	Because most launchers are in /usr/share/applications/
+	fixing their hardcoded icon lines requites root privlages.\n"""
+
+	# Aquires root
+	euid = geteuid()
+	if euid != 0:
+		print(warning_message)
+		print("Asking for root password...")
+		args = ['sudo', executable] + argv + [environ]
+		execlpe('sudo', *args)
+	print("\nAquired root!")
+
 def fixAll():
 	# Set up for local fixes
 	local_check = 0
 	try:
-		local_launchers = listdir(expanduser("~")+"/.local/share/applications")
+		local_dir = expanduser("~")+"/.local/share/applications"
+		local_launchers = listdir(local_dir)
 		local_check = 1
 	except:
 		pass
 
 	# Set up for global fixes
+	global_dir = "/usr/share/applications"
 	global_launchers = listdir("/usr/share/applications")
 
 	# Fixes locally located launchers 
 	for icon in hardcoded_list:
 		if local_check == 1:
 			if icon.getDesktopFile() in local_launchers:
-				icon.fix(local_launchers)
+				icon.fix(local_dir)
 			else:
 				pass
 		else:
 			pass
 
 		if icon.getDesktopFile() in global_launchers:
-			icon.fix(global_launchers)
+			icon.fix(global_dir)
 		else:
 			pass
 
@@ -119,25 +122,37 @@ def unfixAll():
 	# Set up for local unfixes
 	local_check = 0
 	try:
-		local_launchers = listdir(expanduser("~")+"/.local/share/applications")
+		local_dir = expanduser("~")+"/.local/share/applications"
+		local_launchers = listdir(local_dir)
 		local_check = 1
 	except:
 		pass
 
 	# Set up for global unfixes
+	global_dir = "/usr/share/applications"
 	global_launchers = listdir("/usr/share/applications")
 
 	# Fixes locally located launchers 
 	for icon in hardcoded_list:
 		if local_check == 1:
 			if icon.getDesktopFile() in local_launchers:
-				icon.unfix(local_launchers)
+				icon.unfix(local_dir)
 			else:
 				pass
 		else:
 			pass
 
 		if icon.getDesktopFile() in global_launchers:
-			icon.unfix(global_launchers)
+			icon.unfix(global_dir)
 		else:
 			pass
+
+
+if mode == "-f" or mode == "--fix":
+	aquireRoot()
+	fixAll()
+elif mode == "-u" or mode == "--unfix":
+	aquireRoot()
+	unfixAll()
+else:
+	print(mode + " is not a valid flag")
