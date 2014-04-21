@@ -5,8 +5,8 @@ This is a complete list of all the applications the fixer currently supports and
 
 Note: while the application is still in development not everything is implemented. The last column shows the status on that.
 
-| Application Name | Icon Name | Upstream | Implemented
-| :---------------: | :---------------: | :---------------: |
+| Application Name | Icon Name | Upstream | Implemented |
+| :---------------: | :---------------: | :---------------: | :---------------: |
 | 2048 | 2048 | No status |   |
 | Android Studio | androidstudio | [Status](https://code.google.com/p/android/issues/detail?id=67582) |   |
 | Aptik | aptik | Fixed as of 1.4 |   |
@@ -41,7 +41,7 @@ Note: while the application is still in development not everything is implemente
 | Left 4 Dead 2 Beta (Steam) | steam_icon_223530 | No status | ✓ |
 | Lightworks | lightworks | No status |   |
 | Lucky Backup | luckybackup | No status |   |
-| Master PDF Editor | master-pdf-editor | No status |
+| Master PDF Editor | master-pdf-editor | No status |   |
 | Mint Audio Tag | audio-tag-tool | No status |   |
 | Mint Backup | mintbackup | No status |   |
 | Mint Software Manager | software-manager | No status |   |
