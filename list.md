@@ -21,7 +21,7 @@ Note: while the application is still in development not everything is implemente
 | Fade In | fadein | No status |   |
 | FileBot | filebot | No status |   |
 | Format Junkie | fjt | No status | ✓ |
-| Gcolor2 | gcolor2 | [Status](http://sourceforge.net/p/gcolor2/feature-requests/11/)| /usr/share/pixmaps/gcolor2/gcolor2.xpm) |   |
+| Gcolor2 | gcolor2 | [Status](http://sourceforge.net/p/gcolor2/feature-requests/11/) |   |
 | Gespeaker | gespeaker | [Status](https://github.com/muflone/gespeaker/issues/49) | ✓ |
 | GNOME Weather | gnome-weather | No status |   |
 | GNUcview | guvcview | No status | ✓ |
@@ -34,10 +34,10 @@ Note: while the application is still in development not everything is implemente
 | HipChat | hipchat | No status |   |
 | HPLJ | printer | [Status](https://bugs.launchpad.net/ubuntu/+source/foo2zjs/+bug/1299552) |   |
 | Intel Graphics Installer | intel-installer | No status |   |
-| IntelliJ IDEA | idea | [Status](http://youtrack.jetbrains.com/issue/IDEA-122364) | /opt/idea-IC/bin/idea.png) |   |
+| IntelliJ IDEA | idea | [Status](http://youtrack.jetbrains.com/issue/IDEA-122364) |   |
 | Kerbal Space Program (Steam) | steam_icon_220200 | No status | ✓ |
 | Klavaro | klavaro | No status |   |
-| Left 4 Dead 2 (Steam) | steam | steam_icon_550 | No status | ✓ |
+| Left 4 Dead 2 (Steam) | steam_icon_550 | No status | ✓ |
 | Left 4 Dead 2 Beta (Steam) | steam_icon_223530 | No status | ✓ |
 | Lightworks | lightworks | No status |   |
 | Lucky Backup | luckybackup | No status |   |
