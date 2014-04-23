@@ -23,6 +23,7 @@
 |Grisbi|grisbi|/usr/share/pixmaps/grisbi/grisbi.svg|grisbi|
 |Guake|guake|/usr/share/pixmaps/guake/guake.png|guake|
 |Hipchat|atlassian-hipchat|hipchat.png|hipchat|
+|Hotline Miami|Hotline Miami|steam|steam_icon_219150|
 |HP Printer|hplj1020|/usr/share/pixmaps/hplj1020_icon.png|printer|
 |Intel Graphics Installer|intel-linux-graphics-installer|/usr/share/intel-linux-graphics-installer/images/logo.png|intel-installer|
 |Intellij IDE|intellij-idea|/opt/idea-IC/bin/idea.png|idea|
@@ -31,6 +32,7 @@
 |Left 4 Dead 2|Left 4 Dead 2|steam|steam_icon_550|
 |Left 4 Dead 2 (beta)|Left 4 Dead 2 Beta|steam|steam_icon_223530|
 |Lightworks|lightworks|/usr/share/lightworks/Icons/App.png|lightworks|
+|Little Inferno|Little Inferno|steam|steam_icon_221260|
 |Lucky Backup|luckybackup|/usr/share/pixmaps/luckybackup.png|luckybackup|
 |Lucky Backup (KDE)|luckybackup-kde-su|/usr/share/pixmaps/luckybackup.png|luckybackup|
 |Lucky Backup (GNOME)|luckybackup-gnome-su|/usr/share/pixmaps/luckybackup.png|luckybackup|

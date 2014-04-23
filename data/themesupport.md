@@ -29,6 +29,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Grisbi | ✓ |   |
 | Guake | ✓ | ✓ |
 | HipChat | ✓ | ✓ |
+| Hotline Miami |   |   |
 | HP Printer | ✓ |   |
 | Intel Graphics Installer | ✓ |   |
 | IntelliJ IDEA | ✓ | ✓ |
@@ -37,6 +38,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Left 4 Dead 2 (Steam) | ✓ |   |
 | Left 4 Dead 2 Beta (Steam) | ✓ |   |
 | Lightworks | ✓ | ✓ |
+| Little Inferno | ✓ |   |
 | Lucky Backup | ✓ |   |
 | Master PDF Editor | ✓ |   |
 | Mint Audio Tag | ✓ |   |

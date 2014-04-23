@@ -31,6 +31,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Grisbi | grisbi | No status | ✔ |
 | Guake | guake | No status | ✔ |
 | Hipchat | hipchat | No status | ✘ |
+| Hotline Miami | steam_icon_219150 | No status | ✔ |
 | HP Printer | printer | [Status](https://bugs.launchpad.net/ubuntu/+source/foo2zjs/+bug/1299552) | ✔ |
 | Intel Graphics Installer | intel-installer | No status | ✔ |
 | Intellij IDE | idea | [Status](http://youtrack.jetbrains.com/issue/IDEA-122364) | ✔ |
@@ -39,6 +40,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Left 4 Dead 2 | steam_icon_550 | No status | ✔ |
 | Left 4 Dead 2 (beta) | steam_icon_223530 | No status | ✔ |
 | Lightworks | lightworks | No status | ✔ |
+| Little Inferno | steam_icon_221260 | No status | ✔ |
 | Lucky Backup | luckybackup | No status | ✔ |
 | Master PDF Editor | master-pdf-editor | No status | ✔ |
 | Mint Audio Tag | audio-tag-tool | No status | ✘ |
