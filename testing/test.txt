@@ -4,15 +4,16 @@
 |gespeaker|/usr/share/gespeaker/data/icons/gespeaker.svg|gespeaker|
 |guvcview|/usr/share/pixmaps/guvcview/guvcview.png|guvcview|
 |www.octave.org-octave|/usr/share/octave/3.6.4/imagelib/octave-logo.svg|octave|
+|www.octave.org-octave|/usr/share/octave/3.8.1/imagelib/octave-logo.svg|octave|
 |grisbi|/usr/share/pixmaps/grisbi/grisbi.svg|grisbi|
 |Kerbal Space Program|steam|steam_icon_220200|
 |Left 4 Dead 2|steam|steam_icon_550|
 |Left 4 Dead 2 Beta|steam|steam_icon_223530|
 |netbeans|/usr/share/netbeans/7.0.1/nb/netbeans.png|netbeans|
-|python2.6|/usr/share/pixmaps/python2.6.xpm|python2.6|
-|python2.7|/usr/share/pixmaps/python2.7.xpm|python2.7|
-|python3.0|/usr/share/pixmaps/python3.0.xpm|python3.0|
-|python3.1|/usr/share/pixmaps/python3.1.xpm|python3.1|
-|python3.2|/usr/share/pixmaps/python3.2.xpm|python3.2|
-|python3.3|/usr/share/pixmaps/python3.3.xpm|python3.3|
-|python3.4|/usr/share/pixmaps/python3.4.xpm|python3.4|
+|python2.6|/usr/share/pixmaps/python2.6.xpm|python2.6.|
+|python2.7|/usr/share/pixmaps/python2.7.xpm|python2.7.|
+|python3.0|/usr/share/pixmaps/python3.0.xpm|python3.0.|
+|python3.1|/usr/share/pixmaps/python3.1.xpm|python3.1.|
+|python3.2|/usr/share/pixmaps/python3.2.xpm|python3.2.|
+|python3.3|/usr/share/pixmaps/python3.3.xpm|python3.3.|
+|python3.4|/usr/share/pixmaps/python3.4.xpm|python3.4.|
