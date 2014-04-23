@@ -40,7 +40,7 @@ else
 fi
 
 # Downloads icon data from GitHub to data directory
-wget -O $HOME/.local/share/data/hcf/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/testing/test.txt
+wget -O $HOME/.local/share/data/hcf/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/testing/tofix.txt
 
 while read line; do
 	# Splits line into array
