@@ -6,8 +6,8 @@
 |Conky Manager|conky-manager|/usr/share/pixmaps/conky-manager.png|conky-manager|
 |Dogecoin QT|dogecoin|/usr/share/pixmaps/dogecoin.png|dogecoin|
 |Dota 2|Dota 2|steam|steam_icon_570|
-|Driver Manager|driver-manager|/usr/share/icons/hicolor/scalable/apps/driver-manager.svg|driver-manager|*
-|easyLife|easylife|/usr/share/pixmaps/easylife.png|easylife|*
+|Driver Manager|driver-manager|/usr/share/icons/hicolor/scalable/apps/driver-manager.svg|driver-manager|
+|easyLife|easylife|/usr/share/pixmaps/easylife.png|easylife|
 |FadeIn|fadein|/usr/share/fadein/icon_app/fadein_icon_128x128.png|fadein|
 |FileBot|FileBot|/usr/share/filebot/icon.svg|filebot|
 |Format Junkie|formatjunkie|/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png|fjt|
@@ -16,13 +16,13 @@
 |GUVC View|guvcview|/usr/share/pixmaps/guvcview/guvcview.png|guvcview|
 |GNU Octave|www.octave.org-octave|/usr/share/octave/3.6.4/imagelib/octave-logo.svg|octave|
 |GNU Octave|www.octave.org-octave|/usr/share/octave/3.8.1/imagelib/octave-logo.svg|octave|
-|GNOME Weather|gnome-shell-extension-weather|org.gnome.Weather.Application|gnome-weather|*
+|GNOME Weather|gnome-shell-extension-weather|org.gnome.Weather.Application|gnome-weather|
 |GoldenDict|goldendict|/usr/share/pixmaps/goldendict.png|goldendict|
 |GPRename|gprename|/usr/share/pixmaps/gprename/gprename.png|gprename|
-|GNS3|gns3|/usr/share/pixmaps/gns3.xpm|gns3| !
+|GNS3|gns3|/usr/share/pixmaps/gns3.xpm|gns3|
 |Grisbi|grisbi|/usr/share/pixmaps/grisbi/grisbi.svg|grisbi|
 |Guake|guake|/usr/share/pixmaps/guake/guake.png|guake|
-|Hipchat|atlassian-hipchat|hipchat.png|hipchat|*
+|Hipchat|atlassian-hipchat|hipchat.png|hipchat|
 |HP Printer|hplj1020|/usr/share/pixmaps/hplj1020_icon.png|printer|
 |Intel Graphics Installer|intel-linux-graphics-installer|/usr/share/intel-linux-graphics-installer/images/logo.png|intel-installer|
 |Intellij IDE|intellij-idea|/opt/idea-IC/bin/idea.png|idea|
@@ -35,9 +35,9 @@
 |Lucky Backup (KDE)|luckybackup-kde-su|/usr/share/pixmaps/luckybackup.png|luckybackup|
 |Lucky Backup (GNOME)|luckybackup-gnome-su|/usr/share/pixmaps/luckybackup.png|luckybackup|
 |Master PDF Editor|MasterPdfEditor|/opt/master-pdf-editor/master-pdf-editor.png|master-pdf-editor|
-|Mint Audio Tag|audio-tag-tool|/usr/lib/linuxmint/mintInstall/icon.svg|audio-tag-tool|*
-|Mint Backup|mintbackup|/usr/lib/linuxmint/mintBackup/icon.png|mintbackup|*
-|Mint Software Manager|software-manager|/usr/lib/linuxmint/mintInstall/icon.svg|software-manager|*
+|Mint Audio Tag|audio-tag-tool|/usr/lib/linuxmint/mintInstall/icon.svg|audio-tag-tool|
+|Mint Backup|mintbackup|/usr/lib/linuxmint/mintBackup/icon.png|mintbackup|
+|Mint Software Manager|software-manager|/usr/lib/linuxmint/mintInstall/icon.svg|software-manager|
 |My Weather Indicator|my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
 |My Weather Indicator (extras)|extras-my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
 |Netbeans IDE|netbeans|/usr/share/netbeans/7.0.1/nb/netbeans.png|netbeans|
@@ -46,11 +46,12 @@
 |NotifyOSD|notifyosdconf|/usr/share/notifyosdconf/not.png|notifyconf|
 |OmegaT|omegat|/usr/share/omegat/images/OmegaT.xpm|omegat|
 |PacmanXG|pacmanxg|/usr/share/pixmaps/pacmanxg.png|pacmanxg|
-|Pamac (Install)|pamac-install|/usr/share/pamac/icons/32x32/apps/pamac.png|system-software-install|*
-|Pamac (Update)|pamac-update|/usr/share/pamac/icons/32x32/apps/pamac.png|system-software-update|*
+|Pamac (Install)|pamac-install|/usr/share/pamac/icons/32x32/apps/pamac.png|system-software-install|
+|Pamac (Update)|pamac-update|/usr/share/pamac/icons/32x32/apps/pamac.png|system-software-update|
+|Pencil|pencil|/usr/share/pencil/skin/classic/icon.svg|pencil|
 |pgAdmin3|pgadmin3|/usr/share/pgadmin3/pgAdmin3.png|pgAdmin3|
 |pgModeler|pgmodeler|/etc/pgmodeler/pgmodeler_logo.png|pgmodeler|
-|PHP Storm|phpstorm|PhpStorm-133.803/bin/webide.png|phpstorm|*
+|PHP Storm|phpstorm|PhpStorm-133.803/bin/webide.png|phpstorm|
 |Pycharm|pycharm|$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png|pycharm|
 |pyRenamer|pyrenamer|/usr/share/pyrenamer/pyrenamer.png|pyrenamer|
 |Python (v2.6)|python2.6|/usr/share/pixmaps/python2.6.xpm|python2.6.|
