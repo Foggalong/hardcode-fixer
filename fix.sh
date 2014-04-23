@@ -10,7 +10,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.3-b"
+version="0.3.1"
 
 # The script must run as root.
 if [[ $UID -ne 0 ]]; then
@@ -40,7 +40,7 @@ else
 fi
 
 # Downloads icon data from GitHub to data directory
-wget -O $HOME/.local/share/data/hcf/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/tofix.txt
+wget -O $HOME/.local/share/data/hcf/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt
 
 while read line; do
 	# Splits line into array
@@ -54,8 +54,8 @@ while read line; do
 	# Problem with spec. chars. in file names solved by
 	# creating a seperate var. that escapes them
 	oldicon=$current
-    oldicon="${oldicon//\\/\\\\}" # <- escape all backslashes first
-    oldicon="${oldicon//\//\\/}"  # <- escape slashes
+	oldicon="${oldicon//\\/\\\\}" # <- escape all backslashes first
+	oldicon="${oldicon//\//\\/}"  # <- escape slashes
 	#
 	# Local Launchers
 	if [ -f "$HOME/.local/share/applications/${launcher}" ]
