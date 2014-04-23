@@ -47,9 +47,9 @@ while read line; do
 	IFS="|" read -a array <<< $line
 	# Readability renaming
 	name=$(echo ${array[1]} | sed -e "s/\r//g")
-	launcher="${name}.desktop"
-	current=$(echo ${array[2]} | sed -e "s/\r//g")
-	newicon=$(echo ${array[3]} | sed -e "s/\r//g")
+	launcher=$(echo ${array[2]}.desktop | sed -e "s/\r//g")
+	current=$(echo ${array[3]} | sed -e "s/\r//g")
+	newicon=$(echo ${array[4]} | sed -e "s/\r//g")
 	#
 	# Problem with spec. chars. in file names solved by
 	# creating a seperate var. that escapes them
