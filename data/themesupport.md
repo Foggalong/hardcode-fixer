@@ -16,12 +16,12 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Driver Manager | ✓ | ✓ |
 | easyLife | ✓ |   |
 | FadeIn | ✓ |   |
-| FileBot | ✓ | ✓ |
+| FileBot | ✓ |   |
 | Format Junkie | ✓ |   |
 | Gcolor2 | ✓ | ✓ |
 | Gespeaker | ✓ |   |
 | GNOME Weather | ✓ | ✓ |
-| GNUcview | ✓ | ✓ |
+| GNUcview | ✓ |   |
 | GNU Octave | ✓ |   |
 | GoldenDict | ✓ | ✓ |
 | GPRename | ✓ |   |
@@ -29,7 +29,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Grisbi | ✓ |   |
 | Guake | ✓ | ✓ |
 | HipChat | ✓ | ✓ |
-| HP Printer | ✓ | ✓ |
+| HP Printer | ✓ |   |
 | Intel Graphics Installer | ✓ |   |
 | IntelliJ IDEA | ✓ | ✓ |
 | Kerbal Space Program (Steam) | ✓ |   |
@@ -41,15 +41,15 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Master PDF Editor | ✓ |   |
 | Mint Audio Tag | ✓ |   |
 | Mint Backup | ✓ |   |
-| Mint Software Manager | ✓ | ✓ |
-| My Weather Indicator | ✓ | ✓ |
+| Mint Software Manager | ✓ |   |
+| My Weather Indicator | ✓ |   |
 | Netbeans IDE | ✓ | ✓ |
-| Ninja IDE | ✓ | ✓ |
+| Ninja IDE | ✓ |   |
 | Nitro Tasks | ✓ | ✓ |
 | NotifyOSD | ✓ |   |
 | OmegaT | ✓ |   |
 | PacmanXG | ✓ |   |
-| Pamac (Install) | ✓ | ✓ |
+| Pamac (Install) | ✓ |   |
 | Pamac (Update) | ✓ | ✓ |
 | Pencil | ✓ |   |
 | pgAdmin3 | ✓ | ✓ |
@@ -60,7 +60,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Python 2.6 | ✓ | ✓ |
 | Python 2.7 | ✓ | ✓ |
 | Python 3.0 | ✓ | ✓ |
-| Python 3.1 | ✓ | ✓ |
+| Python 3.1 | ✓ |   |
 | Python 3.2 | ✓ | ✓ |
 | Python 3.3 | ✓ | ✓ |
 | Python 3.4 | ✓ |   |
