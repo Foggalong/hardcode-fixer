@@ -30,8 +30,17 @@ case $arg in
     esac
 done
 
-# Downloads icon data from GitHub to /tmp/
-wget -O /tmp/test.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/testing/test.txt
+# Creates data dir & file
+if [ -f "$HOME/.local/share/data/hcf/" ]
+then
+	: #pass
+else
+	mkdir $HOME/.local/share/data/hcf/
+	touch $HOME/.local/share/data/hcf/fixed.txt
+fi
+
+# Downloads icon data from GitHub to data directory
+wget -O $HOME/.local/share/data/hcf/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/testing/test.txt
 
 while read line; do
 	# Splits line into array
@@ -51,32 +60,45 @@ while read line; do
 	# Local Launchers
 	if [ -f "$HOME/.local/share/applications/${launcher}" ]
 	then
-		if [ "${current}" != "steam" ]
+		if grep -Fxq "$name" $HOME/.local/share/data/hcf/fixed.txt
+		# ^ checks if already fixed
 		then
-			if [ -f "$current" ]
-			then
-				echo "L: Fixing $name..."
-				cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/"
-				sed -i "s/${oldicon}/${newicon}/g" "$HOME/.local/share/applications/${launcher}"
-			fi
+		    : # pass
 		else
-			echo "L: Fixing $name (steam)..."
-			cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "$HOME/.local/share/icons/hicolor/48x48/apps/${newicon}.png"
-			sed -i "s/Icon=steam/Icon=${newicon}/g" "$HOME/.local/share/applications/${launcher}"
+			if [ "${current}" != "steam" ]
+			then
+				if [ -f "$current" ]
+				# ^ check if icon exists to copy
+				then
+					echo "L: Fixing $name..."
+					cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/"
+					sed -i "s/${oldicon}/${newicon}/g" "$HOME/.local/share/applications/${launcher}"
+					echo $name >> $HOME/.local/share/data/hcf/fixed.txt
+				fi
+			else
+				echo "L: Fixing $name (steam)..."
+				cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "$HOME/.local/share/icons/hicolor/48x48/apps/${newicon}.png"
+				sed -i "s/Icon=steam/Icon=${newicon}/g" "$HOME/.local/share/applications/${launcher}"
+				echo $name >> $HOME/.local/share/data/hcf/fixed.txt
+			fi
 		fi
-	else
-		: #pass 
 	fi
 	# Global Launchers
 	if [ -f "/usr/share/applications/${launcher}" ]
 	then
-		if [ -f "$current" ]
+		if grep -Fxq "$name" $HOME/.local/share/data/hcf/fixed.txt
+		# ^ checks if already fixed
 		then
-			echo "G: Fixing $name..."
-			cp "$current" "/usr/share/icons/hicolor/48x48/apps/"
-			sed -i "s/${oldicon}/${newicon}/g" "/usr/share/applications/${launcher}"
+    		: # pass
+		else
+			if [ -f "$current" ]
+			# ^ check if icon exists to copy
+			then
+				echo "G: Fixing $name..."
+				cp "$current" "/usr/share/icons/hicolor/48x48/apps/"
+				sed -i "s/${oldicon}/${newicon}/g" "/usr/share/applications/${launcher}"
+				echo $name >> $HOME/.local/share/data/hcf/fixed.txt
+			fi
 		fi
-	else
-		: #pass
 	fi
-done < /tmp/test.txt
+done < $HOME/.local/share/data/hcf/tofix.txt
