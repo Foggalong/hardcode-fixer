@@ -7,6 +7,7 @@
 |Dogecoin QT|dogecoin|/usr/share/pixmaps/dogecoin.png|dogecoin|
 |Dota 2|Dota 2|steam|steam_icon_570|
 |Driver Manager|driver-manager|/usr/share/icons/hicolor/scalable/apps/driver-manager.svg|driver-manager|
+|Dwarfs!?|Dwarfs!?|steam|steam_icon_35480|
 |easyLife|easylife|/usr/share/pixmaps/easylife.png|easylife|
 |FadeIn|fadein|/usr/share/fadein/icon_app/fadein_icon_128x128.png|fadein|
 |FileBot|FileBot|/usr/share/filebot/icon.svg|filebot|
