@@ -11,12 +11,11 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Arista | ✓ | ✓ |
 | Bastion (Steam) | ✓ |   |
 | Conky Manager | ✓ | ✓ |
-| Diagnose Graphics Issues | ✓ | ✓ |
 | Dogecoin-qt (AUR) | ✓ |   |
 | Dota 2 (Steam) | ✓ | ✓ |
 | Driver Manager | ✓ | ✓ |
-| Easy Life | ✓ |   |
-| Fade In | ✓ |   |
+| easyLife | ✓ |   |
+| FadeIn | ✓ |   |
 | FileBot | ✓ | ✓ |
 | Format Junkie | ✓ |   |
 | Gcolor2 | ✓ | ✓ |
@@ -30,7 +29,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Grisbi | ✓ |   |
 | Guake | ✓ | ✓ |
 | HipChat | ✓ | ✓ |
-| HPLJ | ✓ | ✓ |
+| HP Printer | ✓ | ✓ |
 | Intel Graphics Installer | ✓ |   |
 | IntelliJ IDEA | ✓ | ✓ |
 | Kerbal Space Program (Steam) | ✓ |   |
@@ -44,12 +43,11 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Mint Backup | ✓ |   |
 | Mint Software Manager | ✓ | ✓ |
 | My Weather Indicator | ✓ | ✓ |
-| Netbeans | ✓ | ✓ |
+| Netbeans IDE | ✓ | ✓ |
 | Ninja IDE | ✓ | ✓ |
-| Nitro | ✓ | ✓ |
+| Nitro Tasks | ✓ | ✓ |
 | NotifyOSD | ✓ |   |
 | OmegaT | ✓ |   |
-| Oracle SQL Developer | ✓ |   |
 | PacmanXG | ✓ |   |
 | Pamac (Install) | ✓ | ✓ |
 | Pamac (Update) | ✓ | ✓ |
@@ -65,7 +63,7 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Python 3.1 | ✓ | ✓ |
 | Python 3.2 | ✓ | ✓ |
 | Python 3.3 | ✓ | ✓ |
-| Python 3.4 | ✓ | ✓ |
+| Python 3.4 | ✓ |   |
 | Quick List Editor | ✓ |   |
 | Robomongo | ✓ | ✓ |
 | SmartGitHG | ✓ |   |
@@ -73,12 +71,12 @@ Even if an application is supported by the fixer and a theme follows the standar
 | Synergy | ✓ |   |
 | TimeShift | ✓ |   |
 | Tomate | ✓ |   |
-| TypeCatcher | ✓ |   |
 | Uberwriter | ✓ | ✓ |
 | Unison GTK | ✓ |   |
 | Valentina Studio | ✓ |   |
-| Wireframe Sketcher | ✓ |   |
 | Viber | ✓ |   |
+| Wireframe Sketcher | ✓ |   |
+| X-Diagnose | ✓ | ✓ |
 | YouTube-DL GUI | ✓ |   |
 | Zenmap | ✓ |   |
 
