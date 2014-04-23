@@ -1,6 +1,6 @@
 Hardcoded Icon Fixer
 ==============
-This program aims to be a safe, easy and standardised soltuion to the problem of hardcoded application icons in Linux. For a list of supported icons see [this list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/list.md).
+This program aims to be a safe, easy and standardised soltuion to the problem of hardcoded application icons in Linux. All it is is [this one bash script](https://github.com/Foggalong/hardcode-fixer/blob/master/fix.sh) - simply copy it to somewhere on your PC and run as root. For a list of supported icons see [this list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/list.md).
 
 ### What are hardcoded icons?
 The standard locations for storing an applications icons are ```/usr/share/icons/hicolor/[size]/apps/[icon name]``` and ```~/.local/share/icons/hicolor/[size]/apps/[icon name]```. However, some developers choose to hardcode their icons by putting them elsewhere making it impossible for icon themes to change them. This is a bad practice as it leads to users
