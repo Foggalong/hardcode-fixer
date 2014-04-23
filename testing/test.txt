@@ -17,3 +17,4 @@
 |python3.2|/usr/share/pixmaps/python3.2.xpm|python3.2.|
 |python3.3|/usr/share/pixmaps/python3.3.xpm|python3.3.|
 |python3.4|/usr/share/pixmaps/python3.4.xpm|python3.4.|
+end
