@@ -67,7 +67,6 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Synergy | synergy | [Status](http://synergy-foss.org/spit/issues/details/3971/#) | ✔ |
 | TimeShift | timeshift | Fixed as of 1.4 | ✔ |
 | Tomate | tomate | No status | ✘ |
-| TypeCatcher | typecatcher | Fixed as of 0.2-1 |   |
 | Uberwriter | uberwriter | No status | ✔ |
 | Valentina Studio | vstudio | No status | ✔ |
 | Viber | viber | No status | ✔ |
