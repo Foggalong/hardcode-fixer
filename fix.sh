@@ -7,6 +7,10 @@
 # Bash standards compliancy and comment cleanup
 # Added data directory creation/existence verification before launching fix
 
+# Edited 24-04-2014 by Tom van der Lee (t0m.vd.l33@gmail.com)
+# Added check for wget
+# Added -h/--help
+
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License (version 3+) as 
 # published by the Free Software Foundation. You should have received
