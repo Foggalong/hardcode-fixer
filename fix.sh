@@ -7,6 +7,10 @@
 # Bash standards compliancy and comment cleanup
 # Added data directory creation/existence verification before launching fix
 
+# Edited 24-04-2014 by Tom van der Lee (t0m.vd.l33@gmail.com)
+# Added check for wget
+# Added -h/--help
+
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License (version 3+) as 
 # published by the Free Software Foundation. You should have received
@@ -19,17 +23,35 @@ version="0.3.3"
 # Data directory
 data_dir="$HOME/.local/share/data/hcf"
 
+function displayHelp {
+	echo -e "Usage: ./$(basename -- $0) [OPTION]"
+	echo -e "Fixes hardcoded icons of installed applications installed"
+	echo -e ""
+	echo -e "Currently supported options"
+	echo -e "  -h, --help \t\t Displays this help menu" 
+	echo -e "  -v, --version \t Displays program version"
+}
+
 # Deals with the flags
-while getopts "hv" arg; do
-case $arg in
-#	u) echo -e "Undo changes." # Eventual 'Undo' selection
-	h) echo -e "This is the sample help screen."
-		echo -e "way for helpfulness!"
-		exit 0;;
-	v) echo "$(basename -- $0) $version"
-		exit 0
+if [ -z $1 ] 
+then
+	:
+else
+	case $1 in
+#		-u|--unfix) 
+#			echo -e "Undo changes." # Eventual 'Undo' selection
+		-h|--help) 
+			displayHelp
+			exit 0 ;;
+		-v|--version) 
+			echo "$(basename -- $0) $version"
+			exit 0 ;;
+		*) 
+			echo -e "$(basename -- $0): invalid option -- '$1'"
+			echo -e "Try '$(basename -- $0) --help' for more information."
+			exit 0 ;;
 	esac
-done
+fi
 
 # The script must be run as root
 if [[ $UID -ne 0 ]]
