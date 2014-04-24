@@ -19,17 +19,29 @@ version="0.3.3"
 # Data directory
 data_dir="$HOME/.local/share/data/hcf"
 
+function displayHelp {
+	echo -e "Usage: ./$(basename -- $0) [OPTION]"
+	echo -e "Fixes hardcoded icons of installed applications installed"
+	echo -e ""
+	echo -e "Currently supported options"
+	echo -e "  -h, --help \t\t Displays this help menu" 
+	echo -e "  -v, --version \t Displays program version"
+}
+
 # Deals with the flags
-while getopts "hv" arg; do
-case $arg in
-#	u) echo -e "Undo changes." # Eventual 'Undo' selection
-	h) echo -e "This is the sample help screen."
-		echo -e "way for helpfulness!"
-		exit 0;;
-	v) echo "$(basename -- $0) $version"
-		exit 0
-	esac
-done
+if [ -n $1 ] 
+then
+	case $1 in
+#		-u|--unfix) echo -e "Undo changes." # Eventual 'Undo' selection
+		-h|--help) displayHelp
+			exit 0 ;;
+		-v|--version) echo "$(basename -- $0) $version"
+			exit 0 ;;
+		*) echo -e "$(basename -- $0): invalid option -- '$1'"
+			echo -e "Try '$(basename -- $0) --help' for more information."
+			exit 0 ;;
+		esac
+fi
 
 # The script must be run as root
 if [[ $UID -ne 0 ]]
