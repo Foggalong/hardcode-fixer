@@ -29,18 +29,24 @@ function displayHelp {
 }
 
 # Deals with the flags
-if [ -n $1 ] 
+if [ -z $1 ] 
 then
+	:
+else
 	case $1 in
-#		-u|--unfix) echo -e "Undo changes." # Eventual 'Undo' selection
-		-h|--help) displayHelp
+#		-u|--unfix) 
+#			echo -e "Undo changes." # Eventual 'Undo' selection
+		-h|--help) 
+			displayHelp
 			exit 0 ;;
-		-v|--version) echo "$(basename -- $0) $version"
+		-v|--version) 
+			echo "$(basename -- $0) $version"
 			exit 0 ;;
-		*) echo -e "$(basename -- $0): invalid option -- '$1'"
+		*) 
+			echo -e "$(basename -- $0): invalid option -- '$1'"
 			echo -e "Try '$(basename -- $0) --help' for more information."
 			exit 0 ;;
-		esac
+	esac
 fi
 
 # The script must be run as root
