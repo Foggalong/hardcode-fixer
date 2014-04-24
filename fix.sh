@@ -19,14 +19,6 @@ version="0.3.3"
 # Data directory
 data_dir="$HOME/.local/share/data/hcf"
 
-# The script must be run as root
-if [[ $UID -ne 0 ]]
-then
-	echo "$0: This script must be run as root."
-	sleep 3 # Enables error timeout when script is launched via 'Run in Terminal' command.
-	exit 1
-fi
-
 # Deals with the flags
 while getopts "hv" arg; do
 case $arg in
@@ -38,6 +30,14 @@ case $arg in
 		exit 0
 	esac
 done
+
+# The script must be run as root
+if [[ $UID -ne 0 ]]
+then
+	echo "$0: This script must be run as root."
+	sleep 3 # Enables error timeout when script is launched via 'Run in Terminal' command.
+	exit 1
+fi
 
 # Creates data directory & file
 if [ -f "$data_dir" ]
@@ -52,7 +52,13 @@ fi
 cd "$data_dir" || echo "$0: Data directory does not exist or was not created." || exit 1
 
 # Downloads icon data from GitHub repository to data directory
-wget -O "$data_dir/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
+if type "wget" > /dev/null 2>&1
+then
+	wget -O "$data_dir/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
+else
+	echo -e "$0: To use this script, you need to install 'wget'"
+	exit 0
+fi
 
 while read line; do
 	# Splits line into array
