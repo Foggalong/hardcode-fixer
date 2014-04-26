@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.4"
+version="0.5"
 
 # Default Mode
 mode="fix"
@@ -145,12 +145,49 @@ then
 	# Checks data directory exists
 	if [ -d "$data_dir" ]
 	then
-		if [ -f "${data_dir}/fixed.txt" ]
+		if [ -f "${data_dir}/fixed.txt" ] && [ -f "${data_dir}/tofix.txt" ]
 		then
 			echo -e "\nUnfixing hardcoded icons..."
-			# unfixer not currently implemented
+			while read line; do
+				IFS="|" read -a array <<< $line
+				# Readability renaming
+				name=$(echo ${array[1]} | sed -e "s/\r//g")
+				launcher=$(echo ${array[2]}.desktop | sed -e "s/\r//g")
+				current=$(echo ${array[3]} | sed -e "s/\r//g")
+				new_icon=$(echo ${array[4]} | sed -e "s/\r//g")		
+
+				old_icon="$current"
+				old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
+				old_icon="${old_icon//\//\\/}" # escape slashes
+
+				# Local unfixing
+				if [ -f "$HOME/.local/share/applications/${launcher}" ]
+				then
+					if grep -Fxq "$name" "$data_dir/fixed.txt" # checks if need unfixing
+					then
+						echo "F: Unixing $name..."
+						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/$current"
+						sed -i "s/${new_icon}/${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
+					fi
+				fi
+
+				# Global unfixing
+				if [ -f "/usr/share/applications/${launcher}" ]
+				then
+					if grep -Fxq "$name" "$data_dir/fixed.txt" # checks if need unfixing
+					then
+						echo "G: Unixing $name..."
+						rm -f "/usr/share/icons/hicolor/48x48/apps/$current"
+						sed -i "s/${new_icon}/${old_icon}/g" "/usr/share/applications/${launcher}"
+					fi
+				fi
+			done < "$data_dir/tofix.txt"
+			# Removing Evidence
+			rm -rf $data_dir
+			echo "Deleted data directory. Clean up complete!" 
+			exit 0
 		else
-			echo "Data file doens't exist, so icon changes"
+			echo "Data files do not exist, so icon changes"
 			echo "cannot be reverted (or were never made)."
 			rm -rf $data_dir
 			echo "Deleted data directory. Clean up complete!" 
