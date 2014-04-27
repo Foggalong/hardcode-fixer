@@ -2,8 +2,10 @@
 |Android Studio|android-studio|/usr/share/icons/androidstudio.svg|android-studio|
 |Aptik|aptik|/usr/share/pixmaps/aptik.png|aptik|
 |Arista|arista|/usr/share/arista/ui/icon.svg|arista|
+|Armagetron Advanced|armagetronad|/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png|armagetronad|
 |Bastion|Bastion|steam|steam_icon_107100|
 |Conky Manager|conky-manager|/usr/share/pixmaps/conky-manager.png|conky-manager|
+|Desura|desura|n/a|desura|
 |Dogecoin QT|dogecoin|/usr/share/pixmaps/dogecoin.png|dogecoin|
 |Dota 2|Dota 2|steam|steam_icon_570|
 |Driver Manager|driver-manager|/usr/share/icons/hicolor/scalable/apps/driver-manager.svg|driver-manager|
@@ -41,6 +43,7 @@
 |Mint Audio Tag|audio-tag-tool|/usr/lib/linuxmint/mintInstall/icon.svg|audio-tag-tool|
 |Mint Backup|mintbackup|/usr/lib/linuxmint/mintBackup/icon.png|mintbackup|
 |Mint Software Manager|software-manager|/usr/lib/linuxmint/mintInstall/icon.svg|software-manager|
+|MKV Extractor GUI|mkv-extractor-gui|/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png|mkv-extractor-gui|
 |My Weather Indicator|my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
 |My Weather Indicator (extras)|extras-my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
 |Netbeans IDE|netbeans|/usr/share/netbeans/7.0.1/nb/netbeans.png|netbeans|

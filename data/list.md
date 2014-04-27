@@ -11,8 +11,10 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Android Studio | android-studio | [Status](https://code.google.com/p/android/issues/detail?id=67582) | ✔ |
 | Aptik | aptik | Fixed as of 1.4 | ✔ |
 | Arista | arista | [Status](https://github.com/danielgtaylor/arista/issues/164) | ✔ |
+| Armagetron Advanced | armagetronad | No Status | ✘ |
 | Bastion | steam_icon_107100 | No status | ✔ |
 | Conky Manager | conky-manager | [Status](https://bugs.launchpad.net/conky-manager/+bug/1296810) | ✔ |
+| Desura | desura | No Status | 1 |
 | Dogecoin QT | dogecoin | No status | ✔ |
 | Dota 2 | steam_icon_570 | No status | ✔ |
 | Driver Manager | driver-manager | No status | ✘ |
@@ -46,6 +48,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Mint Audio Tag | audio-tag-tool | No status | ✘ |
 | Mint Backup | mintbackup | No status | ✘ |
 | Mint Software Manager | software-manager | No status | ✘ |
+| MKV Extractor GUI | mkv-extractor-gui | No status | ✘ |
 | My Weather Indicator | indicator-weather | No status | ✔ |
 | Netbeans IDE | netbeans | No status | ✔ |
 | Ninja IDE | ninja-ide | No status | ✔ |
@@ -76,3 +79,5 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | X-Diagnose | xdiagnose | No status | ✔ |
 | YouTubeDL GUI | youtube-dlg | No status | ✔ |
 | Zenmap | zenmap | No status | ✔ |
+
+1 - Desura uses user generated launchers so cannot be changed.
