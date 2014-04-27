@@ -6,78 +6,78 @@ Nitrux
 | Application Name | Nitrux | Compass | Flattr |
 | :---------------: | :---------------: | :---------------: | :---------------: |
 | 2048 |   |   |   |
-| Android Studio |   |   |   |
-| Aptik |   |   |   |
-| Arista |   |   |   |
+| Android Studio | ✔ | ✔ |   |
+| Aptik | ✔ | ✔ |   |
+| Arista | ✔ | ✔ |   |
 | Bastion (Steam) |   |   |   |
-| Conky Manager |   |   |   |
-| Dogecoin-qt (AUR) |   |   |   |
+| Conky Manager | ✔ | ✔ |   |
+| Dogecoin-qt (AUR) | ✔ | ✔ |   |
 | Dota 2 (Steam) |   |   |   |
-| Driver Manager |   |   |   |
-| easyLife |   |   |   |
+| Driver Manager | ✔ | ✔ |   |
+| easyLife | ✔ | ✔ |   |
 | FadeIn |   |   |   |
 | FileBot |   |   |   |
-| Format Junkie |   |   |   |
-| Gcolor2 |   |   |   |
-| Gespeaker |   |   |   |
-| GNOME Weather |   |   |   |
-| GNUcview |   |   |   |
+| Format Junkie | ✔ | ✔ |   |
+| Gcolor2 | ✔ | ✔ |   |
+| Gespeaker | ✔ | ✔ |   |
+| GNOME Weather | ✔ | ✔ |   |
+| GNUcview | ✔ | ✔ |   |
 | GNU Octave |   |   |   |
-| GoldenDict |   |   |   |
-| GPRename |   |   |   |
-| Graphic Network Simulator |   |   |   |
+| GoldenDict | ✔ | ✔ |   |
+| GPRename | ✔ | ✔ |   |
+| Graphic Network Simulator | ✔ | ✔ |   |
 | Grisbi |   |   |   |
-| Guake |   |   |   |
-| HipChat |   |   |   |
+| Guake | ✔ | ✔ |   |
+| HipChat | ✔ | ✔ |   |
 | Hotline Miami |   |   |   |
 | HP Printer |   |   |   |
-| Intel Graphics Installer |   |   |   |
-| IntelliJ IDEA |   |   |   |
+| Intel Graphics Installer | ✔ | ✔ |   |
+| IntelliJ IDEA | ✔ | ✔ |   |
 | Kerbal Space Program (Steam) |   |   |   |
-| Klavaro |   |   |   |
+| Klavaro | ✔ | ✔ |   |
 | Left 4 Dead 2 (Steam) |   |   |   |
 | Left 4 Dead 2 Beta (Steam) |   |   |   |
-| Lightworks |   |   |   |
+| Lightworks | ✔ | ✔ | ✔ |
 | Little Inferno |   |   |   |
-| Lucky Backup |   |   |   |
-| Master PDF Editor |   |   |   |
+| Lucky Backup | ✔ | ✔ |   |
+| Master PDF Editor | ✔ | ✔ |   |
 | Mint Audio Tag |   |   |   |
-| Mint Backup |   |   |   |
-| Mint Software Manager |   |   |   |
-| My Weather Indicator |   |   |   |
-| Netbeans IDE |   |   |   |
+| Mint Backup | ✔ | ✔ |   |
+| Mint Software Manager | ✔ | ✔ |   |
+| My Weather Indicator | ✔ | ✔ |   |
+| Netbeans IDE | ✔ | ✔ |   |
 | Ninja IDE |   |   |   |
 | Nitro Tasks |   |   |   |
 | NotifyOSD |   |   |   |
-| OmegaT |   |   |   |
-| PacmanXG |   |   |   |
-| Pamac (Install) |   |   |   |
-| Pamac (Update) |   |   |   |
-| Pencil |   |   |   |
+| OmegaT | ✔ | ✔ |   |
+| PacmanXG | ✔ | ✔ |   |
+| Pamac (Install) | ✔ | ✔ | ✔ |
+| Pamac (Update) | ✔ | ✔ | ✔ |
+| Pencil | ✔ | ✔ |   |
 | pgAdmin3 |   |   |   |
 | pgModeler |   |   |   |
-| PHP Storm |   |   |   |
-| Pycharm |   |   |   |
-| pyRenamer |   |   |   |
-| Python 2.6 |   |   |   |
-| Python 2.7 |   |   |   |
-| Python 3.0 |   |   |   |
+| PHP Storm | ✔ | ✔ |   |
+| Pycharm | ✔ | ✔ |   |
+| pyRenamer | ✔ | ✔ |   |
+| Python 2.6 | ✔ | ✔ |   |
+| Python 2.7 | ✔ | ✔ |   |
+| Python 3.0 | ✔ | ✔ |   |
 | Python 3.1 |   |   |   |
-| Python 3.2 |   |   |   |
-| Python 3.3 |   |   |   |
+| Python 3.2 | ✔ | ✔ |   |
+| Python 3.3 | ✔ | ✔ |   |
 | Python 3.4 |   |   |   |
 | Quick List Editor |   |   |   |
 | Robomongo |   |   |   |
 | SmartGitHG |   |   |   |
 | Springseed |   |   |   |
-| Synergy |   |   |   |
+| Synergy |   |   | ✔ |
 | TimeShift |   |   |   |
 | Tomate |   |   |   |
 | Uberwriter |   |   |   |
 | Unison GTK |   |   |   |
 | Valentina Studio |   |   |   |
-| Viber |   |   |   |
+| Viber | ✔ | ✔ |   |
 | Wireframe Sketcher |   |   |   |
-| X-Diagnose |   |   |   |
+| X-Diagnose | ✔ | ✔ |   |
 | YouTube-DL GUI |   |   |   |
-| Zenmap |   |   |   |
+| Zenmap | ✔ | ✔ |   |

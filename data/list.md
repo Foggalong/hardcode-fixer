@@ -22,9 +22,9 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Format Junkie | fjt | No status | ✔ |
 | Gcolor2 | gcolor2 | [Status](http://sourceforge.net/p/gcolor2/feature-requests/11/) | ✔ |
 | GeSpeaker | gespeaker | [Status](https://github.com/muflone/gespeaker/issues/49) | ✔ |
-| GUVC View | guvcview | No status | ✔ |
 | GNU Octave | octave | No status | ✔ |
 | GNOME Weather | gnome-weather | No status | ✘ |
+| GUVC View | guvcview | No status | ✔ |
 | GoldenDict | goldendict | No status | ✔ |
 | GPRename | gprename | Fixed as of 20140325 | ✔ |
 | GNS3 | gns3 | No status | ✔ |
