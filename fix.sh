@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.5"
+version="0.5.1"
 
 # Default Mode
 mode="fix"
@@ -108,7 +108,7 @@ then
 					if [ -f "$current" ] # checks if icon exists to copy
 					then
 						echo "L: Fixing $name..."
-						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/"
+						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"
 						sed -i "s/${old_icon}/${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
 						echo "$name" >> "$data_dir/fixed.txt"
 					fi
@@ -131,7 +131,7 @@ then
 				if [ -f "$current" ] # checks if icon exists to copy
 				then
 					echo "G: Fixing $name..."
-					cp "$current" "/usr/share/icons/hicolor/48x48/apps/"
+					cp "$current" "/usr/share/icons/hicolor/48x48/apps/${new_icon}"
 					sed -i "s/${old_icon}/${new_icon}/g" "/usr/share/applications/${launcher}"
 					echo "$name" >> "$data_dir/fixed.txt"
 				fi
@@ -166,7 +166,7 @@ then
 					if grep -Fxq "$name" "$data_dir/fixed.txt" # checks if need unfixing
 					then
 						echo "F: Unixing $name..."
-						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/$current"
+						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
 						sed -i "s/${new_icon}/${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
 					fi
 				fi
@@ -177,7 +177,7 @@ then
 					if grep -Fxq "$name" "$data_dir/fixed.txt" # checks if need unfixing
 					then
 						echo "G: Unixing $name..."
-						rm -f "/usr/share/icons/hicolor/48x48/apps/$current"
+						rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
 						sed -i "s/${new_icon}/${old_icon}/g" "/usr/share/applications/${launcher}"
 					fi
 				fi
