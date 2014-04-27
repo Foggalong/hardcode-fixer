@@ -10,24 +10,24 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Aptik | ✓ | ✓ |   |   |
 | Arista | ✓ | ✓ |   |   |
 | Bastion (Steam) | ✓ | ✓ |   |   |
-| Conky Manager | ✓ | ✓ |   |   |
+| Conky Manager | ✓ | ✓ | ✓ | ✓ |
 | Dogecoin-qt (AUR) | ✓ | ✓ |   |   |
-| Dota 2 (Steam) | ✓ | ✓ |   |   |
+| Dota 2 (Steam) | ✓ | ✓ |   | ✓ |
 | Driver Manager | ✓ | ✓ |   |   |
-| easyLife | ✓ | ✓ |   |   |
+| easyLife | ✓ | ✓ | ✓ | ✓ |
 | FadeIn | ✓ | ✓ |   |   |
 | FileBot | ✓ | ✓ |   |   |
 | Format Junkie | ✓ | ✓ |   |   |
-| Gcolor2 | ✓ | ✓ |   |   |
+| Gcolor2 | ✓ | ✓ | ✓ | ✓ |
 | Gespeaker | ✓ | ✓ |   |   |
-| GNOME Weather | ✓ | ✓ |   |   |
+| GNOME Weather | ✓ | ✓ | ✓ | ✓ |
 | GNUcview | ✓ | ✓ |   |   |
 | GNU Octave | ✓ | ✓ |   |   |
 | GoldenDict | ✓ | ✓ |   |   |
 | GPRename | ✓ | ✓ |   |   |
 | Graphic Network Simulator | ✓ | ✓ |   |   |
 | Grisbi | ✓ | ✓ |   |   |
-| Guake | ✓ | ✓ |   |   |
+| Guake | ✓ | ✓ | ✓ |   |
 | HipChat | ✓ | ✓ |   |   |
 | Hotline Miami |   |   |   |   |
 | HP Printer | ✓ | ✓ |   |   |
@@ -40,12 +40,12 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Lightworks | ✓ | ✓ |   |   |
 | Little Inferno | ✓ | ✓ |   |   |
 | Lucky Backup | ✓ | ✓ |   |   |
-| Master PDF Editor | ✓ | ✓ |   |   |
+| Master PDF Editor | ✓ | ✓ |   | ✓ |
 | Mint Audio Tag | ✓ | ✓ |   |   |
 | Mint Backup | ✓ | ✓ |   |   |
-| Mint Software Manager | ✓ | ✓ |   |   |
-| My Weather Indicator | ✓ | ✓ |   |   |
-| Netbeans IDE | ✓ | ✓ |   |   |
+| Mint Software Manager | ✓ | ✓ | ✓ | ✓ |
+| My Weather Indicator | ✓ | ✓ | ✓ | ✓ |
+| Netbeans IDE | ✓ | ✓ |   | ✓ |
 | Ninja IDE | ✓ | ✓ |   |   |
 | Nitro Tasks | ✓ | ✓ |   |   |
 | NotifyOSD | ✓ | ✓ |   |   |
@@ -53,17 +53,17 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | PacmanXG | ✓ | ✓ |   |   |
 | Pamac (Install) | ✓ | ✓ |   |   |
 | Pamac (Update) | ✓ | ✓ |   |   |
-| Pencil | ✓ | ✓ |   |   |
+| Pencil | ✓ | ✓ |   | ✓ |
 | pgAdmin3 | ✓ | ✓ |   |   |
 | pgModeler | ✓ | ✓ |   |   |
-| PHP Storm | ✓ | ✓ |   |   |
+| PHP Storm | ✓ | ✓ | ✓ |   |
 | Pycharm | ✓ | ✓ |   |   |
 | pyRenamer | ✓ | ✓ |   |   |
 | Python 2.6 | ✓ | ✓ |   |   |
-| Python 2.7 | ✓ | ✓ |   |   |
+| Python 2.7 | ✓ | ✓ | ✓ | ✓ |
 | Python 3.0 | ✓ | ✓ |   |   |
 | Python 3.1 | ✓ | ✓ |   |   |
-| Python 3.2 | ✓ | ✓ |   |   |
+| Python 3.2 | ✓ | ✓ | ✓ | ✓ |
 | Python 3.3 | ✓ | ✓ |   |   |
 | Python 3.4 | ✓ | ✓ |   |   |
 | Quick List Editor | ✓ | ✓ |   |   |
@@ -76,8 +76,8 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Uberwriter | ✓ | ✓ |   |   |
 | Unison GTK | ✓ | ✓ |   |   |
 | Valentina Studio | ✓ | ✓ |   |   |
-| Viber | ✓ | ✓ |   |   |
+| Viber | ✓ | ✓ |   | ✓ |
 | Wireframe Sketcher | ✓ | ✓ |   |   |
-| X-Diagnose | ✓ | ✓ |   |   |
+| X-Diagnose | ✓ | ✓ | ✓ | ✓ |
 | YouTube-DL GUI | ✓ | ✓ |   |   |
-| Zenmap | ✓ | ✓ |   |   |
+| Zenmap | ✓ | ✓ | ✓ | ✓ |
