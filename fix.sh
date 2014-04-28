@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.5.2"
+version="0.6"
 
 # Default Mode
 mode="fix"
@@ -109,7 +109,7 @@ then
 					then
 						echo "L: Fixing $name..."
 						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"
-						sed -i "s/${old_icon}/${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
 						echo "$name" >> "$data_dir/fixed.txt"
 					fi
 				else
@@ -132,7 +132,7 @@ then
 				then
 					echo "G: Fixing $name..."
 					cp "$current" "/usr/share/icons/hicolor/48x48/apps/${new_icon}"
-					sed -i "s/${old_icon}/${new_icon}/g" "/usr/share/applications/${launcher}"
+					sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/usr/share/applications/${launcher}"
 					echo "$name" >> "$data_dir/fixed.txt"
 				fi
 			fi
@@ -165,9 +165,9 @@ then
 				then
 					if grep -Fxq "$name" "$data_dir/fixed.txt" # checks if need unfixing
 					then
-						echo "F: Unixing $name..."
+						echo "L Unixing $name..."
 						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/${new_icon}/${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
 					fi
 				fi
 
@@ -178,7 +178,7 @@ then
 					then
 						echo "G: Unixing $name..."
 						rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/${new_icon}/${old_icon}/g" "/usr/share/applications/${launcher}"
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/usr/share/applications/${launcher}"
 					fi
 				fi
 			done < "$data_dir/tofix.txt"
