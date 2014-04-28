@@ -20,7 +20,7 @@ mode="fix"
 data_directory="$HOME/.local/share/data/hcf"
 
 # Deals with the flags
-if [ -z $1 ] 
+if [ -z $1 ]
 then
 	: # pass
 else
@@ -41,7 +41,7 @@ else
 			echo -e ""
 			echo -e "Currently supported options:"
 			echo -e "  -r, --revert \t Reverts any changes made."
-			echo -e "  -h, --help \t\t Displays this help menu." 
+			echo -e "  -h, --help \t\t Displays this help menu."
 			echo -e "  -v, --version \t Displays program version."
 			exit 0 ;;
 		-v|--version)
@@ -191,13 +191,13 @@ then
 
 			# Removing files and directories
 			rm -rf $data_directory
-			echo "Deleted data directory. Clean up complete!" 
+			echo "Deleted data directory. Clean up complete!"
 			exit 0
 		else
 			echo "Data files do not exist, so icon changes"
 			echo "cannot be reverted (or were never made)."
 			rm -rf $data_directory
-			echo "Deleted data directory. Clean up complete!" 
+			echo "Deleted data directory. Clean up complete!"
 			exit 0
 		fi
 	else
