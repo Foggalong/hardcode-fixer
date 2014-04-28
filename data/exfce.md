@@ -1,8 +1,6 @@
 elementary XFCE
 ================
 
-[Addtion of support in progress!]
-
 The elementary icon theme project was one of the most popular icon theme projects of it's time but with the creation of eOS the scope of the project has changed from a full theme to a ditro specific one. This lead to all sorts of forks to continue the maintainance, the most popular of which being [elementary XFCE](https://github.com/shimmerproject/elementary-xfce).
 
 The theme comes in four "shades": normal, dark, darker and darkest, all of which can be found on [their GitHub page](https://github.com/shimmerproject/elementary-xfce). 
@@ -19,14 +17,14 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Desura |   |   |   |   |
 | Dogecoin-qt (AUR) |   |   |   |   |
 | Dota 2 (Steam) |   |   |   |   |
-| Driver Manager |   |   |   |   |
+| Driver Manager | ✔ | ✔ | ✔ | ✔ |
 | easyLife |   |   |   |   |
 | FadeIn |   |   |   |   |
 | FileBot |   |   |   |   |
 | Format Junkie |   |   |   |   |
 | Gcolor2 |   |   |   |   |
 | Gespeaker |   |   |   |   |
-| GNOME Weather |   |   |   |   |
+| GNOME Weather | ✔ | ✔ | ✔ | ✔ |
 | GNUcview |   |   |   |   |
 | GNU Octave |   |   |   |   |
 | GoldenDict |   |   |   |   |
@@ -36,7 +34,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Guake |   |   |   |   |
 | HipChat |   |   |   |   |
 | Hotline Miami |   |   |   |   |
-| HP Printer |   |   |   |   |
+| HP Printer | ✔ | ✔ | ✔ | ✔ |
 | Intel Graphics Installer |   |   |   |   |
 | IntelliJ IDEA |   |   |   |   |
 | Kerbal Space Program (Steam) |   |   |   |   |
@@ -46,20 +44,20 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Lightworks |   |   |   |   |
 | Little Inferno |   |   |   |   |
 | Lucky Backup |   |   |   |   |
-| Master PDF Editor |   |   |   |   |
-| Mint Audio Tag |   |   |   |   |
+| Master PDF Editor | ✔ | ✔ | ✔ | ✔ |
+| Mint Audio Tag | ✔ | ✔ | ✔ | ✔ |
 | Mint Backup |   |   |   |   |
-| Mint Software Manager |   |   |   |   |
+| Mint Software Manager | ✔ | ✔ | ✔ | ✔ |
 | MKV Extractor GUI |   |   |   |   |
-| My Weather Indicator |   |   |   |   |
+| My Weather Indicator | ✔ | ✔ | ✔ | ✔ |
 | Netbeans IDE |   |   |   |   |
 | Ninja IDE |   |   |   |   |
 | Nitro Tasks |   |   |   |   |
-| NotifyOSD |   |   |   |   |
+| NotifyOSD | ✔ | ✔ | ✔ | ✔ |
 | OmegaT |   |   |   |   |
 | PacmanXG |   |   |   |   |
-| Pamac (Install) |   |   |   |   |
-| Pamac (Update) |   |   |   |   |
+| Pamac (Install) | ✔ | ✔ | ✔ | ✔ |
+| Pamac (Update) | ✔ | ✔ | ✔ | ✔ |
 | Pencil |   |   |   |   |
 | pgAdmin3 |   |   |   |   |
 | pgModeler |   |   |   |   |
