@@ -16,7 +16,7 @@ That's where this script comes in. It goes through out database of hardcoded ico
 When fixing the icons it changes the name to a standardised one from our database. The designers of icon themes then simply create icons with names from our list and so when their theme is applied everything will work flawlessly.
 
 ### Which icon themes support it?
-Currently [Numix](http://numixproject.org/), [Moka](http://mokaproject.com/) and [Nitrux](http://nitrux.in/). We're constantly contacting designers and developers to get them involved. If you are one, [give me an email](mailto:joshua.h.fogg@gmail.com) and we'll talk about getting you on board. To see which icons are supported within each theme see [this list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/themesupport.md).
+Currently [elementary XFCE](https://github.com/shimmerproject/elementary-xfce), [Moka](http://mokaproject.com/), [Nitrux](http://nitrux.in/) and [Numix](http://numixproject.org/). We're constantly contacting designers and developers to get them involved. If you are one, [give me an email](mailto:joshua.h.fogg@gmail.com) and we'll talk about getting you on board. To see which icons are supported within each theme see [this list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/themesupport.md).
 
 ### I'm not a designer or developer! How can I help?
 [Report any applications](https://github.com/Foggalong/hardcode-fixer/issues) you find with hardcoded icons to us so that we can have the most complete fixer possible. Every little helps!
