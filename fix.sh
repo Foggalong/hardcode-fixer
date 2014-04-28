@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.6.0"
+version="0.6"
 
 # Default mode
 mode="fix"
@@ -30,7 +30,7 @@ else
 			while true; do
 				read -p "Are you sure you want to continue? " answer
 				case $answer in
-					[Yy]* ) mode="unfix"; break;;
+					[Yy]* ) mode="revert"; break;;
 					[Nn]* ) exit;;
 					* ) echo "Please answer [Y/y]es or [N/n]o.";;
 				esac
@@ -79,7 +79,7 @@ then
 	if type "wget" > /dev/null 2>&1 # Verifies if 'wget' is installed
 	then
 		wget -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
-	elif type "curl"  > /dev/null 2>&1 # Verifies if 'curl' is installed, provided 'wget' is not a default on all distributions
+	elif type "curl"  > /dev/null 2>&1 # Verifies if 'curl' is installed, provided 'wget' isn't
 	then
 		curl -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
 	else
@@ -114,7 +114,7 @@ then
 					then
 						echo "L: Fixing $name..."
 						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"
-						sed -i "s/${old_icon}/${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
 						echo "$name" >> "$data_directory/fixed.txt"
 					fi
 				else
@@ -137,7 +137,7 @@ then
 				then
 					echo "G: Fixing $name..."
 					cp "$current" "/usr/share/icons/hicolor/48x48/apps/${new_icon}"
-					sed -i "s/${old_icon}/${new_icon}/g" "/usr/share/applications/${launcher}"
+					sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/usr/share/applications/${launcher}"
 					echo "$name" >> "$data_directory/fixed.txt"
 				fi
 			fi
@@ -173,7 +173,7 @@ then
 					then
 						echo "F: Unixing $name..."
 						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/${new_icon}/${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
 					fi
 				fi
 
@@ -184,7 +184,7 @@ then
 					then
 						echo "G: reverting $name..."
 						rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/${new_icon}/${old_icon}/g" "/usr/share/applications/${launcher}"
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/usr/share/applications/${launcher}"
 					fi
 				fi
 			done < "$data_directory/tofix.txt"
