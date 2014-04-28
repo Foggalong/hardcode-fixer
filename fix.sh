@@ -16,9 +16,6 @@ version="0.6"
 # Default mode
 mode="fix"
 
-# Data directory
-data_directory="$HOME/.local/share/data/hcf"
-
 # Deals with the flags
 if [ -z $1 ]
 then
@@ -63,6 +60,11 @@ then
 	exit 1
 fi
 
+# Data directory
+USER_NAME=$(sudo env | grep SUDO_USER | sed -e "s/SUDO_USER=//g")
+data_directory="/home/${USER_NAME}/.local/share/data/hcf"
+
+# Fixing code
 if [ "$mode" == "fix" ]
 then
 	echo "Fixing hardcoded icons..."
@@ -143,7 +145,7 @@ then
 			fi
 		fi
 	done < "$data_directory/tofix.txt"
-
+# Reversion code
 elif [ "$mode" == "revert" ]
 then
 	echo "Reverting changes and cleaning up..."
