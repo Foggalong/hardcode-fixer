@@ -61,8 +61,7 @@ then
 fi
 
 # Data directory
-USER_NAME=$(sudo env | grep SUDO_USER | sed -e "s/SUDO_USER=//g")
-data_directory="/home/${USER_NAME}/.local/share/data/hcf"
+data_directory="/home/${SUDO_USER:-$USER}/.local/share/data/hcf"
 
 # Fixing code
 if [ "$mode" == "fix" ]
