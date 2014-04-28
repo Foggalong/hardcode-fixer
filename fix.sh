@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
-
 # Script for fixing hardcoded icons. Written and maintained on GitHub
 # at https://github.com/Foggalong/hardcode-fixer  - addtions welcome!
 
