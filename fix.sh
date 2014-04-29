@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.7"
+version="0.7.1"
 
 # Default mode
 mode="fix"
@@ -34,16 +34,6 @@ else
 					* ) echo "Please answer [Y/y]es or [N/n]o.";;
 				esac
 			done;;
-		-u|--unfix)
-			echo -e "This will undo all local changes previously made."
-			while true; do
-				read -p "Are you sure you want to continue? " answer
-				case $answer in
-					[Yy]* ) mode="l-revert"; break;;
-					[Nn]* ) exit;;
-					* ) echo "Please answer [Y/y]es or [N/n]o.";;
-				esac
-			done;;
 		-h|--help)
 			echo -e "Usage: ./$(basename -- $0) [OPTION]"
 			echo -e "Fixes hardcoded icons of installed applications."
@@ -51,7 +41,6 @@ else
 			echo -e "Currently supported options:"
 			echo -e "  -l, --local \t Only changed local launchers."
 			echo -e "  -r, --revert \t Reverts any changes made."
-			echo -e "  -u, --unfix \t Reverts any local changes made."
 			echo -e "  -h, --help \t\t Displays this help menu."
 			echo -e "  -v, --version \t Displays program version."
 			exit 0 ;;
@@ -65,27 +54,34 @@ else
 	esac
 fi
 
-# Script must be run as root to fix/revert any global changes
-if [[ $UID -ne 0 ]] && [ $mode != "local" ] && [ $mode != "l-revert" ]
+
+if [[ $UID -ne 0 ]] && [ $mode != "local" ]
 then
-	echo -e "The script must be run as root to modify global launchers."
-	while true; do
-		read -p "Do you want to continue in local mode? " answer
-		case $answer in
-			[Yy]* )
-				if [ "$mode" == "fix" ]
-				then
-					mode="local"
-					break
-				elif [ "$mode" == "revert" ]
-				then
-					mode="l-revert"
-					break
-				fi;;
-			[Nn]* ) exit;;
-			* ) echo "Please answer [Y/y]es or [N/n]o.";;
-		esac
-	done
+	if [ "$mode" == "revert"]
+	then
+		# Checks if local only reversion is appropriate
+		if grep -Fxq "fix" "$data_directory/log.txt"
+		then
+			echo -e "This script was previously run as root and so"
+			echo -e "running 'revert' without it will not properly"
+			echo -e "reverse the changes that were made."
+			sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
+			exit 1
+		else
+			mode="l-revert"
+		fi
+	else
+		# Script must be run as root to fix/revert any global changes
+		echo -e "The script must be run as root to fix global launchers."
+		while true; do
+			read -p "Do you want to continue in local mode? " answer
+			case $answer in
+				[Yy]* ) mode="local"; break;;
+				[Nn]* ) exit;;
+				* ) echo "Please answer [Y/y]es or [N/n]o.";;
+			esac
+		done
+	fi
 fi
 
 # Data directory
@@ -100,7 +96,11 @@ then
 	# Creates data directory & file
 	mkdir -p "$data_directory"
 	touch "$data_directory/fixed.txt"
+	touch "$dara_directory/log.txt"
 	chmod -R 777 "$data_directory" # Forces full read/write permissions on the data directory and its contents.
+
+	# Add mode to log file
+	echo "$mode" >> "$data_directory/log.txt"
 
 	# Verify data directory creation and existence by entering command directory
 	cd "$data_directory" || echo "$0: Data directory does not exist or was not created." || exit 1
