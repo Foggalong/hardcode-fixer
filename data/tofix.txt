@@ -20,6 +20,7 @@
 |GNU Octave|www.octave.org-octave|/usr/share/octave/3.6.4/imagelib/octave-logo.svg|octave|
 |GNU Octave|www.octave.org-octave|/usr/share/octave/3.8.1/imagelib/octave-logo.svg|octave|
 |GNOME Weather|gnome-shell-extension-weather|org.gnome.Weather.Application|gnome-weather|
+|GNOME Weather (Arch)|org.gnome.Weather.Application|org.gnome.Weather.Application|gnome-weather|
 |GoldenDict|goldendict|/usr/share/pixmaps/goldendict.png|goldendict|
 |GPRename|gprename|/usr/share/pixmaps/gprename/gprename.png|gprename|
 |GNS3|gns3|/usr/share/pixmaps/gns3.xpm|gns3|
