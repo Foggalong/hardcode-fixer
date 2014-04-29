@@ -10,7 +10,6 @@ from shutil import copy
 HOME = expanduser("~")
 LOCAL = HOME + "/.local/share"
 GLOBAL = "/usr/share"
-DATA_DIR = LOCAL + "/data/hcf"
 
 #Version number
 VERSION = "0.7"
@@ -32,7 +31,7 @@ Currently supported modes:
   local				(Un)fix local hardcoded icons ONLY"""
 
 #Root message
-warning_message = """
+ROOT_MESSAGE = """
 Because most launchers are in /usr/share/applications/
 fixing their hardcoded icon lines requites root privlages.\n"""
 
@@ -58,7 +57,7 @@ def aquireRoot():
 	# Aquires root
 	euid = geteuid()
 	if euid != 0:
-		print(warning_message)
+		print(ROOT_MESSAGE)
 		print("Asking for root password...")
 		args = ['sudo','-E', executable] + argv + [environ]
 		execlpe('sudo', *args)
@@ -124,6 +123,7 @@ else:
 	action = "-f"
 	mode = "all"
 
+#Process arguments
 if action == "-f" or action == "--fix":
 	if mode == "local":
 		fetchHardcoded()
