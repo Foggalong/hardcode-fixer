@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.6.1"
+version="0.7"
 
 # Default mode
 mode="fix"
@@ -22,6 +22,8 @@ then
 	: # pass
 else
 	case $1 in
+		-l|--local)
+			mode="local";;
 		-r|--revert)
 			echo -e "This will undo all changes previously made."
 			while true; do
@@ -32,12 +34,24 @@ else
 					* ) echo "Please answer [Y/y]es or [N/n]o.";;
 				esac
 			done;;
+		-u|--local-revert)
+			echo -e "This will undo all local changes previously made."
+			while true; do
+				read -p "Are you sure you want to continue? " answer
+				case $answer in
+					[Yy]* ) mode="l-revert"; break;;
+					[Nn]* ) exit;;
+					* ) echo "Please answer [Y/y]es or [N/n]o.";;
+				esac
+			done;;
 		-h|--help)
 			echo -e "Usage: ./$(basename -- $0) [OPTION]"
 			echo -e "Fixes hardcoded icons of installed applications."
 			echo -e ""
 			echo -e "Currently supported options:"
+			echo -e "  -l, --local \t Only changed local launchers."
 			echo -e "  -r, --revert \t Reverts any changes made."
+			echo -e "  -u, --local-revert \t Reverts any local changes made."
 			echo -e "  -h, --help \t\t Displays this help menu."
 			echo -e "  -v, --version \t Displays program version."
 			exit 0 ;;
@@ -51,13 +65,27 @@ else
 	esac
 fi
 
-# Script must be run as root to fix/revert any changes
-if [[ $UID -ne 0 ]]
+# Script must be run as root to fix/revert any global changes
+if [[ $UID -ne 0 ]] && [ $mode != "local" ] && [ $mode != "l-revert" ]
 then
-	echo "$0: This script must be run as root."
-	echo "Please relaunch the script as superuser."
-	sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
-	exit 1
+	echo -e "The script must be run as root to modify global launchers."
+	while true; do
+		read -p "Do you want to continue in local mode? " answer
+		case $answer in
+			[Yy]* )
+				if [ "$mode" == "fix" ]
+				then
+					mode="local"
+					break
+				elif [ "$mode" == "revert" ]
+				then
+					mode="l-revert"
+					break
+				fi;;
+			[Nn]* ) exit;;
+			* ) echo "Please answer [Y/y]es or [N/n]o.";;
+		esac
+	done
 fi
 
 # Data directory
@@ -65,7 +93,7 @@ data_directory="/home/${SUDO_USER:-$USER}/.local/share/data/hcf"
 echo $data_directory
 
 # Fixing code
-if [ "$mode" == "fix" ]
+if [ "$mode" == "fix" ] || [ "$mode" == "local" ]
 then
 	echo "Fixing hardcoded icons..."
 
@@ -129,7 +157,7 @@ then
 		fi
 
 		# Global launchers
-		if [ -f "/usr/share/applications/${launcher}" ]
+		if [ $mode != "local" ] && [ -f "/usr/share/applications/${launcher}" ]
 		then
 			if grep -Fxq "$name" $data_directory/fixed.txt # checks if already fixed
 			then
@@ -146,7 +174,7 @@ then
 		fi
 	done < "$data_directory/tofix.txt"
 # Reversion code
-elif [ "$mode" == "revert" ]
+elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]
 then
 	echo "Reverting changes and cleaning up..."
 
@@ -193,7 +221,7 @@ then
 				fi
 
 				# Global revert
-				if [ -f "/usr/share/applications/${launcher}" ] && [ -f "${current}" ]
+				if [ $mode != "l-revert" ] && [ -f "/usr/share/applications/${launcher}" ] && [ -f "${current}" ]
 				then
 					if grep -Fxq "G: $name" "$data_directory/fixed.txt" # checks if needs reverting
 					then
