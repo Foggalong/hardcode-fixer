@@ -34,7 +34,7 @@ else
 					* ) echo "Please answer [Y/y]es or [N/n]o.";;
 				esac
 			done;;
-		-u|--local-revert)
+		-u|--unfix)
 			echo -e "This will undo all local changes previously made."
 			while true; do
 				read -p "Are you sure you want to continue? " answer
