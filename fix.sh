@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.7.1"
+version="0.7.2"
 
 # Default mode
 mode="fix"
@@ -133,27 +133,37 @@ then
 		old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
 		old_icon="${old_icon//\//\\/}" # escape slashes
 
-		# Local launchers
+		# Local & Steam launchers
 		if [ -f "$HOME/.local/share/applications/${launcher}" ]
 		then
-			if grep -Fxq "L: $name" "$data_directory/fixed.txt" # checks if already fixed
+			if [ "${current}" != "steam" ]
 			then
-				: # pass
-			else
-				if [ "${current}" != "steam" ]
+				# Local launchers
+				if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if already fixed
 				then
+					: # pass
+				else
 					if [ -f "$current" ] # checks if icon exists to copy
 					then
 						echo "L: Fixing $name..."
 						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"
 						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
-						echo "L: $name" >> "$data_directory/fixed.txt"
+						echo "L: $launcher" >> "$data_directory/fixed.txt"
 					fi
+				fi
+			else
+				# Steam launchers
+				if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if already fixed
+				then
+					: # pass
 				else
-					echo "L: Fixing $name (steam)..."
-					cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
-					sed -i "s/Icon=steam/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
-					echo "L: $name" >> "$data_directory/fixed.txt"
+					if [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ] # checks if steam icon exists to copy
+					then
+						echo "S: Fixing $name..."
+						cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
+						sed -i "s/Icon=steam/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						echo "S: $launcher" >> "$data_directory/fixed.txt"
+					fi
 				fi
 			fi
 		fi
@@ -161,16 +171,16 @@ then
 		# Global launchers
 		if [ $mode != "local" ] && [ -f "/usr/share/applications/${launcher}" ]
 		then
-			if grep -Fxq "G: $name" $data_directory/fixed.txt # checks if already fixed
+			if grep -Fxq "G: $launcher" $data_directory/fixed.txt # checks if already fixed
 			then
-				: # pass
+				: # pass	
 			else
 				if [ -f "$current" ] # checks if icon exists to copy
 				then
 					echo "G: Fixing $name..."
 					cp "$current" "/usr/share/icons/hicolor/48x48/apps/${new_icon}"
 					sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/usr/share/applications/${launcher}"
-					echo "G: $name" >> "$data_directory/fixed.txt"
+					echo "G: $launcher" >> "$data_directory/fixed.txt"
 				fi
 			fi
 		fi
@@ -201,36 +211,36 @@ then
 				# Local revert
 				if [ -f "$HOME/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
 				then
-					if grep -Fxq "L: $name" "$data_directory/fixed.txt" # checks if needs reverting
+					if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "F: Reverting $name..."
 						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
 						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
-						sed -i "s/L: ${name}//g" "$data_directory/fixed.txt"
+						sed -i "s/L: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
 
 				# Steam revert
 				if [ -f "$HOME/.local/share/applications/${launcher}" ] && [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ]
 				then
-					if grep -Fxq "L: $name" "$data_directory/fixed.txt" # checks if needs reverting
+					if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
-						echo "F: Reverting $name (steam)..."
+						echo "S: Reverting $name..."
 						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
 						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
-						sed -i "s/L: ${name}//g" "$data_directory/fixed.txt"
+						sed -i "s/S: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
 
 				# Global revert
 				if [ $mode != "l-revert" ] && [ -f "/usr/share/applications/${launcher}" ] && [ -f "${current}" ]
 				then
-					if grep -Fxq "G: $name" "$data_directory/fixed.txt" # checks if needs reverting
+					if grep -Fxq "G: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "G: Reverting $name..."
 						rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
 						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/usr/share/applications/${launcher}"
-						sed -i "s/G: ${name}//g" "$data_directory/fixed.txt"
+						sed -i "s/G: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
 			done < "$data_directory/tofix.txt"
