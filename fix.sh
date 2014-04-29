@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script for fixing hardcoded icons. Written and maintained on GitHub
-# at https://github.com/Foggalong/hardcode-fixer  - addtions welcome!
+# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.7.2"
+version="0.7.3"
 
 # Default mode
 mode="fix"
@@ -55,8 +55,39 @@ else
 fi
 
 # Data directory
-data_directory="/home/${SUDO_USER:-$USER}/.local/share/data/hcf"
-echo $data_directory
+data_directory="/home/${SUDO_USER:-$USER}/.local/share/hcf-data"
+echo "Data directory path set to: $data_directory"
+
+# Creates data directory
+mkdir -p "$data_directory"
+
+# Verify data directory creation and existence by entering command directory
+cd "$data_directory" || echo "$0: Data directory does not exist or was not created." || exit 1
+
+# Creates data directory file contents (fail-safe)
+touch "$data_directory/fixed.txt"
+touch "$data_directory/log.txt"
+
+# Forces full user ownership and read/write permissions on the data directory and its contents.
+chown -R "${SUDO_USER:-$USER}" "$data_directory"
+chmod -R 777 "$data_directory"
+
+# Append mode to log file
+echo "$mode" >> "$data_directory/log.txt"
+
+# Downloads icon data from GitHub repository to data directory
+if type "wget" >> "$data_directory/log.txt" # Verifies if 'wget' is installed
+then
+	wget -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
+elif type "curl" >> "$data_directory/log.txt" # Verifies if 'curl' is installed, provided 'wget' isn't
+then
+	curl -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
+else
+	echo "$0: This script requires either 'wget' or 'curl'"
+	echo "to be installed to fetch the required files."
+	echo "Please install them and rerun this script."
+	exit 1
+fi
 
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]
@@ -92,32 +123,6 @@ fi
 if [ "$mode" == "fix" ] || [ "$mode" == "local" ]
 then
 	echo "Fixing hardcoded icons..."
-
-	# Creates data directory & file
-	mkdir -p "$data_directory"
-	touch "$data_directory/fixed.txt"
-	touch "$dara_directory/log.txt"
-	chmod -R 777 "$data_directory" # Forces full read/write permissions on the data directory and its contents.
-
-	# Add mode to log file
-	echo "$mode" >> "$data_directory/log.txt"
-
-	# Verify data directory creation and existence by entering command directory
-	cd "$data_directory" || echo "$0: Data directory does not exist or was not created." || exit 1
-
-	# Downloads icon data from GitHub repository to data directory
-	if type "wget" > /dev/null 2>&1 # Verifies if 'wget' is installed
-	then
-		wget -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
-	elif type "curl"  > /dev/null 2>&1 # Verifies if 'curl' is installed, provided 'wget' isn't
-	then
-		curl -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
-	else
-		echo "$0: This script requires either 'wget' or 'curl'"
-		echo "to be installed to fetch the required files."
-		echo "Please install them and rerun this script."
-		exit 1
-	fi
 
 	while read line; do
 		# Splits line into array
