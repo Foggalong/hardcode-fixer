@@ -12,7 +12,7 @@ LOCAL = HOME + "/.local/share"
 GLOBAL = "/usr/share"
 
 #Version number
-VERSION = "0.7"
+VERSION = "0.8"
 
 #Help menu
 HELP = """Usage: """ + argv[0] + """ [ACTION (MODE)]
