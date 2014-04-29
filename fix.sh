@@ -39,7 +39,7 @@ else
 			echo -e "Fixes hardcoded icons of installed applications."
 			echo -e ""
 			echo -e "Currently supported options:"
-			echo -e "  -l, --local \t Only changed local launchers."
+			echo -e "  -l, --local \t Only fixes local launchers."
 			echo -e "  -r, --revert \t Reverts any changes made."
 			echo -e "  -h, --help \t\t Displays this help menu."
 			echo -e "  -v, --version \t Displays program version."
@@ -54,10 +54,14 @@ else
 	esac
 fi
 
+# Data directory
+data_directory="/home/${SUDO_USER:-$USER}/.local/share/data/hcf"
+echo $data_directory
 
+# Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]
 then
-	if [ "$mode" == "revert"]
+	if [ "$mode" == "revert" ]
 	then
 		# Checks if local only reversion is appropriate
 		if grep -Fxq "fix" "$data_directory/log.txt"
@@ -84,10 +88,6 @@ then
 	fi
 fi
 
-# Data directory
-data_directory="/home/${SUDO_USER:-$USER}/.local/share/data/hcf"
-echo $data_directory
-
 # Fixing code
 if [ "$mode" == "fix" ] || [ "$mode" == "local" ]
 then
@@ -113,7 +113,9 @@ then
 	then
 		curl -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
 	else
-		echo "$0: This script requires either 'wget' or 'curl' to be installed to fetch the required files. Please install them and rerun this script."
+		echo "$0: This script requires either 'wget' or 'curl'"
+		echo "to be installed to fetch the required files."
+		echo "Please install them and rerun this script."
 		exit 1
 	fi
 
