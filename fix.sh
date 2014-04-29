@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.6"
+version="0.6.1"
 
 # Default mode
 mode="fix"
