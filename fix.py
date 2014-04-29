@@ -1,23 +1,24 @@
 #!/usr/bin/python3
 
-from os import environ, execlpe, geteuid, listdir
-from os.path import expanduser
+from os import environ, execlpe, geteuid, listdir, remove
+from os.path import expanduser, isfile
 from sys import executable, argv
 from urllib.request import urlopen
+from shutil import copy
 
 #User variables
 HOME = expanduser("~")
-DATA_DIR = HOME + "/.local/share/data/hcf"
-LOCAL = HOME + "/.local/share/applications"
-GLOBAL = "/usr/share/applications"
+LOCAL = HOME + "/.local/share"
+GLOBAL = "/usr/share"
+DATA_DIR = LOCAL + "/data/hcf"
 
 #Version number
 VERSION = "0.7"
 
 #Help menu
-HELP = """Usage: """ + argv[0] + """ [ACTION [MODE]]
+HELP = """Usage: """ + argv[0] + """ [ACTION (MODE)]
 Fixes hardcoded icons of installed applications.
-If no [ACTION] or [MODE] is specified, this script
+If no [ACTION] or (MODE) is specified, this script
  will fix ALL hardcoded icons.
 
 Currently supported actions:
@@ -27,15 +28,24 @@ Currently supported actions:
   -h, --help		Displays this help menu
 
 Currently supported modes:
-  -l, --local	(Un)fix local hardcoded icons ONLY"""
-	
+  all				(Un)fix both global and local hardcoded icons
+  local				(Un)fix local hardcoded icons ONLY"""
+
+#Root message
+warning_message = """
+Because most launchers are in /usr/share/applications/
+fixing their hardcoded icon lines requites root privlages.\n"""
+
 #List with hardcoded icons
+#item in list => [name, launcher, current, new]
 hardcoded_list=[]
 
 #Fetch the hardcoded iconlist from github
 def fetchHardcoded():
 	global hardcoded_list
+	print("Fetching hardcoded list from GitHub")
 	online_list = urlopen('https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt')
+	print("Decoding hardcoded list")
 	decoded_list = online_list.read().decode('utf-8')
 	for app in decoded_list.split('\n'):
 		app = [item for item in app.split('|') if item != '']
@@ -45,26 +55,63 @@ def fetchHardcoded():
 
 #Aquire root rights
 def aquireRoot():
-	warning_message = """
-	Because most launchers are in /usr/share/applications/
-	fixing their hardcoded icon lines requites root privlages.\n"""
-
 	# Aquires root
 	euid = geteuid()
 	if euid != 0:
 		print(warning_message)
 		print("Asking for root password...")
-		args = ['sudo', executable] + argv + [environ]
+		args = ['sudo','-E', executable] + argv + [environ]
 		execlpe('sudo', *args)
 	print("\nAquired root!")
 
+#Replaces certein pattern in launcher
+def replace(launcher, pattern, replacement):
+	file = open(launcher,'r')
+	launcher_content = []
+	for line in file:
+		line = line.replace(pattern, replacement)
+		launcher_content.append(line)
+	file.close()
+	file = open(launcher,'w')
+	for line in launcher_content:
+		file.write(line)
+	file.close()
+	
 #Fix icons
 def fix(directory):
-	global LOCAL, GLOBAL
-	
+	global hardcoded_list, HOME
+	launcher_dir = directory + "/applications"
+	icon_dir = directory + "/icons/hicolor/48x48/apps"
+	for app in hardcoded_list:
+		if len(app) == 4:
+			name = app[0]
+			launcher = app[1] + ".desktop"
+			current_icon = app[2]
+			new_icon = app[3]
+			if launcher in listdir(launcher_dir):
+				print("Fixing: " + name + " - " +  launcher)
+				if current_icon != "steam":
+					copy(current_icon, icon_dir + "/" + new_icon)
+				else:
+					copy("/usr/share/icons/hicolor/48x48/apps/steam.png", icon_dir + "/" + new_icon)
+				replace(launcher_dir + "/" + launcher, "Icon=" + current_icon, "Icon=" + new_icon)
+
 #Unfix icons
 def unfix(directory):
-	global LOCAL, GLOBAL
+	global hardcoded_list, HOME
+	launcher_dir = directory + "/applications"
+	icon_dir = directory + "/icons/hicolor/48x48/apps"
+	for app in hardcoded_list:
+		if len(app) == 4:
+			name = app[0]
+			launcher = app[1] + ".desktop"
+			current_icon = app[2]
+			new_icon = app[3]
+			if launcher in listdir(launcher_dir):
+				print("Unfixing: " + name + " - " +  launcher)
+				if isfile(icon_dir + "/" + new_icon):
+					remove(icon_dir + "/" + new_icon)
+				replace(launcher_dir + "/" + launcher, "Icon=" + new_icon, "Icon=" + current_icon)
 
 #Handle arguments
 if len(argv) == 3:
@@ -72,25 +119,29 @@ if len(argv) == 3:
 	mode = argv[2]
 elif len(argv) == 2:
 	action = argv[1]
-	mode = "-a"
+	mode = "all"
 else:
 	action = "-f"
-	mode = "-a"
+	mode = "all"
 
 if action == "-f" or action == "--fix":
-	fetchHardcoded()
-	if mode == "-l" or mode == "--local":
+	if mode == "local":
+		fetchHardcoded()
 		fix(LOCAL)
-	elif mode == "-a":
+	elif mode == "all":
+		aquireRoot()
+		fetchHardcoded()
 		fix(LOCAL)
 		fix(GLOBAL)
 	else:
 		print("Unknown mode: " + mode)
 elif action == "-u" or action  == "--unfix":
-	fetchHardcoded()
-	if mode == "-l" or mode == "--local":
+	if mode == "local":
+		fetchHardcoded()
 		unfix(LOCAL)
-	elif mode == "-a":
+	elif mode == "all":
+		aquireRoot()
+		fetchHardcoded()
 		unfix(LOCAL)
 		unfix(GLOBAL)
 	else:
