@@ -27,8 +27,8 @@ Currently supported actions:
   -h, --help		Displays this help menu
 
 Currently supported modes:
-  all				(Un)fix both global and local hardcoded icons
-  local				(Un)fix local hardcoded icons ONLY"""
+  all			(Un)fix both global and local hardcoded icons
+  local			(Un)fix local hardcoded icons ONLY"""
 
 #Root message
 ROOT_MESSAGE = """
