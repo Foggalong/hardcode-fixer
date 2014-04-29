@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.7.3-1"
+version="0.7.3"
 
 # Default mode
 mode="fix"
@@ -68,9 +68,6 @@ cd "$data_directory" || echo "$0: Data directory does not exist or was not creat
 touch "$data_directory/fixed.txt"
 touch "$data_directory/log.txt"
 
-# Append mode to log file
-echo "$mode" >> "$data_directory/log.txt"
-
 # Downloads icon data from GitHub repository to data directory
 if type "wget" >> "$data_directory/log.txt" # Verifies if 'wget' is installed
 then
@@ -118,6 +115,9 @@ then
 		done
 	fi
 fi
+
+# Append mode to log file
+echo "$mode" >> "$data_directory/log.txt"
 
 # Fixing code
 if [ "$mode" == "fix" ] || [ "$mode" == "local" ]

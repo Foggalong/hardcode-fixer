@@ -1,0 +1,1820 @@
++ version=0.7.3
++ mode=fix
++ '[' -z ']'
++ :
++ data_directory=/home/josh/.local/share/hcf-data
++ echo 'Data directory path set to: /home/josh/.local/share/hcf-data'
+Data directory path set to: /home/josh/.local/share/hcf-data
++ mkdir -p /home/josh/.local/share/hcf-data
++ cd /home/josh/.local/share/hcf-data
++ touch /home/josh/.local/share/hcf-data/fixed.txt
++ touch /home/josh/.local/share/hcf-data/log.txt
++ chown -R josh /home/josh/.local/share/hcf-data
++ chmod -R 777 /home/josh/.local/share/hcf-data
++ echo fix
++ type wget
++ wget -O /home/josh/.local/share/hcf-data/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt
+--2014-04-29 21:24:52--  https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.31.18.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.31.18.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6296 (6.1K) [text/plain]
+Saving to: ‘/home/josh/.local/share/hcf-data/tofix.txt’
+
+     0K ......                                                100% 1.32M=0.005s
+
+2014-04-29 21:24:52 (1.32 MB/s) - ‘/home/josh/.local/share/hcf-data/tofix.txt’ saved [6296/6296]
+
++ [[ 1000 -ne 0 ]]
++ '[' fix '!=' local ']'
++ '[' fix == revert ']'
++ echo -e 'The script must be run as root to fix global launchers.'
+The script must be run as root to fix global launchers.
++ true
++ read -p 'Do you want to continue in local mode? ' answer
+Do you want to continue in local mode? + version=0.7.3
++ mode=fix
++ '[' -z ']'
++ :
++ data_directory=/home/josh/.local/share/hcf-data
++ echo 'Data directory path set to: /home/josh/.local/share/hcf-data'
+Data directory path set to: /home/josh/.local/share/hcf-data
++ mkdir -p /home/josh/.local/share/hcf-data
++ cd /home/josh/.local/share/hcf-data
++ touch /home/josh/.local/share/hcf-data/fixed.txt
++ touch /home/josh/.local/share/hcf-data/log.txt
++ chown -R josh /home/josh/.local/share/hcf-data
++ chmod -R 777 /home/josh/.local/share/hcf-data
++ echo fix
++ type wget
++ wget -O /home/josh/.local/share/hcf-data/tofix.txt https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt
+--2014-04-29 21:25:05--  https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.31.18.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.31.18.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6296 (6.1K) [text/plain]
+Saving to: ‘/home/josh/.local/share/hcf-data/tofix.txt’
+
+     0K ......                                                100% 1.26M=0.005s
+
+2014-04-29 21:25:05 (1.26 MB/s) - ‘/home/josh/.local/share/hcf-data/tofix.txt’ saved [6296/6296]
+
++ [[ 1000 -ne 0 ]]
++ '[' fix '!=' local ']'
++ '[' fix == revert ']'
++ echo -e 'The script must be run as root to fix global launchers.'
+The script must be run as root to fix global launchers.
++ true
++ read -p 'Do you want to continue in local mode? ' answer
+Do you want to continue in local mode? + case $answer in
++ mode=local
++ break
++ '[' local == fix ']'
++ '[' local == local ']'
++ echo 'Fixing hardcoded icons...'
+Fixing hardcoded icons...
++ read line
++ IFS='|'
++ read -a array
+++ echo 2048
+++ sed -e 's/\r//g'
++ name=2048
+++ echo 2048.desktop
+++ sed -e 's/\r//g'
++ launcher=2048.desktop
+++ echo /usr/share/2048/meta/apple-touch-icon.png
+++ sed -e 's/\r//g'
++ current=/usr/share/2048/meta/apple-touch-icon.png
+++ echo 2048
+++ sed -e 's/\r//g'
++ new_icon=2048
++ old_icon=/usr/share/2048/meta/apple-touch-icon.png
++ old_icon=/usr/share/2048/meta/apple-touch-icon.png
++ old_icon='\/usr\/share\/2048\/meta\/apple-touch-icon.png'
++ '[' -f /home/josh/.local/share/applications/2048.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Android Studio
+++ sed -e 's/\r//g'
++ name='Android Studio'
+++ echo android-studio.desktop
+++ sed -e 's/\r//g'
++ launcher=android-studio.desktop
+++ echo /usr/share/icons/androidstudio.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/androidstudio.svg
+++ echo android-studio
+++ sed -e 's/\r//g'
++ new_icon=android-studio
++ old_icon=/usr/share/icons/androidstudio.svg
++ old_icon=/usr/share/icons/androidstudio.svg
++ old_icon='\/usr\/share\/icons\/androidstudio.svg'
++ '[' -f /home/josh/.local/share/applications/android-studio.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Aptik
+++ sed -e 's/\r//g'
++ name=Aptik
+++ echo aptik.desktop
+++ sed -e 's/\r//g'
++ launcher=aptik.desktop
+++ echo /usr/share/pixmaps/aptik.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/aptik.png
+++ echo aptik
+++ sed -e 's/\r//g'
++ new_icon=aptik
++ old_icon=/usr/share/pixmaps/aptik.png
++ old_icon=/usr/share/pixmaps/aptik.png
++ old_icon='\/usr\/share\/pixmaps\/aptik.png'
++ '[' -f /home/josh/.local/share/applications/aptik.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Arista
+++ sed -e 's/\r//g'
++ name=Arista
+++ echo arista.desktop
+++ sed -e 's/\r//g'
++ launcher=arista.desktop
+++ echo /usr/share/arista/ui/icon.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/arista/ui/icon.svg
+++ echo arista
+++ sed -e 's/\r//g'
++ new_icon=arista
++ old_icon=/usr/share/arista/ui/icon.svg
++ old_icon=/usr/share/arista/ui/icon.svg
++ old_icon='\/usr\/share\/arista\/ui\/icon.svg'
++ '[' -f /home/josh/.local/share/applications/arista.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Armagetron Advanced
+++ sed -e 's/\r//g'
++ name='Armagetron Advanced'
+++ echo armagetronad.desktop
+++ sed -e 's/\r//g'
++ launcher=armagetronad.desktop
+++ echo /usr/share/pixmaps/armagetronad/icons/large/armagetronad.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png
+++ echo armagetronad
+++ sed -e 's/\r//g'
++ new_icon=armagetronad
++ old_icon=/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png
++ old_icon=/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png
++ old_icon='\/usr\/share\/pixmaps\/armagetronad\/icons\/large\/armagetronad.png'
++ '[' -f /home/josh/.local/share/applications/armagetronad.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Bastion
+++ sed -e 's/\r//g'
++ name=Bastion
+++ echo Bastion.desktop
+++ sed -e 's/\r//g'
++ launcher=Bastion.desktop
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_107100
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_107100
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f /home/josh/.local/share/applications/Bastion.desktop ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Bastion.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Conky Manager
+++ sed -e 's/\r//g'
++ name='Conky Manager'
+++ echo conky-manager.desktop
+++ sed -e 's/\r//g'
++ launcher=conky-manager.desktop
+++ echo /usr/share/pixmaps/conky-manager.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/conky-manager.png
+++ sed -e 's/\r//g'
+++ echo conky-manager
++ new_icon=conky-manager
++ old_icon=/usr/share/pixmaps/conky-manager.png
++ old_icon=/usr/share/pixmaps/conky-manager.png
++ old_icon='\/usr\/share\/pixmaps\/conky-manager.png'
++ '[' -f /home/josh/.local/share/applications/conky-manager.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Desura
+++ sed -e 's/\r//g'
++ name=Desura
+++ echo desura.desktop
+++ sed -e 's/\r//g'
++ launcher=desura.desktop
+++ echo n/a
+++ sed -e 's/\r//g'
++ current=n/a
+++ echo desura
+++ sed -e 's/\r//g'
++ new_icon=desura
++ old_icon=n/a
++ old_icon=n/a
++ old_icon='n\/a'
++ '[' -f /home/josh/.local/share/applications/desura.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Dogecoin QT
+++ sed -e 's/\r//g'
++ name='Dogecoin QT'
+++ echo dogecoin.desktop
+++ sed -e 's/\r//g'
++ launcher=dogecoin.desktop
+++ sed -e 's/\r//g'
+++ echo /usr/share/pixmaps/dogecoin.png
++ current=/usr/share/pixmaps/dogecoin.png
+++ echo dogecoin
+++ sed -e 's/\r//g'
++ new_icon=dogecoin
++ old_icon=/usr/share/pixmaps/dogecoin.png
++ old_icon=/usr/share/pixmaps/dogecoin.png
++ old_icon='\/usr\/share\/pixmaps\/dogecoin.png'
++ '[' -f /home/josh/.local/share/applications/dogecoin.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Dota 2
+++ sed -e 's/\r//g'
++ name='Dota 2'
+++ echo Dota 2.desktop
+++ sed -e 's/\r//g'
++ launcher='Dota 2.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_570
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_570
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Dota 2.desktop' ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Dota 2.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Driver Manager
+++ sed -e 's/\r//g'
++ name='Driver Manager'
+++ echo driver-manager.desktop
+++ sed -e 's/\r//g'
++ launcher=driver-manager.desktop
+++ echo /usr/share/icons/hicolor/scalable/apps/driver-manager.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/hicolor/scalable/apps/driver-manager.svg
+++ echo driver-manager
+++ sed -e 's/\r//g'
++ new_icon=driver-manager
++ old_icon=/usr/share/icons/hicolor/scalable/apps/driver-manager.svg
++ old_icon=/usr/share/icons/hicolor/scalable/apps/driver-manager.svg
++ old_icon='\/usr\/share\/icons\/hicolor\/scalable\/apps\/driver-manager.svg'
++ '[' -f /home/josh/.local/share/applications/driver-manager.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo 'Dwarfs!?'
+++ sed -e 's/\r//g'
++ name='Dwarfs!?'
+++ sed -e 's/\r//g'
+++ echo 'Dwarfs!?.desktop'
++ launcher='Dwarfs!?.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_35480
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_35480
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Dwarfs!?.desktop' ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ sed -e 's/\r//g'
+++ echo easyLife
++ name=easyLife
+++ echo easylife.desktop
+++ sed -e 's/\r//g'
++ launcher=easylife.desktop
+++ echo /usr/share/pixmaps/easylife.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/easylife.png
+++ echo easylife
+++ sed -e 's/\r//g'
++ new_icon=easylife
++ old_icon=/usr/share/pixmaps/easylife.png
++ old_icon=/usr/share/pixmaps/easylife.png
++ old_icon='\/usr\/share\/pixmaps\/easylife.png'
++ '[' -f /home/josh/.local/share/applications/easylife.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo FadeIn
+++ sed -e 's/\r//g'
++ name=FadeIn
+++ echo fadein.desktop
+++ sed -e 's/\r//g'
++ launcher=fadein.desktop
+++ echo /usr/share/fadein/icon_app/fadein_icon_128x128.png
+++ sed -e 's/\r//g'
++ current=/usr/share/fadein/icon_app/fadein_icon_128x128.png
+++ echo fadein
+++ sed -e 's/\r//g'
++ new_icon=fadein
++ old_icon=/usr/share/fadein/icon_app/fadein_icon_128x128.png
++ old_icon=/usr/share/fadein/icon_app/fadein_icon_128x128.png
++ old_icon='\/usr\/share\/fadein\/icon_app\/fadein_icon_128x128.png'
++ '[' -f /home/josh/.local/share/applications/fadein.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo FileBot
+++ sed -e 's/\r//g'
++ name=FileBot
+++ echo FileBot.desktop
+++ sed -e 's/\r//g'
++ launcher=FileBot.desktop
+++ echo /usr/share/filebot/icon.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/filebot/icon.svg
+++ echo filebot
+++ sed -e 's/\r//g'
++ new_icon=filebot
++ old_icon=/usr/share/filebot/icon.svg
++ old_icon=/usr/share/filebot/icon.svg
++ old_icon='\/usr\/share\/filebot\/icon.svg'
++ '[' -f /home/josh/.local/share/applications/FileBot.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Format Junkie
+++ sed -e 's/\r//g'
++ name='Format Junkie'
+++ echo formatjunkie.desktop
+++ sed -e 's/\r//g'
++ launcher=formatjunkie.desktop
+++ echo /opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png
+++ sed -e 's/\r//g'
++ current=/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png
+++ echo fjt
+++ sed -e 's/\r//g'
++ new_icon=fjt
++ old_icon=/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png
++ old_icon=/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png
++ old_icon='\/opt\/extras.ubuntu.com\/formatjunkie\/pixmap\/fjt.png'
++ '[' -f /home/josh/.local/share/applications/formatjunkie.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Gcolor2
+++ sed -e 's/\r//g'
++ name=Gcolor2
+++ echo gcolor2.desktop
+++ sed -e 's/\r//g'
++ launcher=gcolor2.desktop
+++ echo /usr/share/pixmaps/gcolor2/gcolor2.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/gcolor2/gcolor2.xpm
+++ echo gcolor2
+++ sed -e 's/\r//g'
++ new_icon=gcolor2
++ old_icon=/usr/share/pixmaps/gcolor2/gcolor2.xpm
++ old_icon=/usr/share/pixmaps/gcolor2/gcolor2.xpm
++ old_icon='\/usr\/share\/pixmaps\/gcolor2\/gcolor2.xpm'
++ '[' -f /home/josh/.local/share/applications/gcolor2.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GeSpeaker
+++ sed -e 's/\r//g'
++ name=GeSpeaker
+++ echo gespeaker.desktop
+++ sed -e 's/\r//g'
++ launcher=gespeaker.desktop
+++ echo /usr/share/gespeaker/data/icons/gespeaker.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/gespeaker/data/icons/gespeaker.svg
+++ echo gespeaker
+++ sed -e 's/\r//g'
++ new_icon=gespeaker
++ old_icon=/usr/share/gespeaker/data/icons/gespeaker.svg
++ old_icon=/usr/share/gespeaker/data/icons/gespeaker.svg
++ old_icon='\/usr\/share\/gespeaker\/data\/icons\/gespeaker.svg'
++ '[' -f /home/josh/.local/share/applications/gespeaker.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GUVC View
+++ sed -e 's/\r//g'
++ name='GUVC View'
+++ echo guvcview.desktop
+++ sed -e 's/\r//g'
++ launcher=guvcview.desktop
+++ echo /usr/share/pixmaps/guvcview/guvcview.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/guvcview/guvcview.png
+++ echo guvcview
+++ sed -e 's/\r//g'
++ new_icon=guvcview
++ old_icon=/usr/share/pixmaps/guvcview/guvcview.png
++ old_icon=/usr/share/pixmaps/guvcview/guvcview.png
++ old_icon='\/usr\/share\/pixmaps\/guvcview\/guvcview.png'
++ '[' -f /home/josh/.local/share/applications/guvcview.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GNU Octave
+++ sed -e 's/\r//g'
++ name='GNU Octave'
+++ echo www.octave.org-octave.desktop
+++ sed -e 's/\r//g'
++ launcher=www.octave.org-octave.desktop
+++ echo /usr/share/octave/3.6.4/imagelib/octave-logo.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/octave/3.6.4/imagelib/octave-logo.svg
+++ echo octave
+++ sed -e 's/\r//g'
++ new_icon=octave
++ old_icon=/usr/share/octave/3.6.4/imagelib/octave-logo.svg
++ old_icon=/usr/share/octave/3.6.4/imagelib/octave-logo.svg
++ old_icon='\/usr\/share\/octave\/3.6.4\/imagelib\/octave-logo.svg'
++ '[' -f /home/josh/.local/share/applications/www.octave.org-octave.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GNU Octave
+++ sed -e 's/\r//g'
++ name='GNU Octave'
+++ echo www.octave.org-octave.desktop
+++ sed -e 's/\r//g'
++ launcher=www.octave.org-octave.desktop
+++ echo /usr/share/octave/3.8.1/imagelib/octave-logo.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/octave/3.8.1/imagelib/octave-logo.svg
+++ echo octave
+++ sed -e 's/\r//g'
++ new_icon=octave
++ old_icon=/usr/share/octave/3.8.1/imagelib/octave-logo.svg
++ old_icon=/usr/share/octave/3.8.1/imagelib/octave-logo.svg
++ old_icon='\/usr\/share\/octave\/3.8.1\/imagelib\/octave-logo.svg'
++ '[' -f /home/josh/.local/share/applications/www.octave.org-octave.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GNOME Weather
+++ sed -e 's/\r//g'
++ name='GNOME Weather'
+++ echo gnome-shell-extension-weather.desktop
+++ sed -e 's/\r//g'
++ launcher=gnome-shell-extension-weather.desktop
+++ echo org.gnome.Weather.Application
+++ sed -e 's/\r//g'
++ current=org.gnome.Weather.Application
+++ echo gnome-weather
+++ sed -e 's/\r//g'
++ new_icon=gnome-weather
++ old_icon=org.gnome.Weather.Application
++ old_icon=org.gnome.Weather.Application
++ old_icon=org.gnome.Weather.Application
++ '[' -f /home/josh/.local/share/applications/gnome-shell-extension-weather.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GNOME Weather '(Arch)'
+++ sed -e 's/\r//g'
++ name='GNOME Weather (Arch)'
+++ echo org.gnome.Weather.Application.desktop
+++ sed -e 's/\r//g'
++ launcher=org.gnome.Weather.Application.desktop
+++ echo org.gnome.Weather.Application
+++ sed -e 's/\r//g'
++ current=org.gnome.Weather.Application
+++ echo gnome-weather
+++ sed -e 's/\r//g'
++ new_icon=gnome-weather
++ old_icon=org.gnome.Weather.Application
++ old_icon=org.gnome.Weather.Application
++ old_icon=org.gnome.Weather.Application
++ '[' -f /home/josh/.local/share/applications/org.gnome.Weather.Application.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GoldenDict
+++ sed -e 's/\r//g'
++ name=GoldenDict
+++ echo goldendict.desktop
+++ sed -e 's/\r//g'
++ launcher=goldendict.desktop
+++ echo /usr/share/pixmaps/goldendict.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/goldendict.png
+++ echo goldendict
+++ sed -e 's/\r//g'
++ new_icon=goldendict
++ old_icon=/usr/share/pixmaps/goldendict.png
++ old_icon=/usr/share/pixmaps/goldendict.png
++ old_icon='\/usr\/share\/pixmaps\/goldendict.png'
++ '[' -f /home/josh/.local/share/applications/goldendict.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GPRename
+++ sed -e 's/\r//g'
++ name=GPRename
+++ echo gprename.desktop
+++ sed -e 's/\r//g'
++ launcher=gprename.desktop
+++ echo /usr/share/pixmaps/gprename/gprename.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/gprename/gprename.png
+++ echo gprename
+++ sed -e 's/\r//g'
++ new_icon=gprename
++ old_icon=/usr/share/pixmaps/gprename/gprename.png
++ old_icon=/usr/share/pixmaps/gprename/gprename.png
++ old_icon='\/usr\/share\/pixmaps\/gprename\/gprename.png'
++ '[' -f /home/josh/.local/share/applications/gprename.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo GNS3
+++ sed -e 's/\r//g'
++ name=GNS3
+++ echo gns3.desktop
+++ sed -e 's/\r//g'
++ launcher=gns3.desktop
+++ echo /usr/share/pixmaps/gns3.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/gns3.xpm
+++ echo gns3
+++ sed -e 's/\r//g'
++ new_icon=gns3
++ old_icon=/usr/share/pixmaps/gns3.xpm
++ old_icon=/usr/share/pixmaps/gns3.xpm
++ old_icon='\/usr\/share\/pixmaps\/gns3.xpm'
++ '[' -f /home/josh/.local/share/applications/gns3.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Grisbi
+++ sed -e 's/\r//g'
++ name=Grisbi
+++ echo grisbi.desktop
+++ sed -e 's/\r//g'
++ launcher=grisbi.desktop
+++ echo /usr/share/pixmaps/grisbi/grisbi.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/grisbi/grisbi.svg
+++ echo grisbi
+++ sed -e 's/\r//g'
++ new_icon=grisbi
++ old_icon=/usr/share/pixmaps/grisbi/grisbi.svg
++ old_icon=/usr/share/pixmaps/grisbi/grisbi.svg
++ old_icon='\/usr\/share\/pixmaps\/grisbi\/grisbi.svg'
++ '[' -f /home/josh/.local/share/applications/grisbi.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Guake
+++ sed -e 's/\r//g'
++ name=Guake
+++ echo guake.desktop
+++ sed -e 's/\r//g'
++ launcher=guake.desktop
+++ echo /usr/share/pixmaps/guake/guake.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/guake/guake.png
+++ echo guake
+++ sed -e 's/\r//g'
++ new_icon=guake
++ old_icon=/usr/share/pixmaps/guake/guake.png
++ old_icon=/usr/share/pixmaps/guake/guake.png
++ old_icon='\/usr\/share\/pixmaps\/guake\/guake.png'
++ '[' -f /home/josh/.local/share/applications/guake.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Hipchat
+++ sed -e 's/\r//g'
++ name=Hipchat
+++ echo atlassian-hipchat.desktop
+++ sed -e 's/\r//g'
++ launcher=atlassian-hipchat.desktop
+++ echo hipchat.png
+++ sed -e 's/\r//g'
++ current=hipchat.png
+++ echo hipchat
+++ sed -e 's/\r//g'
++ new_icon=hipchat
++ old_icon=hipchat.png
++ old_icon=hipchat.png
++ old_icon=hipchat.png
++ '[' -f /home/josh/.local/share/applications/atlassian-hipchat.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Hotline Miami
+++ sed -e 's/\r//g'
++ name='Hotline Miami'
+++ echo Hotline Miami.desktop
+++ sed -e 's/\r//g'
++ launcher='Hotline Miami.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_219150
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_219150
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Hotline Miami.desktop' ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Hotline Miami.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo HP Printer
+++ sed -e 's/\r//g'
++ name='HP Printer'
+++ echo hplj1020.desktop
+++ sed -e 's/\r//g'
++ launcher=hplj1020.desktop
+++ echo /usr/share/pixmaps/hplj1020_icon.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/hplj1020_icon.png
+++ echo printer
+++ sed -e 's/\r//g'
++ new_icon=printer
++ old_icon=/usr/share/pixmaps/hplj1020_icon.png
++ old_icon=/usr/share/pixmaps/hplj1020_icon.png
++ old_icon='\/usr\/share\/pixmaps\/hplj1020_icon.png'
++ '[' -f /home/josh/.local/share/applications/hplj1020.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Intel Graphics Installer
+++ sed -e 's/\r//g'
++ name='Intel Graphics Installer'
+++ echo intel-linux-graphics-installer.desktop
+++ sed -e 's/\r//g'
++ launcher=intel-linux-graphics-installer.desktop
+++ echo /usr/share/intel-linux-graphics-installer/images/logo.png
+++ sed -e 's/\r//g'
++ current=/usr/share/intel-linux-graphics-installer/images/logo.png
+++ echo intel-installer
+++ sed -e 's/\r//g'
++ new_icon=intel-installer
++ old_icon=/usr/share/intel-linux-graphics-installer/images/logo.png
++ old_icon=/usr/share/intel-linux-graphics-installer/images/logo.png
++ old_icon='\/usr\/share\/intel-linux-graphics-installer\/images\/logo.png'
++ '[' -f /home/josh/.local/share/applications/intel-linux-graphics-installer.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Intellij IDE
+++ sed -e 's/\r//g'
++ name='Intellij IDE'
+++ echo intellij-idea.desktop
+++ sed -e 's/\r//g'
++ launcher=intellij-idea.desktop
+++ echo /opt/idea-IC/bin/idea.png
+++ sed -e 's/\r//g'
++ current=/opt/idea-IC/bin/idea.png
+++ echo idea
+++ sed -e 's/\r//g'
++ new_icon=idea
++ old_icon=/opt/idea-IC/bin/idea.png
++ old_icon=/opt/idea-IC/bin/idea.png
++ old_icon='\/opt\/idea-IC\/bin\/idea.png'
++ '[' -f /home/josh/.local/share/applications/intellij-idea.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Kerbal Space Program
+++ sed -e 's/\r//g'
++ name='Kerbal Space Program'
+++ echo Kerbal Space Program.desktop
+++ sed -e 's/\r//g'
++ launcher='Kerbal Space Program.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_220200
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_220200
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Kerbal Space Program.desktop' ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Kerbal Space Program.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Klavaro
+++ sed -e 's/\r//g'
++ name=Klavaro
+++ echo klavaro.desktop
+++ sed -e 's/\r//g'
++ launcher=klavaro.desktop
+++ echo /usr/share/icons/hicolor/24x24/apps/klavaro.png
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/hicolor/24x24/apps/klavaro.png
+++ echo klavaro
+++ sed -e 's/\r//g'
++ new_icon=klavaro
++ old_icon=/usr/share/icons/hicolor/24x24/apps/klavaro.png
++ old_icon=/usr/share/icons/hicolor/24x24/apps/klavaro.png
++ old_icon='\/usr\/share\/icons\/hicolor\/24x24\/apps\/klavaro.png'
++ '[' -f /home/josh/.local/share/applications/klavaro.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Left 4 Dead 2
+++ sed -e 's/\r//g'
++ name='Left 4 Dead 2'
+++ echo Left 4 Dead 2.desktop
+++ sed -e 's/\r//g'
++ launcher='Left 4 Dead 2.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_550
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_550
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Left 4 Dead 2.desktop' ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Left 4 Dead 2.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Left 4 Dead 2 '(beta)'
+++ sed -e 's/\r//g'
++ name='Left 4 Dead 2 (beta)'
+++ echo Left 4 Dead 2 Beta.desktop
+++ sed -e 's/\r//g'
++ launcher='Left 4 Dead 2 Beta.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_223530
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_223530
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Left 4 Dead 2 Beta.desktop' ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Lightworks
+++ sed -e 's/\r//g'
++ name=Lightworks
+++ echo lightworks.desktop
+++ sed -e 's/\r//g'
++ launcher=lightworks.desktop
+++ echo /usr/share/lightworks/Icons/App.png
+++ sed -e 's/\r//g'
++ current=/usr/share/lightworks/Icons/App.png
+++ echo lightworks
+++ sed -e 's/\r//g'
++ new_icon=lightworks
++ old_icon=/usr/share/lightworks/Icons/App.png
++ old_icon=/usr/share/lightworks/Icons/App.png
++ old_icon='\/usr\/share\/lightworks\/Icons\/App.png'
++ '[' -f /home/josh/.local/share/applications/lightworks.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Little Inferno
+++ sed -e 's/\r//g'
++ name='Little Inferno'
+++ echo Little Inferno.desktop
+++ sed -e 's/\r//g'
++ launcher='Little Inferno.desktop'
+++ echo steam
+++ sed -e 's/\r//g'
++ current=steam
+++ echo steam_icon_221260
+++ sed -e 's/\r//g'
++ new_icon=steam_icon_221260
++ old_icon=steam
++ old_icon=steam
++ old_icon=steam
++ '[' -f '/home/josh/.local/share/applications/Little Inferno.desktop' ']'
++ '[' steam '!=' steam ']'
++ grep -Fxq 'S: Little Inferno.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Lucky Backup
+++ sed -e 's/\r//g'
++ name='Lucky Backup'
+++ echo luckybackup.desktop
+++ sed -e 's/\r//g'
++ launcher=luckybackup.desktop
+++ echo /usr/share/pixmaps/luckybackup.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/luckybackup.png
+++ echo luckybackup
+++ sed -e 's/\r//g'
++ new_icon=luckybackup
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon='\/usr\/share\/pixmaps\/luckybackup.png'
++ '[' -f /home/josh/.local/share/applications/luckybackup.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Lucky Backup '(KDE)'
+++ sed -e 's/\r//g'
++ name='Lucky Backup (KDE)'
+++ echo luckybackup-kde-su.desktop
+++ sed -e 's/\r//g'
++ launcher=luckybackup-kde-su.desktop
+++ echo /usr/share/pixmaps/luckybackup.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/luckybackup.png
+++ echo luckybackup
+++ sed -e 's/\r//g'
++ new_icon=luckybackup
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon='\/usr\/share\/pixmaps\/luckybackup.png'
++ '[' -f /home/josh/.local/share/applications/luckybackup-kde-su.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Lucky Backup '(GNOME)'
+++ sed -e 's/\r//g'
++ name='Lucky Backup (GNOME)'
+++ echo luckybackup-gnome-su.desktop
+++ sed -e 's/\r//g'
++ launcher=luckybackup-gnome-su.desktop
+++ echo /usr/share/pixmaps/luckybackup.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/luckybackup.png
+++ echo luckybackup
+++ sed -e 's/\r//g'
++ new_icon=luckybackup
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon=/usr/share/pixmaps/luckybackup.png
++ old_icon='\/usr\/share\/pixmaps\/luckybackup.png'
++ '[' -f /home/josh/.local/share/applications/luckybackup-gnome-su.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Master PDF Editor
+++ sed -e 's/\r//g'
++ name='Master PDF Editor'
+++ echo MasterPdfEditor.desktop
+++ sed -e 's/\r//g'
++ launcher=MasterPdfEditor.desktop
+++ echo /opt/master-pdf-editor/master-pdf-editor.png
+++ sed -e 's/\r//g'
++ current=/opt/master-pdf-editor/master-pdf-editor.png
+++ echo master-pdf-editor
+++ sed -e 's/\r//g'
++ new_icon=master-pdf-editor
++ old_icon=/opt/master-pdf-editor/master-pdf-editor.png
++ old_icon=/opt/master-pdf-editor/master-pdf-editor.png
++ old_icon='\/opt\/master-pdf-editor\/master-pdf-editor.png'
++ '[' -f /home/josh/.local/share/applications/MasterPdfEditor.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Mint Audio Tag
+++ sed -e 's/\r//g'
++ name='Mint Audio Tag'
+++ echo audio-tag-tool.desktop
+++ sed -e 's/\r//g'
++ launcher=audio-tag-tool.desktop
+++ echo /usr/lib/linuxmint/mintInstall/icon.svg
+++ sed -e 's/\r//g'
++ current=/usr/lib/linuxmint/mintInstall/icon.svg
+++ echo audio-tag-tool
+++ sed -e 's/\r//g'
++ new_icon=audio-tag-tool
++ old_icon=/usr/lib/linuxmint/mintInstall/icon.svg
++ old_icon=/usr/lib/linuxmint/mintInstall/icon.svg
++ old_icon='\/usr\/lib\/linuxmint\/mintInstall\/icon.svg'
++ '[' -f /home/josh/.local/share/applications/audio-tag-tool.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Mint Backup
+++ sed -e 's/\r//g'
++ name='Mint Backup'
+++ echo mintbackup.desktop
+++ sed -e 's/\r//g'
++ launcher=mintbackup.desktop
+++ echo /usr/lib/linuxmint/mintBackup/icon.png
+++ sed -e 's/\r//g'
++ current=/usr/lib/linuxmint/mintBackup/icon.png
+++ echo mintbackup
+++ sed -e 's/\r//g'
++ new_icon=mintbackup
++ old_icon=/usr/lib/linuxmint/mintBackup/icon.png
++ old_icon=/usr/lib/linuxmint/mintBackup/icon.png
++ old_icon='\/usr\/lib\/linuxmint\/mintBackup\/icon.png'
++ '[' -f /home/josh/.local/share/applications/mintbackup.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Mint Software Manager
+++ sed -e 's/\r//g'
++ name='Mint Software Manager'
+++ echo software-manager.desktop
+++ sed -e 's/\r//g'
++ launcher=software-manager.desktop
+++ echo /usr/lib/linuxmint/mintInstall/icon.svg
+++ sed -e 's/\r//g'
++ current=/usr/lib/linuxmint/mintInstall/icon.svg
+++ echo software-manager
+++ sed -e 's/\r//g'
++ new_icon=software-manager
++ old_icon=/usr/lib/linuxmint/mintInstall/icon.svg
++ old_icon=/usr/lib/linuxmint/mintInstall/icon.svg
++ old_icon='\/usr\/lib\/linuxmint\/mintInstall\/icon.svg'
++ '[' -f /home/josh/.local/share/applications/software-manager.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo MKV Extractor GUI
+++ sed -e 's/\r//g'
++ name='MKV Extractor GUI'
+++ echo mkv-extractor-gui.desktop
+++ sed -e 's/\r//g'
++ launcher=mkv-extractor-gui.desktop
+++ echo /usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png
+++ echo mkv-extractor-gui
+++ sed -e 's/\r//g'
++ new_icon=mkv-extractor-gui
++ old_icon=/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png
++ old_icon=/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png
++ old_icon='\/usr\/share\/icons\/hicolor\/256x256\/apps\/mkv-extractor-gui.png'
++ '[' -f /home/josh/.local/share/applications/mkv-extractor-gui.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo My Weather Indicator
+++ sed -e 's/\r//g'
++ name='My Weather Indicator'
+++ echo my-weather-indicator.desktop
+++ sed -e 's/\r//g'
++ launcher=my-weather-indicator.desktop
+++ echo /opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
+++ sed -e 's/\r//g'
++ current=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
+++ echo indicator-weather
+++ sed -e 's/\r//g'
++ new_icon=indicator-weather
++ old_icon=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
++ old_icon=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
++ old_icon='\/opt\/extras.ubuntu.com\/my-weather-indicator\/share\/pixmaps\/my-weather-indicator.png'
++ '[' -f /home/josh/.local/share/applications/my-weather-indicator.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo My Weather Indicator '(extras)'
+++ sed -e 's/\r//g'
++ name='My Weather Indicator (extras)'
+++ echo extras-my-weather-indicator.desktop
+++ sed -e 's/\r//g'
++ launcher=extras-my-weather-indicator.desktop
+++ echo /opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
+++ sed -e 's/\r//g'
++ current=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
+++ echo indicator-weather
+++ sed -e 's/\r//g'
++ new_icon=indicator-weather
++ old_icon=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
++ old_icon=/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png
++ old_icon='\/opt\/extras.ubuntu.com\/my-weather-indicator\/share\/pixmaps\/my-weather-indicator.png'
++ '[' -f /home/josh/.local/share/applications/extras-my-weather-indicator.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Netbeans IDE
+++ sed -e 's/\r//g'
++ name='Netbeans IDE'
+++ echo netbeans.desktop
+++ sed -e 's/\r//g'
++ launcher=netbeans.desktop
+++ echo /usr/share/netbeans/7.0.1/nb/netbeans.png
+++ sed -e 's/\r//g'
++ current=/usr/share/netbeans/7.0.1/nb/netbeans.png
+++ echo netbeans
+++ sed -e 's/\r//g'
++ new_icon=netbeans
++ old_icon=/usr/share/netbeans/7.0.1/nb/netbeans.png
++ old_icon=/usr/share/netbeans/7.0.1/nb/netbeans.png
++ old_icon='\/usr\/share\/netbeans\/7.0.1\/nb\/netbeans.png'
++ '[' -f /home/josh/.local/share/applications/netbeans.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Ninja IDE
+++ sed -e 's/\r//g'
++ name='Ninja IDE'
+++ echo ninja-ide.desktop
+++ sed -e 's/\r//g'
++ launcher=ninja-ide.desktop
+++ echo /usr/share/ninja-ide/img/icon.png
+++ sed -e 's/\r//g'
++ current=/usr/share/ninja-ide/img/icon.png
+++ echo ninja-ide
+++ sed -e 's/\r//g'
++ new_icon=ninja-ide
++ old_icon=/usr/share/ninja-ide/img/icon.png
++ old_icon=/usr/share/ninja-ide/img/icon.png
++ old_icon='\/usr\/share\/ninja-ide\/img\/icon.png'
++ '[' -f /home/josh/.local/share/applications/ninja-ide.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Nitro Tasks
+++ sed -e 's/\r//g'
++ name='Nitro Tasks'
+++ echo nitrotasks.desktop
+++ sed -e 's/\r//g'
++ launcher=nitrotasks.desktop
+++ echo /usr/share/nitrotasks/media/nitrotasks.png
+++ sed -e 's/\r//g'
++ current=/usr/share/nitrotasks/media/nitrotasks.png
+++ echo nitrotasks
+++ sed -e 's/\r//g'
++ new_icon=nitrotasks
++ old_icon=/usr/share/nitrotasks/media/nitrotasks.png
++ old_icon=/usr/share/nitrotasks/media/nitrotasks.png
++ old_icon='\/usr\/share\/nitrotasks\/media\/nitrotasks.png'
++ '[' -f /home/josh/.local/share/applications/nitrotasks.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo NotifyOSD
+++ sed -e 's/\r//g'
++ name=NotifyOSD
+++ echo notifyosdconf.desktop
+++ sed -e 's/\r//g'
++ launcher=notifyosdconf.desktop
+++ echo /usr/share/notifyosdconf/not.png
+++ sed -e 's/\r//g'
++ current=/usr/share/notifyosdconf/not.png
+++ echo notifyconf
+++ sed -e 's/\r//g'
++ new_icon=notifyconf
++ old_icon=/usr/share/notifyosdconf/not.png
++ old_icon=/usr/share/notifyosdconf/not.png
++ old_icon='\/usr\/share\/notifyosdconf\/not.png'
++ '[' -f /home/josh/.local/share/applications/notifyosdconf.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo OmegaT
+++ sed -e 's/\r//g'
++ name=OmegaT
+++ echo omegat.desktop
+++ sed -e 's/\r//g'
++ launcher=omegat.desktop
+++ echo /usr/share/omegat/images/OmegaT.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/omegat/images/OmegaT.xpm
+++ sed -e 's/\r//g'
+++ echo omegat
++ new_icon=omegat
++ old_icon=/usr/share/omegat/images/OmegaT.xpm
++ old_icon=/usr/share/omegat/images/OmegaT.xpm
++ old_icon='\/usr\/share\/omegat\/images\/OmegaT.xpm'
++ '[' -f /home/josh/.local/share/applications/omegat.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo PacmanXG
+++ sed -e 's/\r//g'
++ name=PacmanXG
+++ echo pacmanxg.desktop
+++ sed -e 's/\r//g'
++ launcher=pacmanxg.desktop
+++ echo /usr/share/pixmaps/pacmanxg.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/pacmanxg.png
+++ echo pacmanxg
+++ sed -e 's/\r//g'
++ new_icon=pacmanxg
++ old_icon=/usr/share/pixmaps/pacmanxg.png
++ old_icon=/usr/share/pixmaps/pacmanxg.png
++ old_icon='\/usr\/share\/pixmaps\/pacmanxg.png'
++ '[' -f /home/josh/.local/share/applications/pacmanxg.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Pamac '(Install)'
+++ sed -e 's/\r//g'
++ name='Pamac (Install)'
+++ echo pamac-install.desktop
+++ sed -e 's/\r//g'
++ launcher=pamac-install.desktop
+++ echo /usr/share/pamac/icons/32x32/apps/pamac.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pamac/icons/32x32/apps/pamac.png
+++ echo system-software-install
+++ sed -e 's/\r//g'
++ new_icon=system-software-install
++ old_icon=/usr/share/pamac/icons/32x32/apps/pamac.png
++ old_icon=/usr/share/pamac/icons/32x32/apps/pamac.png
++ old_icon='\/usr\/share\/pamac\/icons\/32x32\/apps\/pamac.png'
++ '[' -f /home/josh/.local/share/applications/pamac-install.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Pamac '(Update)'
+++ sed -e 's/\r//g'
++ name='Pamac (Update)'
+++ echo pamac-update.desktop
+++ sed -e 's/\r//g'
++ launcher=pamac-update.desktop
+++ echo /usr/share/pamac/icons/32x32/apps/pamac.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pamac/icons/32x32/apps/pamac.png
+++ echo system-software-update
+++ sed -e 's/\r//g'
++ new_icon=system-software-update
++ old_icon=/usr/share/pamac/icons/32x32/apps/pamac.png
++ old_icon=/usr/share/pamac/icons/32x32/apps/pamac.png
++ old_icon='\/usr\/share\/pamac\/icons\/32x32\/apps\/pamac.png'
++ '[' -f /home/josh/.local/share/applications/pamac-update.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Pencil
+++ sed -e 's/\r//g'
++ name=Pencil
+++ echo pencil.desktop
+++ sed -e 's/\r//g'
++ launcher=pencil.desktop
+++ echo /usr/share/pencil/skin/classic/icon.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/pencil/skin/classic/icon.svg
+++ sed -e 's/\r//g'
+++ echo pencil
++ new_icon=pencil
++ old_icon=/usr/share/pencil/skin/classic/icon.svg
++ old_icon=/usr/share/pencil/skin/classic/icon.svg
++ old_icon='\/usr\/share\/pencil\/skin\/classic\/icon.svg'
++ '[' -f /home/josh/.local/share/applications/pencil.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo pgAdmin3
+++ sed -e 's/\r//g'
++ name=pgAdmin3
+++ echo pgadmin3.desktop
+++ sed -e 's/\r//g'
++ launcher=pgadmin3.desktop
+++ echo /usr/share/pgadmin3/pgAdmin3.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pgadmin3/pgAdmin3.png
+++ echo pgAdmin3
+++ sed -e 's/\r//g'
++ new_icon=pgAdmin3
++ old_icon=/usr/share/pgadmin3/pgAdmin3.png
++ old_icon=/usr/share/pgadmin3/pgAdmin3.png
++ old_icon='\/usr\/share\/pgadmin3\/pgAdmin3.png'
++ '[' -f /home/josh/.local/share/applications/pgadmin3.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo pgModeler
+++ sed -e 's/\r//g'
++ name=pgModeler
+++ echo pgmodeler.desktop
+++ sed -e 's/\r//g'
++ launcher=pgmodeler.desktop
+++ echo /etc/pgmodeler/pgmodeler_logo.png
+++ sed -e 's/\r//g'
++ current=/etc/pgmodeler/pgmodeler_logo.png
+++ echo pgmodeler
+++ sed -e 's/\r//g'
++ new_icon=pgmodeler
++ old_icon=/etc/pgmodeler/pgmodeler_logo.png
++ old_icon=/etc/pgmodeler/pgmodeler_logo.png
++ old_icon='\/etc\/pgmodeler\/pgmodeler_logo.png'
++ '[' -f /home/josh/.local/share/applications/pgmodeler.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo PHP Storm
+++ sed -e 's/\r//g'
++ name='PHP Storm'
+++ echo phpstorm.desktop
+++ sed -e 's/\r//g'
++ launcher=phpstorm.desktop
+++ echo PhpStorm-133.803/bin/webide.png
+++ sed -e 's/\r//g'
++ current=PhpStorm-133.803/bin/webide.png
+++ echo phpstorm
+++ sed -e 's/\r//g'
++ new_icon=phpstorm
++ old_icon=PhpStorm-133.803/bin/webide.png
++ old_icon=PhpStorm-133.803/bin/webide.png
++ old_icon='PhpStorm-133.803\/bin\/webide.png'
++ '[' -f /home/josh/.local/share/applications/phpstorm.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Pycharm
+++ sed -e 's/\r//g'
++ name=Pycharm
+++ echo pycharm.desktop
+++ sed -e 's/\r//g'
++ launcher=pycharm.desktop
+++ echo '$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png'
+++ sed -e 's/\r//g'
++ current='$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png'
+++ echo pycharm
+++ sed -e 's/\r//g'
++ new_icon=pycharm
++ old_icon='$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png'
++ old_icon='$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png'
++ old_icon='$HOME\/Descargas\/pycharm-community-3.1.1\/bin\/pycharm.png'
++ '[' -f /home/josh/.local/share/applications/pycharm.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo pyRenamer
+++ sed -e 's/\r//g'
++ name=pyRenamer
+++ echo pyrenamer.desktop
+++ sed -e 's/\r//g'
++ launcher=pyrenamer.desktop
+++ echo /usr/share/pyrenamer/pyrenamer.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pyrenamer/pyrenamer.png
+++ echo pyrenamer
+++ sed -e 's/\r//g'
++ new_icon=pyrenamer
++ old_icon=/usr/share/pyrenamer/pyrenamer.png
++ old_icon=/usr/share/pyrenamer/pyrenamer.png
++ old_icon='\/usr\/share\/pyrenamer\/pyrenamer.png'
++ '[' -f /home/josh/.local/share/applications/pyrenamer.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v2.6)'
+++ sed -e 's/\r//g'
++ name='Python (v2.6)'
+++ echo python2.6.desktop
+++ sed -e 's/\r//g'
++ launcher=python2.6.desktop
+++ echo /usr/share/pixmaps/python2.6.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python2.6.xpm
+++ echo python2.6.
+++ sed -e 's/\r//g'
++ new_icon=python2.6.
++ old_icon=/usr/share/pixmaps/python2.6.xpm
++ old_icon=/usr/share/pixmaps/python2.6.xpm
++ old_icon='\/usr\/share\/pixmaps\/python2.6.xpm'
++ '[' -f /home/josh/.local/share/applications/python2.6.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v2.7)'
+++ sed -e 's/\r//g'
++ name='Python (v2.7)'
+++ echo python2.7.desktop
+++ sed -e 's/\r//g'
++ launcher=python2.7.desktop
+++ echo /usr/share/pixmaps/python2.7.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python2.7.xpm
+++ echo python2.7.
+++ sed -e 's/\r//g'
++ new_icon=python2.7.
++ old_icon=/usr/share/pixmaps/python2.7.xpm
++ old_icon=/usr/share/pixmaps/python2.7.xpm
++ old_icon='\/usr\/share\/pixmaps\/python2.7.xpm'
++ '[' -f /home/josh/.local/share/applications/python2.7.desktop ']'
++ '[' /usr/share/pixmaps/python2.7.xpm '!=' steam ']'
++ grep -Fxq 'L: python2.7.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v3.0)'
+++ sed -e 's/\r//g'
++ name='Python (v3.0)'
+++ echo python3.0.desktop
+++ sed -e 's/\r//g'
++ launcher=python3.0.desktop
+++ echo /usr/share/pixmaps/python3.0.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python3.0.xpm
+++ echo python3.0.
+++ sed -e 's/\r//g'
++ new_icon=python3.0.
++ old_icon=/usr/share/pixmaps/python3.0.xpm
++ old_icon=/usr/share/pixmaps/python3.0.xpm
++ old_icon='\/usr\/share\/pixmaps\/python3.0.xpm'
++ '[' -f /home/josh/.local/share/applications/python3.0.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v3.1)'
+++ sed -e 's/\r//g'
++ name='Python (v3.1)'
+++ echo python3.1.desktop
+++ sed -e 's/\r//g'
++ launcher=python3.1.desktop
+++ echo /usr/share/pixmaps/python3.1.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python3.1.xpm
+++ echo python3.1.
+++ sed -e 's/\r//g'
++ new_icon=python3.1.
++ old_icon=/usr/share/pixmaps/python3.1.xpm
++ old_icon=/usr/share/pixmaps/python3.1.xpm
++ old_icon='\/usr\/share\/pixmaps\/python3.1.xpm'
++ '[' -f /home/josh/.local/share/applications/python3.1.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v3.2)'
+++ sed -e 's/\r//g'
++ name='Python (v3.2)'
+++ echo python3.2.desktop
+++ sed -e 's/\r//g'
++ launcher=python3.2.desktop
+++ echo /usr/share/pixmaps/python3.2.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python3.2.xpm
+++ echo python3.2.
+++ sed -e 's/\r//g'
++ new_icon=python3.2.
++ old_icon=/usr/share/pixmaps/python3.2.xpm
++ old_icon=/usr/share/pixmaps/python3.2.xpm
++ old_icon='\/usr\/share\/pixmaps\/python3.2.xpm'
++ '[' -f /home/josh/.local/share/applications/python3.2.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v3.3)'
+++ sed -e 's/\r//g'
++ name='Python (v3.3)'
+++ echo python3.3.desktop
+++ sed -e 's/\r//g'
++ launcher=python3.3.desktop
+++ echo /usr/share/pixmaps/python3.3.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python3.3.xpm
+++ echo python3.3.
+++ sed -e 's/\r//g'
++ new_icon=python3.3.
++ old_icon=/usr/share/pixmaps/python3.3.xpm
++ old_icon=/usr/share/pixmaps/python3.3.xpm
++ old_icon='\/usr\/share\/pixmaps\/python3.3.xpm'
++ '[' -f /home/josh/.local/share/applications/python3.3.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Python '(v3.4)'
+++ sed -e 's/\r//g'
++ name='Python (v3.4)'
+++ echo python3.4.desktop
+++ sed -e 's/\r//g'
++ launcher=python3.4.desktop
+++ echo /usr/share/pixmaps/python3.4.xpm
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/python3.4.xpm
+++ echo python3.4.
+++ sed -e 's/\r//g'
++ new_icon=python3.4.
++ old_icon=/usr/share/pixmaps/python3.4.xpm
++ old_icon=/usr/share/pixmaps/python3.4.xpm
++ old_icon='\/usr\/share\/pixmaps\/python3.4.xpm'
++ '[' -f /home/josh/.local/share/applications/python3.4.desktop ']'
++ '[' /usr/share/pixmaps/python3.4.xpm '!=' steam ']'
++ grep -Fxq 'L: python3.4.desktop' /home/josh/.local/share/hcf-data/fixed.txt
++ :
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo QLE
+++ sed -e 's/\r//g'
++ name=QLE
+++ echo extras-qlequicklisteditor.desktop
+++ sed -e 's/\r//g'
++ launcher=extras-qlequicklisteditor.desktop
+++ echo /usr/share/pixmaps/qle_pix/logoqle2.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/qle_pix/logoqle2.svg
+++ echo logoqle2
+++ sed -e 's/\r//g'
++ new_icon=logoqle2
++ old_icon=/usr/share/pixmaps/qle_pix/logoqle2.svg
++ old_icon=/usr/share/pixmaps/qle_pix/logoqle2.svg
++ old_icon='\/usr\/share\/pixmaps\/qle_pix\/logoqle2.svg'
++ '[' -f /home/josh/.local/share/applications/extras-qlequicklisteditor.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Robomongo
+++ sed -e 's/\r//g'
++ name=Robomongo
+++ echo robomongo.desktop
+++ sed -e 's/\r//g'
++ launcher=robomongo.desktop
+++ echo robomongo.png
+++ sed -e 's/\r//g'
++ current=robomongo.png
+++ echo robomongo
+++ sed -e 's/\r//g'
++ new_icon=robomongo
++ old_icon=robomongo.png
++ old_icon=robomongo.png
++ old_icon=robomongo.png
++ '[' -f /home/josh/.local/share/applications/robomongo.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo SmartHitHG
+++ sed -e 's/\r//g'
++ name=SmartHitHG
+++ echo syntevo-smartgithg-5.desktop
+++ sed -e 's/\r//g'
++ launcher=syntevo-smartgithg-5.desktop
+++ echo /usr/share/smartgithg-5/bin/smartgithg-128.png
+++ sed -e 's/\r//g'
++ current=/usr/share/smartgithg-5/bin/smartgithg-128.png
+++ echo smartgithg
+++ sed -e 's/\r//g'
++ new_icon=smartgithg
++ old_icon=/usr/share/smartgithg-5/bin/smartgithg-128.png
++ old_icon=/usr/share/smartgithg-5/bin/smartgithg-128.png
++ old_icon='\/usr\/share\/smartgithg-5\/bin\/smartgithg-128.png'
++ '[' -f /home/josh/.local/share/applications/syntevo-smartgithg-5.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Springseed
+++ sed -e 's/\r//g'
++ name=Springseed
+++ sed -e 's/\r//g'
+++ echo springseed.desktop
++ launcher=springseed.desktop
+++ echo /usr/share/pixmaps/springseed/springseed.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/springseed/springseed.svg
+++ echo springseed
+++ sed -e 's/\r//g'
++ new_icon=springseed
++ old_icon=/usr/share/pixmaps/springseed/springseed.svg
++ old_icon=/usr/share/pixmaps/springseed/springseed.svg
++ old_icon='\/usr\/share\/pixmaps\/springseed\/springseed.svg'
++ '[' -f /home/josh/.local/share/applications/springseed.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Synergy
+++ sed -e 's/\r//g'
++ name=Synergy
+++ echo synergy.desktop
+++ sed -e 's/\r//g'
++ launcher=synergy.desktop
+++ echo /usr/share/icons/synergy.ico
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/synergy.ico
+++ echo synergy
+++ sed -e 's/\r//g'
++ new_icon=synergy
++ old_icon=/usr/share/icons/synergy.ico
++ old_icon=/usr/share/icons/synergy.ico
++ old_icon='\/usr\/share\/icons\/synergy.ico'
++ '[' -f /home/josh/.local/share/applications/synergy.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo TimeShift
+++ sed -e 's/\r//g'
++ name=TimeShift
+++ echo TimeShift.desktop
+++ sed -e 's/\r//g'
++ launcher=TimeShift.desktop
+++ echo /usr/share/pixmaps/timeshift.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/timeshift.png
+++ echo timeshift
+++ sed -e 's/\r//g'
++ new_icon=timeshift
++ old_icon=/usr/share/pixmaps/timeshift.png
++ old_icon=/usr/share/pixmaps/timeshift.png
++ old_icon='\/usr\/share\/pixmaps\/timeshift.png'
++ '[' -f /home/josh/.local/share/applications/TimeShift.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Tomate
+++ sed -e 's/\r//g'
++ name=Tomate
+++ echo tomate.desktop
+++ sed -e 's/\r//g'
++ launcher=tomate.desktop
+++ echo /usr/share/tomate/media/tomate.png
+++ sed -e 's/\r//g'
++ current=/usr/share/tomate/media/tomate.png
+++ echo tomate
+++ sed -e 's/\r//g'
++ new_icon=tomate
++ old_icon=/usr/share/tomate/media/tomate.png
++ old_icon=/usr/share/tomate/media/tomate.png
++ old_icon='\/usr\/share\/tomate\/media\/tomate.png'
++ '[' -f /home/josh/.local/share/applications/tomate.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Uberwriter
+++ sed -e 's/\r//g'
++ name=Uberwriter
+++ echo uberwriter.desktop
+++ sed -e 's/\r//g'
++ launcher=uberwriter.desktop
+++ sed -e 's/\r//g'
+++ echo /usr/share/uberwriter/media/uberwriter.svg
++ current=/usr/share/uberwriter/media/uberwriter.svg
+++ echo uberwriter
+++ sed -e 's/\r//g'
++ new_icon=uberwriter
++ old_icon=/usr/share/uberwriter/media/uberwriter.svg
++ old_icon=/usr/share/uberwriter/media/uberwriter.svg
++ old_icon='\/usr\/share\/uberwriter\/media\/uberwriter.svg'
++ '[' -f /home/josh/.local/share/applications/uberwriter.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Valentina Studio
+++ sed -e 's/\r//g'
++ name='Valentina Studio'
+++ echo VStudio.desktop
+++ sed -e 's/\r//g'
++ launcher=VStudio.desktop
+++ echo /opt/VStudio/Resources/vstudio.png
+++ sed -e 's/\r//g'
++ current=/opt/VStudio/Resources/vstudio.png
+++ echo vstudio
+++ sed -e 's/\r//g'
++ new_icon=vstudio
++ old_icon=/opt/VStudio/Resources/vstudio.png
++ old_icon=/opt/VStudio/Resources/vstudio.png
++ old_icon='\/opt\/VStudio\/Resources\/vstudio.png'
++ '[' -f /home/josh/.local/share/applications/VStudio.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Viber
+++ sed -e 's/\r//g'
++ name=Viber
+++ echo viber.desktop
+++ sed -e 's/\r//g'
++ launcher=viber.desktop
+++ echo /usr/share/pixmaps/viber.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/viber.png
+++ echo viber
+++ sed -e 's/\r//g'
++ new_icon=viber
++ old_icon=/usr/share/pixmaps/viber.png
++ old_icon=/usr/share/pixmaps/viber.png
++ old_icon='\/usr\/share\/pixmaps\/viber.png'
++ '[' -f /home/josh/.local/share/applications/viber.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Wireframe Sketcher
+++ sed -e 's/\r//g'
++ name='Wireframe Sketcher'
+++ echo wireframesketcherstudio.desktop
+++ sed -e 's/\r//g'
++ launcher=wireframesketcherstudio.desktop
+++ echo /usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png
+++ sed -e 's/\r//g'
++ current=/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png
+++ echo wireframe-sketcher
+++ sed -e 's/\r//g'
++ new_icon=wireframe-sketcher
++ old_icon=/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png
++ old_icon=/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png
++ old_icon='\/usr\/share\/icons\/hicolor\/128x128\/apps\/WireframeSketcher.png'
++ '[' -f /home/josh/.local/share/applications/wireframesketcherstudio.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo X-Diagnose
+++ sed -e 's/\r//g'
++ name=X-Diagnose
+++ echo xdiagnose.desktop
+++ sed -e 's/\r//g'
++ launcher=xdiagnose.desktop
+++ echo /usr/share/xdiagnose/icons/microscope.svg
+++ sed -e 's/\r//g'
++ current=/usr/share/xdiagnose/icons/microscope.svg
+++ echo xdiagnose
+++ sed -e 's/\r//g'
++ new_icon=xdiagnose
++ old_icon=/usr/share/xdiagnose/icons/microscope.svg
++ old_icon=/usr/share/xdiagnose/icons/microscope.svg
++ old_icon='\/usr\/share\/xdiagnose\/icons\/microscope.svg'
++ '[' -f /home/josh/.local/share/applications/xdiagnose.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo YouTubeDL GUI
+++ sed -e 's/\r//g'
++ name='YouTubeDL GUI'
+++ echo youtube-dlg.desktop
+++ sed -e 's/\r//g'
++ launcher=youtube-dlg.desktop
+++ echo /usr/share/pixmaps/youtube-dlg.png
+++ sed -e 's/\r//g'
++ current=/usr/share/pixmaps/youtube-dlg.png
+++ echo youtube-dlg
+++ sed -e 's/\r//g'
++ new_icon=youtube-dlg
++ old_icon=/usr/share/pixmaps/youtube-dlg.png
++ old_icon=/usr/share/pixmaps/youtube-dlg.png
++ old_icon='\/usr\/share\/pixmaps\/youtube-dlg.png'
++ '[' -f /home/josh/.local/share/applications/youtube-dlg.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Zenmap
+++ sed -e 's/\r//g'
++ name=Zenmap
+++ echo zenmap.desktop
+++ sed -e 's/\r//g'
++ launcher=zenmap.desktop
+++ echo /usr/share/zenmap/pixmaps/zenmap.png
+++ sed -e 's/\r//g'
++ current=/usr/share/zenmap/pixmaps/zenmap.png
+++ echo zenmap
+++ sed -e 's/\r//g'
++ new_icon=zenmap
++ old_icon=/usr/share/zenmap/pixmaps/zenmap.png
++ old_icon=/usr/share/zenmap/pixmaps/zenmap.png
++ old_icon='\/usr\/share\/zenmap\/pixmaps\/zenmap.png'
++ '[' -f /home/josh/.local/share/applications/zenmap.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo Zenmap '(root)'
+++ sed -e 's/\r//g'
++ name='Zenmap (root)'
+++ echo zenmap-root.desktop
+++ sed -e 's/\r//g'
++ launcher=zenmap-root.desktop
+++ echo /usr/share/zenmap/pixmaps/zenmap.png
+++ sed -e 's/\r//g'
++ current=/usr/share/zenmap/pixmaps/zenmap.png
+++ echo zenmap
+++ sed -e 's/\r//g'
++ new_icon=zenmap
++ old_icon=/usr/share/zenmap/pixmaps/zenmap.png
++ old_icon=/usr/share/zenmap/pixmaps/zenmap.png
++ old_icon='\/usr\/share\/zenmap\/pixmaps\/zenmap.png'
++ '[' -f /home/josh/.local/share/applications/zenmap-root.desktop ']'
++ '[' local '!=' local ']'
++ read line
++ IFS='|'
++ read -a array
+++ echo
+++ sed -e 's/\r//g'
++ name=
+++ echo .desktop
+++ sed -e 's/\r//g'
++ launcher=.desktop
+++ echo
+++ sed -e 's/\r//g'
++ current=
+++ echo
+++ sed -e 's/\r//g'
++ new_icon=
++ old_icon=
++ old_icon=
++ old_icon=
++ '[' -f /home/josh/.local/share/applications/.desktop ']'
++ '[' local '!=' local ']'
++ read line
