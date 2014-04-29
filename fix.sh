@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.7.3"
+version="0.7.3-1"
 
 # Default mode
 mode="fix"
@@ -68,10 +68,6 @@ cd "$data_directory" || echo "$0: Data directory does not exist or was not creat
 touch "$data_directory/fixed.txt"
 touch "$data_directory/log.txt"
 
-# Forces full user ownership and read/write permissions on the data directory and its contents.
-chown -R "${SUDO_USER:-$USER}" "$data_directory"
-chmod -R 777 "$data_directory"
-
 # Append mode to log file
 echo "$mode" >> "$data_directory/log.txt"
 
@@ -88,6 +84,10 @@ else
 	echo "Please install them and rerun this script."
 	exit 1
 fi
+
+# Forces full user ownership and read/write permissions on the data directory and its contents.
+chown -R "${SUDO_USER:-$USER}" "$data_directory" "$data_directory"/*
+chmod -R 777 "$data_directory" "$data_directory"/*
 
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]
