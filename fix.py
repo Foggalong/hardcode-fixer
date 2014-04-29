@@ -87,7 +87,7 @@ def fix(directory):
 			launcher = app[1] + ".desktop"
 			current_icon = app[2]
 			new_icon = app[3]
-			if launcher in listdir(launcher_dir):
+			if launcher in listdir(launcher_dir) and not isfile(icon_dir + "/" + new_icon):
 				print("Fixing: " + name + " - " +  launcher)
 				if current_icon != "steam":
 					copy(current_icon, icon_dir + "/" + new_icon)
@@ -106,10 +106,9 @@ def unfix(directory):
 			launcher = app[1] + ".desktop"
 			current_icon = app[2]
 			new_icon = app[3]
-			if launcher in listdir(launcher_dir):
+			if launcher in listdir(launcher_dir) and isfile(icon_dir + "/" + new_icon):
 				print("Unfixing: " + name + " - " +  launcher)
-				if isfile(icon_dir + "/" + new_icon):
-					remove(icon_dir + "/" + new_icon)
+				remove(icon_dir + "/" + new_icon)
 				replace(launcher_dir + "/" + launcher, "Icon=" + new_icon, "Icon=" + current_icon)
 
 #Handle arguments
