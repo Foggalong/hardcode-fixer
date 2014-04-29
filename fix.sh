@@ -51,7 +51,7 @@ else
 			echo -e "Currently supported options:"
 			echo -e "  -l, --local \t Only changed local launchers."
 			echo -e "  -r, --revert \t Reverts any changes made."
-			echo -e "  -u, --local-revert \t Reverts any local changes made."
+			echo -e "  -u, --unfix \t Reverts any local changes made."
 			echo -e "  -h, --help \t\t Displays this help menu."
 			echo -e "  -v, --version \t Displays program version."
 			exit 0 ;;
