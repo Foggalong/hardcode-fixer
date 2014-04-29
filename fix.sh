@@ -136,7 +136,7 @@ then
 		# Local launchers
 		if [ -f "$HOME/.local/share/applications/${launcher}" ]
 		then
-			if grep -Fxq "$name" "$data_directory/fixed.txt" # checks if already fixed
+			if grep -Fxq "L: $name" "$data_directory/fixed.txt" # checks if already fixed
 			then
 				: # pass
 			else
@@ -161,7 +161,7 @@ then
 		# Global launchers
 		if [ $mode != "local" ] && [ -f "/usr/share/applications/${launcher}" ]
 		then
-			if grep -Fxq "$name" $data_directory/fixed.txt # checks if already fixed
+			if grep -Fxq "G: $name" $data_directory/fixed.txt # checks if already fixed
 			then
 				: # pass
 			else
