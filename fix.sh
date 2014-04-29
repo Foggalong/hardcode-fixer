@@ -54,36 +54,6 @@ else
 	esac
 fi
 
-# Checks for root
-if [[ $UID -ne 0 ]] && [ $mode != "local" ]
-then
-	if [ "$mode" == "revert" ]
-	then
-		# Checks if local only reversion is appropriate
-		if grep -Fxq "fix" "$data_directory/log.txt"
-		then
-			echo -e "This script was previously run as root and so"
-			echo -e "running 'revert' without it will not properly"
-			echo -e "reverse the changes that were made."
-			sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
-			exit 1
-		else
-			mode="l-revert"
-		fi
-	else
-		# Script must be run as root to fix/revert any global changes
-		echo -e "The script must be run as root to fix global launchers."
-		while true; do
-			read -p "Do you want to continue in local mode? " answer
-			case $answer in
-				[Yy]* ) mode="local"; break;;
-				[Nn]* ) exit;;
-				* ) echo "Please answer [Y/y]es or [N/n]o.";;
-			esac
-		done
-	fi
-fi
-
 # Data directory
 data_directory="/home/${SUDO_USER:-$USER}/.local/share/hcf-data"
 echo "Data directory path set to: $data_directory"
@@ -117,6 +87,36 @@ else
 	echo "to be installed to fetch the required files."
 	echo "Please install them and rerun this script."
 	exit 1
+fi
+
+# Checks for root
+if [[ $UID -ne 0 ]] && [ $mode != "local" ]
+then
+	if [ "$mode" == "revert" ]
+	then
+		# Checks if local only reversion is appropriate
+		if grep -Fxq "fix" "$data_directory/log.txt"
+		then
+			echo -e "This script was previously run as root and so"
+			echo -e "running 'revert' without it will not properly"
+			echo -e "reverse the changes that were made."
+			sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
+			exit 1
+		else
+			mode="l-revert"
+		fi
+	else
+		# Script must be run as root to fix/revert any global changes
+		echo -e "The script must be run as root to fix global launchers."
+		while true; do
+			read -p "Do you want to continue in local mode? " answer
+			case $answer in
+				[Yy]* ) mode="local"; break;;
+				[Nn]* ) exit;;
+				* ) echo "Please answer [Y/y]es or [N/n]o.";;
+			esac
+		done
+	fi
 fi
 
 # Fixing code
