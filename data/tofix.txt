@@ -72,7 +72,7 @@
 |SmartHitHG|syntevo-smartgithg-5|/usr/share/smartgithg-5/bin/smartgithg-128.png|smartgithg|
 |Springseed|springseed|/usr/share/pixmaps/springseed/springseed.svg|springseed|
 |Synergy|synergy|/usr/share/icons/synergy.ico|synergy|
-|TimeShift|/usr/share/pixmaps/timeshift.png|timeshift|
+|TimeShift|TimeShift|/usr/share/pixmaps/timeshift.png|timeshift|
 |Tomate|tomate|/usr/share/tomate/media/tomate.png|tomate|
 |Uberwriter|uberwriter|/usr/share/uberwriter/media/uberwriter.svg|uberwriter|
 |Valentina Studio|VStudio|/opt/VStudio/Resources/vstudio.png|vstudio|
