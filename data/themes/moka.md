@@ -46,7 +46,7 @@ Moka
 | Mint Audio Tag |   |
 | Mint Backup |   |
 | Mint Software Manager |   |
-| MKV Extractor GUI |   |
+| MKV Extractor GUI | ✔ |
 | My Weather Indicator |   |
 | Netbeans IDE | ✔ |
 | Ninja IDE |   |
