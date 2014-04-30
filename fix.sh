@@ -10,30 +10,9 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-# Version
 version="0.8"
 date=201404300 # [year][month][date][extra]
-
-# Check for newer version
-if type "curl" >> "$data_directory/log.txt" # Verifies if 'curl' is installed
-then
-	new_date=curl 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt' # <- does that even work?
-	if [ date -ge new_date ]
-	then
-		echo "Hey eveloper!"
-	elif [ date -eq new_date ]
-		echo "You're up to date!"
-	elif [ date -le new_date ]
-		echo "You're out of date!"
-		echo "Please go to https://github.com/Foggalong/hardcode-fixer"
-		echo "and download the latest version!"
-	fi
-else
-	echo "'curl' is needed to check for new versions."
-fi
-
-# Default mode
-mode="fix"
+mode="fix"     # default
 
 # Deals with the flags
 if [ -z $1 ]
@@ -73,11 +52,8 @@ else
 	esac
 fi
 
-# Data directory
+# Prepare directory
 data_directory="/home/${SUDO_USER:-$USER}/.local/share/hcf-data"
-echo "Data directory path set to: $data_directory"
-
-# Creates data directory
 mkdir -p "$data_directory"
 
 # Verify data directory creation and existence by entering command directory
@@ -87,18 +63,47 @@ cd "$data_directory" || echo "$0: Data directory does not exist or was not creat
 touch "$data_directory/fixed.txt"
 touch "$data_directory/log.txt"
 
-# Downloads icon data from GitHub repository to data directory
-if type "wget" >> "$data_directory/log.txt" # Verifies if 'wget' is installed
+# Verifies if 'curl' is installed
+if type "curl" >> "$data_directory/log.txt"
 then
-	wget -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
-elif type "curl" >> "$data_directory/log.txt" # Verifies if 'curl' is installed, provided 'wget' isn't
-then
-	curl -O "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt'
+	: # pass
 else
-	echo "$0: This script requires either 'wget' or 'curl'"
-	echo "to be installed to fetch the required files."
+	echo "$0: This script requires 'curl' to be installed"
+	echo "fetch the required files and check for updates."
 	echo "Please install them and rerun this script."
 	exit 1
+fi
+
+# Check for newer version
+new_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt)
+if [ date -lt new_date ]
+then
+	echo "You're out of date! Please go to"
+	echo "https://github.com/Foggalong/hardcode-fixer"
+	echo "and download the latest version!"
+	while true; do
+		read -p "Do you want to continue? " answer
+		case $answer in
+			[Yy]* ) echo; break;;
+			[Nn]* ) exit;;
+			* ) echo "Please answer [Y/y]es or [N/n]o.";;
+		esac
+	done;;
+fi
+
+# Checks for newer version of list
+if [ -f "$data_directory/version.txt" ]
+then
+	list_date=$(cat "$data_directory/version.txt")
+	new_list_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt)
+	if [ list_date -lt new_list_date ]
+	then
+		# Downloads icon data from GitHub repository to data directory
+		curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
+		curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
+	fi
+else
+	curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
 fi
 
 # Forces full user ownership and read/write permissions on the data directory and its contents.
