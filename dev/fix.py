@@ -14,7 +14,7 @@
 from os import environ, execlpe, geteuid, listdir, remove
 from os.path import expanduser, isfile
 from sys import executable, argv
-from urllib.request import urlopen
+from urllib import request, error
 from shutil import copy
 
 #User variables
@@ -53,6 +53,9 @@ ROOT_MESSAGE = """
 Because most launchers are in /usr/share/applications/
 fixing their hardcoded icon lines requites root privlages.\n"""
 
+#Fix list
+FIX_LIST = 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
+
 #List with hardcoded icons
 #item in list => [name, launcher, current, new]
 hardcoded_list=[]
@@ -61,7 +64,12 @@ hardcoded_list=[]
 def fetchHardcoded():
 	global hardcoded_list
 	print("Fetching hardcoded list from GitHub")
-	online_list = urlopen('https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/tofix.txt')
+	try:
+		online_list = request.urlopen(FIX_LIST)
+	except error.HTTPError as err:
+		print("Oops.. cannot download list: " + FIX_LIST)
+		print("HTTP Error " + str(err.code) + ": " + err.reason)
+		exit()
 	print("Decoding hardcoded list")
 	decoded_list = online_list.read().decode('utf-8')
 	for app in decoded_list.split('\n'):
