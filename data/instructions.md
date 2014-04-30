@@ -16,14 +16,18 @@ Simply download [fix.sh](https://github.com/Foggalong/hardcode-fixer/blob/master
 ### Flags
 There are also several options for flags:
 
-``-l, --local``
+```-l, --local```
+-----------
 The same as running ```./fix.sh```
 
-``-r, --revert``
+```-r, --revert```
+-----------
 Reverts any changes made. Whether it is to be run as root or not depends on how it was used initially.
 
-``-h, --help``
+```-h, --help```
+-----------
 Displays this help menu.
 
-``-v, --version``
+```-v, --version```
+-----------
 Print version number.
