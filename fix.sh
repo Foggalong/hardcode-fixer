@@ -76,7 +76,7 @@ fi
 
 # Check for newer version
 new_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt)
-if [ date -lt new_date ]
+if [ $date -lt $new_date ]
 then
 	echo "You're out of date! Please go to"
 	echo "https://github.com/Foggalong/hardcode-fixer"
@@ -88,7 +88,7 @@ then
 			[Nn]* ) exit;;
 			* ) echo "Please answer [Y/y]es or [N/n]o.";;
 		esac
-	done;;
+	done
 fi
 
 # Checks for newer version of list
@@ -96,14 +96,15 @@ if [ -f "$data_directory/version.txt" ]
 then
 	list_date=$(cat "$data_directory/version.txt")
 	new_list_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt)
-	if [ list_date -lt new_list_date ]
+	if [ $list_date -lt $new_list_date ]
 	then
 		# Downloads icon data from GitHub repository to data directory
-		curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
+		curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
 		curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
 	fi
 else
-	curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
+	curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
+	curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
 fi
 
 # Forces full user ownership and read/write permissions on the data directory and its contents.

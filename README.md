@@ -1,7 +1,3 @@
-DO NOT DOWNLOAD THIS VERSION
-==============
-I made a blunder with git and the testing version is now in the main area. I'm working to fix this as quickly as possible. Sorry for the inconvenience.
-
 Hardcoded Icon Fixer
 ==============
 This program aims to be a safe, easy and standardised soltuion to the problem of hardcoded application icons in Linux. All it is is [this one bash script](https://github.com/Foggalong/hardcode-fixer/blob/master/fix.sh) - simply copy it to somewhere on your PC and run (```./fix.sh -h``` for help).
