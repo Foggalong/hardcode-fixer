@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
-# A python rewrite of the hardcoded icon fixing script, found on GitHub
-# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
+# fix.py is written by Tom van der Lee (t0m.vd.l33@gmail.com) as a 
+# rewrite of fix.sh. Written and maintained on GitHub at 
+# https://github.com/Foggalong/hardcode-fixer - additions welcome!
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -22,23 +23,30 @@ LOCAL = HOME + "/.local/share"
 GLOBAL = "/usr/share"
 
 #Version number
-VERSION = "0.8-p"
+VERSION = "0.8.1-p"
 
 #Help menu
 HELP = """Usage: """ + argv[0] + """ [ACTION (MODE)]
 Fixes hardcoded icons of installed applications.
+
 If no [ACTION] or (MODE) is specified, this script
- will fix ALL hardcoded icons.
+ will show this help menu. 
+The default (MODE) is: all
 
 Currently supported actions:
   -f, --fix		Fixes all hardcoded icons
-  -u, --unfix		Unfixes all hardcoded icons
+  -r, --revert		Reverts all hardcoded icons
   -v, --version 	Displays script version
   -h, --help		Displays this help menu
 
 Currently supported modes:
-  all			(Un)fix both global and local hardcoded icons
-  local			(Un)fix local hardcoded icons ONLY"""
+  all			Fixes/reverts both global and local hardcoded icons
+  global		Fixes/reverts global hardcoded icons ONLY
+  local			Fixes/reverts local hardcoded icons ONLY
+
+NOTE: This script needs root rights to fix global hardcoded icons, but
+ you don't need to run the script with sudo. The script will ask for sudo
+ when it needs it."""
 
 #Root message
 ROOT_MESSAGE = """
@@ -106,7 +114,7 @@ def fix(directory):
 				replace(launcher_dir + "/" + launcher, "Icon=" + current_icon, "Icon=" + new_icon)
 
 #Unfix icons
-def unfix(directory):
+def revert(directory):
 	global hardcoded_list, HOME
 	launcher_dir = directory + "/applications"
 	icon_dir = directory + "/icons/hicolor/48x48/apps"
@@ -117,7 +125,7 @@ def unfix(directory):
 			current_icon = app[2]
 			new_icon = app[3]
 			if launcher in listdir(launcher_dir) and isfile(icon_dir + "/" + new_icon):
-				print("Unfixing: " + name + " - " +  launcher)
+				print("Reverting: " + name + " - " +  launcher)
 				remove(icon_dir + "/" + new_icon)
 				replace(launcher_dir + "/" + launcher, "Icon=" + new_icon, "Icon=" + current_icon)
 
@@ -129,14 +137,17 @@ elif len(argv) == 2:
 	action = argv[1]
 	mode = "all"
 else:
-	action = "-f"
-	mode = "all"
+	action = "-h"
 
 #Process arguments
 if action == "-f" or action == "--fix":
 	if mode == "local":
 		fetchHardcoded()
 		fix(LOCAL)
+	elif mode == "global":
+		aquireRoot()
+		fetchHardcoded()
+		fix(GLOBAL)
 	elif mode == "all":
 		aquireRoot()
 		fetchHardcoded()
@@ -144,15 +155,19 @@ if action == "-f" or action == "--fix":
 		fix(GLOBAL)
 	else:
 		print("Unknown mode: " + mode)
-elif action == "-u" or action  == "--unfix":
+elif action == "-r" or action  == "--revert":
 	if mode == "local":
 		fetchHardcoded()
-		unfix(LOCAL)
+		revert(LOCAL)
+	elif mode == "global":
+		aquireRoot()
+		fetchHardcoded()
+		revert(GLOBAL)
 	elif mode == "all":
 		aquireRoot()
 		fetchHardcoded()
-		unfix(LOCAL)
-		unfix(GLOBAL)
+		revert(LOCAL)
+		revert(GLOBAL)
 	else:
 		print("Unknown mode: " + mode)
 elif action == "-h" or action == "--help":
