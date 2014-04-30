@@ -10,7 +10,7 @@ Simply download [fix.sh](https://github.com/Foggalong/hardcode-fixer/blob/master
 
 +  ```sudo ./fix.sh``` will fix launcher both in ```/usr/share/applications/``` and ```~/.local/share/applications/```. This is the reccomended usage.
 
-+```./fix.sh``` will fix only launchers located in ```~/.local/share/applications/```. This is only reccomended if you are not able to use root.
++ ```./fix.sh``` will fix only launchers located in ```~/.local/share/applications/```. This is only reccomended if you are not able to use root.
 
 
 ### Flags
