@@ -12,7 +12,7 @@
 
 # Version
 version="0.8"
-date=201404290 # [year][month][date][extra]
+date=201404300 # [year][month][date][extra]
 
 # Check for newer version
 if type "curl" >> "$data_directory/log.txt" # Verifies if 'curl' is installed
