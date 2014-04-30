@@ -1,5 +1,15 @@
 #!/usr/bin/python3
 
+# A python rewrite of the hardcoded icon fixing script, found on GitHub
+# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
+
+# Copyright (C) 2014
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License (version 3+) as
+# published by the Free Software Foundation. You should have received
+# a copy of the GNU General Public License along with this program.
+# If not, see <http://www.gnu.org/licenses/>.
+
 from os import environ, execlpe, geteuid, listdir, remove
 from os.path import expanduser, isfile
 from sys import executable, argv

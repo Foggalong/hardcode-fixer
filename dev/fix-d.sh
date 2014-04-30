@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Script for fixing hardcoded icons. Written and maintained on GitHub
-# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
+# Development version of the script for fixing hardcoded icons. Written
+# and maintained on GitHub at https://github.com/Foggalong/hardcode-fixer
+# addtions welcome!
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -11,7 +12,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version
-version="0.8"
+version="0.8-d"
 date=201404290 # [year][month][date][extra]
 
 # Check for newer version
