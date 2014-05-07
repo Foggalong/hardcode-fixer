@@ -23,7 +23,7 @@ else
 		-l|--local)
 			mode="local";;
 		-r|--revert)
-			echo -e "This will undo all changes previously made."
+			echo "This will undo all changes previously made."
 			while true; do
 				read -p "Are you sure you want to continue? " answer
 				case $answer in
@@ -68,9 +68,9 @@ if type "curl" >> "$data_directory/log.txt"
 then
 	: # pass
 else
-	echo "$0: This script requires 'curl' to be installed"
-	echo "fetch the required files and check for updates."
-	echo "Please install them and rerun this script."
+	echo -e "$0: This script requires 'curl' to be installed\r
+		to fetch the required files and check for updates.\r
+		Please install them and rerun this script."
 	exit 1
 fi
 
@@ -78,9 +78,9 @@ fi
 new_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt)
 if [ $date -lt $new_date ]
 then
-	echo "You're out of date! Please go to"
-	echo "https://github.com/Foggalong/hardcode-fixer"
-	echo "and download the latest version!"
+	echo -e "You're files are out of date\! Please go to\r
+		https://github.com/Foggalong/hardcode-fixer\r
+		and download the latest version\!"
 	while true; do
 		read -p "Do you want to continue? " answer
 		case $answer in
@@ -129,7 +129,7 @@ then
 		fi
 	else
 		# Script must be run as root to fix/revert any global changes
-		echo -e "The script must be run as root to fix global launchers."
+		echo "The script must be run as root to fix global launchers."
 		while true; do
 			read -p "Do you want to continue in local mode? " answer
 			case $answer in
@@ -225,7 +225,7 @@ then
 	then
 		if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.txt" ]
 		then
-			echo -e "\nReverting hardcoded icons..."
+			echo "Reverting hardcoded icons..."
 			while read line; do
 				IFS="|" read -a array <<< $line
 				# Readability renaming
