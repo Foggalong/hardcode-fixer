@@ -10,12 +10,14 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | 2048 |   |   |   |   |
 | Android Studio |   |   |   |   |
 | Aptik |   |   |   |   |
+| Ardour |   |   |   |   |
 | Arista |   |   |   |   |
 | Armagetron Advanced |   |   |   |   |
 | Bastion (Steam) |   |   |   |   |
 | Conky Manager |   |   |   |   |
 | Desura |   |   |   |   |
 | Dogecoin-qt (AUR) |   |   |   |   |
+| DOS Box |   |   |   |   |
 | Dota 2 (Steam) |   |   |   |   |
 | Driver Manager | ✔ | ✔ | ✔ | ✔ |
 | easyLife |   |   |   |   |

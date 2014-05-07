@@ -10,12 +10,14 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | 2048 | 2048 | No status | ✔ |
 | Android Studio | android-studio | [Status](https://code.google.com/p/android/issues/detail?id=67582) | ✔ |
 | Aptik | aptik | Fixed as of 1.4 | ✔ |
+| Ardour | ardour | No status | ✘ |
 | Arista | arista | [Status](https://github.com/danielgtaylor/arista/issues/164) | ✔ |
 | Armagetron Advanced | armagetronad | No Status | ✘ |
 | Bastion | steam_icon_107100 | No status | ✔ |
 | Conky Manager | conky-manager | [Status](https://bugs.launchpad.net/conky-manager/+bug/1296810) | ✔ |
 | Desura | desura | No Status | 1 |
 | Dogecoin QT | dogecoin | No status | ✔ |
+| DOS Box | dosbox | No Status | ✘ |
 | Dota 2 | steam_icon_570 | No status | ✔ |
 | Driver Manager | driver-manager | No status | ✘ |
 | easyLife | easylife | No status | ✘ |

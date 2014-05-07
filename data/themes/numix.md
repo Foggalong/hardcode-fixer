@@ -8,12 +8,14 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | 2048 | ✔ | ✔ |   |   |
 | Android Studio | ✔ | ✔ |   |   |
 | Aptik | ✔ | ✔ |   |   |
+| Ardour |   |   |   |   |
 | Arista | ✔ | ✔ |   |   |
 | Armagetron Advanced |   |   |   |   |
 | Bastion (Steam) | ✔ | ✔ |   |   |
 | Conky Manager | ✔ | ✔ | ✔ | ✔ |
 | Desura | ✔ | ✔ | ✔ | ✔ |
 | Dogecoin-qt (AUR) | ✔ | ✔ |   |   |
+| DOS Box | ✔ | ✔ |   |   |
 | Dota 2 (Steam) | ✔ | ✔ |   | ✔ |
 | Driver Manager | ✔ | ✔ |   |   |
 | easyLife | ✔ | ✔ | ✔ | ✔ |
