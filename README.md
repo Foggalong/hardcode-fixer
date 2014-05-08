@@ -10,4 +10,4 @@ This program aims to be a safe, easy and standardised soltuion to the problem of
 + [Development versions](https://github.com/Foggalong/hardcode-fixer/blob/master/dev/)
 
 ### Known Issues:
-+ [Doesn't work on elementary OS. At all.](https://github.com/Foggalong/hardcode-fixer/issues/33)
++ None!

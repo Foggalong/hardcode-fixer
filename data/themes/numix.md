@@ -44,6 +44,7 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Lightworks | ✔ | ✔ |   |   |
 | Little Inferno | ✔ | ✔ |   |   |
 | Lucky Backup | ✔ | ✔ |   |   |
+| MailNag |   |   |   |   |
 | Master PDF Editor | ✔ | ✔ |   | ✔ |
 | Mint Audio Tag | ✔ | ✔ |   |   |
 | Mint Backup | ✔ | ✔ |   |   |
@@ -71,6 +72,7 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Python 3.2 | ✔ | ✔ | ✔ | ✔ |
 | Python 3.3 | ✔ | ✔ |   |   |
 | Python 3.4 | ✔ | ✔ |   |   |
+| qPDFview |   |   |   |   |
 | Quick List Editor | ✔ | ✔ |   |   |
 | Robomongo | ✔ | ✔ |   |   |
 | SmartGitHG | ✔ | ✔ |   |   |

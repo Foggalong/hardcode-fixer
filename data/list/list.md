@@ -46,6 +46,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Lightworks | lightworks | No status | ✔ |
 | Little Inferno | steam_icon_221260 | No status | ✔ |
 | Lucky Backup | luckybackup | No status | ✔ |
+| MailNag | mailnag | No status | ✔ |
 | Master PDF Editor | master-pdf-editor | No status | ✔ |
 | Mint Audio Tag | audio-tag-tool | No status | ✘ |
 | Mint Backup | mintbackup | No status | ✘ |
@@ -67,6 +68,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Pycharm | pycharm | No status | ✘ |
 | pyRenamer | pyrenamer | No status | ✔ |
 | Python ([version]) | python[version] | [Status](http://bugs.python.org/issue21096) | ✔ |
+| qPDFview | qpdfview | No status | ✘ |
 | QLE | logoqle2 | No status | ✔ |
 | Robomongo | robomongo | No status | ✔ |
 | SmartHitHG | smartgithg | No status | ✔ |

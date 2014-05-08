@@ -5,8 +5,8 @@ KotusWorks
 
 | Application Name | Ardis | Flamini | F. Colorful | F. White |
 | :---------------: | :---------------: | :---------------: | :---------------: | :---------------: |
-| 2048 |   |   |   |   |
-| Android Studio |   |   |   |   |
+| 2048 | ✔ |   |   |   |
+| Android Studio | ✔ |   |   |   |
 | Aptik |   |   |   |   |
 | Ardour | ✔ | ✔ | ✔ | ✔ |
 | Arista |   |   |   |   |
@@ -24,7 +24,7 @@ KotusWorks
 | Format Junkie |   |   |   |   |
 | Gcolor2 |   |   |   |   |
 | Gespeaker | ✔ | ✔ | ✔ | ✔ |
-| GNOME Weather |   |   |   |   |
+| GNOME Weather | ✔ |   |   |   |
 | GNUcview | ✔ |   |   |   |
 | GNU Octave |   |   |   |   |
 | GoldenDict | ✔ | ✔ | ✔ | ✔ |
@@ -34,7 +34,7 @@ KotusWorks
 | Guake |   |   |   |   |
 | HipChat |   |   |   |   |
 | Hotline Miami |   |   |   |   |
-| HP Printer |   | ✔ | ✔ | ✔ |
+| HP Printer | ✔ | ✔ | ✔ | ✔ |
 | Intel Graphics Installer |   |   |   |   |
 | IntelliJ IDEA |   |   |   |   |
 | Kerbal Space Program (Steam) |   |   |   |   |
@@ -44,14 +44,15 @@ KotusWorks
 | Lightworks |   |   |   |   |
 | Little Inferno |   |   |   |   |
 | Lucky Backup |   |   |   |   |
+| Mailnag |   |   |   |   |
 | Master PDF Editor |   |   |   |   |
 | Mint Audio Tag |   |   |   |   |
 | Mint Backup |   |   |   |   |
 | Mint Software Manager | ✔ |   |   |   |
 | MKV Extractor GUI |   |   |   |   |
-| My Weather Indicator |   |   |   |   |
-| Netbeans IDE |   | ✔ | ✔ | ✔ |
-| Ninja IDE |   | ✔ | ✔ | ✔ |
+| My Weather Indicator | ✔ |   |   |   |
+| Netbeans IDE | ✔ | ✔ | ✔ | ✔ |
+| Ninja IDE | ✔ | ✔ | ✔ | ✔ |
 | Nitro Tasks | ✔ |   |   |   |
 | NotifyOSD |   |   |   |   |
 | OmegaT |   |   |   |   |
@@ -71,14 +72,15 @@ KotusWorks
 | Python 3.2 | ✔ |   |   |   |
 | Python 3.3 | ✔ |   |   |   |
 | Python 3.4 | ✔ |   |   |   |
-| Quick List Editor |   |   |   |   |
+| qPDFview |   |   |   |   |
+| Quick List Editor | ✔ |   |   |   |
 | Robomongo |   |   |   |   |
 | SmartGitHG |   |   |   |   |
 | Springseed |   |   |   |   |
 | Synergy |   |   |   |   |
 | TimeShift |   |   |   |   |
 | Tomate |   |   |   |   |
-| Uberwriter |   |   |   |   |
+| Uberwriter | ✔ |   |   |   |
 | Unison GTK |   |   |   |   |
 | Valentina Studio |   |   |   |   |
 | Viber | ✔ | ✔ | ✔ | ✔ |

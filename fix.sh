@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 version="0.8.2"
-date=201405080 # [year][month][date][extra]
+date=201405081 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags
@@ -149,14 +149,15 @@ if [ "$mode" == "fix" ] || [ "$mode" == "local" ]
 then
 	echo "Fixing hardcoded icons..."
 
-	while read line; do
-		# Splits line into array
-		IFS="|" read -a array <<< $line
-		# Readability renaming
-		name=$(echo ${array[1]} | sed -e "s/\r//g")
-		launcher=$(echo ${array[2]}.desktop | sed -e "s/\r//g")
-		current=$(echo ${array[3]} | sed -e "s/\r//g")
-		new_icon=$(echo ${array[4]} | sed -e "s/\r//g")
+	# Splits line into array
+	IFS="|"
+	while read -r nul name launcher current new_icon
+	do
+		# Formatting corrections
+		name=$(echo $name | sed -e "s/\r//g")
+		launcher=$(echo $launcher.desktop | sed -e "s/\r//g")
+		current=$(echo $current | sed -e "s/\r//g")
+		new_icon=$(echo $new_icon | sed -e "s/\r//g")
 
 		# Escape non-standard and special characters in file names by creating a new variable.
 		old_icon="$current"
@@ -226,13 +227,15 @@ then
 		if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.txt" ]
 		then
 			echo "Reverting hardcoded icons..."
-			while read line; do
-				IFS="|" read -a array <<< $line
-				# Readability renaming
-				name=$(echo ${array[1]} | sed -e "s/\r//g")
-				launcher=$(echo ${array[2]}.desktop | sed -e "s/\r//g")
-				current=$(echo ${array[3]} | sed -e "s/\r//g")
-				new_icon=$(echo ${array[4]} | sed -e "s/\r//g")
+			# Splits line into array
+			IFS="|"
+			while read -r nul name launcher current new_icon
+			do
+				# Formatting corrections
+				name=$(echo $name | sed -e "s/\r//g")
+				launcher=$(echo $launcher.desktop | sed -e "s/\r//g")
+				current=$(echo $current | sed -e "s/\r//g")
+				new_icon=$(echo $new_icon | sed -e "s/\r//g")
 
 				old_icon="$current"
 				old_icon="${old_icon//\\/\\\\}" # escape all backslashes first

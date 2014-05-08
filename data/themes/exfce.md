@@ -46,6 +46,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Lightworks |   |   |   |   |
 | Little Inferno |   |   |   |   |
 | Lucky Backup |   |   |   |   |
+| MailNag |   |   |   |   |
 | Master PDF Editor | ✔ | ✔ | ✔ | ✔ |
 | Mint Audio Tag | ✔ | ✔ | ✔ | ✔ |
 | Mint Backup |   |   |   |   |
@@ -73,6 +74,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Python 3.2 |   |   |   |   |
 | Python 3.3 |   |   |   |   |
 | Python 3.4 |   |   |   |   |
+| qPDFview |   |   |   |   |
 | Quick List Editor |   |   |   |   |
 | Robomongo |   |   |   |   |
 | SmartGitHG |   |   |   |   |
