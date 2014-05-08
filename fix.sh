@@ -10,8 +10,8 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-version="0.8.1"
-date=201404300 # [year][month][date][extra]
+version="0.8.2"
+date=201405080 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags
@@ -164,7 +164,7 @@ then
 		old_icon="${old_icon//\//\\/}" # escape slashes
 
 		# Local & Steam launchers
-		if [ -f "$HOME/.local/share/applications/${launcher}" ]
+		if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ]
 		then
 			if [ "${current}" != "steam" ]
 			then
@@ -176,8 +176,8 @@ then
 					if [ -f "$current" ] # checks if icon exists to copy
 					then
 						echo "L: Fixing $name..."
-						cp "$current" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"
-						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						cp "$current" "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"
+						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
 						echo "L: $launcher" >> "$data_directory/fixed.txt"
 					fi
 				fi
@@ -190,8 +190,8 @@ then
 					if [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ] # checks if steam icon exists to copy
 					then
 						echo "S: Fixing $name..."
-						cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
-						sed -i "s/Icon=steam/Icon=${new_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
+						sed -i "s/Icon=steam/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
 						echo "S: $launcher" >> "$data_directory/fixed.txt"
 					fi
 				fi
@@ -239,25 +239,25 @@ then
 				old_icon="${old_icon//\//\\/}" # escape slashes
 
 				# Local revert
-				if [ -f "$HOME/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
+				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
 				then
 					if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "F: Reverting $name..."
-						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
 						sed -i "s/L: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
 
 				# Steam revert
-				if [ -f "$HOME/.local/share/applications/${launcher}" ] && [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ]
+				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ]
 				then
 					if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "S: Reverting $name..."
-						rm -f "$HOME/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "$HOME/.local/share/applications/${launcher}"
+						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
 						sed -i "s/S: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
