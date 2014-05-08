@@ -51,6 +51,7 @@ Moka
 | Mint Software Manager |   |
 | MKV Extractor GUI | ✔ |
 | My Weather Indicator |   |
+| Natural Selection 2 |   |
 | Netbeans IDE | ✔ |
 | Ninja IDE |   |
 | Nitro Tasks | ✔ |
@@ -63,6 +64,7 @@ Moka
 | pgAdmin3 | ✔ |
 | pgModeler |   |
 | PHP Storm | ✔ |
+| Prison Architect |   |
 | Pycharm | ✔ |
 | pyRenamer | ✔ |
 | Python 2.6 | ✔ |
@@ -77,6 +79,7 @@ Moka
 | Robomongo | ✔ |
 | SmartGitHG |   |
 | Springseed |   |
+| Starbound |   |
 | Synergy |   |
 | TimeShift |   |
 | Tomate |   |

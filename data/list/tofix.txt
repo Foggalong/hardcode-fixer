@@ -50,6 +50,7 @@
 |MKV Extractor GUI|mkv-extractor-gui|/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png|mkv-extractor-gui|
 |My Weather Indicator|my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
 |My Weather Indicator (extras)|extras-my-weather-indicator|/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png|indicator-weather|
+|Natural Selection 2|Natural Selection 2|steam|steam_icon_4920|
 |Netbeans IDE|netbeans|/usr/share/netbeans/7.0.1/nb/netbeans.png|netbeans|
 |Ninja IDE|ninja-ide|/usr/share/ninja-ide/img/icon.png|ninja-ide|
 |Nitro Tasks|nitrotasks|/usr/share/nitrotasks/media/nitrotasks.png|nitrotasks| (or nitro)
@@ -62,6 +63,7 @@
 |pgAdmin3|pgadmin3|/usr/share/pgadmin3/pgAdmin3.png|pgAdmin3|
 |pgModeler|pgmodeler|/etc/pgmodeler/pgmodeler_logo.png|pgmodeler|
 |PHP Storm|phpstorm|PhpStorm-133.803/bin/webide.png|phpstorm|
+|Prison Architect|Prison Architect|steam|steam_icon_233450|
 |Pycharm|pycharm|$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png|pycharm|
 |pyRenamer|pyrenamer|/usr/share/pyrenamer/pyrenamer.png|pyrenamer|
 |Python (v2.6)|python2.6|/usr/share/pixmaps/python2.6.xpm|python2.6.|
@@ -76,6 +78,7 @@
 |Robomongo|robomongo|robomongo.png|robomongo|
 |SmartHitHG|syntevo-smartgithg-5|/usr/share/smartgithg-5/bin/smartgithg-128.png|smartgithg|
 |Springseed|springseed|/usr/share/pixmaps/springseed/springseed.svg|springseed|
+|Starbound|Starbound|steam|steam_icon_211820|
 |Synergy|synergy|/usr/share/icons/synergy.ico|synergy|
 |TimeShift|TimeShift|/usr/share/pixmaps/timeshift.png|timeshift|
 |Tomate|tomate|/usr/share/tomate/media/tomate.png|tomate|

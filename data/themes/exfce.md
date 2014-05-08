@@ -53,6 +53,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Mint Software Manager | ✔ | ✔ | ✔ | ✔ |
 | MKV Extractor GUI |   |   |   |   |
 | My Weather Indicator | ✔ | ✔ | ✔ | ✔ |
+| Natural Selection 2 |   |   |   |   |
 | Netbeans IDE |   |   |   |   |
 | Ninja IDE |   |   |   |   |
 | Nitro Tasks |   |   |   |   |
@@ -65,6 +66,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | pgAdmin3 |   |   |   |   |
 | pgModeler |   |   |   |   |
 | PHP Storm |   |   |   |   |
+| Prison Architect |   |   |   |   |
 | Pycharm |   |   |   |   |
 | pyRenamer |   |   |   |   |
 | Python 2.6 |   |   |   |   |
@@ -79,6 +81,7 @@ The theme comes in four "shades": normal, dark, darker and darkest, all of which
 | Robomongo |   |   |   |   |
 | SmartGitHG |   |   |   |   |
 | Springseed |   |   |   |   |
+| Starbound |   |   |   |   |
 | Synergy |   |   |   |   |
 | TimeShift |   |   |   |   |
 | Tomate |   |   |   |   |

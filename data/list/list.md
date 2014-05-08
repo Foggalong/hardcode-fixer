@@ -53,6 +53,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Mint Software Manager | software-manager | No status | ✘ |
 | MKV Extractor GUI | mkv-extractor-gui | No status | ✘ |
 | My Weather Indicator | indicator-weather | No status | ✔ |
+| Natural Selection 2 | steam_icon_4920 | No status | ✔ |
 | Netbeans IDE | netbeans | No status | ✔ |
 | Ninja IDE | ninja-ide | No status | ✔ |
 | Nitro Tasks | nitrotasks | No status | ✔ |
@@ -65,6 +66,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | pgAdmin3 | pgAdmin3 | No status | ✔ |
 | pgModeler | pgmodeler | [Status](https://github.com/pgmodeler/pgmodeler/issues/441) | ✔ |
 | PHP Storm | phpstorm | No status | ✘ |
+| Prison Architect | steam_icon_233450 | No status | ✔ |
 | Pycharm | pycharm | No status | ✘ |
 | pyRenamer | pyrenamer | No status | ✔ |
 | Python ([version]) | python[version] | [Status](http://bugs.python.org/issue21096) | ✔ |
@@ -73,6 +75,7 @@ Note: not all the .desktop files have been verified to be correct. No bad can co
 | Robomongo | robomongo | No status | ✔ |
 | SmartHitHG | smartgithg | No status | ✔ |
 | Springseed | springseed | No status | ✔ |
+| Starbound | steam_icon_211820 | No status | ✔ |
 | Synergy | synergy | [Status](http://synergy-foss.org/spit/issues/details/3971/#) | ✔ |
 | TimeShift | timeshift | Fixed as of 1.4 | ✔ |
 | Tomate | tomate | No status | ✘ |

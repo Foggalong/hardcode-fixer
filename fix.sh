@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 version="0.8.2"
-date=201405081 # [year][month][date][extra]
+date=201405083 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags

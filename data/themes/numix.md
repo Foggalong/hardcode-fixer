@@ -51,6 +51,7 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Mint Software Manager | ✔ | ✔ | ✔ | ✔ |
 | MKV Extractor GUI |   |   |   |   |
 | My Weather Indicator | ✔ | ✔ | ✔ | ✔ |
+| Natural Selection 2 |   |   |   |   |
 | Netbeans IDE | ✔ | ✔ |   | ✔ |
 | Ninja IDE | ✔ | ✔ |   |   |
 | Nitro Tasks | ✔ | ✔ |   |   |
@@ -63,6 +64,7 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | pgAdmin3 | ✔ | ✔ |   |   |
 | pgModeler | ✔ | ✔ |   |   |
 | PHP Storm | ✔ | ✔ | ✔ |   |
+| Prison Architect |   |   |   |   |
 | Pycharm | ✔ | ✔ |   |   |
 | pyRenamer | ✔ | ✔ |   |   |
 | Python 2.6 | ✔ | ✔ |   |   |
@@ -77,6 +79,7 @@ The [Numix Project](http://numixproject.org/) currently have four icon themes fo
 | Robomongo | ✔ | ✔ |   |   |
 | SmartGitHG | ✔ | ✔ |   |   |
 | Springseed | ✔ | ✔ |   |   |
+| Starbound |   |   |   |   |
 | Synergy | ✔ | ✔ |   |   |
 | TimeShift | ✔ | ✔ |   |   |
 | Tomate | ✔ | ✔ |   |   |
