@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 version="0.9"
-date=201405130 # [year][month][date][extra]
+date=201405131 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags
@@ -153,7 +153,7 @@ then
 
 	# Splits line into array
 	IFS=","
-	while read -r nul name launcher current new_icon
+	while read -r name launcher current new_icon
 	do
 		# Formatting corrections
 		name=$(echo $name | sed -e "s/\r//g")

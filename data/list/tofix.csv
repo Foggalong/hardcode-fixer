@@ -54,7 +54,7 @@ My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
 Netbeans IDE,netbeans,/usr/share/netbeans/7.0.1/nb/netbeans.png,netbeans
 Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
-Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks, (or nitro)
+Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
@@ -87,7 +87,7 @@ Uberwriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
-X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose, (or microscope)
+X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
 YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
 Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
