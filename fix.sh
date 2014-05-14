@@ -230,8 +230,8 @@ then
 		then
 			echo "Reverting hardcoded icons..."
 			# Splits line into array
-			IFS="|"
-			while read -r nul name launcher current new_icon
+			IFS=","
+			while read -r name launcher current new_icon
 			do
 				# Formatting corrections
 				name=$(echo $name | sed -e "s/\r//g")
