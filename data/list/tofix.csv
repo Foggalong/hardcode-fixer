@@ -1,0 +1,94 @@
+Application,Launcher,Path,Icon Name
+2048,2048,/usr/share/2048/meta/apple-touch-icon.png,2048
+Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
+Aptik,aptik,/usr/share/pixmaps/aptik.png,aptik
+Ardour,ardour,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
+Arista,arista,/usr/share/arista/ui/icon.svg,arista
+Armagetron Advanced,armagetronad,/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png,armagetronad
+Bastion,Bastion,steam,steam_icon_107100
+Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
+Desura,desura,n/a,desura
+Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
+DOS Box,dosbox,/usr/share/pixmaps/dosbox.png,dosbox
+Dota 2,Dota 2,steam,steam_icon_570
+Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
+Dwarfs!?,Dwarfs!?,steam,steam_icon_35480
+easyLife,easylife,/usr/share/pixmaps/easylife.png,easylife
+FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
+FileBot,FileBot,/usr/share/filebot/icon.svg,filebot
+Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
+Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
+GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
+GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
+GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
+GNOME Weather (Arch),org.gnome.Weather.Application,org.gnome.Weather.Application,gnome-weather
+GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
+GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
+GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
+Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
+Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
+Hipchat,atlassian-hipchat,hipchat.png,hipchat
+Hotline Miami,Hotline Miami,steam,steam_icon_219150
+HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
+Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
+Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
+Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
+Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
+Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
+Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
+Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
+Little Inferno,Little Inferno,steam,steam_icon_221260
+Lucky Backup,luckybackup,/usr/share/pixmaps/luckybackup.png,luckybackup
+Lucky Backup (KDE),luckybackup-kde-su,/usr/share/pixmaps/luckybackup.png,luckybackup
+Lucky Backup (GNOME),luckybackup-gnome-su,/usr/share/pixmaps/luckybackup.png,luckybackup
+MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
+Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
+Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
+Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
+MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
+My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
+My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
+Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
+Netbeans IDE,netbeans,/usr/share/netbeans/7.0.1/nb/netbeans.png,netbeans
+Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
+Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks, (or nitro)
+NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
+OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
+PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
+Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
+Pamac (Update),pamac-update,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-update
+Pencil,pencil,/usr/share/pencil/skin/classic/icon.svg,pencil
+pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
+pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
+PHP Storm,phpstorm,PhpStorm-133.803/bin/webide.png,phpstorm
+Prison Architect,Prison Architect,steam,steam_icon_233450
+Pycharm,pycharm,$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
+pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
+Python (v2.6),python2.6,/usr/share/pixmaps/python2.6.xpm,python2.6.
+Python (v2.7),python2.7,/usr/share/pixmaps/python2.7.xpm,python2.7.
+Python (v3.0),python3.0,/usr/share/pixmaps/python3.0.xpm,python3.0.
+Python (v3.1),python3.1,/usr/share/pixmaps/python3.1.xpm,python3.1.
+Python (v3.2),python3.2,/usr/share/pixmaps/python3.2.xpm,python3.2.
+Python (v3.3),python3.3,/usr/share/pixmaps/python3.3.xpm,python3.3.
+Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
+QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
+qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
+Robomongo,robomongo,robomongo.png,robomongo
+SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
+Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
+Starbound,Starbound,steam,steam_icon_211820
+Synergy,synergy,/usr/share/icons/synergy.ico,synergy
+TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
+Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
+Uberwriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
+Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
+Viber,viber,/usr/share/pixmaps/viber.png,viber
+Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
+X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose, (or microscope)
+YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
+Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
+Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
+end

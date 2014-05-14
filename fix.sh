@@ -10,8 +10,8 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-version="0.8.2"
-date=201405083 # [year][month][date][extra]
+version="0.9"
+date=201405130 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags
@@ -100,11 +100,13 @@ then
 	then
 		# Downloads icon data from GitHub repository to data directory
 		curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
-		curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
+		curl -s -o "$data_directory/tofix.csv" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.csv'
+		# Crops first line (headers) off file
+		sed -i -e "1d" "$data_directory/tofix.csv"
 	fi
 else
 	curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
-	curl -s -o "$data_directory/tofix.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.txt'
+	curl -s -o "$data_directory/tofix.csv" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.csv'
 fi
 
 # Forces full user ownership and read/write permissions on the data directory and its contents.
@@ -150,7 +152,7 @@ then
 	echo "Fixing hardcoded icons..."
 
 	# Splits line into array
-	IFS="|"
+	IFS=","
 	while read -r nul name launcher current new_icon
 	do
 		# Formatting corrections
@@ -215,7 +217,7 @@ then
 				fi
 			fi
 		fi
-	done < "$data_directory/tofix.txt"
+	done < "$data_directory/tofix.csv"
 # Reversion code
 elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]
 then
@@ -224,7 +226,7 @@ then
 	# Checks if data directory exists
 	if [ -d "$data_directory" ]
 	then
-		if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.txt" ]
+		if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.csv" ]
 		then
 			echo "Reverting hardcoded icons..."
 			# Splits line into array
@@ -276,7 +278,7 @@ then
 						sed -i "s/G: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
-			done < "$data_directory/tofix.txt"
+			done < "$data_directory/tofix.csv"
 
 			# Removing files and directories
 			rm -rf $data_directory
