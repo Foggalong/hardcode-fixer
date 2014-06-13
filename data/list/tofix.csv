@@ -1,11 +1,19 @@
 Application,Launcher,Path,Icon Name
 2048,2048,/usr/share/2048/meta/apple-touch-icon.png,2048
+8BitMMO,8BitMMO,steam,steam_icon_250420
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
 Aptik,aptik,/usr/share/pixmaps/aptik.png,aptik
+Ardour,ardour2,/usr/share/ardour2/icons/ardour_icon_22px.png,ardour
 Ardour,ardour,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
 Arista,arista,/usr/share/arista/ui/icon.svg,arista
 Armagetron Advanced,armagetronad,/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png,armagetronad
 Bastion,Bastion,steam,steam_icon_107100
+Beat Hazard,Beat Hazard,steam,steam_icon_49600
+Beat Hazard 2,Beat Hazard 2,steam,steam_icon_49610
+BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolor/128x128/apps/bitdefender.png,bitdefender
+Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
+Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
+Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
 Desura,desura,n/a,desura
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
@@ -13,10 +21,14 @@ DOS Box,dosbox,/usr/share/pixmaps/dosbox.png,dosbox
 Dota 2,Dota 2,steam,steam_icon_570
 Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Dwarfs!?,Dwarfs!?,steam,steam_icon_35480
+Dwarfs?! - F2P,Dwarfs?! - F2P,steam,steam_icon_213650
 easyLife,easylife,/usr/share/pixmaps/easylife.png,easylife
 FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
+Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
 FileBot,FileBot,/usr/share/filebot/icon.svg,filebot
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
+Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
+Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
@@ -31,6 +43,7 @@ Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
 Hipchat,atlassian-hipchat,hipchat.png,hipchat
 Hotline Miami,Hotline Miami,steam,steam_icon_219150
+HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
@@ -53,6 +66,7 @@ My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indi
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
 Netbeans IDE,netbeans,/usr/share/netbeans/7.0.1/nb/netbeans.png,netbeans
+Netflix,netflix,/var/lib/wine-browser-installer/NetflixIcon.png,netflix-desktop
 Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
 Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
@@ -77,17 +91,25 @@ Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Robomongo,robomongo,robomongo.png,robomongo
+Shank,Shank,steam,steam_icon_6120
+Shank 2,Shank 2,steam,steam_icon_6130
 SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
+Snapshot,Snapshot,steam,steam_icon_204220
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 Starbound,Starbound,steam,steam_icon_211820
+Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Synergy,synergy,/usr/share/icons/synergy.ico,synergy
+Team Viewer,Teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
+Tor Browser,???,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
+TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
 Uberwriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
+Xonotic,xonotic,/usr/share/pixmaps/xonotic.png,xonotic
 YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
 Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
