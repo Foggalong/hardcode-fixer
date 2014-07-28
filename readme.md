@@ -13,4 +13,3 @@ If you're an Arch user it's also available in the [AUR](https://aur.archlinux.or
 
 ### Known Issues:
 + [Dwarfs!? isn't fixed](https://github.com/Foggalong/hardcode-fixer/issues/34)
-+ [Not all launchers verified](https://github.com/Foggalong/hardcode-fixer/issues/35)

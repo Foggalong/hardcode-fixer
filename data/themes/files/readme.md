@@ -1,0 +1,1 @@
+This folder is used by update.py as a safe working directory for downloading icons themes.

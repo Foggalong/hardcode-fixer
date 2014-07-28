@@ -10,8 +10,9 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-version="0.9"
-date=201405131 # [year][month][date][extra]
+version="0.9"  # version number
+update="0"     # default
+date=201407280 # [year][month][date][extra]
 mode="fix"     # default
 
 # Deals with the flags
@@ -70,7 +71,7 @@ then
 else
 	echo -e "$0: This script requires 'curl' to be installed\r
 		to fetch the required files and check for updates.\r
-		Please install them and rerun this script."
+		Please install it and rerun this script."
 	exit 1
 fi
 
@@ -78,17 +79,27 @@ fi
 new_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt)
 if [ $date -lt $new_date ]
 then
-	echo -e "You're files are out of date\! Please go to\r
-		https://github.com/Foggalong/hardcode-fixer\r
-		and download the latest version\!"
+	echo -e "You're running an out of date version of\r
+		the script. If you continue without updating\r
+		you may run into problems."
 	while true; do
-		read -p "Do you want to continue? " answer
+		read -p "Would you like to [u]pdate, [e]xit, or [c]ontinue?" answer
 		case $answer in
-			[Yy]* ) echo; break;;
-			[Nn]* ) exit;;
-			* ) echo "Please answer [Y/y]es or [N/n]o.";;
+			[Uu]* ) update="1"; break;;
+			[Ee]* ) exit;;
+			[Cc]* ) break;;
+			* ) echo "Please answer [u]pdate, [e]xit, or [c]ontinue";;
 		esac
 	done
+fi
+
+# Updates if needed
+if [ "$update" == "1" ]
+then
+	curl -s -o "update.sh" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/update.sh'
+	chmod a+x update.sh
+	./update.sh
+	rm update.sh
 fi
 
 # Checks for newer version of list
