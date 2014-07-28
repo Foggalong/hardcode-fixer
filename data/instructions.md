@@ -2,7 +2,7 @@ Instructions
 ==============
 
 ### Dependencies
-The only dependency of the script is ```curl``` which is used for fetching relevant information from this GitHub. This is included on almost all distributions by default but those of you who're using something a bit more adventerous (looking at you Arch users) may have to install in.
+The only dependency of the script is ```curl``` which is used for fetching relevant information from this GitHub. This is included on almost all distributions by default but those of you who're using something a bit more adventerous (looking at you Arch users) may have to install it.
 
 
 ### Usage
