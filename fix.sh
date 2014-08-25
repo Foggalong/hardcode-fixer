@@ -10,10 +10,16 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
+# Variables
 version="0.9"  # version number
 update="0"     # default
 date=201407280 # [year][month][date][extra]
 mode="fix"     # default
+
+# Files
+git_locate = "https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data"
+steam_icon = "/usr/share/icons/hicolor/48x48/apps/steam.png"
+
 
 # Deals with the flags
 if [ -z $1 ]
@@ -76,7 +82,7 @@ else
 fi
 
 # Check for newer version
-new_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/date.txt)
+new_date=$(curl -s "$git_locate/date.txt")
 if [ $date -lt $new_date ]
 then
 	echo -e "You're running an out of date version of\r
@@ -96,7 +102,7 @@ fi
 # Updates if needed
 if [ "$update" == "1" ]
 then
-	curl -s -o "update.sh" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/update.sh'
+	curl -s -o "update.sh" "$git_locate/update.sh"
 	chmod a+x update.sh
 	./update.sh
 	rm update.sh
@@ -106,18 +112,18 @@ fi
 if [ -f "$data_directory/version.txt" ]
 then
 	list_date=$(cat "$data_directory/version.txt")
-	new_list_date=$(curl -s https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt)
+	new_list_date=$(curl -s "$git_locate/list/version.txt")
 	if [ $list_date -lt $new_list_date ]
 	then
 		# Downloads icon data from GitHub repository to data directory
-		curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
-		curl -s -o "$data_directory/tofix.csv" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.csv'
+		curl -s -o "$data_directory/version.txt" "$git_locate/list/version.txt"
+		curl -s -o "$data_directory/tofix.csv" "$git_locate/list/tofix.csv"
 		# Crops first line (headers) off file
 		sed -i -e "1d" "$data_directory/tofix.csv"
 	fi
 else
-	curl -s -o "$data_directory/version.txt" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/version.txt'
-	curl -s -o "$data_directory/tofix.csv" 'https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data/list/tofix.csv'
+	curl -s -o "$data_directory/version.txt" "$git_locate/list/version.txt"
+	curl -s -o "$data_directory/tofix.csv" "$git_locate/list/tofix.csv"
 fi
 
 # Forces full user ownership and read/write permissions on the data directory and its contents.
@@ -201,10 +207,10 @@ then
 				then
 					: # pass
 				else
-					if [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ] # checks if steam icon exists to copy
+					if [ -f $steam_icon ] # checks if steam icon exists to copy
 					then
 						echo "S: Fixing $name..."
-						cp "/usr/share/icons/hicolor/48x48/apps/steam.png" "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
+						cp $steam_icon "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
 						sed -i "s/Icon=steam/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
 						echo "S: $launcher" >> "$data_directory/fixed.txt"
 					fi
@@ -267,7 +273,7 @@ then
 				fi
 
 				# Steam revert
-				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "/usr/share/icons/hicolor/48x48/apps/steam.png" ]
+				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f $steam_icon ]
 				then
 					if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
