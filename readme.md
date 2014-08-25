@@ -9,7 +9,6 @@ If you're an Arch user it's also available in the [AUR](https://aur.archlinux.or
 + [Use instructions](https://github.com/Foggalong/hardcode-fixer/blob/master/data/instructions.md)
 + Supported [applications list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/list/list.md)
 + Supported [themes list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/themesupport.md)
-+ [Development versions](https://github.com/Foggalong/hardcode-fixer/blob/master/dev/)
 
 ### Known Issues:
-+ [Dwarfs!? isn't fixed](https://github.com/Foggalong/hardcode-fixer/issues/34)
++ Local icons aren't correctly fixed
