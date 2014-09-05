@@ -1,0 +1,9 @@
+{
+  "name": "hardcode-fixer",
+  "version": "v0.8.2",
+  "description": "Fixes Hardcoded Icons",
+  "global": "true",
+  "install": "make install",
+  "scripts": [ "fix.sh" ]
+}
+
