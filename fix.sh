@@ -13,7 +13,7 @@
 # Variables
 version="0.9"  # version number
 update="0"     # default
-date=201407280 # [year][month][date][extra]
+delcare -i date=201407280 # [year][month][date][extra]
 mode="fix"     # default
 
 # Files
@@ -60,7 +60,7 @@ else
 fi
 
 # Prepare directory
-data_directory="/home/${SUDO_USER:-$USER}/.local/share/hcf-data"
+data_directory="${HOME}/.local/share/hcf-data"
 mkdir -p "$data_directory"
 
 # Verify data directory creation and existence by entering command directory
@@ -184,7 +184,7 @@ then
 		old_icon="${old_icon//\//\\/}" # escape slashes
 
 		# Local & Steam launchers
-		if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ]
+		if [ -f "$HOME/.local/share/applications/${launcher}" ]
 		then
 			if [ "${current}" != "steam" ]
 			then
@@ -196,8 +196,8 @@ then
 					if [ -f "$current" ] # checks if icon exists to copy
 					then
 						echo "L: Fixing $name..."
-						cp "$current" "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"
-						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+						cp "$current" "${HOME}/.local/share/icons/hicolor/48x48/apps/${new_icon}"
+						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "$HOME}/.local/share/applications/${launcher}"
 						echo "L: $launcher" >> "$data_directory/fixed.txt"
 					fi
 				fi
@@ -210,8 +210,8 @@ then
 					if [ -f $steam_icon ] # checks if steam icon exists to copy
 					then
 						echo "S: Fixing $name..."
-						cp $steam_icon "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
-						sed -i "s/Icon=steam/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+						cp $steam_icon "${HOME}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
+						sed -i "s/Icon=steam/Icon=${new_icon}/g" "${HOME}/.local/share/applications/${launcher}"
 						echo "S: $launcher" >> "$data_directory/fixed.txt"
 					fi
 				fi
@@ -223,7 +223,7 @@ then
 		then
 			if grep -Fxq "G: $launcher" $data_directory/fixed.txt # checks if already fixed
 			then
-				: # pass	
+				: # pass
 			else
 				if [ -f "$current" ] # checks if icon exists to copy
 				then
@@ -261,25 +261,25 @@ then
 				old_icon="${old_icon//\//\\/}" # escape slashes
 
 				# Local revert
-				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
+				if [ -f "${HOME}/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
 				then
 					if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "F: Reverting $name..."
-						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+						rm -f "${HOME}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "${HOME}/.local/share/applications/${launcher}"
 						sed -i "s/L: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
 
 				# Steam revert
-				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f $steam_icon ]
+				if [ -f "${HOME}/.local/share/applications/${launcher}" ] && [ -f $steam_icon ]
 				then
 					if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
 					then
 						echo "S: Reverting $name..."
-						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+						rm -f "${HOME}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "${HOME}/.local/share/applications/${launcher}"
 						sed -i "s/S: ${launcher}//g" "$data_directory/fixed.txt"
 					fi
 				fi
