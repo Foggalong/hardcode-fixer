@@ -1,5 +1,4 @@
-Numix
-================
+# Numix
 
 The [Numix Project](http://numixproject.org/) currently have four icon themes for Linux: two actively maintained ones, Circle & Square, and two unmaintained ones, Shine and uTouch.
 

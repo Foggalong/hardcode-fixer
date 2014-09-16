@@ -1,5 +1,4 @@
-KotusWorks
-================
+# KotusWorks
 
 [KotusWorks](http://kotusworks.deviantart.com/) is relatively new to the icon design game but already has two beta releases for icon themes: [Ardis](http://kotusworks.deviantart.com/art/Ardis-Icon-Theme-450178304?q=gallery%3AKotusWorks&qo=0) and [Flamini](http://kotusworks.deviantart.com/art/Flamini-icons-set-for-KDE-437738820?q=gallery%3AKotusWorks&qo=2), the latter of which also comes in Colorful and White variants.
 

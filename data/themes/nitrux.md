@@ -1,5 +1,4 @@
-Nitrux
-================
+# Nitrux
 
 [Nitrux](http://nitrux.in/) currently has four supported icon themes (Nitrux, Compass Dotts and Flattr) all of which can be found on [their website](http://store.nitrux.in/#icons_tab).
 

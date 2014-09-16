@@ -1,5 +1,4 @@
-What, Why & How
-==============
+# What, Why & How
 
 ### What are hardcoded icons?
 The standard locations for storing an applications icons are ```/usr/share/icons/hicolor/[size]/apps/[icon name]``` and ```~/.local/share/icons/hicolor/[size]/apps/[icon name]```. However, some developers choose to hardcode their icons by putting them elsewhere making it impossible for icon themes to change them. This is a bad practice as it leads to users

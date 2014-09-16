@@ -10,21 +10,36 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-# Variables
-version="0.9"  # version number
-update="0"     # default
-date=201407280 # [year][month][date][extra]
-mode="fix"     # default
+# Version info
+version="0.9"   # number
+date=201409150  # [year][month][date][extra]
 
-# Files
-git_locate = "https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data"
-steam_icon = "/usr/share/icons/hicolor/48x48/apps/steam.png"
+# Locations
+git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/data"
+steam_icon="/usr/share/icons/hicolor/48x48/apps/steam.png"
 
+# Defining functions
+
+function gerror() {
+	sleep 3 # Timeout when launched via 'Run in Terminal' command
+	exit 1  # Catch all exit code for general errors
+}
+
+function varFormat() {
+	# Basic corrections
+	name=$(echo "$name" | sed -e "s/\r//g")
+	launcher=$(echo "$launcher".desktop | sed -e "s/\r//g")
+	current=$(echo "$current" | sed -e "s/\r//g")
+	new_icon=$(echo "$new_icon" | sed -e "s/\r//g")
+	# Escape non-standard and special characters in file names by creating a new variable.
+	old_icon="$current"
+	old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
+	old_icon="${old_icon//\//\\/}" # escape slashes
+}
 
 # Deals with the flags
-if [ -z $1 ]
-then
-	: # pass
+if [ -z "$1" ]; then
+	mode="fix"
 else
 	case $1 in
 		-l|--local)
@@ -40,14 +55,14 @@ else
 				esac
 			done;;
 		-h|--help)
-			echo -e "Usage: ./$(basename -- $0) [OPTION]"
-			echo -e "Fixes hardcoded icons of installed applications."
-			echo -e ""
-			echo -e "Currently supported options:"
-			echo -e "  -l, --local \t Only fixes local launchers."
-			echo -e "  -r, --revert \t Reverts any changes made."
-			echo -e "  -h, --help \t\t Displays this help menu."
-			echo -e "  -v, --version \t Displays program version."
+			echo -e \
+				"Usage: ./$(basename -- $0) [OPTION]\n" \
+				"\rFixes hardcoded icons of installed applications.\n\n" \
+				"\rCurrently supported options:\n" \
+				"\r  -l, --local \t Only fixes local launchers.\n" \
+				"\r  -r, --revert \t Reverts any changes made.\n" \
+				"\r  -h, --help \t\t Displays this help menu.\n" \
+				"\r  -v, --version \t Displays program version.\n"
 			exit 0 ;;
 		-v|--version)
 			echo "$(basename -- $0) $version\n"
@@ -55,7 +70,7 @@ else
 		*)
 			echo -e "$(basename -- $0): invalid option -- '$1'"
 			echo -e "Try '$(basename -- $0) --help' for more information."
-			exit 0 ;;
+			gerror
 	esac
 fi
 
@@ -64,85 +79,66 @@ data_directory="/home/${SUDO_USER:-$USER}/.local/share/hcf-data"
 mkdir -p "$data_directory"
 
 # Verify data directory creation and existence by entering command directory
-cd "$data_directory" || echo "$0: Data directory does not exist or was not created." || exit 1
+cd "$data_directory" || echo "$0: Data directory does not exist or was not created." || gerror
 
 # Creates data directory file contents (fail-safe)
 touch "$data_directory/fixed.txt"
 touch "$data_directory/log.txt"
 
 # Verifies if 'curl' is installed
-if type "curl" >> "$data_directory/log.txt"
-then
-	: # pass
-else
-	echo -e "$0: This script requires 'curl' to be installed\r
-		to fetch the required files and check for updates.\r
-		Please install it and rerun this script."
-	exit 1
+if ! type "curl" >> "$data_directory/log.txt"; then
+	echo -e \
+		"$0: This script requires 'curl' to be installed\n" \
+		"\rto fetch the required files and check for updates.\n" \
+		"\rPlease install it and rerun this script."
+	gerror
 fi
 
-# Check for newer version
-new_date=$(curl -s "$git_locate/date.txt")
-if [ $date -lt $new_date ]
-then
-	echo -e "You're running an out of date version of\r
-		the script. If you continue without updating\r
-		you may run into problems."
+# Check for newer version of fix.sh
+new_date=$(curl -s "$git_locate"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
+if [ "$date" -lt "$new_date" ]; then
+	echo -e \
+		"You're running an out of date version of\n" \
+		"\rthe script. Please download the latest\n" \
+		"\rverison from the GitHub page or update\n" \
+		"\rvia your package manager. If you continue\n" \
+		"\rwithout updating you may run into problems."
 	while true; do
-		read -p "Would you like to [u]pdate, [e]xit, or [c]ontinue?" answer
+		read -p "Would you like to [e]xit, or [c]ontinue?" answer
 		case $answer in
-			[Uu]* ) update="1"; break;;
 			[Ee]* ) exit;;
 			[Cc]* ) break;;
-			* ) echo "Please answer [u]pdate, [e]xit, or [c]ontinue";;
+			* ) echo "Please answer [e]xit or [c]ontinue";;
 		esac
 	done
 fi
 
-# Updates if needed
-if [ "$update" == "1" ]
-then
-	curl -s -o "update.sh" "$git_locate/update.sh"
-	chmod a+x update.sh
-	./update.sh
-	rm update.sh
-fi
-
 # Checks for newer version of list
-if [ -f "$data_directory/version.txt" ]
-then
+if [ -f "$data_directory/tofix.csv" ]; then
 	list_date=$(cat "$data_directory/version.txt")
-	new_list_date=$(curl -s "$git_locate/list/version.txt")
-	if [ $list_date -lt $new_list_date ]
-	then
-		# Downloads icon data from GitHub repository to data directory
-		curl -s -o "$data_directory/version.txt" "$git_locate/list/version.txt"
+	new_date=$(curl -s "$git_locate"/data/list/list.md | grep "Version: [0-9]\{9\}" | sed "s/[^0-9]//g")
+	if [ "$list_date" -lt "$new_list_date" ]; then
 		curl -s -o "$data_directory/tofix.csv" "$git_locate/list/tofix.csv"
-		# Crops first line (headers) off file
-		sed -i -e "1d" "$data_directory/tofix.csv"
+		sed -i -e "1d" "$data_directory/tofix.csv" # crops header line
+		sed -i "s/$list_date/$new_date/g" "$data_directory/version.txt" # updates date
 	fi
 else
-	curl -s -o "$data_directory/version.txt" "$git_locate/list/version.txt"
 	curl -s -o "$data_directory/tofix.csv" "$git_locate/list/tofix.csv"
 fi
 
 # Forces full user ownership and read/write permissions on the data directory and its contents.
 chown -R "${SUDO_USER:-$USER}" "$data_directory" "$data_directory"/*
-chmod -R 777 "$data_directory" "$data_directory"/*
+chmod -R 777 "$data_directory" "$data_directory"/* # BAAAAAD
 
 # Checks for root
-if [[ $UID -ne 0 ]] && [ $mode != "local" ]
-then
-	if [ "$mode" == "revert" ]
-	then
+if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
+	if [ "$mode" == "revert" ]; then
 		# Checks if local only reversion is appropriate
-		if grep -Fxq "fix" "$data_directory/log.txt"
-		then
-			echo -e "This script was previously run as root and so"
-			echo -e "running 'revert' without it will not properly"
-			echo -e "reverse the changes that were made."
-			sleep 3 # Enables error timeout when launched via 'Run in Terminal' command.
-			exit 1
+		if grep -Fxq "fix" "$data_directory/log.txt"; then
+			echo -e \
+				"This script was previously run as root and so\n" \
+				"\rrunning 'revert' without it will not properly\n" \
+				"\rreverse the changes that were made."
 		else
 			mode="l-revert"
 		fi
@@ -164,37 +160,21 @@ fi
 echo "$mode" >> "$data_directory/log.txt"
 
 # Fixing code
-if [ "$mode" == "fix" ] || [ "$mode" == "local" ]
-then
+if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
 	echo "Fixing hardcoded icons..."
 
 	# Splits line into array
 	IFS=","
-	while read -r name launcher current new_icon
-	do
-		# Formatting corrections
-		name=$(echo $name | sed -e "s/\r//g")
-		launcher=$(echo $launcher.desktop | sed -e "s/\r//g")
-		current=$(echo $current | sed -e "s/\r//g")
-		new_icon=$(echo $new_icon | sed -e "s/\r//g")
-
-		# Escape non-standard and special characters in file names by creating a new variable.
-		old_icon="$current"
-		old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
-		old_icon="${old_icon//\//\\/}" # escape slashes
+	while read -r name launcher current new_icon; do
+		# Formatting
+		varFormat
 
 		# Local & Steam launchers
-		if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ]
-		then
-			if [ "${current}" != "steam" ]
-			then
+		if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ]; then
+			if [ "${current}" != "steam" ]; then
 				# Local launchers
-				if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if already fixed
-				then
-					: # pass
-				else
-					if [ -f "$current" ] # checks if icon exists to copy
-					then
+				if ! grep -Fxq "L: $launcher" "$data_directory/fixed.txt"; then # checks if already fixed
+					if [ -f "$current" ]; then # checks if icon exists to copy
 						echo "L: Fixing $name..."
 						cp "$current" "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"
 						sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
@@ -203,12 +183,8 @@ then
 				fi
 			else
 				# Steam launchers
-				if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if already fixed
-				then
-					: # pass
-				else
-					if [ -f $steam_icon ] # checks if steam icon exists to copy
-					then
+				if ! grep -Fxq "S: $launcher" "$data_directory/fixed.txt"; then # checks if already fixed
+					if [ -f $steam_icon ]; then # checks if steam icon exists to copy
 						echo "S: Fixing $name..."
 						cp $steam_icon "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}.png"
 						sed -i "s/Icon=steam/Icon=${new_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
@@ -219,14 +195,9 @@ then
 		fi
 
 		# Global launchers
-		if [ $mode != "local" ] && [ -f "/usr/share/applications/${launcher}" ]
-		then
-			if grep -Fxq "G: $launcher" $data_directory/fixed.txt # checks if already fixed
-			then
-				: # pass	
-			else
-				if [ -f "$current" ] # checks if icon exists to copy
-				then
+		if [ $mode != "local" ] && [ -f "/usr/share/applications/${launcher}" ]; then
+			if ! grep -Fxq "G: $launcher" "$data_directory"/fixed.txt; then # checks if already fixed
+				if [ -f "$current" ]; then # checks if icon exists to copy
 					echo "G: Fixing $name..."
 					cp "$current" "/usr/share/icons/hicolor/48x48/apps/${new_icon}"
 					sed -i "s/Icon=${old_icon}/Icon=${new_icon}/g" "/usr/share/applications/${launcher}"
@@ -235,83 +206,60 @@ then
 			fi
 		fi
 	done < "$data_directory/tofix.csv"
+
 # Reversion code
-elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]
-then
+elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
 	echo "Reverting changes and cleaning up..."
 
-	# Checks if data directory exists
-	if [ -d "$data_directory" ]
-	then
-		if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.csv" ]
-		then
-			echo "Reverting hardcoded icons..."
-			# Splits line into array
-			IFS=","
-			while read -r name launcher current new_icon
-			do
-				# Formatting corrections
-				name=$(echo $name | sed -e "s/\r//g")
-				launcher=$(echo $launcher.desktop | sed -e "s/\r//g")
-				current=$(echo $current | sed -e "s/\r//g")
-				new_icon=$(echo $new_icon | sed -e "s/\r//g")
+	# Checks if files exist
+	if [ -f "${data_directory}/fixed.txt" ] && [ -f "${data_directory}/tofix.csv" ]; then
+		echo "Reverting hardcoded icons..."
+		# Splits line into array
+		IFS=","
+		while read -r name launcher current new_icon; do
+			# Formatting
+			varFormat
 
-				old_icon="$current"
-				old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
-				old_icon="${old_icon//\//\\/}" # escape slashes
-
-				# Local revert
-				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "${current}" ]
-				then
-					if grep -Fxq "L: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
-					then
-						echo "F: Reverting $name..."
-						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
-						sed -i "s/L: ${launcher}//g" "$data_directory/fixed.txt"
-					fi
+			# Local revert
+			if grep -Fxq "L: $launcher" "$data_directory/fixed.txt"; then # checks if needs reverting
+				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f "${current}" ]; then
+					echo "F: Reverting $name..."
+					rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+					sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+					sed -i "s/L: ${launcher}//g" "$data_directory/fixed.txt"
 				fi
+			fi
 
-				# Steam revert
-				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f $steam_icon ]
-				then
-					if grep -Fxq "S: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
-					then
-						echo "S: Reverting $name..."
-						rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
-						sed -i "s/S: ${launcher}//g" "$data_directory/fixed.txt"
-					fi
+			# Steam revert
+			if grep -Fxq "S: $launcher" "$data_directory/fixed.txt"; then # checks if needs reverting
+				if [ -f "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}" ] && [ -f $steam_icon ]; then
+					echo "S: Reverting $name..."
+					rm -f "/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/${new_icon}"*
+					sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/home/${SUDO_USER:-$USER}/.local/share/applications/${launcher}"
+					sed -i "s/S: ${launcher}//g" "$data_directory/fixed.txt"
 				fi
+			fi
 
-				# Global revert
-				if [ $mode != "l-revert" ] && [ -f "/usr/share/applications/${launcher}" ] && [ -f "${current}" ]
-				then
-					if grep -Fxq "G: $launcher" "$data_directory/fixed.txt" # checks if needs reverting
-					then
-						echo "G: Reverting $name..."
-						rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
-						sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/usr/share/applications/${launcher}"
-						sed -i "s/G: ${launcher}//g" "$data_directory/fixed.txt"
-					fi
+			# Global revert
+			if grep -Fxq "G: $launcher" "$data_directory/fixed.txt"; then # checks if needs reverting
+				if [ $mode != "l-revert" ] && [ -f "/usr/share/applications/${launcher}" ] && [ -f "${current}" ]; then
+					echo "G: Reverting $name..."
+					rm -f "/usr/share/icons/hicolor/48x48/apps/${new_icon}"*
+					sed -i "s/Icon=${new_icon}/Icon=${old_icon}/g" "/usr/share/applications/${launcher}"
+					sed -i "s/G: ${launcher}//g" "$data_directory/fixed.txt"
 				fi
-			done < "$data_directory/tofix.csv"
+			fi
+		done < "$data_directory/tofix.csv"
 
-			# Removing files and directories
-			rm -rf $data_directory
-			echo "Deleted data directory. Clean up complete!"
-			exit 0
-		else
-			echo "Data files do not exist, so icon changes"
-			echo "cannot be reverted (or were never made)."
-			rm -rf $data_directory
-			echo "Deleted data directory. Clean up complete!"
-			exit 0
-		fi
-	else
-		echo "Data directory doens't exist, so icon changes"
-		echo "cannot be reverted (or were never made)."
-		echo "Clean up cannot be performed!"
+		# Removing files and directories
+		rm -rf "$data_directory"
+		echo "Deleted data directory. Clean up complete!"
 		exit 0
+	else
+		echo -e \
+			"Data files do not exist, so icon changes\n" \
+			"\rcannot be reverted (or were never made).\n" \
+			"\rClean up cannot be performed!"
+		gerror
 	fi
 fi

@@ -1,5 +1,6 @@
-Supported Applications
-================
+# Supported Applications
+
+*Version: 201406200*
 
 This is a complete list of all the applications the fixer currently supports and the respective standardised icon name. If you know of a hardcoded application icon which isn't in this list [please report it.](https://github.com/Foggalong/hardcode-fixer/issues). Because the end goal of the fixer is to stop hardcoded icons existing below there are links to any upstream bug reports that exist. Again, if you know of one we don't let us know!
 

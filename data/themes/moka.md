@@ -1,5 +1,4 @@
-Moka
-================
+# Moka
 
 [Moka](http://mokaproject.com/) isn't currently an officially supported theme but in talking with it's creator it seems the two projects use a lot of similar naming conventions so it should work just as well as the other supported themes. The Moka icon theme can be downloaded from their website [here](http://mokaproject.com/moka-icon-theme/). When released Rund will also be added to this list. 
 

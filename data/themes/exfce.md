@@ -1,5 +1,4 @@
-elementary XFCE
-================
+# elementary XFCE
 
 The elementary icon theme project was one of the most popular icon theme projects of it's time but with the creation of eOS the scope of the project has changed from a full theme to a ditro specific one. This lead to all sorts of forks to continue the maintainance, the most popular of which being [elementary XFCE](https://github.com/shimmerproject/elementary-xfce).
 

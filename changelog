@@ -1,0 +1,19 @@
+* Cleaned code
+	* Switched to condensed if/while statements
+	* Using 'if ! statement' rather than passing
+	* Timeout as function
+	* Formatting corrections as function
+	* Consistent multiline echo format
+	* Cleaner markdown
+
+* Steamlined updating
+	* fix.sh doesn't require a seperate file containing the date
+	* app list doens't require a seperate file containing the date
+	* Removed automatic fix.sh updating
+		Because this script is packaged in the AUR, the bpkg, and
+		potentially elsewhere in future having an internal update
+		mechanism will only confuse things.
+
+* Better error handling
+	* Function for error + timeout (gerror)
+	* No longer removes data dir if error occurs
