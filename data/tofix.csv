@@ -14,6 +14,7 @@ BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolo
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
+Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
 Desura,desura,n/a,desura
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
@@ -70,6 +71,7 @@ Netflix,netflix,/var/lib/wine-browser-installer/NetflixIcon.png,netflix-desktop
 Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
 Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
+Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
 Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
