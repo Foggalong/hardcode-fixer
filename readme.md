@@ -7,8 +7,8 @@ If you're an Arch user it's also available in the [AUR](https://aur.archlinux.or
 ### More information:
 + An indepth explination of [what, why & how](https://github.com/Foggalong/hardcode-fixer/wiki/What,-Why-&-How)
 + [Use instructions](https://github.com/Foggalong/hardcode-fixer/wiki/Instructions)
-+ Supported [applications list](https://github.com/Foggalong/hardcode-fixer/wiki/App-Support)
-+ Supported [themes list](https://github.com/Foggalong/hardcode-fixer/wiki/Theme-Support)
++ Supported [application list](https://github.com/Foggalong/hardcode-fixer/wiki/App-Support)
++ Information on [theme support](https://github.com/Foggalong/hardcode-fixer/wiki/Theme-Support)
 
 ### Known Issues:
 + Local icons aren't correctly fixed
