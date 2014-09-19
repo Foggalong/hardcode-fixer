@@ -106,7 +106,7 @@ if [ "$date" -lt "$new_date" ]; then
 fi
 
 # Downloads latest version of the list
-curl -s -o "/tmp/tofix.csv" "${git_locate}/data/tofix.csv"
+curl -s -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 
 # Checks for root
