@@ -5,10 +5,10 @@ This program aims to be a safe, easy and standardised soltuion to the problem of
 If you're an Arch user it's also available in the [AUR](https://aur.archlinux.org/packages/hardcode-fixer-git/).
 
 ### More information:
-+ An indepth explination of [what, why & how](https://github.com/Foggalong/hardcode-fixer/blob/master/data/explination.md)
-+ [Use instructions](https://github.com/Foggalong/hardcode-fixer/blob/master/data/instructions.md)
-+ Supported [applications list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/list/list.md)
-+ Supported [themes list](https://github.com/Foggalong/hardcode-fixer/blob/master/data/themesupport.md)
++ An indepth explination of [what, why & how](https://github.com/Foggalong/hardcode-fixer/wiki/What,-Why-&-How)
++ [Use instructions](https://github.com/Foggalong/hardcode-fixer/wiki/Instructions)
++ Supported [applications list](https://github.com/Foggalong/hardcode-fixer/wiki/Supported-Applications)
++ Supported [themes list](https://github.com/Foggalong/hardcode-fixer/wiki/Theme-Support)
 
 ### Known Issues:
 + Local icons aren't correctly fixed
