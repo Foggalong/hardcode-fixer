@@ -12,7 +12,7 @@
 
 # Version info
 version="0.9"   # number
-date=201409150  # [year][month][date][extra]
+date=201409190  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -69,7 +69,7 @@ else
 				"\r  -v, --version \t Displays program version.\n"
 			exit 0 ;;
 		-v|--version)
-			echo "$(basename -- $0) $version\n"
+			echo -e "$(basename -- $0) $version\n"
 			exit 0 ;;
 		*)
 			echo -e "$(basename -- $0): invalid option -- '$1'"
@@ -129,10 +129,10 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
 		case $answer in
 			[Yy]* )
 				if [ "$mode" == "fix" ]; then
-					mode="local"; break;;
-				elif [ "$mode" == "revert" ]
-					mode="l-revert"; break;;
-				fi
+					mode="local"; break
+				elif [ "$mode" == "revert" ]; then
+					mode="l-revert"; break
+				fi;;
 			[Nn]* ) exit;;
 			* ) echo "Please answer [Y/y]es or [N/n]o.";;
 		esac
@@ -145,7 +145,6 @@ while read -r name launcher current new_icon; do
 	varFormat
 	# Fixing code
 	if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
-		echo "Fixing hardcoded icons..."
 		# Local & Steam launchers
 		if [ -f "$local_apps$launcher" ]; then
 			if [ "$current" != "steam" ]; then
@@ -174,7 +173,6 @@ while read -r name launcher current new_icon; do
 		fi
 	# Reversion code
 	elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
-		echo "Reverting hardcoded icons..."
 		# Local revert
 		if [ -f "$local_apps$launcher" ] && [ -f "$current" ]; then
 			echo "F: Reverting $name..."
