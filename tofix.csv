@@ -35,6 +35,7 @@ GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
+GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
 GNOME Weather (Arch),org.gnome.Weather.Application,org.gnome.Weather.Application,gnome-weather
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
