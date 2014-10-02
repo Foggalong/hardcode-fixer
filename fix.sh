@@ -22,12 +22,8 @@ global_apps="/usr/share/applications/"
 global_icon="/usr/share/icons/hicolor/48x48/apps/"
 steam_icon="${global_icon}steam.png"
 
-# Defining functions
-
-function gerror() {
-    sleep 3 # Timeout when launched via 'Run in Terminal' command
-    exit 1  # Catch all exit code for general errors
-}
+# Allows timeout when launched vai 'Run in Terminal'
+function gerror() { sleep 3; exit 1; }
 
 # Deals with the flags
 if [ -z "$1" ]; then
