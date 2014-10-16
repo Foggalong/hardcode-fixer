@@ -72,7 +72,7 @@ if ! type "curl" >> /dev/null 2>&1; then
 fi
 
 # Checks for having internet access
-if eval "curl -s https://github.com/" >> /dev/null 2>&1; then
+if eval "curl -sk https://github.com/" >> /dev/null 2>&1; then
     : # pass
 else
     echo -e \
@@ -83,7 +83,7 @@ else
 fi
 
 # Check for newer version of fix.sh
-new_date=$(curl -s "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
+new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
 if [ "$date" -lt "$new_date" ]; then
     echo -e \
         "You're running an out of date version of\n" \
@@ -102,7 +102,7 @@ if [ "$date" -lt "$new_date" ]; then
 fi
 
 # Downloads latest version of the list
-curl -s -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
+curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 
 # Checks for root
