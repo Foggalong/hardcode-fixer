@@ -32,6 +32,9 @@ Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fj
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
 Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
+Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
+Gens GS,gens,/usr/share/gens/gensgs_32x32.png,gensgs
+Gens GS,gens,/usr/share/gens/gens_small.png,gensgs
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
