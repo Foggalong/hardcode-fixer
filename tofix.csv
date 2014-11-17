@@ -25,11 +25,13 @@ Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-mana
 Dwarfs!?,Dwarfs!?,steam,steam_icon_35480
 Dwarfs?! - F2P,Dwarfs?! - F2P,steam,steam_icon_213650
 easyLife,easylife,/usr/share/pixmaps/easylife.png,easylife
+eFax,efax-gtk,/usr/share/pixmaps/efax-gtk,efax-gtk
 FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
 Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
 FileBot,FileBot,/usr/share/filebot/icon.svg,filebot
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
+Fritzing,fritzing,/usr/share/pixmaps/fritzing_icon.png,fritzing_icon
 Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
 Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
@@ -40,12 +42,14 @@ GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
+GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
 GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
 GNOME Weather (Arch),org.gnome.Weather.Application,org.gnome.Weather.Application,gnome-weather
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
 GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
+GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
 Hipchat,atlassian-hipchat,hipchat.png,hipchat
 Hotline Miami,Hotline Miami,steam,steam_icon_219150
@@ -68,6 +72,7 @@ Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
+Multiboot USB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
@@ -79,6 +84,7 @@ Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
 Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
 Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
+openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
 Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
@@ -97,6 +103,7 @@ Python (v3.1),python3.1,/usr/share/pixmaps/python3.1.xpm,python3.1.
 Python (v3.2),python3.2,/usr/share/pixmaps/python3.2.xpm,python3.2.
 Python (v3.3),python3.3,/usr/share/pixmaps/python3.3.xpm,python3.3.
 Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
+QGifer,qgifer,/usr/share//icons/qgifer.xpm,qgifer
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Robomongo,robomongo,robomongo.png,robomongo
@@ -111,6 +118,7 @@ Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Synergy,synergy,/usr/share/icons/synergy.ico,synergy
 Team Viewer,Teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
 Team Viewer,teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
+Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
@@ -124,6 +132,7 @@ Viber,viber,/usr/share/pixmaps/viber.png,viber
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
 Xonotic,xonotic,/usr/share/pixmaps/xonotic.png,xonotic
+YATE,yate-qt4,/usr/share/pixmaps/null_team-48.png,yate
 YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
 Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
