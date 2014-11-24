@@ -131,9 +131,8 @@ while read -r name launcher current new_icon; do
     launcher=$(echo "$launcher".desktop | sed -e "s/\r//g")
     current=$(echo "$current" | sed -e "s/\r//g")
     new_icon=$(echo "$new_icon" | sed -e "s/\r//g")
-    # Escape non-standard and special characters in file names by creating a new variable.
-    old_icon="$current"
-    old_icon="${old_icon//\\/\\\\}" # escape all backslashes first
+    # Escape non-standard and special characters in file names by creating a new variable
+    old_icon="${current//\\/\\\\}" # escape backslashes
     old_icon="${old_icon//\//\\/}" # escape slashes
     # Fixing code
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
