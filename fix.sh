@@ -11,7 +11,6 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-version="0.9.1"   # number
 date=201411230  # [year][month][date][extra]
 
 # Locations
@@ -104,6 +103,7 @@ fi
 # Downloads latest version of the list
 curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
+chown ${SUDO_USER:-$USER} "/tmp/tofix.csv"
 
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
