@@ -9,6 +9,3 @@ If you're an Arch user it's also available in the [AUR](https://aur.archlinux.or
 + [Use instructions](https://github.com/Foggalong/hardcode-fixer/wiki/Instructions)
 + Supported [application list](https://github.com/Foggalong/hardcode-fixer/wiki/App-Support)
 + Information on [theme support](https://github.com/Foggalong/hardcode-fixer/wiki/Theme-Support)
-
-### Known Issues:
-+ Local icons aren't correctly fixed
