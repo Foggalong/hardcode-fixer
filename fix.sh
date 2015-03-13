@@ -172,7 +172,7 @@ while read -r name launcher current new_icon; do
     elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
         # Local revert
         if [ -f "$local_apps$launcher" ] && [ -f "$current" ]; then
-            if grep -Gq "Icon=$new_icon" "$local_apps$launcher"; then
+            if grep -Gq "Icon=$new_icon$" "$local_apps$launcher"; then
                 echo "F: Reverting $name..."
                 rm -f "$local_icon$new_icon"*
                 sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_apps$launcher"
