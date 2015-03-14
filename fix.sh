@@ -52,7 +52,7 @@ else
                 "\r  -v, --version \t Displays program version.\n"
             exit 0 ;;
         -v|--version)
-            echo -e "$(basename -- $0) $version\n"
+            echo -e "$(basename -- $0) $date\n"
             exit 0 ;;
         *)
             echo -e "$(basename -- $0): invalid option -- '$1'"
