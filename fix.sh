@@ -144,7 +144,7 @@ while read -r name launcher current new_icon; do
                     if grep -Gq "Icon=$current$" "$local_apps$launcher"; then
                         echo "L: Fixing $name..."
                         if [ ! -d "$local_icon" ]; then
-							mkdir "$local_icon" -p
+							su -c "mkdir '$local_icon' -p" ${SUDO_USER:-$USER}
 						fi
                         cp "$current" "$local_icon$new_icon"
                         sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/" "$local_apps$launcher"
@@ -156,7 +156,7 @@ while read -r name launcher current new_icon; do
                     if grep -Gq "Icon=$current$" "$local_apps$launcher"; then
                         echo "S: Fixing $name..."
                         if [ ! -d "$local_icon" ]; then
-							mkdir "$local_icon" -p
+							su -c "mkdir '$local_icon' -p" ${SUDO_USER:-$USER}
 						fi
                         cp "$steam_icon" "$local_icon${new_icon}.png"
                         sed -i "s/Icon=steam.*/Icon=$new_icon/" "$local_apps$launcher"
