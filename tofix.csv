@@ -3,18 +3,19 @@ Application,Launcher,Path,Icon Name
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
+Anna - Extended Edition,Anna - Extended Edition,steam,steam_icon_217690
 Aptik,aptik,/usr/share/pixmaps/aptik.png,aptik
-Ardour,ardour2,/usr/share/ardour2/icons/ardour_icon_22px.png,ardour
-Ardour 3,ardour,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
-Ardour 3,ardour,/opt/ardour3/share/icons/ardour_icon_48px.png,ardour
-Ardour 3,ardour3,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
 Ardour 3,ardour3,/opt/ardour3/share/icons/ardour_icon_48px.png,ardour
+Ardour 3,ardour3,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
+Ardour 3,ardour,/opt/ardour3/share/icons/ardour_icon_48px.png,ardour
+Ardour 3,ardour,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
+Ardour,ardour2,/usr/share/ardour2/icons/ardour_icon_22px.png,ardour
 Arista,arista,/usr/share/arista/ui/icon.svg,arista
 Armagetron Advanced,armagetronad,/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png,armagetronad
 AstroMenace,astromenace,/usr/share/pixmaps/astromenace.png,astromenace
 Bastion,Bastion,steam,steam_icon_107100
-Beat Hazard,Beat Hazard,steam,steam_icon_49600
 Beat Hazard 2,Beat Hazard 2,steam,steam_icon_49610
+Beat Hazard,Beat Hazard,steam,steam_icon_49600
 BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolor/128x128/apps/bitdefender.png,bitdefender
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
@@ -22,8 +23,8 @@ Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
-Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
+Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Desura,desura,n/a,desura
 Docear,docear,/usr/share/docear/docear.png,docear
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
@@ -39,8 +40,8 @@ Emacs 23,emacs23,/usr/share/icons/hicolor/scalable/apps/emacs23.svg,emacs
 Emacs 24,emacs24,/usr/share/icons/hicolor/scalable/apps/emacs24.svg,emacs
 FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
 FCEUX,fceux,/usr/share/pixmaps/fceux.png,fceux
-Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
 FileBot,FileBot,/usr/share/filebot/icon.svg,filebot
+Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
 FlightGear Launcher,fgrun,/usr/share/pixmaps/flightgear.ico,flightgear
 FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
@@ -53,23 +54,24 @@ GanttProject,ganttproject,/opt/ganttproject/plugins/net.sourceforge.ganttproject
 Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
 GdMap,gdmap,gdmap_icon.png,gdmap_icon
-Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
 Gens GS,gens,/usr/share/gens/gensgs_32x32.png,gensgs
+Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
 Gens GS,gens,/usr/share/gens/gens_small.png,gensgs
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
-GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
-GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
 GNOME Wave Cleaner,gwc,gwc.xpm,gwc
-GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
 GNOME Weather (Arch),org.gnome.Weather.Application,org.gnome.Weather.Application,gnome-weather
+GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
+GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
+Gone Home,Gone Home,steam,steam_icon_232430
 GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
-GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
@@ -84,43 +86,46 @@ Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-g
 Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
-Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
+Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
 Lingot,lingot,/usr/share/pixmaps/lingot/lingot-icon.svg,lingot-icon
 Linphone,linphone,/usr/share/pixmaps/linphone/linphone.png,linphone
 LinSSID,linssid,/usr/share/pixmaps/linssid48.png,linssid
 Little Inferno,Little Inferno,steam,steam_icon_221260
 Ltris,ltris,/usr/share/icons/ltris48.gif,ltris
-Lucky Backup,luckybackup,/usr/share/pixmaps/luckybackup.png,luckybackup
-Lucky Backup (KDE),luckybackup-kde-su,/usr/share/pixmaps/luckybackup.png,luckybackup
 Lucky Backup (GNOME),luckybackup-gnome-su,/usr/share/pixmaps/luckybackup.png,luckybackup
+Lucky Backup (KDE),luckybackup-kde-su,/usr/share/pixmaps/luckybackup.png,luckybackup
+Lucky Backup,luckybackup,/usr/share/pixmaps/luckybackup.png,luckybackup
 MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
-MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
-My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
+MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
+My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
+Netbeans IDE,netbeans-8.0.1,/usr/share/netbeans/8.0.1/nb/netbeans.png,netbeans
 Netbeans IDE,netbeans,/usr/share/netbeans/7.0.1/nb/netbeans.png,netbeans
 Netbeans IDE,netbeans,/usr/share/netbeans/8.0/nb/netbeans.png,netbeans
-Netbeans IDE,netbeans-8.0.1,/usr/share/netbeans/8.0.1/nb/netbeans.png,netbeans
 Netflix,netflix,/var/lib/wine-browser-installer/NetflixIcon.png,netflix-desktop
 Ninja IDE,ninja-ide,/usr/share/ninja-ide/img/icon.png,ninja-ide
 Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
 Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
-openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
+openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
 Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
 Pamac (Update),pamac-update,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-update
 PDFsam,pdfsam,/usr/share/pdfsam/pdf.png,pdfsam
 Pencil,pencil,/usr/share/pencil/skin/classic/icon.svg,pencil
+Penumbra: Black Plague,Penumbra: Black Plague,steam,steam_icon_22120
+Penumbra: Overture,Penumbra: Overture,steam,steam_icon_22180
+Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
 pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
 pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 PHP Storm,phpstorm,PhpStorm-133.803/bin/webide.png,phpstorm
@@ -137,17 +142,17 @@ Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
 QGifer,qgifer,/usr/share//icons/qgifer.xpm,qgifer
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
-R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Robomongo,robomongo,robomongo.png,robomongo
-Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
-Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
+R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
-Shank,Shank,steam,steam_icon_6120
+Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
+Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Shank 2,Shank 2,steam,steam_icon_6130
+Shank,Shank,steam,steam_icon_6120
 Sigram,telegram,/opt/sigram/icons/icon.png,sigram
-SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
+SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 Snapshot,Snapshot,steam,steam_icon_204220
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
@@ -156,10 +161,10 @@ Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 SuperTuxKart,supertuxkart,/usr/share/pixmaps/supertuxkart_128.png,supertuxkart
 Syncthing-GTK,syncthing-gtk,/usr/share/syncthing-gtk/icons/st-logo-128.png,syncthing-gtk
 Synergy,synergy,/usr/share/icons/synergy.ico,synergy
-Team Viewer,Teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
-Team Viewer,teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
-Team Viewer,teamviewer-teamviewer10,/opt/teamviewer/tv_bin/desktop/teamviewer.png,teamviewer
 Team Viewer,teamviewer-teamviewer10,/opt/teamviewer10/tv_bin/desktop/teamviewer.png,teamviewer
+Team Viewer,teamviewer-teamviewer10,/opt/teamviewer/tv_bin/desktop/teamviewer.png,teamviewer
+Team Viewer,teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
+Team Viewer,Teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
 Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
@@ -168,13 +173,13 @@ Tor Browser,???,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
 Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touchpad-indicator
 Trelby,trelby,/opt/trelby/resources/icon256.png,trelby
 TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
-UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 UberWriter,uberwriter,/opt/extras.ubuntu.com/uberwriter/share/uberwriter/media/uberwriter.svg,uberwriter
+UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 Ubuntu Web Browser,webbrowser-app,/usr/share/webbrowser-app/webbrowser-app.png,webbrowser-app
 Unison-GTK,unison-gtk,/usr/share/pixmaps/unison-gtk.svg,unison-gtk
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
-Variety,variety,/usr/share/variety/media/variety.svg,variety
 Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
+Variety,variety,/usr/share/variety/media/variety.svg,variety
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
@@ -182,8 +187,8 @@ X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
 Xjump,xjump,xjump-icon.xpm,xjump-icon
 Xmind,xmind,/usr/local/xmind/xmind-logo-36.png,xmind
 Xonotic,xonotic,/usr/share/pixmaps/xonotic.png,xonotic
-YATE,yate-qt4,/usr/share/pixmaps/null_team-48.png,yate
 YATE,yate-qt4,null_team-48.png,yate
+YATE,yate-qt4,/usr/share/pixmaps/null_team-48.png,yate
 YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
-Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
+Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
