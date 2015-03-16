@@ -61,6 +61,14 @@ else
     esac
 fi
 
+# Verifies if 'wget' is installed
+if ! type "wget" >> /dev/null 2>&1; then
+    echo -e \
+        "$0: This script requires 'wget' to be installed\n" \
+        "\rto fetch the required files and check for updates.\n" \
+        "\rPlease install it and rerun this script."
+    gerror
+fi
 
 # Checks for having internet access
 if eval "wget -q -O - --spider https://github.com/" >> /dev/null 2>&1; then
