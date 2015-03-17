@@ -81,6 +81,7 @@ Hipchat,atlassian-hipchat,hipchat.png,hipchat
 Hotline Miami,Hotline Miami,steam,steam_icon_219150
 HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
+HTTraQt,httraqt,httraqt.xpm,httraqt
 I-Nex,i-nex,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
@@ -105,6 +106,7 @@ Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,s
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
+Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
@@ -129,6 +131,7 @@ Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
 pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
 pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 PHP Storm,phpstorm,PhpStorm-133.803/bin/webide.png,phpstorm
+Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
 Pycharm,pycharm,$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
 pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
