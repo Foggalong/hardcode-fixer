@@ -154,6 +154,7 @@ Robomongo,robomongo,robomongo.png,robomongo
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
+Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
 Shank,Shank,steam,steam_icon_6120
 Shank 2,Shank 2,steam,steam_icon_6130
 Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
@@ -165,6 +166,7 @@ Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
+Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
 SuperTuxKart,supertuxkart,/usr/share/pixmaps/supertuxkart_128.png,supertuxkart
 Syncthing-GTK,syncthing-gtk,/usr/share/syncthing-gtk/icons/st-logo-128.png,syncthing-gtk
 Synergy,synergy,/usr/share/icons/synergy.ico,synergy
