@@ -20,7 +20,6 @@ BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolo
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
-Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
@@ -157,6 +156,7 @@ Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Shank,Shank,steam,steam_icon_6120
 Shank 2,Shank 2,steam,steam_icon_6130
+Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
 Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
