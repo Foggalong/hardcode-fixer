@@ -25,7 +25,9 @@ Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
 Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
+Cura,cura,/usr/share/cura/resources/images/c.png,cura
 Desura,desura,n/a,desura
+diffpdf,diffpdf,/usr/share/pixmaps/diffpdf.png,diffpdf
 Docear,docear,/usr/share/docear/docear.png,docear
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
 DOS Box,dosbox,/usr/share/pixmaps/dosbox.png,dosbox
@@ -123,6 +125,7 @@ Nsight Eclipse Edition,nsight,/opt/cuda/libnsight/icon.xpm,nsight
 Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
 NVIDIA Visual Profiler,nvvp,/opt/cuda/libnvvp/icon.xpm,nvvp
 openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
+Opensong,opensong,/opt/OpenSong/opensong.xpm,opensong
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
 Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
@@ -156,6 +159,7 @@ Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
+SelekTOR,selektor,/usr/share/icons/selektoricon.png,selektoricon
 Shank,Shank,steam,steam_icon_6120
 Shank 2,Shank 2,steam,steam_icon_6130
 Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
@@ -170,6 +174,7 @@ Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
 SuperTuxKart,supertuxkart,/usr/share/pixmaps/supertuxkart_128.png,supertuxkart
+SVG Cleaner,svgcleaner,/usr/share/icons/hicolor/scalable/apps/svgcleaner.svg,svgcleaner
 Syncthing-GTK,syncthing-gtk,/usr/share/syncthing-gtk/icons/st-logo-128.png,syncthing-gtk
 Synergy,synergy,/usr/share/icons/synergy.ico,synergy
 Team Viewer,Teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.png,teamviewer
