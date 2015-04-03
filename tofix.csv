@@ -88,6 +88,7 @@ Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
+Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
 Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
 Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
@@ -162,6 +163,7 @@ Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
 Snapshot,Snapshot,steam,steam_icon_204220
+SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 Starbound,Starbound,steam,steam_icon_211820
