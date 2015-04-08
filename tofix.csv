@@ -52,6 +52,7 @@ FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
 FreeCol,freecol,/usr/share/pixmaps/freecol.xpm,freecol
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
 Fritzing,fritzing,/usr/share/pixmaps/fritzing_icon.png,fritzing_icon
+Gambit Chess,gambitchess,/usr/share/pixmaps/gambitchess.svg,gambitchess
 GanttProject,ganttproject,/opt/ganttproject/plugins/net.sourceforge.ganttproject/data/resources/logos/icon64.png,ganttproject
 Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
@@ -60,8 +61,10 @@ Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
 Gens GS,gens,/usr/share/gens/gensgs_32x32.png,gensgs
 Gens GS,gens,/usr/share/gens/gens_small.png,gensgs
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
+gFTP,gftp,gftp.png,gftp
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
+GNUbik,gnubik,gnubik.png,gnubik
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
@@ -75,6 +78,7 @@ GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
 GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
+Gsopcast,gsopcast,gsopcast.png,gsopcast
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
@@ -125,6 +129,7 @@ NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
 Nsight Eclipse Edition,nsight,/opt/cuda/libnsight/icon.xpm,nsight
 Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
 NVIDIA Visual Profiler,nvvp,/opt/cuda/libnvvp/icon.xpm,nvvp
+OCRFeeder,ocrfeeder,/usr/share/ocrfeeder/icons/ocrfeeder.svg,ocrfeeder
 openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
 Opensong,opensong,/opt/OpenSong/opensong.xpm,opensong
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
@@ -155,6 +160,7 @@ QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
+Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 Robomongo,robomongo,robomongo.png,robomongo
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
@@ -200,6 +206,7 @@ Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Variety,variety,/usr/share/variety/media/variety.svg,variety
 Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
 Viber,viber,/usr/share/pixmaps/viber.png,viber
+Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
 X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
