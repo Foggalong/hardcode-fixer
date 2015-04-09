@@ -78,6 +78,7 @@ GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
 GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
+Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.xpm,grisbi
 Gsopcast,gsopcast,gsopcast.png,gsopcast
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
