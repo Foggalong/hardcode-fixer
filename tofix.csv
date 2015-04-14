@@ -170,6 +170,7 @@ Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
+ScreenRuler,gnome-screenruler,screenruler-icon-32x32.png,screenruler
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
 SelekTOR,selekTOR,/usr/share/icons/selektoricon.png,selektoricon
 Shank,Shank,steam,steam_icon_6120
