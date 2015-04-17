@@ -32,6 +32,8 @@ Docear,docear,/usr/share/docear/docear.png,docear
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
 DOS Box,dosbox,/usr/share/pixmaps/dosbox.png,dosbox
 Dota 2,Dota 2,steam,steam_icon_570
+dreamchess,dreamchess,/usr/share/dreamchess/icon.png,dreamchess
+Dr. Geo,drgeo2,drgeo2.png,drgeo
 Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Dwarfs!?,Dwarfs!,steam,steam_icon_35480
 Dwarfs?! - F2P,Dwarfs! - F2P,steam,steam_icon_213650
@@ -56,6 +58,7 @@ Gambit Chess,gambitchess,/usr/share/pixmaps/gambitchess.svg,gambitchess
 GanttProject,ganttproject,/opt/ganttproject/plugins/net.sourceforge.ganttproject/data/resources/logos/icon64.png,ganttproject
 Garry's Mod,Garry's Mod,steam,steam_icon_4000
 Gcolor2,gcolor2,/usr/share/pixmaps/gcolor2/gcolor2.xpm,gcolor2
+Gdiskdump,gdiskdump,/usr/share/gdiskdump/data/media/gdiskdump.svg,gdiskdump
 GdMap,gdmap,gdmap_icon.png,gdmap_icon
 Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
 Gens GS,gens,/usr/share/gens/gensgs_32x32.png,gensgs
@@ -78,6 +81,8 @@ GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
 GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
+Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.xpm,grisbi
+Grsync,grsync,grsync.png,grsync
 Gsopcast,gsopcast,gsopcast.png,gsopcast
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
@@ -166,6 +171,7 @@ Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
+ScreenRuler,gnome-screenruler,screenruler-icon-32x32.png,screenruler
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
 SelekTOR,selekTOR,/usr/share/icons/selektoricon.png,selektoricon
 Shank,Shank,steam,steam_icon_6120
@@ -201,6 +207,7 @@ TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
 UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 UberWriter,uberwriter,/opt/extras.ubuntu.com/uberwriter/share/uberwriter/media/uberwriter.svg,uberwriter
 Ubuntu Web Browser,webbrowser-app,/usr/share/webbrowser-app/webbrowser-app.png,webbrowser-app
+Unison,unison,unison.png,unison
 Unison-GTK,unison-gtk,/usr/share/pixmaps/unison-gtk.svg,unison-gtk
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Variety,variety,/usr/share/variety/media/variety.svg,variety
