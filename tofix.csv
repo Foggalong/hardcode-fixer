@@ -167,6 +167,7 @@ R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 Robomongo,robomongo,robomongo.png,robomongo
+RubyMine,jetbrains-rubymine,/opt/RubyMine-7.0.2/bin/RMlogo.svg,rubymine
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
