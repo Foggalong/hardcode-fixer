@@ -67,19 +67,20 @@ GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 gFTP,gftp,gftp.png,gftp
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
-GNUbik,gnubik,gnubik.png,gnubik
-GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
-GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
 GNOME Wave Cleaner,gwc,gwc.xpm,gwc
 GNOME Weather,gnome-shell-extension-weather,org.gnome.Weather.Application,gnome-weather
 GNOME Weather (Arch),org.gnome.Weather.Application,org.gnome.Weather.Application,gnome-weather
+GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
+GNUbik,gnubik,gnubik.png,gnubik
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
+GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
 Gone Home,Gone Home,steam,steam_icon_232430
 GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
-GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
+GpsPrune,gpsprune,/usr/share/pixmaps/gpsprune.xpm,gpsprune
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.xpm,grisbi
 Grsync,grsync,grsync.png,grsync
@@ -94,6 +95,12 @@ HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
 HTTraQt,httraqt,httraqt.xpm,httraqt
 I-Nex,i-nex,/usr/share/pixmaps/i-nex-128.png,i-nex-128
+IDLE,idle,/usr/share/pixmaps/idle.xpm,python-idle
+IDLE 3,idle3,/usr/share/pixmaps/idle3.xpm,python-idle
+IDLE (Python 2.7),idle-python2.7,/usr/share/pixmaps/python2.7.xpm,python-idle
+IDLE (Python 3.2),idle-python3.2,/usr/share/pixmaps/python3.2.xpm,python-idle
+IDLE (Python 3.3),idle-python3.3,/usr/share/pixmaps/python3.3.xpm,python-idle
+IDLE (Python 3.4),idle-python3.4,/usr/share/pixmaps/python3.4.xpm,python-idle
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
@@ -104,6 +111,7 @@ LaTeXDraw,latexdraw,/usr/share/pixmaps/latexdraw32.xpm,latexdraw
 Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
 Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
+Lincity-NG,lincity-ng,lincity-ng.png,lincity-ng
 Lingot,lingot,/usr/share/pixmaps/lingot/lingot-icon.svg,lingot-icon
 Linphone,linphone,/usr/share/pixmaps/linphone/linphone.png,linphone
 LinSSID,linssid,/usr/share/pixmaps/linssid48.png,linssid
@@ -113,6 +121,7 @@ Lucky Backup,luckybackup,/usr/share/pixmaps/luckybackup.png,luckybackup
 Lucky Backup (KDE),luckybackup-kde-su,/usr/share/pixmaps/luckybackup.png,luckybackup
 Lucky Backup (GNOME),luckybackup-gnome-su,/usr/share/pixmaps/luckybackup.png,luckybackup
 MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
+Mandelbulber,mandelbulber,/usr/share/mandelbulber/icons/mandelbulber.png,mandelbulber
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
 MediaElch,MediaElch,/usr/share/pixmaps/MediaElch.png,mediaelch
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
@@ -164,6 +173,7 @@ Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
 QGifer,qgifer,/usr/share//icons/qgifer.xpm,qgifer
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
+Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
