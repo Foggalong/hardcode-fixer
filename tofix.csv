@@ -1,5 +1,6 @@
 Application,Launcher,Path,Icon Name
 2048,2048,/usr/share/2048/meta/apple-touch-icon.png,2048
+2048-Qt,2048-qt,/usr/share/pixmaps/2048-qt.xpm,2048-qt
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
