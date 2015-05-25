@@ -68,7 +68,7 @@ do
                     general_error
             esac
         fi
-    shift # Shifts through variable assignments to enable the order handlin within the loop
+    shift # Shifts through variable assignments to enable the order handling within the loop
 done
 
 # Verifies if 'curl' is installed
