@@ -44,8 +44,8 @@ do
                     do
                         read -p "Are you sure you want to continue? " answer
                         case "$answer" in
-                            [yY]* ) mode="revert"; break;;
-                            [nN]* ) exit;;
+                            [Yy]* ) mode="revert"; break;;
+                            [Nn]* ) exit;;
                             * ) echo "Please answer [Y/y]es or [N/n]o.";;
                         esac
                     done;;
@@ -128,7 +128,7 @@ then
 do
     read -p "Do you want to continue in local mode? " answer
     case "$answer" in
-        [yY]* )
+        [Yy]* )
             if [[ "$mode" == "fix" ]]
             then
                 mode="local"; break
@@ -136,7 +136,7 @@ do
             then
                 mode="l-revert"; break
             fi;;
-        [nN]* ) exit;;
+        [Nn]* ) exit;;
         * ) echo "Please answer [Y/y]es or [N/n]o.";;
         esac
     done
