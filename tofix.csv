@@ -182,6 +182,9 @@ Python (v3.4),python3.4,/usr/share/pixmaps/python3.4.xpm,python3.4.
 QGifer,qgifer,/usr/share//icons/qgifer.xpm,qgifer
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
+QT4 QTConfig,qt4-qtconfig,qt4-logo,qtconfig-qt4
+QT4 Designer,qt4-designer,designer,designer-qt4
+QT4 Linguist,qt4-linguist,linguist,linguist-qt4
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
