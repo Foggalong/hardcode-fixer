@@ -65,7 +65,7 @@ do
 				*)
 					echo -e "$script: invalid option -- '$1'"
 					echo -e "Try '$script --help' for more information."
-					get_error
+					general_error
 			esac
 		fi
 	shift # Shifts through variable assignments to enable the order handlin within the loop
@@ -78,7 +78,7 @@ then
 		"$0: This script requires 'curl' to be installed\n" \
 		"\rto fetch the required files and check for updates.\n" \
 		"\rPlease install it and rerun this script."
-	get_error
+	general_error
 fi
 
 # Verifies internet access
@@ -90,7 +90,7 @@ else
 		"No internet connection available. This script\n" \
 		"\rrequires internet access to connect to GitHub\n" \
 		"\rto check for updates and download 'to-fix' info."
-	get_error
+	general_error
 fi
 
 # Check for newer version of the script
