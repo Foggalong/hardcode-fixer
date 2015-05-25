@@ -11,16 +11,13 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version information
-
 date=201505240  # [year][month][date][extra]
 
 # Global variables
-
 script=$(basename -- "$0")
 user="${SUDO_USER:-$USER}"
 
 # Resource locations
-
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 local_apps="/home/$user/.local/share/applications/"
 local_icon="/home/$user/.local/share/icons/hicolor/48x48/apps/"
@@ -29,14 +26,9 @@ global_icon="/usr/share/icons/hicolor/48x48/apps/"
 steam_icon="${global_icon}steam.png"
 
 # Allows timeout when launched via 'Run in Terminal'
-
-get_error() {
-	sleep 3
-	exit 1
-}
+general_error() { sleep 3; exit 1 }
 
 # Deals with option flags
-
 while (($#)) # Loop test handles multiple flags, no matter what the order
 do
 		if [[ -z "$1" ]]
@@ -76,7 +68,7 @@ do
 					get_error
 			esac
 		fi
-	shift
+	shift # Shifts through variable assignments to enable the order handlin within the loop
 done
 
 # Verifies if 'curl' is installed
@@ -101,7 +93,7 @@ else
 	get_error
 fi
 
-# Check for newer version of script
+# Check for newer version of the script
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
 
 if [[ "$date" -lt "$new_date" ]]
@@ -129,7 +121,7 @@ sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 chown "$user" "/tmp/tofix.csv"
 
 # Verifies for root access priviledges
-if [[ $UID -ne 0 ]] && [[ $mode != "local" ]]
+if [[ "$UID" -ne 0 ]] && [[ "$mode" != "local" ]]
 then
 	echo "The script must be run as root to (un)fix global launchers."
 	while true
@@ -139,13 +131,13 @@ do
 		[yY]* )
 			if [[ "$mode" == "fix" ]]
 			then
-					mode="local"; break
-				elif [[ "$mode" == "revert" ]]
-				then
-					mode="l-revert"; break
-				fi;;
-			[nN]* ) exit;;
-			* ) echo "Please answer [Y/y]es or [N/n]o.";;
+				mode="local"; break
+			elif [[ "$mode" == "revert" ]]
+			then
+				mode="l-revert"; break
+			fi;;
+		[nN]* ) exit;;
+		* ) echo "Please answer [Y/y]es or [N/n]o.";;
 		esac
 	done
 fi
