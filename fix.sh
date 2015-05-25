@@ -22,8 +22,8 @@ user="${SUDO_USER:-$USER}"
 # Resource locations
 
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-local_apps="/home/"$user"/.local/share/applications/"
-local_icon="/home/"$user"/.local/share/icons/hicolor/48x48/apps/"
+local_apps="/home/$user/.local/share/applications/"
+local_icon="/home/$user/.local/share/icons/hicolor/48x48/apps/"
 global_apps="/usr/share/applications/"
 global_icon="/usr/share/icons/hicolor/48x48/apps/"
 steam_icon="${global_icon}steam.png"
@@ -136,7 +136,7 @@ then
 do
 	read -p "Do you want to continue in local mode? " answer
 	case "$answer" in
-		[Yy]* )
+		[yY]* )
 			if [[ "$mode" == "fix" ]]
 			then
 					mode="local"; break
@@ -144,7 +144,7 @@ do
 				then
 					mode="l-revert"; break
 				fi;;
-			[Nn]* ) exit;;
+			[nN]* ) exit;;
 			* ) echo "Please answer [Y/y]es or [N/n]o.";;
 		esac
 	done
