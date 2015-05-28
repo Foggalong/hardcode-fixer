@@ -6,6 +6,7 @@ Aard Dictionary,aarddict,aarddict.png,aarddict
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
 Anna - Extended Edition,Anna - Extended Edition,steam,steam_icon_217690
 Aptik,aptik,/usr/share/pixmaps/aptik.png,aptik
+APX,apx,/usr/share/apx/icons/apx.svg,apx
 Ardour 2,ardour2,/usr/share/ardour2/icons/ardour_icon_22px.png,ardour
 Ardour 3,ardour,/usr/share/ardour3/icons/ardour_icon_48px.png,ardour
 Ardour 3,ardour,/opt/ardour3/share/icons/ardour_icon_48px.png,ardour
@@ -19,6 +20,7 @@ AstroMenace,astromenace,/usr/share/pixmaps/astromenace.png,astromenace
 Bastion,Bastion,steam,steam_icon_107100
 Beat Hazard,Beat Hazard,steam,steam_icon_49600
 Beat Hazard 2,Beat Hazard 2,steam,steam_icon_49610
+Bibfilex,bibfilex-qt,/opt/bibfilex/icon.png,bibfilex
 BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolor/128x128/apps/bitdefender.png,bitdefender
 Blam,blam,blam.png,blam
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
@@ -154,6 +156,7 @@ OCRFeeder,ocrfeeder,/usr/share/ocrfeeder/icons/ocrfeeder.svg,ocrfeeder
 openSCAD,openscad,/usr/share/pixmaps/openscad,openscad
 Opensong,opensong,/opt/OpenSong/opensong.xpm,opensong
 OmegaT,omegat,/usr/share/omegat/images/OmegaT.xpm,omegat
+oStorybook,oStorybook,/usr/share/oStorybook/oStorybook-icon.png,ostorybook
 PacmanXG,pacmanxg,/usr/share/pixmaps/pacmanxg.png,pacmanxg
 Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-install
 Pamac (Update),pamac-update,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-update
