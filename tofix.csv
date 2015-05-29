@@ -94,6 +94,7 @@ Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.xpm,grisbi
 Grsync,grsync,grsync.png,grsync
 Gsopcast,gsopcast,gsopcast.png,gsopcast
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
+GTimeLog,gtimelog,/usr/share/pyshared/gtimelog/gtimelog.png,gtimelog
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
 Hardinfo,hardinfo,/usr/share/hardinfo/pixmaps/logo.png,hardinfo
