@@ -29,8 +29,7 @@ steam_icon="${global_icon}steam.png"
 general_error() { sleep 3; exit 1 }
 
 # Deals with option flags
-while (($#)) # Loop test handles multiple flags, no matter what the order
-do
+while (($#)) # Loop test handles multiple flags, no matter what the order; do
         if [[ -z "$1" ]]
         then
             mode="fix"
@@ -72,8 +71,7 @@ do
 done
 
 # Verifies if 'curl' is installed
-if ! type "curl" >> /dev/null 2>&1
-then
+if ! type "curl" >> /dev/null 2>&1; then
     echo -e \
         "$0: This script requires 'curl' to be installed\n" \
         "\rto fetch the required files and check for updates.\n" \
@@ -82,8 +80,7 @@ then
 fi
 
 # Verifies internet access
-if eval "curl -sk https://github.com/" >> /dev/null 2>&1
-then
+if eval "curl -sk https://github.com/" >> /dev/null 2>&1; then
     : # pass
 else
     echo -e \
@@ -96,8 +93,7 @@ fi
 # Check for newer version of the script
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
 
-if [[ "$date" -lt "$new_date" ]]
-then
+if [[ "$date" -lt "$new_date" ]]; then
     echo -e \
         "You're running an out of date version of\n" \
         "\rthe script. Please download the latest\n" \
@@ -121,11 +117,9 @@ sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 chown "$user" "/tmp/tofix.csv"
 
 # Verifies for root access priviledges
-if [[ "$UID" -ne 0 ]] && [[ "$mode" != "local" ]]
-then
+if [[ "$UID" -ne 0 ]] && [[ "$mode" != "local" ]]; then
     echo "The script must be run as root to (un)fix global launchers."
-    while true
-do
+    while true; do
     read -p "Do you want to continue in local mode? " answer
     case "$answer" in
         [Yy]* )
@@ -144,8 +138,7 @@ fi
 
 # Iterating over lines of tofix.csv, each split into an array
 IFS=","
-while read -r name launcher current new_icon
-do
+while read -r name launcher current new_icon; do
     # Basic corrections
     name=$(echo "$name" | sed -e "s/\r//g")
     launcher=$(echo "$launcher".desktop | sed -e "s/\r//g")
