@@ -138,6 +138,8 @@ Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,m
 MediaElch,MediaElch,/usr/share/pixmaps/MediaElch.png,mediaelch
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
