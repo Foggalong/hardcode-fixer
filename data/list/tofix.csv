@@ -59,7 +59,8 @@ Lucky Backup (GNOME),luckybackup-gnome-su,/usr/share/pixmaps/luckybackup.png,luc
 MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
-Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Driver,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manage
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
