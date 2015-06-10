@@ -227,6 +227,7 @@ Team Viewer,teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.pn
 Team Viewer,teamviewer-teamviewer10,/opt/teamviewer/tv_bin/desktop/teamviewer.png,teamviewer
 Team Viewer,teamviewer-teamviewer10,/opt/teamviewer10/tv_bin/desktop/teamviewer.png,teamviewer
 Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
+Telegram Desktop,telegramdesktop,$HOME/.TelegramDesktop/tdata/icon.png,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
