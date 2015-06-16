@@ -167,6 +167,7 @@ Nitro Tasks,nitrotasks,/usr/share/nitrotasks/media/nitrotasks.png,nitrotasks
 NotifyOSD,notifyosdconf,/usr/share/notifyosdconf/not.png,notifyconf
 Nsight Eclipse Edition,nsight,/opt/cuda/libnsight/icon.xpm,nsight
 Nvidia Settings,nvidia-settings,/usr/share/pixmaps/nvidia-settings.png,nvidia-settings
+Nvidia Settings, nvidia-settings,/usr/share/doc/NVIDIA_GLX-1.0/nvidia-settings.png,nvidia-settings
 NVIDIA Visual Profiler,nvvp,/opt/cuda/libnvvp/icon.xpm,nvvp
 OCRFeeder,ocrfeeder,/usr/share/ocrfeeder/icons/ocrfeeder.svg,ocrfeeder
 openSCAD,openscad,/usr/share/pixmaps/openscad.png,openscad
@@ -201,6 +202,9 @@ QCAD,QCad,/usr/share/pixmaps/qcad_icon.png,qcad_icon
 QGifer,qgifer,/usr/share//icons/qgifer.xpm,qgifer
 QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
+QT4 QTConfig,qt4-qtconfig,qt4-logo,qtconfig-qt4
+QT4 Designer,qt4-designer,designer,designer-qt4
+QT4 Linguist,qt4-linguist,linguist,linguist-qt4
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
