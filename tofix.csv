@@ -112,6 +112,7 @@ IDLE (Python 2.7),idle-python2.7,/usr/share/pixmaps/python2.7.xpm,python-idle
 IDLE (Python 3.2),idle-python3.2,/usr/share/pixmaps/python3.2.xpm,python-idle
 IDLE (Python 3.3),idle-python3.3,/usr/share/pixmaps/python3.3.xpm,python-idle
 IDLE (Python 3.4),idle-python3.4,/usr/share/pixmaps/python3.4.xpm,python-idle
+Image Magick,display.im6,display.im6,imagemagick
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,/opt/idea-IC/bin/idea.png,idea
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
@@ -141,8 +142,15 @@ Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
+Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup 
 Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
+Mint Nanny,mintNanny,/usr/lib/linuxmint/mintNanny/icon.svg,mintNanny
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
+Mint Software Manager,mintInstall,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
+Mint Software Sources,software-sources,/usr/share/icons/hicolor/scalable/apps/software-sources.svg,software-sources
+Mint Software Sources,mintsources,/usr/share/icons/hicolor/scalable/apps/software-sources.svg,software-sources
+Mint Update Manager,mintUpdate,/usr/lib/linuxmint/mintUpdate/icons/base.svg,mintUpdate
+Mint Upload Manager,mintupload,/usr/lib/linuxmint/mintUpload/icon.svg,mintUpload
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
@@ -244,6 +252,7 @@ Unison-GTK,unison-gtk,/usr/share/pixmaps/unison-gtk.svg,unison-gtk
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Variety,variety,/usr/share/variety/media/variety.svg,variety
 Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
+Variety,extras-variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Warmux,warmux,warmux_128x128.png,warmux
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
