@@ -190,7 +190,7 @@ pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 PHP Storm,phpstorm,PhpStorm-133.803/bin/webide.png,phpstorm
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
-Pycharm,pycharm,$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
+Pycharm,pycharm,[home]/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
 pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
 Python (v2.6),python2.6,/usr/share/pixmaps/python2.6.xpm,python
 Python (v2.7),python2.7,/usr/share/pixmaps/python2.7.xpm,python
@@ -239,6 +239,7 @@ Team Viewer,teamviewer-teamviewer9,/opt/teamviewer9/tv_bin/desktop/teamviewer.pn
 Team Viewer,teamviewer-teamviewer10,/opt/teamviewer/tv_bin/desktop/teamviewer.png,teamviewer
 Team Viewer,teamviewer-teamviewer10,/opt/teamviewer10/tv_bin/desktop/teamviewer.png,teamviewer
 Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
+Telegram Desktop,telegramdesktop,[home]/.TelegramDesktop/tdata/icon.png,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
