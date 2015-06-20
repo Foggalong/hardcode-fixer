@@ -144,6 +144,7 @@ MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-ex
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
 Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
+MyTourbook,mytourbook,mytourbook.xpm,mytourbook
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
@@ -246,6 +247,7 @@ Viber,viber,/usr/share/pixmaps/viber.png,viber
 Warmux,warmux,warmux_128x128.png,warmux
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
+wxFormBuilder,wxformbuilder,wxformbuilder.png,wxformbuilder
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
 X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
 Xjump,xjump,xjump-icon.xpm,xjump-icon
