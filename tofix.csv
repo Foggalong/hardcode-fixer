@@ -16,6 +16,7 @@ Ardour 4,ardour,/usr/share/ardour4/icons/ardour_icon_256px.png,ardour
 Arista,arista,/usr/share/arista/ui/icon.svg,arista
 Armagetron Advanced,armagetronad,/usr/share/pixmaps/armagetronad/icons/large/armagetronad.png,armagetronad
 Arronax,arronax,/usr/share/arronax/icons/arronax.png,arronax
+Ascii Design,ascii-design,ascii-design.png,ascii-design
 AstroMenace,astromenace,/usr/share/pixmaps/astromenace.png,astromenace
 Bastion,Bastion,steam,steam_icon_107100
 Beat Hazard,Beat Hazard,steam,steam_icon_49600
@@ -60,6 +61,7 @@ FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Fotoxx,fotoxx,/usr/share/fotoxx/icons/fotoxx.png,fotoxx
 FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
+Free Chart Geany,freechartgeany,/usr/share/pixmaps/freechartgeany.png,freechartgeany
 FreeCol,freecol,/usr/share/pixmaps/freecol.xpm,freecol
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
 Fritzing,fritzing,/usr/share/pixmaps/fritzing_icon.png,fritzing_icon
@@ -178,6 +180,7 @@ pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 PHP Storm,phpstorm,PhpStorm-133.803/bin/webide.png,phpstorm
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
+ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
 Pumpa,pumpa,/usr/share/icons/hicolor/32x32/apps/pumpa.png,pumpa
 Pycharm,pycharm,$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
 Pypar 2,pypar2,pypar2.png,pypar2
@@ -195,6 +198,7 @@ QLE,extras-qlequicklisteditor,/usr/share/pixmaps/qle_pix/logoqle2.svg,logoqle2
 qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
+Raccoon,raccoon,/usr/share/pixmaps/raccoon.svg,raccoon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 Robomongo,robomongo,robomongo.png,robomongo
