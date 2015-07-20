@@ -25,6 +25,7 @@ Bibfilex,bibfilex-qt,/opt/bibfilex/icon.png,bibfilex
 Bibfilex,bibfilex-gtk,/opt/bibfilex/icon.png,bibfilex
 BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolor/128x128/apps/bitdefender.png,bitdefender
 Blam,blam,blam.png,blam
+BlueJ,bluej,/usr/share/java/bluej/images/bluej-icon-48.png,bluej
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
@@ -89,11 +90,13 @@ GNS3,gns3,/usr/share/pixmaps/gns3.xpm,gns3
 GNUbik,gnubik,gnubik.png,gnubik
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
+GNU Octave,www.octave.org-octave,/usr/share/octave/4.0.0/imagelib/octave-logo.svg,octave
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
 Gone Home,Gone Home,steam,steam_icon_232430
 GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
 GPRename,gprename,/usr/share/pixmaps/gprename/gprename.png,gprename
 GpsPrune,gpsprune,/usr/share/pixmaps/gpsprune.xpm,gpsprune
+Grace GTK,gracegtk,/usr/share/pixmaps/gracegtk.png,grace
 GRASS GIS,grass,/usr/share/icons/grass-64x64.png,grass
 Greenfoot,greenfoot,/usr/share/java/greenfoot/images/greenfoot-icon-48.png,greenfoot
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
@@ -233,6 +236,7 @@ Slingscold,slingscold,/usr/share/icons/slingscold.png,slingscold
 SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
 Snapshot,Snapshot,steam,steam_icon_204220
+Soap UI 5.1.3,SoapUI-5.1.3,/opt/SmartBear/SoapUI-5.1.3/.install4j/SoapUI-5.1.3.png,soapui
 SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
