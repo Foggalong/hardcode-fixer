@@ -32,6 +32,7 @@ Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
+Copy,CopyAgent,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copyagent
 Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
 Cura,cura,/usr/share/cura/resources/images/c.png,cura
