@@ -62,6 +62,7 @@ FlightGear Launcher,fgrun,/usr/share/pixmaps/flightgear.ico,flightgear
 FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Fotoxx,fotoxx,/usr/share/fotoxx/icons/fotoxx.png,fotoxx
+FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
 FreeCAD,freecad,/usr/share/freecad/freecad.xpm,freecad
 Free Chart Geany,freechartgeany,/usr/share/pixmaps/freechartgeany.png,freechartgeany
 FreeCol,freecol,/usr/share/pixmaps/freecol.xpm,freecol
