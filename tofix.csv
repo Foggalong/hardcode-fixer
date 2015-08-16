@@ -34,6 +34,7 @@ Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
 Copy,copy,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copy
 Copy,CopyAgent,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copyagent
+Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
 Cura,cura,/usr/share/cura/resources/images/c.png,cura
 Cyclograph,cyclograph-gtk3,cyclograph.png,cyclograph
