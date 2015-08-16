@@ -115,6 +115,7 @@ HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
 HTTraQt,httraqt,httraqt.xpm,httraqt
 I-Nex,i-nex,/usr/share/pixmaps/i-nex-128.png,i-nex-128
+I-Nex Library,i-nex-library,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 IDLE,idle,/usr/share/pixmaps/idle.xpm,python-idle
 IDLE 3,idle3,/usr/share/pixmaps/idle3.xpm,python-idle
 IDLE (Python 2.7),idle-python2.7,/usr/share/pixmaps/python2.7.xpm,python-idle
