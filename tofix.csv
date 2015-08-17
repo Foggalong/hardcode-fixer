@@ -203,7 +203,7 @@ Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
 ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
 Pumpa,pumpa,/usr/share/icons/hicolor/32x32/apps/pumpa.png,pumpa
-Pycharm,pycharm,$HOME/Descargas/pycharm-community-3.1.1/bin/pycharm.png,pycharm
+Pycharm,pycharm,/home/${SUDO_USER:-$USER}/pycharm-community-3.1.1/bin/pycharm.png,pycharm
 Pypar 2,pypar2,pypar2.png,pypar2
 pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
 Python (v2.6),python2.6,/usr/share/pixmaps/python2.6.xpm,python
@@ -283,7 +283,7 @@ Variety,variety,/usr/share/variety/media/variety.svg,variety
 Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
 Variety,extras-variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
 Viber,viber,/usr/share/pixmaps/viber.png,viber
-Visual Studio,visual-studio-code,$HOME/tools/web/visual-studio-code/resources/app/vso.png,visual-studio-code
+Visual Studio,visual-studio-code,/home/${SUDO_USER:-$USER}/tools/web/visual-studio-code/resources/app/vso.png,visual-studio-code
 Viva,viva,viva.png,viva
 Warmux,warmux,warmux_128x128.png,warmux
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
