@@ -154,7 +154,7 @@ Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
-Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup 
+Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Mint Nanny,mintNanny,/usr/lib/linuxmint/mintNanny/icon.svg,mintNanny
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
@@ -252,7 +252,10 @@ SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 SQuirrel SQL,squirrel-sql,/usr/share/pixmaps/acorn.ico,squirrel-sql
+<<<<<<< HEAD
 SSH Tunnel Manager ,gstm,gSTM.png,lock
+=======
+>>>>>>> upstream/master
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
