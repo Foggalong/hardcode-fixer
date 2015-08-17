@@ -220,7 +220,6 @@ qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Raccoon,raccoon,/usr/share/pixmaps/raccoon.svg,raccoon
-Reditr,chrome-pmfcbbijgnhoebddbjpmlikabnbnddgb-Default ,reditr,reditr
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 RFB Receitanet,rfb-receitanet,/opt/Programas RFB/Receitanet/imagens/Receitanet.xpm,receitanet
@@ -252,10 +251,7 @@ SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 SQuirrel SQL,squirrel-sql,/usr/share/pixmaps/acorn.ico,squirrel-sql
-<<<<<<< HEAD
 SSH Tunnel Manager ,gstm,gSTM.png,lock
-=======
->>>>>>> upstream/master
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
@@ -290,7 +286,7 @@ Visual Studio,visual-studio-code,/home/${SUDO_USER:-$USER}/tools/web/visual-stud
 Viva,viva,viva.png,viva
 Warmux,warmux,warmux_128x128.png,warmux
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
-WinUSB,winusbgui,winusbgui-icon.png,web-microsoft
+WinUSB,winusbgui,winusbgui-icon.png,winusb
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 wxFormBuilder,wxformbuilder,wxformbuilder.png,wxformbuilder
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
