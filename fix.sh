@@ -34,7 +34,7 @@ else
         -r|--revert)
             echo "This will undo all changes previously made."
             while true; do
-                read -p "Are you sure you want to continue? " answer
+                read -r -p "Are you sure you want to continue? " answer
                 case $answer in
                     [Yy]* ) mode="revert"; break;;
                     [Nn]* ) exit;;
@@ -91,7 +91,7 @@ if [ "$date" -lt "$new_date" ]; then
         "\rvia your package manager. If you continue\n" \
         "\rwithout updating you may run into problems."
     while true; do
-        read -p "Would you like to [e]xit, or [c]ontinue?" answer
+        read -r -p "Would you like to [e]xit, or [c]ontinue?" answer
         case $answer in
             [Ee]* ) exit;;
             [Cc]* ) break;;
@@ -109,7 +109,7 @@ chown ${SUDO_USER:-$USER} "/tmp/tofix.csv"
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     echo "The script must be run as root to (un)fix global launchers."
     while true; do
-        read -p "Do you want to continue in local mode? " answer
+        read -r -p "Do you want to continue in local mode? " answer
         case $answer in
             [Yy]* )
                 if [ "$mode" == "fix" ]; then
