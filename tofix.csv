@@ -32,6 +32,8 @@ Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
+Copy,copy,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copy
+Copy,CopyAgent,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copyagent
 Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
 Cura,cura,/usr/share/cura/resources/images/c.png,cura
@@ -152,7 +154,7 @@ Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
-Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup 
+Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Mint Nanny,mintNanny,/usr/lib/linuxmint/mintNanny/icon.svg,mintNanny
 Mint Software Manager,software-manager,/usr/lib/linuxmint/mintInstall/icon.svg,software-manager
@@ -220,6 +222,8 @@ R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Raccoon,raccoon,/usr/share/pixmaps/raccoon.svg,raccoon
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
+RFB Receitanet,rfb-receitanet,/opt/Programas RFB/Receitanet/imagens/Receitanet.xpm,receitanet
+RFB Receitanet Ajuda,rfb-receitanet-ajuda,/opt/Programas RFB/Receitanet/imagens/Ajuda.xpm,receitanet-ajuda
 Robomongo,robomongo,robomongo.png,robomongo
 RubyMine,jetbrains-rubymine,/opt/RubyMine-7.0.2/bin/RMlogo.svg,rubymine
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
@@ -229,6 +233,11 @@ Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 ScreenRuler,gnome-screenruler,screenruler-icon-32x32.png,screenruler
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
 SelekTOR,selekTOR,/usr/share/icons/selektoricon.png,selektoricon
+SelekTOR,selektor,/opt/selektor/resources/selektoricon.png,selektoricon
+SelekTOR,selektor,/usr/share/icons/selektor-app.png,selektoricon
+SelekTOR,selektor,/usr/share/icons/selektoricon.png,selektoricon
+SelekTOR Proxy Reset,selektor-proxy-reset,/opt/selektor/resources/selektoricon.png,selektoricon
+SelekTOR Proxy Reset,selektor-proxy-reset,/usr/share/icons/selektor-app.png,selektoricon
 Shank,Shank,steam,steam_icon_6120
 Shank 2,Shank 2,steam,steam_icon_6130
 Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
@@ -242,6 +251,7 @@ SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 SQuirrel SQL,squirrel-sql,/usr/share/pixmaps/acorn.ico,squirrel-sql
+SSH Tunnel Manager ,gstm,gSTM.png,lock
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
@@ -258,7 +268,7 @@ Telegram,telegram,/opt/telegram/telegram.svg,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
-Tor Browser,???,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
+Tor Browser,tor-browser-en,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
 Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touchpad-indicator
 Trelby,trelby,/opt/trelby/resources/icon256.png,trelby
 TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
@@ -273,8 +283,10 @@ Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,v
 Variety,extras-variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Visual Studio,visual-studio-code,/home/${SUDO_USER:-$USER}/tools/web/visual-studio-code/resources/app/vso.png,visual-studio-code
+Viva,viva,viva.png,viva
 Warmux,warmux,warmux_128x128.png,warmux
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
+WinUSB,winusbgui,winusbgui-icon.png,winusb
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 wxFormBuilder,wxformbuilder,wxformbuilder.png,wxformbuilder
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
