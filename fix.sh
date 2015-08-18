@@ -42,6 +42,8 @@ function gerror() { sleep 3; exit 1; }
 
 function find_hardcoded_icons()
 {
+    hardcoded_csv_list="APPLICATION NAME, LAUNCHER, CURRENT ICON"
+
     # Iterate over the list of launchers path
     for global_apps in $global_apps_list; do
 
@@ -62,16 +64,22 @@ function find_hardcoded_icons()
         IFS=":"
         while read -r launcher icon; do
             name=$(grep -m 1 'Name' $launcher)
-            name=$(echo $name | sed "s/Name.*=//")
+            name=$(echo $name | sed "s/Name.*=//") # <===== this should be improved some icons are localized: "Name=" or "Name[en]="
             icon=$(echo $icon | sed "s/Icon.*=//")
             echo -e "\t     Name: $name"
             echo -e "\t Launcher: $launcher"
             echo -e "\t     Icon: $icon"
             echo
+            hardcoded_csv_list="$hardcoded_csv_list\n$name, $launcher, $icon, "
         done < /tmp/tofix_apps.log
-
-        echo
     done
+
+    # For debug only
+    echo
+    echo
+    echo -e "$hardcoded_csv_list" | column -t -s ,
+    echo -e "$hardcoded_csv_list" > still_hardcoded.csv
+    echo
 }
 
 # TODO: Iterate over parameters
