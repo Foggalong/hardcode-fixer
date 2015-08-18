@@ -40,7 +40,42 @@ local_apps_list="\
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
 
-# Deals with the flags
+function find_hardcoded_icons()
+{
+    # Iterate over the list of launchers path
+    for global_apps in $global_apps_list; do
+
+        # Go to the next applications path if current does not exist
+        if [ ! -d "$global_apps" ]; then
+            if [ "$verbose" == "1" ]; then
+                echo -e "\n#> Path '$global_apps' doesn't exists"
+            fi
+            continue
+        fi
+
+        echo -e "\n#> Looking in '$global_apps'"
+
+        find $global_apps -iname '*.desktop' -exec grep -EH "[[:blank:]]*Icon[[:blank:]]*=[[:blank:]]*.*\..*" {} \; | grep -v ":\#Icon=" > /tmp/tofix_apps.log
+        # cat /tmp/tofix_apps.log
+
+        # Itterating over lines of tofix.csv, each split into an array
+        IFS=":"
+        while read -r launcher icon; do
+            name=$(grep -m 1 'Name' $launcher)
+            name=$(echo $name | sed "s/Name.*=//")
+            icon=$(echo $icon | sed "s/Icon.*=//")
+            echo -e "\t     Name: $name"
+            echo -e "\t Launcher: $launcher"
+            echo -e "\t     Icon: $icon"
+            echo
+        done < /tmp/tofix_apps.log
+
+        echo
+    done
+}
+
+# TODO: Iterate over parameters
+# Deals with the flags 
 if [ -z "$1" ]; then
     mode="fix"
 else
@@ -65,9 +100,10 @@ else
                 "\r  -l, --local    \t Only fixes local launchers.\n" \
                 "\r  -r, --revert   \t Reverts any changes made.\n" \
                 "\r  -h, --help     \t Displays this help menu.\n" \
-                "\r  -v, --version  \t Displays program version.\n"
-                "\r  -V, --verbose  \t Increase the verbosity.\n"
-                "\r  -d, --dry-run  \t Simulate the execution but makes nothing.\n"
+                "\r  -v, --version  \t Displays program version.\n" \
+                "\r  -V, --verbose  \t Increase the verbosity.\n" \
+                "\r  -d, --dry-run  \t Simulate the execution but makes nothing.\n" \
+                "\r  -f, --find     \t Find hardcoded icons.\n"
             exit 0 ;;
         -v|--version)
             echo -e "$(basename -- $0) $date\n"
@@ -77,6 +113,10 @@ else
         -d|--dry-run)
             verbose="1"
             dryrun="1" ;;
+        -f|--find)
+            verbose="1"
+            find_hardcoded_icons
+            exit 0 ;;
         *)
             echo -e "$(basename -- $0): invalid option -- '$1'"
             echo -e "Try '$(basename -- $0) --help' for more information."
