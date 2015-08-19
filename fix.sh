@@ -150,7 +150,7 @@ while read -r name launcher current new_icon; do
             done            
         fi
         if [ -f "$new_current" ];then
-            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon" "tofix.csv"
+            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "tofix.csv"
         fi
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
