@@ -138,6 +138,21 @@ while read -r name launcher current new_icon; do
     old_icon="${current//\\/\\\\}" # escape backslashes
     old_icon="${old_icon//\//\\/}" # escape slashes
     # Fixing code
+    if [ "$current" == "hardcoded" ]; then #checks if the icon path is hardcoded
+        if [ -f "$localapps$launcher" ];then
+            new_current= grep -Gq "Icon=*$" "$local_apps$launcher"            
+        else
+            for global_app in $global_apps
+            do
+                if [ -f "$global_app$launcher" ]; then
+                   new_current= grep -Gq "Icon=*$" "$local_apps$launcher"            
+                fi
+            done            
+        fi
+        if [ -f "$new_current" ];then
+            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon" "tofix.csv"
+        fi
+    fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
         if [ -f "$local_apps$launcher" ]; then
