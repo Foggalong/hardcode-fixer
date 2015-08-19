@@ -12,13 +12,12 @@
 
 # Version info
 date=201503130  # [year][month][date][extra]
-
+global_apps=("/usr/share/applications/" "/usr/local/share/applications")
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 local_apps="/home/${SUDO_USER:-$USER}/.local/share/applications/"
 local_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/"
 local_scalable_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/scalable/apps/"
-global_apps="/usr/share/applications/"
 global_icon="/usr/share/icons/hicolor/48x48/apps/"
 global_scalable_icon="/usr/share/icons/hicolor/scalable/apps/"
 steam_icon="${global_icon}steam.png"
@@ -174,21 +173,24 @@ while read -r name launcher current new_icon; do
             fi
         fi
         # Global launchers
-        if [ $mode != "local" ] && [ -f "$global_apps$launcher" ]; then
-            if grep -Gq "Icon=$current$" "$global_apps$launcher"; then
-                echo "G: Fixing $name..."
-                if [ -f "$current" ]; then # checks if icon exists to copy
-                     if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                                cp "$current" "$global_icon$new_icon"
-                            fi
-                            if [ "$extension" == "svg" ];then
-                                cp "$current" "$global_scalable_icon$new_icon"
-                            fi 
+        for global_app in $global_apps
+        do
+            if [ $mode != "local" ] && [ -f "$global_app$launcher" ]; then
+                if grep -Gq "Icon=$current$" "$global_app$launcher"; then
+                    echo "G: Fixing $name..."
+                    if [ -f "$current" ]; then # checks if icon exists to copy
+                         if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+                                    cp "$current" "$global_icon$new_icon"
+                                fi
+                                if [ "$extension" == "svg" ];then
+                                    cp "$current" "$global_scalable_icon$new_icon"
+                                fi 
+                    fi
+                    sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"  
                 fi
-                sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/g" "$global_apps$launcher"  
+                
             fi
-            
-        fi
+       done
     # Reversion code
     elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
         # Local revert
@@ -210,13 +212,16 @@ while read -r name launcher current new_icon; do
             fi
         fi
         # Global revert
-        if [ $mode != "l-revert" ] && [ -f "$global_apps$launcher" ]; then
-            if grep -Gq "Icon=$new_icon$" "$global_apps$launcher"; then
-                echo "G: Reverting $name..."
-                rm -f "$global_icon$new_icon"*
-                rm -f "$global_scalable_icon$new_icon"*
-                sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_apps$launcher"
+        for global_app in $global_apps
+        do
+            if [ $mode != "l-revert" ] && [ -f "$global_app$launcher" ]; then
+                if grep -Gq "Icon=$new_icon$" "$global_app$launcher"; then
+                    echo "G: Reverting $name..."
+                    rm -f "$global_icon$new_icon"*
+                    rm -f "$global_scalable_icon$new_icon"*
+                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
+                fi
             fi
-        fi
+        done
     fi
 done < "/tmp/tofix.csv"
