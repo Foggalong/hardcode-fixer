@@ -25,8 +25,11 @@ steam_icon="${global_icon}steam.png"
 global_apps_list="\
     /usr/share/applications/\
     /usr/share/applications/kde4/ \
+    /usr/share/applications/data/
     /usr/local/share/applications/ \
     /usr/local/share/applications/kde4/ \
+    /usr/share/applications/data \
+    /usr/share/mimelnk/application \
     /home/${SUDO_USER:-$USER}/.local/share/applications/ \
     /home/${SUDO_USER:-$USER}/.local/share/applications/kde4/
 "
