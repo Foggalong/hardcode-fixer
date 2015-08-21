@@ -45,7 +45,7 @@ function gerror() { sleep 3; exit 1; }
 
 function find_hardcoded_icons()
 {
-    hardcoded_csv_list="APPLICATION NAME, LAUNCHER, CURRENT ICON"
+    hardcoded_csv_list="APPLICATION NAME, LAUNCHER, CURRENT ICON, NEW ICON"
 
     # Iterate over the list of launchers path
     for global_apps in $global_apps_list; do
@@ -73,6 +73,8 @@ function find_hardcoded_icons()
             echo -e "\t Launcher: $launcher"
             echo -e "\t     Icon: $icon"
             echo
+
+            launcher=$(basename  "$launcher" | sed "s/\.desktop//" )
             hardcoded_csv_list="$hardcoded_csv_list\n$name, $launcher, $icon, "
         done < /tmp/tofix_apps.log
     done
@@ -114,7 +116,7 @@ else
                 "\r  -h, --help     \t Displays this help menu.\n" \
                 "\r  -v, --version  \t Displays program version.\n" \
                 "\r  -V, --verbose  \t Increase the verbosity.\n" \
-                "\r  -d, --dry-run  \t Simulate the execution but makes nothing.\n" \
+                "\r  -d, --dryrun   \t Simulate the execution but makes nothing.\n" \
                 "\r  -f, --find     \t Find remainning hardcoded icons.\n"
             exit 0 ;;
         -v|--version)
@@ -122,7 +124,7 @@ else
             exit 0 ;;
         -V|--verbose)
             verbose="1" ;;
-        -d|--dry-run)
+        -d|--dryrun)
             verbose="1"
             dryrun="1" ;;
         -f|--find)
@@ -220,8 +222,8 @@ for global_apps in $(echo $global_apps_list); do
             # Basic corrections
             name=$(echo "$name" | sed -e "s/\r//g")
             launcher=$(echo "$launcher".desktop | sed -e "s/\r//g")
-            current=$(echo "$current" | sed -e "s/\r//g")
-            new_icon=$(echo "$new_icon" | sed -e "s/\r//g")
+            current=$(eval echo "$current" | sed -e "s/\r//g")
+            new_icon=$(eval echo "$new_icon" | sed -e "s/\r//g")
             # Escape non-standard and special characters in file names by creating a new variable
             old_icon="${current//\\/\\\\}" # escape backslashes
             # old_icon="${old_icon//\//\\/}" # escape slashes
@@ -254,7 +256,7 @@ for global_apps in $(echo $global_apps_list); do
                                         su -c "mkdir '$local_icon' -p" ${SUDO_USER:-$USER}
                                     fi
                                 fi
-                                if [ "$dryrun" == "1" ]; then
+                                if [ "$dryrun" != "1" ]; then
                                     cp "$current" "$local_icon$new_icon"
                                     sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/" "$local_apps$launcher"
                                 fi
@@ -270,7 +272,7 @@ for global_apps in $(echo $global_apps_list); do
                                         su -c "mkdir '$local_icon' -p" ${SUDO_USER:-$USER}
                                     fi
                                 fi
-                                if [ "$dryrun" == "1" ]; then
+                                if [ "$dryrun" != "1" ]; then
                                     cp "$steam_icon" "$local_icon${new_icon}.png"
                                     sed -i "s/Icon=steam.*/Icon=$new_icon/" "$local_apps$launcher"
                                 fi
