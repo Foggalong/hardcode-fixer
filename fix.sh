@@ -11,8 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-# date=201503130  # [year][month][date][extra]
-date=201503131000  # [year][month][date][extra]
+date=201503130  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
