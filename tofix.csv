@@ -64,6 +64,7 @@ FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Fotoxx,fotoxx,/usr/share/fotoxx/icons/fotoxx.png,fotoxx
 FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
+FreeCAD,freecad,/usr/share/freecad/freecad.xpm,freecad
 Free Chart Geany,freechartgeany,/usr/share/pixmaps/freechartgeany.png,freechartgeany
 FreeCol,freecol,/usr/share/pixmaps/freecol.xpm,freecol
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
@@ -203,6 +204,7 @@ Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
 ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
 Pumpa,pumpa,/usr/share/icons/hicolor/32x32/apps/pumpa.png,pumpa
+PushBullet-Indicator,extras-pushbullet-indicator,/opt/extras.ubuntu.com/pushbullet-indicator/share/pushbullet-indicator/icons/pushbullet-indicator.svg, pushbullet-indicator
 Pycharm,pycharm,/home/${SUDO_USER:-$USER}/pycharm-community-3.1.1/bin/pycharm.png,pycharm
 Pypar 2,pypar2,pypar2.png,pypar2
 pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
