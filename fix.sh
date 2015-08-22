@@ -50,15 +50,16 @@ function find_hardcoded_icons()
     # Iterate over the list of launchers path
     for global_apps in $global_apps_list; do
 
+		NOF_DESKTOP_FILES=$(ls -1 $global_apps/*.desktop | wc -l 2> /dev/null)
+		echo -e "\n#> Found ${NOF_DESKTOP_FILES} .desktop files in '$global_apps'"
+
         # Go to the next applications path if current does not exist
         if [ ! -d "$global_apps" ]; then
             if [ "$verbose" == "1" ]; then
-                echo -e "\n#> Path '$global_apps' doesn't exists"
+                echo -e "#> Path '$global_apps' doesn't exists"
             fi
             continue
         fi
-
-        echo -e "\n#> Looking in '$global_apps'"
 
         find $global_apps -iname '*.desktop' -exec grep -EH "[[:blank:]]*Icon[[:blank:]]*=[[:blank:]]*.*\..*" {} \; | grep -v ":\#Icon" > /tmp/tofix_apps.log
         # cat /tmp/tofix_apps.log
@@ -205,15 +206,18 @@ for global_apps in $(echo $global_apps_list); do
 
     # Go to the next applications path if current does not exist
     if [ ! -d "$global_apps" ]; then
+
         if [ "$verbose" == "1" ]; then
             echo -e "\n#> Path '$global_apps' doesn't exists"
         fi
         continue
     fi
 
-    if [ "$verbose" == "1" ]; then
-        echo -e "\n#> Updating desktop icons in '$global_apps' folder"
-    fi
+	if [ "$verbose" == "1" ]; then
+		NOF_DESKTOP_FILES=$(ls -1 $global_apps/*.desktop 2> /dev/null | wc -l)
+		echo -e "\n#> Found ${NOF_DESKTOP_FILES} .desktop files in '$global_apps'"
+		echo -e "#> Updating desktop icons in '$global_apps'"
+	fi
 
     # Itterating over lines of tofix.csv, each split into an array
     IFS=","
@@ -232,14 +236,13 @@ for global_apps in $(echo $global_apps_list); do
             if [ ! -f "$global_apps$launcher" ]; then
                 continue
             else
-                echo "$global_apps$launcher"
                 if [ "$verbose" == "1" ]; then
                     echo
                     echo -e "\t    Name: $name"
                     echo -e "\tLauncher: $global_apps$launcher"
                     echo -e "\t Current: $current"
                     echo -e "\t     New: $new_icon"
-                    echo -e "\tOld icon: $old_icon"
+                    # echo -e "\tOld icon: $old_icon"
                 fi
             fi
 
