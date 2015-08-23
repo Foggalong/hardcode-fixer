@@ -33,7 +33,7 @@ ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
 Copy,copy,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copy
-Copy,CopyAgent,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copyagent
+Copy,CopyAgent,/usr/share/icons/hicolor/scalable/apps/copyagent.svg,copy-agent
 Crashplan,crashplan,/usr/local/crashplan/skin/icon_app_128x128.png,crashplan
 Crashplan,crashplan,/opt/crashplan/skin/icon_app_64x64.png,crashplan
 Cura,cura,/usr/share/cura/resources/images/c.png,cura
@@ -64,6 +64,7 @@ FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Fotoxx,fotoxx,/usr/share/fotoxx/icons/fotoxx.png,fotoxx
 FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
+FreeCAD,freecad,/usr/share/freecad/freecad.xpm,freecad
 Free Chart Geany,freechartgeany,/usr/share/pixmaps/freechartgeany.png,freechartgeany
 FreeCol,freecol,/usr/share/pixmaps/freecol.xpm,freecol
 Freedroid RPG,freedroidrpg,/usr/share/icons/freedroidrpg.jpg,freedroid
@@ -251,7 +252,7 @@ SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
 Springseed,springseed,/usr/share/pixmaps/springseed/springseed.svg,springseed
 SQLiteBrowser,sqlitebrowser,/usr/share/pixmaps/sqlitebrowser.svg,sqlitebrowser
 SQuirrel SQL,squirrel-sql,/usr/share/pixmaps/acorn.ico,squirrel-sql
-SSH Tunnel Manager ,gstm,gSTM.png,lock
+SSH Tunnel Manager,gstm,gSTM.png,gSTM
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
