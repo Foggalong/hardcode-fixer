@@ -262,7 +262,7 @@ for global_apps in $(echo $global_apps_list); do
                                 fi
                                 if [ "$dryrun" != "1" ]; then
                                     cp "$current" "$local_icon$new_icon"
-                                    sed -i "s/Icon[ \t]\+=[ \t]\+${old_icon}.*/Icon=$new_icon/" "$local_apps$launcher"
+                                    sed -i "s/Icon[ \t]\+=[ \t]\+$old_icon.*/Icon=$new_icon/" "$local_apps$launcher"
                                 fi
                             fi
                         fi
@@ -277,7 +277,7 @@ for global_apps in $(echo $global_apps_list); do
                                     fi
                                 fi
                                 if [ "$dryrun" != "1" ]; then
-                                    cp "$steam_icon" "$local_icon${new_icon}.png"
+                                    cp "$steam_icon" "$local_icon$new_icon.png"
                                     sed -i "s/Icon[ \t]\+=[ \t]\+steam.*/Icon=$new_icon/" "$local_apps$launcher"
                                 fi
                             fi
@@ -304,7 +304,7 @@ for global_apps in $(echo $global_apps_list); do
                         echo "F: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$local_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+${new_icon}.*/Icon=$old_icon/" "$local_apps$launcher"
+                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$local_apps$launcher"
                         fi
                     fi
                 fi
@@ -314,7 +314,7 @@ for global_apps in $(echo $global_apps_list); do
                         echo "S: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$local_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+${new_icon}.*/Icon=$old_icon/" "$local_apps$launcher"
+                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$local_apps$launcher"
                         fi
                     fi
                 fi
@@ -324,7 +324,7 @@ for global_apps in $(echo $global_apps_list); do
                         echo "G: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$global_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+${new_icon}.*/Icon=$old_icon/" "$global_apps$launcher"
+                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$global_apps$launcher"
                         fi
                     fi
                 fi
