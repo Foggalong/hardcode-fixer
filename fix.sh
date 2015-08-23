@@ -183,6 +183,9 @@ curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 chown ${SUDO_USER:-$USER} "/tmp/tofix.csv"
 
+
+apps_list=$global_apps_list
+
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     echo "The script must be run as root to (un)fix global launchers."
@@ -191,6 +194,7 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
         case $answer in
             [Yy]* )
                 if [ "$mode" == "fix" ]; then
+                    apps_list=$local_apps_list
                     mode="local"; break
                 elif [ "$mode" == "revert" ]; then
                     mode="l-revert"; break
@@ -198,25 +202,26 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
             [Nn]* ) exit;;
             * ) echo "Please answer [Y/y]es or [N/n]o.";;
         esac
+
     done
 fi
 
 # Itterating over the list of dekstop applications paths
-for global_apps in $(echo $global_apps_list); do
+for apps_path in $(echo $apps_list); do
 
     # Go to the next applications path if current does not exist
-    if [ ! -d "$global_apps" ]; then
+    if [ ! -d "$apps_path" ]; then
 
         if [ "$verbose" == "1" ]; then
-            echo -e "\n#> Path '$global_apps' doesn't exists"
+            echo -e "\n#> Path '$apps_path' doesn't exists"
         fi
         continue
     fi
 
 	if [ "$verbose" == "1" ]; then
-		NOF_DESKTOP_FILES=$(ls -1 $global_apps/*.desktop 2> /dev/null | wc -l)
-		echo -e "\n#> Found ${NOF_DESKTOP_FILES} .desktop files in '$global_apps'"
-		echo -e "#> Updating desktop icons in '$global_apps'"
+		NOF_DESKTOP_FILES=$(ls -1 $apps_path/*.desktop 2> /dev/null | wc -l)
+		echo -e "\n#> Found ${NOF_DESKTOP_FILES} .desktop files in '$apps_path'"
+		echo -e "#> Updating desktop icons in '$apps_path'"
 	fi
 
     # Itterating over lines of tofix.csv, each split into an array
@@ -233,13 +238,13 @@ for global_apps in $(echo $global_apps_list); do
             # old_icon="${old_icon//\//\\/}" # escape slashes
 
             # Go to next line in CSV if launcher is missing
-            if [ ! -f "$global_apps$launcher" ]; then
+            if [ ! -f "$apps_path$launcher" ]; then
                 continue
             else
                 if [ "$verbose" == "1" ]; then
                     echo
                     echo -e "\t    Name: $name"
-                    echo -e "\tLauncher: $global_apps$launcher"
+                    echo -e "\tLauncher: $apps_path$launcher"
                     echo -e "\t Current: $current"
                     echo -e "\t     New: $new_icon"
                     # echo -e "\tOld icon: $old_icon"
@@ -248,12 +253,13 @@ for global_apps in $(echo $global_apps_list); do
 
             # Fixing code
             if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
+
                 # Local & Steam launchers
-                if [ -f "$local_apps$launcher" ]; then
+                if [ -f "$apps_path$launcher" ]; then
                     if [ "$current" != "steam" ]; then
                         # Local launchers
                         if [ -f "$current" ]; then # checks if icon exists to copy
-                            if grep -Gq "Icon[ \t]\+=[ \t]\+$current$" "$local_apps$launcher"; then
+                            if grep -Gq "Icon[ \t]*=[ \t]*$current$" "$apps_path$launcher"; then
                                 echo "L: Fixing $name..."
                                 if [ ! -d "$local_icon" ]; then
                                     if [ "$dryrun" != "1" ]; then
@@ -262,14 +268,15 @@ for global_apps in $(echo $global_apps_list); do
                                 fi
                                 if [ "$dryrun" != "1" ]; then
                                     cp "$current" "$local_icon$new_icon"
-                                    sed -i "s/Icon[ \t]\+=[ \t]\+$old_icon.*/Icon=$new_icon/" "$local_apps$launcher"
+                                    sed -i "s/Icon[ \t]*=[ \t]*.*/Icon=$new_icon/" "$apps_path$launcher"
                                 fi
                             fi
                         fi
+
                     else
                         # Steam launchers
                         if [ -f "$steam_icon" ]; then # checks if steam icon exists to copy
-                            if grep -Gq "Icon=$current$" "$local_apps$launcher"; then
+                            if grep -Gq "Icon=$current$" "$apps_path$launcher"; then
                                 echo "S: Fixing $name..."
                                 if [ ! -d "$local_icon" ]; then
                                     if [ "$dryrun" != "1" ]; then
@@ -278,53 +285,55 @@ for global_apps in $(echo $global_apps_list); do
                                 fi
                                 if [ "$dryrun" != "1" ]; then
                                     cp "$steam_icon" "$local_icon$new_icon.png"
-                                    sed -i "s/Icon[ \t]\+=[ \t]\+steam.*/Icon=$new_icon/" "$local_apps$launcher"
+                                    sed -i "s/Icon[ \t]*=[ \t]*steam.*/Icon=$new_icon/" "$apps_path$launcher"
                                 fi
                             fi
                         fi
                     fi
                 fi
+
                 # Global launchers
-                if [ $mode != "local" ] && [ -f "$global_apps$launcher" ]; then
+                if [ $mode != "local" ] && [ -f "$apps_path$launcher" ]; then
                     if [ -f "$current" ]; then # checks if icon exists to copy
-                        if grep -Gq "Icon=$current$" "$global_apps$launcher"; then
+                        if grep -Gq "Icon=$current$" "$apps_path$launcher"; then
                             echo "G: Fixing $name..."
                             if [ "$dryrun" != "1" ]; then
                                 cp "$current" "$global_icon$new_icon"
-                                sed -i "s/Icon[ \t]\+=[ \t]\+.*/Icon=$new_icon/" "$global_apps$launcher"
+                                sed -i "s/Icon[ \t]*=[ \t]*.*/Icon=$new_icon/" "$apps_path$launcher"
                             fi
                         fi
                     fi
                 fi
+
             # Reversion code
             elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
                 # Local revert
-                if [ -f "$local_apps$launcher" ] && [ -f "$current" ]; then
-                    if grep -Gq "Icon=$new_icon$" "$local_apps$launcher"; then
+                if [ -f "$apps_path$launcher" ] && [ -f "$current" ]; then
+                    if grep -Gq "Icon=$new_icon$" "$apps_path$launcher"; then
                         echo "F: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$local_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$local_apps$launcher"
+                            sed -i "s|Icon[ \t]*=[ \t]*$new_icon.*|Icon=$old_icon|" "$apps_path$launcher"
                         fi
                     fi
                 fi
                 # Steam revert
-                if [ -f "$local_apps$launcher" ] && [ -f "$steam_icon" ]; then
-                    if grep -Gq "Icon=$new_icon$" "$local_apps$launcher"; then
+                if [ -f "$apps_path$launcher" ] && [ -f "$steam_icon" ]; then
+                    if grep -Gq "Icon=$new_icon$" "$apps_path$launcher"; then
                         echo "S: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$local_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$local_apps$launcher"
+                            sed -i "s|Icon[ \t]*=[ \t]*$new_icon.*|Icon=$old_icon|" "$apps_path$launcher"
                         fi
                     fi
                 fi
                 # Global revert
-                if [ $mode != "l-revert" ] && [ -f "$global_apps$launcher" ] && [ -f "$current" ]; then
-                    if grep -Gq "Icon=$new_icon$" "$global_apps$launcher"; then
+                if [ $mode != "l-revert" ] && [ -f "$apps_path$launcher" ] && [ -f "$current" ]; then
+                    if grep -Gq "Icon=$new_icon$" "$apps_path$launcher"; then
                         echo "G: Reverting $name..."
                         if [ "$dryrun" != "1" ]; then
                             rm -f "$global_icon$new_icon"*
-                            sed -i "s/Icon[ \t]\+=[ \t]\+$new_icon.*/Icon=$old_icon/" "$global_apps$launcher"
+                            sed -i "s|Icon[ \t]*=[ \t]*$new_icon.*|Icon=$old_icon|" "$apps_path$launcher"
                         fi
                     fi
                 fi
