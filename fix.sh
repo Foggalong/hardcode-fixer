@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201508241  # [year][month][date][extra]
+date=201508242  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -143,7 +143,7 @@ while read -r name launcher current new_icon; do
         combined_apps=("${local_apps[@]}" "${global_apps[@]}")
         for app_location in "${combined_apps[@]}"
         do
-            if [ -f "$app_location$launcher" ] && [ ! -f "$new_current"] ; then
+            if [ -f "$app_location$launcher" ] && [ ! -f "$new_current" ] ; then
                 new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
             fi
         done
@@ -165,12 +165,12 @@ while read -r name launcher current new_icon; do
                                 su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
                             fi
                             if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                                if [ ! -f "$local_icon$new_icon"];then
+                                if [ ! -f "$local_icon$new_icon" ];then
                                     cp "$current" "$local_icon$new_icon"
                                 fi
                             fi
                             if [ "$extension" == "svg" ];then
-                                if [! -f "$local_scalable_icon$new_icon"];then
+                                if [ ! -f "$local_scalable_icon$new_icon" ];then
                                     cp "$current" "$local_scalable_icon$new_icon"
                                 fi
                             fi
@@ -207,7 +207,7 @@ while read -r name launcher current new_icon; do
                             fi
                         fi
                         if [ "$extension" == "svg" ];then
-                            if [ ! -f "$global_scalable_icon$new_icon"];then
+                            if [ ! -f "$global_scalable_icon$new_icon" ];then
                                 cp "$current" "$global_scalable_icon$new_icon"
                             fi
                         fi
