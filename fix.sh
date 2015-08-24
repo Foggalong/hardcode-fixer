@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201508240  # [year][month][date][extra]
+date=201508241  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -140,10 +140,10 @@ while read -r name launcher current new_icon; do
     old_icon="${old_icon//\//\\/}" # escape slashes
     # Fixing code
     if [ "$current" == "hardcoded" ]; then #checks if the icon path is hardcoded
-      combined_apps=( "${local_apps[@]}" "${global_apps[@]}" )
+        combined_apps=("${local_apps[@]}" "${global_apps[@]}")
         for app_location in "${combined_apps[@]}"
         do
-            if [ -f "$app_location$launcher" ]; then
+            if [ -f "$app_location$launcher" ] && [ ! -f "$new_current"] ; then
                new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
             fi
         done
@@ -165,10 +165,14 @@ while read -r name launcher current new_icon; do
                               su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
                           fi
                           if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+                            if [ ! -f "$local_icon$new_icon"];then
                               cp "$current" "$local_icon$new_icon"
+                            fi
                           fi
                           if [ "$extension" == "svg" ];then
+                            if [! -f "$local_scalable_icon$new_icon"];then
                              cp "$current" "$local_scalable_icon$new_icon"
+                            fi
                           fi
                       fi
                       sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/" "$local_app$launcher"
@@ -196,11 +200,15 @@ while read -r name launcher current new_icon; do
                     echo "G: Fixing $name..."
                     if [ -f "$current" ]; then # checks if icon exists to copy
                          if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                                    cp "$current" "$global_icon$new_icon"
-                                fi
-                                if [ "$extension" == "svg" ];then
-                                    cp "$current" "$global_scalable_icon$new_icon"
-                                fi
+                            if [ ! -f "$global_icon$new_icon" ] ;then
+                              cp "$current" "$global_icon$new_icon"
+                            fi
+                          fi
+                          if [ "$extension" == "svg" ];then
+                            if [ ! -f "$global_scalable_icon$new_icon"];then
+                              cp "$current" "$global_scalable_icon$new_icon"
+                            fi
+                          fi
                     fi
                     sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
                 fi
