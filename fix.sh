@@ -15,7 +15,6 @@ date=201508240  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-local_apps=""
 local_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/"
 local_scalable_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/scalable/apps/"
 global_apps=("/usr/share/applications/" "/usr/local/share/applications/" "/usr/local/share/applications/kde4")
