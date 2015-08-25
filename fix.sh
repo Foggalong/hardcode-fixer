@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201508242  # [year][month][date][extra]
+date=201508250  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -150,6 +150,12 @@ while read -r name launcher current new_icon; do
         if [ -f "$new_current" ];then
             sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "tofix.csv"
         fi
+    fi
+    if [ ! -d "$local_scalable_icon" ]; then
+        mkdir "$local_scalable_icon"
+    fi
+    if [ ! -d "$local_icon" ]; then
+        mkdir "$local_icon"
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
