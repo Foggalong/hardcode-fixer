@@ -152,10 +152,10 @@ while read -r name launcher current new_icon; do
         fi
     fi
     if [ ! -d "$local_scalable_icon" ]; then
-        mkdir "$local_scalable_icon"
+        mkdir -p "$local_scalable_icon"
     fi
     if [ ! -d "$local_icon" ]; then
-        mkdir "$local_icon"
+        mkdir -p "$local_icon"
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
