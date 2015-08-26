@@ -152,10 +152,10 @@ while read -r name launcher current new_icon; do
         fi
     fi
     if [ ! -d "$local_scalable_icon" ]; then
-        mkdir -p "$local_scalable_icon"
+        su -c "mkdir '$local_scalable_icon' -p" "${SUDO_USER:-$USER}"
     fi
     if [ ! -d "$local_icon" ]; then
-        mkdir -p "$local_icon"
+        su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
