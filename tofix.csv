@@ -200,6 +200,7 @@ Penumbra: Overture,Penumbra: Overture,steam,steam_icon_22180
 Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
 pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
 pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
+Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
