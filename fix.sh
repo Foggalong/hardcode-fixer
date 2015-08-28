@@ -140,7 +140,12 @@ while read -r name launcher current new_icon; do
     old_icon="${old_icon//\//\\/}" # escape slashes
     # Fixing code
     if [ "$current" == "hardcoded" ]; then #checks if the icon path is hardcoded
-        combined_apps=("${local_apps[@]}" "${global_apps[@]}")
+        if [ "$mode" == "local" ]; then
+            combined_apps=("${local_apps[@]}")
+        else
+            combined_apps=("${local_apps[@]}" "${global_apps[@]}")
+        fi
+
         for app_location in "${combined_apps[@]}"
         do
             if [ -f "$app_location$launcher" ] && [ ! -f "$new_current" ] ; then
