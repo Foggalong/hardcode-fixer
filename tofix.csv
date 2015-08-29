@@ -110,6 +110,7 @@ GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
 GTimeLog,gtimelog,/usr/share/pyshared/gtimelog/gtimelog.png,gtimelog
 Guake,guake,/usr/share/pixmaps/guake/guake.png,guake
 GUVC View,guvcview,/usr/share/pixmaps/guvcview/guvcview.png,guvcview
+gv,gv,/usr/share/pixmaps/gv_icon.xpm,gv
 Hardinfo,hardinfo,/usr/share/hardinfo/pixmaps/logo.png,hardinfo
 Hipchat,atlassian-hipchat,hipchat.png,hipchat
 Hotline Miami,Hotline Miami,steam,steam_icon_219150
@@ -273,6 +274,7 @@ Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
 Telegram,telegram,/opt/telegram/telegram.svg,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
+Tkabber,tkabber,/usr/share/pixmaps/tkabber.xpm,tkabber
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
 Tor Browser,tor-browser-en,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
 Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touchpad-indicator
