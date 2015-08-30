@@ -147,13 +147,17 @@ while read -r name launcher current new_icon; do
         fi
 
         for app_location in "${combined_apps[@]}"
-        do
-            if [ -f "$app_location$launcher" ] && [ ! -f "$new_current" ] ; then
+        do  
+            if [ -f "$new_current" ]; then
+                break
+            fi 
+            if [ -f "$app_location$launcher" ]; then
                 new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
             fi
         done
         if [ -f "$new_current" ];then
             sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "tofix.csv"
+            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "/tmp/tofix.csv"
         fi
     fi
     if [ ! -d "$local_scalable_icon" ]; then
