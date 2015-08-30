@@ -130,6 +130,7 @@ Image Magick,display.im6,display.im6,imagemagick
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
+Intellij IDE,jetbrains-idea-ce,hardcoded,idea
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
@@ -204,12 +205,14 @@ pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
+PHP Storm,jetbrains-phpstorm-ce,hardcoded,phpstorm
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
 ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
 Pumpa,pumpa,/usr/share/icons/hicolor/32x32/apps/pumpa.png,pumpa
 Pycharm,pycharm,hardcoded,pycharm
 Pycharm,jetbrains-pycharm,hardcoded,pycharm
+Pycharm,jetbrains-pycharm-ce,hardcoded,pycharm
 Pypar 2,pypar2,pypar2.png,pypar2
 pyRenamer,pyrenamer,/usr/share/pyrenamer/pyrenamer.png,pyrenamer
 Python (v2.6),python2.6,/usr/share/pixmaps/python2.6.xpm,python
@@ -233,6 +236,7 @@ RFB Receitanet,rfb-receitanet,/opt/Programas RFB/Receitanet/imagens/Receitanet.x
 RFB Receitanet Ajuda,rfb-receitanet-ajuda,/opt/Programas RFB/Receitanet/imagens/Ajuda.xpm,receitanet-ajuda
 Robomongo,robomongo,robomongo.png,robomongo
 RubyMine,jetbrains-rubymine,hardcoded,rubymine
+RubyMine,jetbrains-rubymine-ce,hardcoded,rubymine
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
@@ -294,6 +298,7 @@ Visual Studio,visual-studio-code,hardcoded,visual-studio-code
 Viva,viva,viva.png,viva
 Warmux,warmux,warmux_128x128.png,warmux
 Web Storm,jetbrains-webstorm,hardcoded,webide
+Web Storm,jetbrains-webstorm-ce,hardcoded,webide
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
 WinUSB,winusbgui,winusbgui-icon.png,winusb
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
