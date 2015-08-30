@@ -169,6 +169,8 @@ MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-ex
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
 Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
+MyNotex,MyNotex,mynotex.png,mynotex
+MyNotex,MyNotex,/opt/mynotex/icon.png,mynotex
 MyTourbook,mytourbook,mytourbook.xpm,mytourbook
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
