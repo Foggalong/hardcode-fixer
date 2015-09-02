@@ -84,6 +84,7 @@ Gens GS,gens,/usr/share/gens/gens_small.png,gensgs
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 gFTP,gftp,gftp.png,gftp
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
+Gitter,gitter,/opt/Gitter/linux64/logo.png,Gitter
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
@@ -246,6 +247,7 @@ Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 ScreenRuler,gnome-screenruler,screenruler-icon-32x32.png,screenruler
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
+ScudCloud,scudcloud,/opt/scudcloud/resources/scudcloud.png,scudcloud
 SelekTOR,selekTOR,/usr/share/icons/selektoricon.png,selektoricon
 SelekTOR,selektor,/opt/selektor/resources/selektoricon.png,selektoricon
 SelekTOR,selektor,/usr/share/icons/selektor-app.png,selektoricon
