@@ -13,12 +13,15 @@
 # Version info
 date=201509060  # [year][month][date][extra]
 
+
 # Locations
+username=${SUDO_USER:-$USER}
+userhome="/home/$username"
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-local_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/"
-local_scalable_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/scalable/apps/"
+local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
+local_scalable_icon="$userhome/.local/share/icons/hicolor/scalable/apps/"
 global_apps=("/usr/share/applications/" "/usr/local/share/applications/" "/usr/local/share/applications/kde4")
-local_apps=("/home/${SUDO_USER:-$USER}/.local/share/applications/" "/home/${SUDO_USER:-$USER}/.local/share/applications/kde4/")
+local_apps=("$userhome/.local/share/applications/" "$userhome/.local/share/applications/kde4/")
 global_icon="/usr/share/icons/hicolor/48x48/apps/"
 global_scalable_icon="/usr/share/icons/hicolor/scalable/apps/"
 steam_icon="${global_icon}steam.png"
@@ -105,7 +108,7 @@ fi
 # Downloads latest version of the list
 curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
-chown "${SUDO_USER:-$USER}" "/tmp/tofix.csv"
+chown "$username" "/tmp/tofix.csv"
 
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
