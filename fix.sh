@@ -139,13 +139,12 @@ while read -r name launcher current new_icon; do
     old_icon="${current//\\/\\\\}" # escape backslashes
     old_icon="${old_icon//\//\\/}" # escape slashes
     # Fixing code
+    if [ "$mode" == "local" ]; then
+        combined_apps=("${local_apps[@]}")
+    else
+        combined_apps=("${local_apps[@]}" "${global_apps[@]}")
+    fi
     if [ "$current" == "hardcoded" ]; then #checks if the icon path is hardcoded
-        if [ "$mode" == "local" ]; then
-            combined_apps=("${local_apps[@]}")
-        else
-            combined_apps=("${local_apps[@]}" "${global_apps[@]}")
-        fi
-
         for app_location in "${combined_apps[@]}"
         do
             if [ -f "$app_location$launcher" ]; then
@@ -159,14 +158,14 @@ while read -r name launcher current new_icon; do
         done
     fi
     if [ ! -d "$local_scalable_icon" ]; then
-        su -c "mkdir '$local_scalable_icon' -p" "${SUDO_USER:-$USER}"
+        mkdir '$local_scalable_icon' -p
     fi
     if [ ! -d "$local_icon" ]; then
-        su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+        mkdir '$local_icon' -p
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
-        for local_app in "${local_apps[@]}"
+        for local_app in "${combined_apps[@]}"
         do
             if [ -f "$local_app$launcher" ]; then
                 if [ "$current" != "steam" ]; then
@@ -175,7 +174,7 @@ while read -r name launcher current new_icon; do
                         echo "L: Fixing $name..."
                         if [ -f "$current" ]; then # checks if icon exists to copy
                             if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+                                mkdir '$local_icon' -p
                             fi
                             if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
                                 if [ ! -f "$local_icon$new_icon" ];then
@@ -208,7 +207,7 @@ while read -r name launcher current new_icon; do
             fi
         done
         # Global launchers
-        for global_app in "${global_apps[@]}"
+        for global_app in "${combined_apps[@]}"
         do
             if [ $mode != "local" ] && [ -f "$global_app$launcher" ]; then
                 if grep -Gq "Icon=$current$" "$global_app$launcher"; then
@@ -232,7 +231,7 @@ while read -r name launcher current new_icon; do
     # Reversion code
     elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
         # Local revert
-        for local_app in "${local_apps[@]}"
+        for local_app in "${combined_apps[@]}"
         do
             if [ -f "$local_app$launcher" ]; then
                 if grep -Gq "Icon=$new_icon$" "$local_app$launcher"; then
@@ -253,7 +252,7 @@ while read -r name launcher current new_icon; do
             fi
         done
         # Global revert
-        for global_app in "${global_apps[@]}"
+        for global_app in "${combined_apps[@]}"
         do
             if [ $mode != "l-revert" ] && [ -f "$global_app$launcher" ]; then
                 if grep -Gq "Icon=$new_icon$" "$global_app$launcher"; then
