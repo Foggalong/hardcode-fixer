@@ -11,8 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201509050  # [year][month][date][extra]
-
+date=201509060  # [year][month][date][extra]
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 local_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/"
@@ -153,6 +152,7 @@ while read -r name launcher current new_icon; do
                     desktop_file=$(echo "$launcher" | sed "s/\.desktop//")
                     sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "tofix.csv"
                     sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "/tmp/tofix.csv"
+                    current=$(echo "$new_current")
                 fi
             fi
         done
@@ -187,7 +187,7 @@ while read -r name launcher current new_icon; do
                                 fi
                             fi
                         fi
-                        sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/" "$local_app$launcher"
+                        sed -i "s#Icon=${current}.*#Icon=$new_icon#g" "$local_app$launcher"
                     fi
                 else
                     # Steam launchers
@@ -200,7 +200,7 @@ while read -r name launcher current new_icon; do
                             if [ ! -f "$local_icon${new_icon}.png" ];then
                                 cp "$steam_icon" "$local_icon${new_icon}.png"
                             fi
-                            sed -i "s/Icon=steam.*/Icon=$new_icon/" "$local_app$launcher"
+                            sed -i "s#Icon=steam.*#Icon=$new_icon#g" "$local_app$launcher"
                         fi
                     fi
                 fi
@@ -224,7 +224,8 @@ while read -r name launcher current new_icon; do
                             fi
                         fi
                     fi
-                    sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
+                    echo "$old_icon$new_icon"
+                    sed -i "s#Icon=${current}.*#Icon=$new_icon#g" "$global_app$launcher"
                 fi
             fi
         done
@@ -239,7 +240,7 @@ while read -r name launcher current new_icon; do
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
                     if [ "$old_icon" != "hardcoded" ];then
-                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                        sed -i "s#Icon=${new_icon}.*#Icon=$current#g" "$local_app$launcher"
                     fi
                 fi
             fi
@@ -250,7 +251,7 @@ while read -r name launcher current new_icon; do
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
                     if [ "$old_icon" != "hardcoded" ];then
-                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                        sed -i "s#Icon=${new_icon}.*#Icon=$current#g" "$local_app$launcher"
                     fi
                 fi
             fi
@@ -264,7 +265,7 @@ while read -r name launcher current new_icon; do
                     rm -f "$global_icon$new_icon"*
                     rm -f "$global_scalable_icon$new_icon"*
                     if [ "$old_icon" != "hardcoded" ];then
-                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
+                        sed -i "s#Icon=${new_icon}.*#Icon=$current#g" "$global_app$launcher"
                     fi
                 fi
             fi
