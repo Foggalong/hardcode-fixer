@@ -158,10 +158,10 @@ while read -r name launcher current new_icon; do
         done
     fi
     if [ ! -d "$local_scalable_icon" ]; then
-        mkdir '$local_scalable_icon' -p
+        mkdir "$local_scalable_icon" -p
     fi
     if [ ! -d "$local_icon" ]; then
-        mkdir '$local_icon' -p
+        mkdir "$local_icon" -p
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
@@ -174,7 +174,7 @@ while read -r name launcher current new_icon; do
                         echo "L: Fixing $name..."
                         if [ -f "$current" ]; then # checks if icon exists to copy
                             if [ ! -d "$local_icon" ]; then
-                                mkdir '$local_icon' -p
+                                mkdir "$local_icon" -p
                             fi
                             if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
                                 if [ ! -f "$local_icon$new_icon" ];then
@@ -195,7 +195,7 @@ while read -r name launcher current new_icon; do
                         if grep -Gq "Icon=$current$" "$local_app$launcher"; then
                             echo "S: Fixing $name..."
                             if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+                                mkdir "$local_icon" -p
                             fi
                             if [ ! -f "$local_icon${new_icon}.png" ];then
                                 cp "$steam_icon" "$local_icon${new_icon}.png"
@@ -238,7 +238,9 @@ while read -r name launcher current new_icon; do
                     echo "F: Reverting $name..."
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                    if [ "$old_icon" != "hardcoded" ];then
+                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                    fi
                 fi
             fi
             # Steam revert
@@ -247,7 +249,9 @@ while read -r name launcher current new_icon; do
                     echo "S: Reverting $name..."
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                    if [ "$old_icon" != "hardcoded" ];then
+                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                    fi
                 fi
             fi
         done
@@ -259,7 +263,9 @@ while read -r name launcher current new_icon; do
                     echo "G: Reverting $name..."
                     rm -f "$global_icon$new_icon"*
                     rm -f "$global_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
+                    if [ "$old_icon" != "hardcoded" ];then
+                        sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
+                    fi
                 fi
             fi
         done
