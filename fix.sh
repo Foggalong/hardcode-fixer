@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201508250  # [year][month][date][extra]
+date=201509050  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -147,18 +147,16 @@ while read -r name launcher current new_icon; do
         fi
 
         for app_location in "${combined_apps[@]}"
-        do  
-            if [ -f "$new_current" ]; then
-                break
-            fi 
+        do
             if [ -f "$app_location$launcher" ]; then
-                new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
+                new_current=$(grep "^Icon=*" "$app_location$launcher"  | sed "s/Icon.*=//")
+                if [ -f "$new_current" ];then
+                    desktop_file=$(echo "$launcher" | sed "s/\.desktop//")
+                    sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "tofix.csv"
+                    sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "/tmp/tofix.csv"
+                fi
             fi
         done
-        if [ -f "$new_current" ];then
-            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "tofix.csv"
-            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "/tmp/tofix.csv"
-        fi
     fi
     if [ ! -d "$local_scalable_icon" ]; then
         su -c "mkdir '$local_scalable_icon' -p" "${SUDO_USER:-$USER}"
