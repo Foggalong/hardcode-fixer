@@ -96,6 +96,8 @@ GNUbik,gnubik,gnubik.png,gnubik
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/4.0.0/imagelib/octave-logo.svg,octave
+Google Drive,grive-setup,/opt/thefanclub/grive-tools/GoogleDrive.png,google-drive
+Google Drive Indicator,grive-indicator,/opt/thefanclub/grive-tools/GoogleDrive.png,google-drive
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
 Gone Home,Gone Home,steam,steam_icon_232430
 GPixPod,GPixPod,/usr/share/gpixpod/GPixPod_icon.png,GPixPod_icon
@@ -106,6 +108,7 @@ GRASS GIS,grass,/usr/share/icons/grass-64x64.png,grass
 Greenfoot,greenfoot,/usr/share/java/greenfoot/images/greenfoot-icon-48.png,greenfoot
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.svg,grisbi
 Grisbi,grisbi,/usr/share/pixmaps/grisbi/grisbi.xpm,grisbi
+Grive Setup,grive,/opt/thefanclub/grive-tools/grive.png,google-drive
 Grsync,grsync,grsync.png,grsync
 Gsopcast,gsopcast,gsopcast.png,gsopcast
 GTick,gtick,/usr/share/icons/hicolor/64x64/apps/gtick.xpm,gtick
@@ -138,6 +141,7 @@ Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
 Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
 LaTeXDraw,latexdraw,/usr/share/pixmaps/latexdraw32.xpm,latexdraw
+Layout Editor,layout,/usr/share/icons/hicolor/48x48/apps/layout.png,layout
 Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
 Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
