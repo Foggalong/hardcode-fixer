@@ -133,6 +133,7 @@ Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-g
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
+JabRef,jabref,JabRef-icon-48,jabref
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
@@ -154,6 +155,7 @@ LuxRender,luxrender,/usr/share/pixmaps/luxrender.svg,luxrender
 MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
 Mandelbulber,mandelbulber,/usr/share/mandelbulber/icons/mandelbulber.png,mandelbulber
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
+Matlab,matlab, /usr/share/icons/hicolor/48x48/apps/matlab.png,matlab
 MediaElch,MediaElch,/usr/share/pixmaps/MediaElch.png,mediaelch
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
