@@ -133,7 +133,6 @@ Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-g
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
-JabRef,jabref,JabRef-icon-48,jabref
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
