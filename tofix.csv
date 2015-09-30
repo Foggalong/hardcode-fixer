@@ -56,6 +56,7 @@ eFax,efax-gtk,/usr/share/pixmaps/efax-gtk,efax-gtk
 Electrum,electrum,/usr/share/app-install/icons/electrum.png,electrum
 Emacs 23,emacs23,/usr/share/icons/hicolor/scalable/apps/emacs23.svg,emacs
 Emacs 24,emacs24,/usr/share/icons/hicolor/scalable/apps/emacs24.svg,emacs
+Enpass,enpass,enpass.png,enpass
 FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
 FCEUX,fceux,/usr/share/pixmaps/fceux.png,fceux
 Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
