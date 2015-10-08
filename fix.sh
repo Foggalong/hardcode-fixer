@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201508250  # [year][month][date][extra]
+date=201509200  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -172,7 +172,7 @@ while read -r name launcher current new_icon; do
         do
             if [ -f "$local_app$launcher" ]; then
                 if [ "$current" != "steam" ]; then
-                    if grep -Gq "Icon=$current$" "$local_app$launcher"; then
+                    if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
                         # Local launchers
                         echo "L: Fixing $name..."
                         if [ -f "$current" ]; then # checks if icon exists to copy
@@ -190,12 +190,12 @@ while read -r name launcher current new_icon; do
                                 fi
                             fi
                         fi
-                        sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/" "$local_app$launcher"
+                        sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/" "$local_app$launcher"
                     fi
                 else
                     # Steam launchers
                     if [ -f "$steam_icon" ]; then # checks if steam icon exists to copy
-                        if grep -Gq "Icon=$current$" "$local_app$launcher"; then
+                        if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
                             echo "S: Fixing $name..."
                             if [ ! -d "$local_icon" ]; then
                                 su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
@@ -203,7 +203,7 @@ while read -r name launcher current new_icon; do
                             if [ ! -f "$local_icon${new_icon}.png" ];then
                                 cp "$steam_icon" "$local_icon${new_icon}.png"
                             fi
-                            sed -i "s/Icon=steam.*/Icon=$new_icon/" "$local_app$launcher"
+                            sed -i "s/Icon\s*=\s*steam.*/Icon=$new_icon/" "$local_app$launcher"
                         fi
                     fi
                 fi
@@ -213,7 +213,7 @@ while read -r name launcher current new_icon; do
         for global_app in "${global_apps[@]}"
         do
             if [ $mode != "local" ] && [ -f "$global_app$launcher" ]; then
-                if grep -Gq "Icon=$current$" "$global_app$launcher"; then
+                if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
                     echo "G: Fixing $name..."
                     if [ -f "$current" ]; then # checks if icon exists to copy
                         if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
@@ -227,7 +227,7 @@ while read -r name launcher current new_icon; do
                             fi
                         fi
                     fi
-                    sed -i "s/Icon=${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
+                    sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
                 fi
             fi
         done
@@ -237,7 +237,7 @@ while read -r name launcher current new_icon; do
         for local_app in "${local_apps[@]}"
         do
             if [ -f "$local_app$launcher" ]; then
-                if grep -Gq "Icon=$new_icon$" "$local_app$launcher"; then
+                if grep -Gq "Icon\s*=\s*$new_icon$" "$local_app$launcher"; then
                     echo "F: Reverting $name..."
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
@@ -246,11 +246,11 @@ while read -r name launcher current new_icon; do
             fi
             # Steam revert
             if [ -f "$local_app$launcher" ] && [ -f "$steam_icon" ]; then
-                if grep -Gq "Icon=$new_icon$" "$local_app$launcher"; then
+                if grep -Gq "Icon\s*=\s*$new_icon$" "$local_app$launcher"; then
                     echo "S: Reverting $name..."
                     rm -f "$local_icon$new_icon"*
                     rm -f "$local_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
+                    sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
                 fi
             fi
         done
@@ -258,11 +258,11 @@ while read -r name launcher current new_icon; do
         for global_app in "${global_apps[@]}"
         do
             if [ $mode != "l-revert" ] && [ -f "$global_app$launcher" ]; then
-                if grep -Gq "Icon=$new_icon$" "$global_app$launcher"; then
+                if grep -Gq "Icon\s*=\s*$new_icon$" "$global_app$launcher"; then
                     echo "G: Reverting $name..."
                     rm -f "$global_icon$new_icon"*
                     rm -f "$global_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
+                    sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
                 fi
             fi
         done
