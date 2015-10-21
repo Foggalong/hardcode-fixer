@@ -218,6 +218,7 @@ Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm-ce,hardcoded,phpstorm
+PlayOnLinux,playonlinux,/usr/share/playonlinux/etc/playonlinux.png,playonlinux
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
 ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
