@@ -147,6 +147,7 @@ Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
 Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
 LaTeXDraw,latexdraw,/usr/share/pixmaps/latexdraw32.xpm,latexdraw
 Layout Editor,layout,/usr/share/icons/hicolor/48x48/apps/layout.png,layout
+Layout Editor,layout,layout.png,layout
 Left 4 Dead 2,Left 4 Dead 2,steam,steam_icon_550
 Left 4 Dead 2 (beta),Left 4 Dead 2 Beta,steam,steam_icon_223530
 Lightworks,lightworks,/usr/share/lightworks/Icons/App.png,lightworks
@@ -271,6 +272,7 @@ SelekTOR Proxy Reset,selektor-proxy-reset,/opt/selektor/resources/selektoricon.p
 SelekTOR Proxy Reset,selektor-proxy-reset,/usr/share/icons/selektor-app.png,selektoricon
 Shank,Shank,steam,steam_icon_6120
 Shank 2,Shank 2,steam,steam_icon_6130
+Schematic Editor,schematic,layout.png,schematic
 Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
 Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 Slingscold,slingscold,/usr/share/icons/slingscold.png,slingscold
