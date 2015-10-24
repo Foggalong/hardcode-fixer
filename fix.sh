@@ -155,8 +155,10 @@ while read -r name launcher current new_icon; do
               desktop_file=$(echo "$launcher" | sed "s/\.desktop//")
               sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "tofix.csv"
               sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "/tmp/tofix.csv"
-              if ! grep -Gq "$name,$desktop_file,$new_current,$new_current,$app_location" "$hardcoded_apps";then
-                echo "$name,$desktop_file,$new_current,$new_current,$app_location" >> $hardcoded_apps
+              if ! grep -Gq "$name,$desktop_file,$new_current,$new_current" "tofix.csv";then
+                if ! grep -Gq "$name,$desktop_file,$new_current,$new_current,$app_location" "$hardcoded_apps";then
+                  echo "$name,$desktop_file,$current,$new_current,$app_location" >> $hardcoded_apps
+                fi
               fi
               current=$(echo "$new_current")
               old_icon=$(echo "$new_current")
@@ -211,12 +213,14 @@ while read -r name launcher current new_icon; do
                         fi
                     fi
                 else
-                  while read -r hname hlauncher hcurrent hnew_icon hlocation; do
-                    if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
-                      echo "H(L): Fixing $name..."
-                      sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
-                    fi
-                  done < $hardcoded_apps
+                  if [ -f "$hardcoded_apps" ];then
+                    while read -r hname hlauncher hcurrent hnew_icon hlocation; do
+                      if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
+                        echo "H(L): Fixing $name..."
+                        sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
+                      fi
+                    done < $hardcoded_apps
+                  fi
                 fi
             fi
         done
@@ -242,12 +246,14 @@ while read -r name launcher current new_icon; do
                     sed -i "s#Icon\s*=\s*${old_icon}.*#Icon=$new_icon#" "$global_app$launcher"
                 fi
               else
-                while read -r hname hlauncher hcurrent hnew_icon hlocation; do
-                  if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
-                    echo "H(G): Fixing $name..."
-                    sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
-                  fi
-                done < $hardcoded_apps
+                if [ -f "$hardcoded_apps" ]; then
+                  while read -r hname hlauncher hcurrent hnew_icon hlocation; do
+                    if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
+                      echo "H(G): Fixing $name..."
+                      sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
+                    fi
+                  done < $hardcoded_apps
+                fi
               fi
             fi
         done
@@ -278,7 +284,7 @@ while read -r name launcher current new_icon; do
                 fi
             fi
             # Hardcoded revert
-            if [ "$old_icon" == "hardcoded" ]; then
+            if [ "$old_icon" == "hardcoded" ] && [ -f "$hardcoded_apps" ]; then
               while read -r hname hlauncher hcurrent hnew_icon hlocation; do
                 if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
                   if [ -f "$hlocation$launcher" ];then
@@ -302,7 +308,7 @@ while read -r name launcher current new_icon; do
                   fi
                 fi
                 # Hardcoded revert
-                if [ "$old_icon" == "hardcoded" ] ; then
+                if [ "$old_icon" == "hardcoded" ] && [ -f "$hardcoded_apps" ] ; then
                   while read -r hname hlauncher hcurrent hnew_icon hlocation; do
                     if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
                       if [ -f "$hlocation$launcher" ];then
