@@ -128,6 +128,10 @@ HotShots,hotshots,/usr/share/pixmaps/hotshots.png,hotshots
 HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
 HTTraQt,httraqt,httraqt.xpm,httraqt
+IBus Typing Booster Setup,ibus-setup-typing-booster,/usr/share/ibus-typing-booster/icons/ibus-hunspell-table.svg,ibus-keyboard
+IBus LibZhuyin Setup,ibus-setup-libzhuyin,/usr/share/ibus-libzhuyin/icons/ibus-zhuyin.svg,ibus-setup
+IBus LibPinyin Setup,ibus-setup-libpinyin,/usr/share/ibus-libpinyin/icons/ibus-pinyin.svg,ibus-pinyin
+IBus LibBopomofo Preferences,ibus-setup-libbopomofo,/usr/share/ibus-libpinyin/icons/ibus-bopomofo.svg,ibus-bopomofo
 I-Nex,i-nex,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 I-Nex Library,i-nex-library,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 IDLE,idle,/usr/share/pixmaps/idle.xpm,python-idle
@@ -143,6 +147,7 @@ Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
+Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
 Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
