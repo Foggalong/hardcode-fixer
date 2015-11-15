@@ -74,6 +74,7 @@ FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
 Fotoxx,fotoxx,/usr/share/fotoxx/icons/fotoxx.png,fotoxx
 FoxitReader,FoxitReader,/home/root/.local/share/icons/hicolor/64x64/apps/FoxitReader.png,foxit-reader
+FoxitReader,FoxitReader,FoxitReader.png,foxit-reader
 FreeCAD,freecad,/opt/freecad/data/freecad.xpm,freecad
 FreeCAD,freecad,/usr/share/freecad/freecad.xpm,freecad
 Free Chart Geany,freechartgeany,/usr/share/pixmaps/freechartgeany.png,freechartgeany
