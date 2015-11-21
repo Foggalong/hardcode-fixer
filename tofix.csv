@@ -272,6 +272,8 @@ Robomongo,robomongo,robomongo.png,robomongo
 RubyMine,jetbrains-rubymine,hardcoded,rubymine
 RubyMine,jetbrains-rubymine-ce,hardcoded,rubymine
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
+Scid,scid,/usr/share/pixmaps/scid.png,scid
+Scid vs. PC,skid_vs_pc,/usr/share/pixmaps/scid.png,scid
 Scilab,scilab,/usr/share/scilab/icons/scilab.xpm,scilab
 Scilab CLI,scilab-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
 Scilab adv CLI,scilab-adv-cli,/usr/share/scilab-cli/icons/scilab.xpm,scilab
