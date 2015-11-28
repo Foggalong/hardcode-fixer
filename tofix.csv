@@ -1,6 +1,7 @@
 Application,Launcher,Path,Icon Name
 2048,2048,/usr/share/2048/meta/apple-touch-icon.png,2048
 2048-Qt,2048-qt,/usr/share/pixmaps/2048-qt.xpm,2048-qt
+4Pane,4Pane,/usr/share/4Pane/bitmaps/4PaneIcon48.png,4Pane
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
@@ -195,6 +196,7 @@ Mint Software Sources,mintsources,/usr/share/icons/hicolor/scalable/apps/softwar
 Mint Update Manager,mintUpdate,/usr/lib/linuxmint/mintUpdate/icons/base.svg,mintUpdate
 Mint Upload Manager,mintupload,/usr/lib/linuxmint/mintUpload/icon.svg,mintUpload
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
+Money Manager Ex,mmex,/usr/share/icons/hicolor/scalable/apps/mmex.svg,mmex
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
 Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
