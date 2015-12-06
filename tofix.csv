@@ -153,6 +153,7 @@ Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-g
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
+IPython/Jupyter QtConsole,ipython-qtconsole,gnome-netstatus-idle,ipython
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
