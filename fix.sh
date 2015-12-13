@@ -289,7 +289,7 @@ while read -r name launcher current new_icon; do
                 if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
                   if [ -f "$hlocation$launcher" ];then
                     echo "F: Reverting $name..."
-                    sed -i "s#Icon=${new_icon}.*#Icon=$hcurrent#" "$hlocation$launcher"
+                    sed -i "s#Icon=${new_icon}.*#Icon=$hnew_icon#" "$hlocation$launcher"
                   fi
                 fi
               done < $hardcoded_apps
@@ -313,7 +313,7 @@ while read -r name launcher current new_icon; do
                     if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
                       if [ -f "$hlocation$launcher" ];then
                         echo "F: Reverting $name..."
-                        sed -i "s#Icon=${new_icon}.*#Icon=$hcurrent#" "$hlocation$launcher"
+                        sed -i "s#Icon=${new_icon}.*#Icon=$hnew_icon#" "$hlocation$launcher"
                       fi
                     fi
                   done < $hardcoded_apps
