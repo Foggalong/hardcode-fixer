@@ -221,7 +221,18 @@ while read -r name launcher current new_icon; do
                     while read -r hname hlauncher hcurrent hnew_icon hlocation; do
                       if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
                         echo "H(L): Fixing $name..."
+                        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+                          if [ ! -f "$local_icon$new_icon" ];then
+                            cp "$hcurrent" "$local_icon$new_icon"
+                          fi
+                        fi
+                        if [ "$extension" == "svg" ];then
+                          if [ ! -f "$local_scalable_icon$new_icon" ];then
+                              cp "$hcurrent" "$local_scalable_icon$new_icon"
+                          fi
+                        fi
                         sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
+                        cp 
                       fi
                     done < $hardcoded_apps
                   fi
@@ -251,12 +262,23 @@ while read -r name launcher current new_icon; do
                 fi
               else
                 if [ -f "$hardcoded_apps" ]; then
-                  while read -r hname hlauncher hcurrent hnew_icon hlocation; do
-                    if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
-                      echo "H(G): Fixing $name..."
-                      sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
-                    fi
-                  done < $hardcoded_apps
+                    while read -r hname hlauncher hcurrent hnew_icon hlocation; do
+                        if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
+                            extension="${hcurrent##*.}"
+                            echo "H(G): Fixing $name..."
+                            if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+                                if [ ! -f "$global_icon$new_icon" ];then
+                                    cp "$hcurrent" "$global_icon$new_icon"
+                                fi
+                            fi
+                            if [ "$extension" == "svg" ];then
+                                if [ ! -f "$global_scalable_icon$new_icon" ];then
+                                    cp "$hcurrent" "$global_scalable_icon$new_icon"
+                                fi
+                            fi
+                            sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
+                        fi
+                    done < $hardcoded_apps
                 fi
               fi
             fi
