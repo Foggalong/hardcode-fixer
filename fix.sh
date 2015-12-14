@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201510230  # [year][month][date][extra]
+date=201512140  # [year][month][date][extra]
 
 # Locations
 username=${SUDO_USER:-$USER}
@@ -125,6 +125,10 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
             * ) echo "Please answer [Y/y]es or [N/n]o.";;
         esac
     done
+fi
+
+if [ ! -f "$hardcoded_apps" ]; then
+  echo -n "" > $hardcoded_apps
 fi
 
 # Itterating over lines of tofix.csv, each split into an array
