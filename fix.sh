@@ -156,7 +156,7 @@ while read -r name launcher current new_icon; do
               sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "tofix.csv"
               sed -i "s#$name,$desktop_file,$current,$new_icon#$name,$desktop_file,$new_current,$new_icon#g" "/tmp/tofix.csv"
               if ! grep -Gq "$name,$desktop_file,$new_current,$new_current" "tofix.csv";then
-                if ! grep -Gq "$name,$desktop_file,$new_current,$new_current,$app_location" "$hardcoded_apps";then
+                if ! grep -Gq "$name,$desktop_file,$current,$new_current,$app_location" "$hardcoded_apps";then
                   echo "$name,$desktop_file,$current,$new_current,$app_location" >> $hardcoded_apps
                 fi
               fi
