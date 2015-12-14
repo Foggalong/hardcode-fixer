@@ -232,7 +232,6 @@ while read -r name launcher current new_icon; do
                           fi
                         fi
                         sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
-                        cp 
                       fi
                     done < $hardcoded_apps
                   fi
