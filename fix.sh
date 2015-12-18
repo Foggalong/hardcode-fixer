@@ -28,6 +28,40 @@ hardcoded_apps="hardcoded_apps.csv"
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
 
+# Backup icons function
+function backup() {
+    current=$1
+    new_icon=$2
+    is_local=$3
+    extension="${current##*.}"
+	if [ -f "$current" ]; then # checks if icon exists to copy
+	    if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+	            if [ $is_local == "1" ]; then
+        	        if [ ! -f "$local_icon$new_icon" ] ;then
+        		        cp "$current" "$local_icon$new_icon"
+        		        chown -R  $username:$username "$local_icon$new_icon"
+    		        fi
+    		    else
+    		        if [ ! -f "$global_icon$new_icon" ] ;then
+        		        cp "$current" "$global_icon$new_icon"
+    		        fi
+    		    fi
+	    fi
+	    if [ "$extension" == "svg" ];then
+	        if [ $is_local == "1" ]; then
+    	        if [ ! -f "$local_scalable_icon$new_icon" ] ;then
+    		        cp "$current" "$local_scalable_icon$new_icon"
+    		        chown -R  $username:$username "$local_scalable_icon$new_icon"
+		        fi
+		    else
+		        if [ ! -f "$global_scalable_icon$new_icon" ] ;then
+    		        cp "$current" "$global_scalable_icon$new_icon"
+		        fi
+		    fi
+	    fi
+	fi
+}
+
 # Deals with the flags
 if [ -z "$1" ]; then
     mode="fix"
@@ -185,21 +219,7 @@ while read -r name launcher current new_icon; do
                     if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
                         # Local launchers
                         echo "L: Fixing $name..."
-                        if [ -f "$current" ]; then # checks if icon exists to copy
-                            if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "$username"
-                            fi
-                            if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                                if [ ! -f "$local_icon$new_icon" ];then
-                                    cp "$current" "$local_icon$new_icon"
-                                fi
-                            fi
-                            if [ "$extension" == "svg" ];then
-                                if [ ! -f "$local_scalable_icon$new_icon" ];then
-                                    cp "$current" "$local_scalable_icon$new_icon"
-                                fi
-                            fi
-                        fi
+                        backup $current $new_icon "1"
                         sed -i "s#Icon\s*=\s*${old_icon}.*#Icon=$new_icon#" "$local_app$launcher"
                     fi
                 elif [ "$current" == "steam" ];then
@@ -221,16 +241,7 @@ while read -r name launcher current new_icon; do
                     while read -r hname hlauncher hcurrent hnew_icon hlocation; do
                       if [ "$hname" == "$name" ] && [ "$hlocation" == "$local_app" ]; then
                         echo "H(L): Fixing $name..."
-                        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                          if [ ! -f "$local_icon$new_icon" ];then
-                            cp "$hcurrent" "$local_icon$new_icon"
-                          fi
-                        fi
-                        if [ "$extension" == "svg" ];then
-                          if [ ! -f "$local_scalable_icon$new_icon" ];then
-                              cp "$hcurrent" "$local_scalable_icon$new_icon"
-                          fi
-                        fi
+                        backup $hcurrent $new_icon "1"
                         sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
                       fi
                     done < $hardcoded_apps
@@ -245,18 +256,7 @@ while read -r name launcher current new_icon; do
               if [ "$current" != "hardcoded" ];then
                 if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
                     echo "G: Fixing $name..."
-                    if [ -f "$current" ]; then # checks if icon exists to copy
-                        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                            if [ ! -f "$global_icon$new_icon" ] ;then
-                                cp "$current" "$global_icon$new_icon"
-                            fi
-                        fi
-                        if [ "$extension" == "svg" ];then
-                            if [ ! -f "$global_scalable_icon$new_icon" ];then
-                                cp "$current" "$global_scalable_icon$new_icon"
-                            fi
-                        fi
-                    fi
+                    backup $current $new_icon "1"
                     sed -i "s#Icon\s*=\s*${old_icon}.*#Icon=$new_icon#" "$global_app$launcher"
                 fi
               else
@@ -265,16 +265,7 @@ while read -r name launcher current new_icon; do
                         if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
                             extension="${hcurrent##*.}"
                             echo "H(G): Fixing $name..."
-                            if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                                if [ ! -f "$global_icon$new_icon" ];then
-                                    cp "$hcurrent" "$global_icon$new_icon"
-                                fi
-                            fi
-                            if [ "$extension" == "svg" ];then
-                                if [ ! -f "$global_scalable_icon$new_icon" ];then
-                                    cp "$hcurrent" "$global_scalable_icon$new_icon"
-                                fi
-                            fi
+                            backup $hcurrent $new_icon "1"
                             sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
                         fi
                     done < $hardcoded_apps
