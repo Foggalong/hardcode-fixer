@@ -256,16 +256,15 @@ while read -r name launcher current new_icon; do
               if [ "$current" != "hardcoded" ];then
                 if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
                     echo "G: Fixing $name..."
-                    backup $current $new_icon "1"
+                    backup $current $new_icon "0"
                     sed -i "s#Icon\s*=\s*${old_icon}.*#Icon=$new_icon#" "$global_app$launcher"
                 fi
               else
                 if [ -f "$hardcoded_apps" ]; then
                     while read -r hname hlauncher hcurrent hnew_icon hlocation; do
                         if [ "$hname" == "$name" ] && [ "$hlocation" == "$global_app" ]; then
-                            extension="${hcurrent##*.}"
                             echo "H(G): Fixing $name..."
-                            backup $hcurrent $new_icon "1"
+                            backup $hcurrent $new_icon "0"
                             sed -i "s#Icon\s*=\s*${hcurrent}.*#Icon=$new_icon#" "$hlocation$launcher"
                         fi
                     done < $hardcoded_apps
