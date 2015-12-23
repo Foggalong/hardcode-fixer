@@ -154,6 +154,8 @@ Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
 IPython/Jupyter QtConsole,ipython-qtconsole,gnome-netstatus-idle,ipython
+IPython/Jupyter QtConsole,jupyter-qtconsole,gnome-netstatus-idle,ipython
+IPYthon/Jupyter QtConsole,jupyter-qtconsole,/usr/lib/python3.5/site-packages/qtconsole/resources/icon/JupyterConsole.svg,ipython
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
