@@ -1,6 +1,7 @@
 Application,Launcher,Path,Icon Name
 2048,2048,/usr/share/2048/meta/apple-touch-icon.png,2048
 2048-Qt,2048-qt,/usr/share/pixmaps/2048-qt.xpm,2048-qt
+4Pane,4Pane,/usr/share/4Pane/bitmaps/4PaneIcon48.png,4Pane
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
@@ -158,6 +159,9 @@ Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-g
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
+IPython/Jupyter QtConsole,ipython-qtconsole,gnome-netstatus-idle,ipython
+IPython/Jupyter QtConsole,jupyter-qtconsole,gnome-netstatus-idle,ipython
+IPYthon/Jupyter QtConsole,jupyter-qtconsole,/usr/lib/python3.5/site-packages/qtconsole/resources/icon/JupyterConsole.svg,ipython
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
@@ -206,6 +210,7 @@ Mint Software Sources,mintsources,/usr/share/icons/hicolor/scalable/apps/softwar
 Mint Update Manager,mintUpdate,/usr/lib/linuxmint/mintUpdate/icons/base.svg,mintUpdate
 Mint Upload Manager,mintupload,/usr/lib/linuxmint/mintUpload/icon.svg,mintUpload
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
+Money Manager Ex,mmex,/usr/share/icons/hicolor/scalable/apps/mmex.svg,mmex
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
 Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
@@ -333,6 +338,7 @@ Telegram,telegram,/opt/telegram/telegram.svg,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
 Tkabber,tkabber,/usr/share/pixmaps/tkabber.xpm,tkabber
+tkPacman,tkpacman,Icon=/usr/share/tkpacman/icons/tkpacman-icon.png,tkpacman
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
 Tor Browser,tor-browser-en,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
 Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touchpad-indicator
