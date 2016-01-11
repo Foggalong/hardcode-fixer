@@ -97,6 +97,7 @@ GdMap,gdmap,gdmap_icon.png,gdmap_icon
 Gens GS,gens,/usr/share/gens/gensgs_48x48.png,gensgs
 Gens GS,gens,/usr/share/gens/gensgs_32x32.png,gensgs
 Gens GS,gens,/usr/share/gens/gens_small.png,gensgs
+Genymotion,genymobile-genymotion,/opt/genymotion/genymotion/icons/icon.png,genymotion
 GeSpeaker,gespeaker,/usr/share/gespeaker/data/icons/gespeaker.svg,gespeaker
 gFTP,gftp,gftp.png,gftp
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
