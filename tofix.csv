@@ -345,6 +345,7 @@ Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touc
 Trelby,trelby,/opt/trelby/resources/icon256.png,trelby
 Trine,Trine,steam,steam_icon_35700
 TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
+Typhoon,typhoon,/usr/share/typhoon/media/typhoon.svg,typhoon
 UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 UberWriter,uberwriter,/opt/extras.ubuntu.com/uberwriter/share/uberwriter/media/uberwriter.svg,uberwriter
 Ubuntu Web Browser,webbrowser-app,/usr/share/webbrowser-app/webbrowser-app.png,webbrowser-app
