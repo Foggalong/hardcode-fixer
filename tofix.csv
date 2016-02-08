@@ -50,6 +50,7 @@ Desura,desura,hardcoded,desura
 diffpdf,diffpdf,/usr/share/pixmaps/diffpdf.png,diffpdf
 Docear,docear,/usr/share/docear/docear.png,docear
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
+DopeWars,dopewars,dopewars-weed.png,dopewars
 DOS Box,dosbox,/usr/share/pixmaps/dosbox.png,dosbox
 Dota 2,Dota 2,steam,steam_icon_570
 Double Action: Boogaloo,Double Action Boogaloo,steam,steam_icon_317360
@@ -252,6 +253,7 @@ Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm-ce,hardcoded,phpstorm
+Playbox,playbox,/opt/playbox/icon.xpm,playbox
 PlayOnLinux,playonlinux,/usr/share/playonlinux/etc/playonlinux.png,playonlinux
 Pomidor,pomidor,/usr/share/pomidor/media/pomidor.svg,pomidor
 Prison Architect,Prison Architect,steam,steam_icon_233450
