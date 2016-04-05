@@ -35,6 +35,7 @@ Boot Repair,boot-repair,/usr/share/boot-sav/x-boot-repair.png,x-boot-repair
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
+Cisco AnyConnect,cisco-anyconnect,/opt/cisco/anyconnect/pixmaps/vpnui48.png,cisco-anyconnect
 Cisco Packet Tracer,Cisco-PacketTracer,/opt/pt/art/app.png,packettracer
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
@@ -314,6 +315,7 @@ Schematic Editor,schematic,layout.png,schematic
 Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
 Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 Skype,skype,skype.png,skype
+Slack,slack,/usr/share/pixmaps/slack.png,slack
 Slingscold,slingscold,/usr/share/icons/slingscold.png,slingscold
 SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
