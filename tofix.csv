@@ -201,6 +201,7 @@ Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
+Mint Backup,mintbackup_mime,/usr/share/pixmaps/mintupload/icon.svg,mintbackup
 Mint Drivers,mintdrivers,/usr/share/pixmaps/mintdrivers.svg,driver-manager
 Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Mint Nanny,mintNanny,/usr/lib/linuxmint/mintNanny/icon.svg,mintNanny
@@ -212,6 +213,7 @@ Mint Software Sources,mintsources,/usr/share/pixmaps/mintsources.svg,software-so
 Mint Software Sources,mintsources,/usr/share/icons/hicolor/scalable/apps/software-sources.svg,software-sources
 Mint Update Manager,mintUpdate,/usr/lib/linuxmint/mintUpdate/icons/base.svg,mintUpdate
 Mint Upload Manager,mintupload,/usr/lib/linuxmint/mintUpload/icon.svg,mintUpload
+Mint Upload Manager,mintupload,/usr/share/pixmaps/mintupload/icon.svg,mintUpload
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 Money Manager Ex,mmex,/usr/share/icons/hicolor/scalable/apps/mmex.svg,mmex
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
