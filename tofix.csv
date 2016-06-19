@@ -4,6 +4,8 @@ Application,Launcher,Path,Icon Name
 4Pane,4Pane,/usr/share/4Pane/bitmaps/4PaneIcon48.png,4Pane
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
+AltYo,altyo,altyo.png,altyo
+AltYo,altyo_standalone,altyo.png,altyo
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
 amSynth,amsynth,/usr/share/pixmaps/amsynth.xpm,amsynth
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
@@ -57,12 +59,14 @@ Dota 2,Dota 2,steam,steam_icon_570
 Double Action: Boogaloo,Double Action Boogaloo,steam,steam_icon_317360
 dreamchess,dreamchess,/usr/share/dreamchess/icon.png,dreamchess
 Dr. Geo,drgeo2,drgeo2.png,drgeo
+Dr. Geo,drgeo,drgeo_32x32.xpm,drgeo
 Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 DupeGuru,dupeguru_se,/usr/share/dupeguru_se/dgse_logo_128.png,dupeguru
 Dwarfs!?,Dwarfs!,steam,steam_icon_35480
 Dwarfs?! - F2P,Dwarfs! - F2P,steam,steam_icon_213650
 easyLife,easylife,/usr/share/pixmaps/easylife.png,easylife
 eFax,efax-gtk,/usr/share/pixmaps/efax-gtk,efax-gtk
+Eintopf,eintopf,/opt/eintopf/icon.png,eintopf
 Electrum,electrum,/usr/share/app-install/icons/electrum.png,electrum
 Emacs 23,emacs23,/usr/share/icons/hicolor/scalable/apps/emacs23.svg,emacs
 Emacs 24,emacs24,/usr/share/icons/hicolor/scalable/apps/emacs24.svg,emacs
@@ -74,6 +78,7 @@ FadeIn,fadein,/usr/share/fadein/icon_app/fadein_icon_128x128.png,fadein
 FCEUX,fceux,/usr/share/pixmaps/fceux.png,fceux
 Fistful of Frags,Fistful of Frags,steam,steam_icon_265630
 FileBot,FileBot,/usr/share/filebot/icon.svg,filebot
+FlameRobin,flamerobin,/usr/share/pixmaps/flamerobin.png,flamerobin
 FlightGear Launcher,fgrun,/usr/share/pixmaps/flightgear.ico,flightgear
 FMIT,fmit,/usr/share/icons/hicolor/scalable/apps/fmit.svg,fmit
 Format Junkie,formatjunkie,/opt/extras.ubuntu.com/formatjunkie/pixmap/fjt.png,fjt
@@ -117,6 +122,7 @@ GNU Octave,www.octave.org-octave,/usr/share/octave/3.6.4/imagelib/octave-logo.sv
 GNU Octave,www.octave.org-octave,/usr/share/octave/3.8.1/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/4.0.0/imagelib/octave-logo.svg,octave
 GNU Octave,www.octave.org-octave,/usr/share/octave/4.0.1/imagelib/octave-logo.svg,octave
+GNU Octave,www.octave.org-octave,/usr/share/octave/4.0.2/imagelib/octave-logo.svg,octave
 Google Drive,grive-setup,/opt/thefanclub/grive-tools/GoogleDrive.png,google-drive
 Google Drive Indicator,grive-indicator,/opt/thefanclub/grive-tools/GoogleDrive.png,google-drive
 GoldenDict,goldendict,/usr/share/pixmaps/goldendict.png,goldendict
@@ -226,6 +232,8 @@ MyNotex,MyNotex,/opt/mynotex/icon.png,mynotex
 MyTourbook,mytourbook,mytourbook.xpm,mytourbook
 My Weather Indicator,my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
 My Weather Indicator (extras),extras-my-weather-indicator,/opt/extras.ubuntu.com/my-weather-indicator/share/pixmaps/my-weather-indicator.png,indicator-weather
+Nagstamon,nagstamon,/usr/share/pixmaps/nagstamon.svg,nagstamon
+Nagstamon,nagstamon,/usr/share/nagstamon/Nagstamon/resources/nagstamon.svg,nagstamon
 Natural Selection 2,Natural Selection 2,steam,steam_icon_4920
 Netbeans IDE,netbeans,/usr/share/netbeans/7.0.1/nb/netbeans.png,netbeans
 Netbeans IDE,netbeans,/usr/share/netbeans/8.0/nb/netbeans.png,netbeans
@@ -286,6 +294,8 @@ qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Raccoon,raccoon,/usr/share/pixmaps/raccoon.svg,raccoon
+R Commander,Rcmdr,/usr/lib/R/site-library/Rcmdr/etc/linux/Rcmdr.svg,rcmdr
+RedisDesktopManager,rdm,/usr/share/redis-desktop-manager/bin/rdm.png,rdm
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 Report Bug,reportbug,/usr/share/reportbug/debian-swirl.svg,debian-swirl
@@ -354,6 +364,7 @@ Tor Browser,tor-browser-en,/usr/share/pixmaps/tor-browser-en.png,tor-browser-en
 Touchpad Indicator,touchpad-indicator,/usr/share/pixmaps/touchpad-indicator,touchpad-indicator
 Trelby,trelby,/opt/trelby/resources/icon256.png,trelby
 Trine,Trine,steam,steam_icon_35700
+TuxGuitar,tuxguitar,/opt/tuxguitar/share/skins/Oxygen/icon-96x96.png,tuxguitar
 TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
 Typhoon,typhoon,/usr/share/typhoon/media/typhoon.svg,typhoon
 UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
@@ -387,3 +398,6 @@ YATE,yate-qt4,null_team-48.png,yate
 YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
 Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
+ZuluCrypt,zuluCrypt,zuluCrypt.png,zulucrypt
+ZuluCrypt Key Server,zuluCryptKeyServer,zuluCrypt.png,zulucrypt
+ZuluMount,zuluMount,zuluMount.png,zulumount
