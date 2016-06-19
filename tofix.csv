@@ -34,6 +34,7 @@ BlueJ,bluej,/usr/share/java/bluej/images/bluej-icon-48.png,bluej
 Boot Repair,boot-repair,/usr/share/boot-sav/x-boot-repair.png,x-boot-repair
 Bygfoot Football Manager,bygfoot,bygfoot.xpm,bygfoot
 Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/share/pixmaps/calendar-indicator.svg,office-calendar
+Cecilia,cecilia,/usr/share/pixmaps/cecilia.png,cecilia
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 Cisco Packet Tracer,Cisco-PacketTracer,/opt/pt/art/app.png,packettracer
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
@@ -188,6 +189,7 @@ Lucky Backup (GNOME),luckybackup-gnome-su,/usr/share/pixmaps/luckybackup.png,luc
 LuxRender,luxrender,/usr/share/pixmaps/luxrender.svg,luxrender
 MailNag,mailnag_config,/usr/share/mailnag/mailnag.svg,mailnag
 MakeHuman,makehuman,/usr/share/makehuman/icons/makehuman.svg,makehuman
+Mancy,mancy,/usr/share/mancy/icons/mancy.png,mancy
 Mandelbulber,mandelbulber,/usr/share/mandelbulber/icons/mandelbulber.png,mandelbulber
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
 Master PDF Editor 3,masterpdfeditor3,masterpdfeditor3.png,master-pdf-editor
