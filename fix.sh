@@ -11,17 +11,24 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201509200  # [year][month][date][extra]
+date=201605220  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-local_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/48x48/apps/"
-local_scalable_icon="/home/${SUDO_USER:-$USER}/.local/share/icons/hicolor/scalable/apps/"
-global_apps=("/usr/share/applications/" "/usr/local/share/applications/" "/usr/local/share/applications/kde4")
-local_apps=("/home/${SUDO_USER:-$USER}/.local/share/applications/" "/home/${SUDO_USER:-$USER}/.local/share/applications/kde4/")
+username=${SUDO_USER:-$USER}
+userhome="/home/$username"
+global_apps=("/usr/share/applications/"
+            "/usr/local/share/applications/"
+            "/usr/local/share/applications/kde4/")
+local_apps=("$userhome/.local/share/applications/"
+            "$userhome/.local/share/applications/kde4/"
+            "$(sudo -u $username xdg-user-dir DESKTOP)/")
+local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
 global_icon="/usr/share/icons/hicolor/48x48/apps/"
+local_scalable_icon="$userhome/.local/share/icons/hicolor/scalable/apps/"
 global_scalable_icon="/usr/share/icons/hicolor/scalable/apps/"
 steam_icon="${global_icon}steam.png"
+
 
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
@@ -62,6 +69,15 @@ else
             gerror
     esac
 fi
+# Creates the missing folders
+if [ ! -d "$local_scalable_icon" ]; then
+    su -c "mkdir '$local_scalable_icon' -p" "$username"
+fi
+if [ ! -d "$local_icon" ]; then
+    su -c "mkdir '$local_icon' -p" "$username"
+fi
+
+
 
 # Verifies if 'curl' is installed
 if ! type "curl" >> /dev/null 2>&1; then
@@ -105,7 +121,7 @@ fi
 # Downloads latest version of the list
 curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
 sed -i -e "1d" "/tmp/tofix.csv" # crops header line
-chown "${SUDO_USER:-$USER}" "/tmp/tofix.csv"
+chown "$username" "/tmp/tofix.csv"
 
 # Checks for root
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
@@ -161,10 +177,10 @@ while read -r name launcher current new_icon; do
         fi
     fi
     if [ ! -d "$local_scalable_icon" ]; then
-        su -c "mkdir '$local_scalable_icon' -p" "${SUDO_USER:-$USER}"
+        su -c "mkdir '$local_scalable_icon' -p" "$username"
     fi
     if [ ! -d "$local_icon" ]; then
-        su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+        su -c "mkdir '$local_icon' -p" "$username}"
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
@@ -177,7 +193,7 @@ while read -r name launcher current new_icon; do
                         echo "L: Fixing $name..."
                         if [ -f "$current" ]; then # checks if icon exists to copy
                             if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+                                su -c "mkdir '$local_icon' -p" "$username"
                             fi
                             if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
                                 if [ ! -f "$local_icon$new_icon" ];then
@@ -198,7 +214,7 @@ while read -r name launcher current new_icon; do
                         if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
                             echo "S: Fixing $name..."
                             if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "${SUDO_USER:-$USER}"
+                                su -c "mkdir '$local_icon' -p" "$username"
                             fi
                             if [ ! -f "$local_icon${new_icon}.png" ];then
                                 cp "$steam_icon" "$local_icon${new_icon}.png"
