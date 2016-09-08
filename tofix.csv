@@ -201,6 +201,7 @@ MidiEditor,MidiEditor,midieditor.png,midieditor
 Mint Audio Tag,audio-tag-tool,/usr/lib/linuxmint/mintInstall/icon.svg,audio-tag-tool
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintbackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
+Mint Backup,mintbackup,/usr/share/pixmaps/mintbackup/icon.svg,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
