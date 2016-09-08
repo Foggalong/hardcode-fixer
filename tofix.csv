@@ -159,6 +159,7 @@ IDLE (Python 3.4),idle-python3.4,/usr/share/pixmaps/python3.4.xpm,python-idle
 IDLE (Python 3.5),idle-python3.5,/usr/share/pixmaps/python3.5.xpm,python-idle
 Image Magick,display.im6,display.im6,imagemagick
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
+Intel Graphics Installer,intel-graphics-update-tool,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
