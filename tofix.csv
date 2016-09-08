@@ -205,6 +205,7 @@ Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintBackup,/usr/lib/linuxmint/mintBackup/icon.svg,mintbackup
 Mint Backup,mintBackup_mime,/usr/lib/linuxmint/mintBackup/icon.png,mintbackup
 Mint Backup,mintbackup_mime,/usr/share/pixmaps/mintbackup/icon.svg,mintbackup
+Mint Backup,mintbackup_mime,/usr/share/pixmaps/mintbackup/icon.png,mintbackup
 Mint Drivers,mintdrivers,/usr/share/pixmaps/mintdrivers.svg,driver-manager
 Mint Drivers,mintdrivers,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
 Mint Nanny,mintNanny,/usr/lib/linuxmint/mintNanny/icon.svg,mintNanny
