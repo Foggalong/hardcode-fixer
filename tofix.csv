@@ -9,6 +9,7 @@ AltYo,altyo_standalone,altyo.png,altyo
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
 amSynth,amsynth,/usr/share/pixmaps/amsynth.xpm,amsynth
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
+Android Studio,android-studio,hardcoded,android-studio
 Android Studio,jetbrains-studio,/opt/android-studio/bin/studio.png,android-studio
 Anna - Extended Edition,Anna - Extended Edition,steam,steam_icon_217690
 Aptik,aptik,/usr/share/pixmaps/aptik.png,aptik
@@ -39,6 +40,7 @@ Calendar Indicator,calendar-indicator,/opt/extras.ubuntu.com/calendar-indicator/
 Cecilia,cecilia,/usr/share/pixmaps/cecilia.png,cecilia
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 Cisco Packet Tracer,Cisco-PacketTracer,/opt/pt/art/app.png,packettracer
+Clion IDE,jetbrains-clion,hardcoded,clion
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
 Conky Manager,conky-manager,/usr/share/pixmaps/conky-manager.png,conky-manager
