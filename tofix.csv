@@ -175,6 +175,7 @@ Intellij IDE,jetbrains-idea-ce,hardcoded,idea
 IPython/Jupyter QtConsole,ipython-qtconsole,gnome-netstatus-idle,ipython
 IPython/Jupyter QtConsole,jupyter-qtconsole,gnome-netstatus-idle,ipython
 IPYthon/Jupyter QtConsole,jupyter-qtconsole,/usr/lib/python3.5/site-packages/qtconsole/resources/icon/JupyterConsole.svg,ipython
+ISO Master,isomaster,/usr/share/isomaster/icons/isomaster.png
 Itch.io,itch,itch.png,itch
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
@@ -314,6 +315,7 @@ Rocket.Chat,rocketchat,/opt/rocketchat/icon.png,rocketchat
 Robomongo,robomongo,robomongo.png,robomongo
 RubyMine,jetbrains-rubymine,hardcoded,rubymine
 RubyMine,jetbrains-rubymine-ce,hardcoded,rubymine
+Sabnzbd,sabnzbd,/usr/share/SABnzbd/icons/nzb.ico
 Scid,scid,/usr/share/pixmaps/scid.xpm,scid
 Scid,scid,/usr/share/pixmaps/scid.png,scid
 Scid vs. PC,skid_vs_pc,/usr/share/pixmaps/scid.png,scid
@@ -390,6 +392,7 @@ Warmux,warmux,warmux_128x128.png,warmux
 Web Storm,jetbrains-webstorm,hardcoded,webide
 Web Storm,jetbrains-webstorm-ce,hardcoded,webide
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
+Wings3D,wings3d,/usr/share/icons/wings3d.xpm
 WinUSB,winusbgui,winusbgui-icon.png,winusb
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
 Wordpress Desktop Client,wordpress-com,/usr/local/WordPress.com/WordPress.png,wordpress
