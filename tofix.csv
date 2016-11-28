@@ -8,6 +8,7 @@ AltYo,altyo,altyo.png,altyo
 AltYo,altyo_standalone,altyo.png,altyo
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
 amSynth,amsynth,/usr/share/pixmaps/amsynth.xpm,amsynth
+Android Studio,android-studio,/opt/android-studio/bin/studio.png,android-studio
 Android Studio,android-studio,/usr/share/icons/androidstudio.svg,android-studio
 Android Studio,android-studio,hardcoded,android-studio
 Android Studio,jetbrains-studio,/opt/android-studio/bin/studio.png,android-studio
@@ -42,6 +43,7 @@ Cecilia,cecilia,/usr/share/pixmaps/cecilia.png,cecilia
 Cities in Motion 2,Cities in Motion 2,steam,steam_icon_225420
 Cisco AnyConnect,cisco-anyconnect,/opt/cisco/anyconnect/pixmaps/vpnui48.png,cisco-anyconnect
 Cisco Packet Tracer,Cisco-PacketTracer,/opt/pt/art/app.png,packettracer
+Clion IDE,clion,/opt/clion/bin/clion.svg,clion
 Clion IDE,jetbrains-clion,hardcoded,clion
 ClipGrab,clipgrab,/usr/share/pixmaps/clipgrab.png,clipgrab
 Codelite,codelite,/usr/share/codelite/images/cubes.png,codelite
@@ -175,6 +177,7 @@ IDLE (Python 3.5),idle-python3.5,/usr/share/pixmaps/python3.5.xpm,python-idle
 Image Magick,display.im6,display.im6,imagemagick
 Intel Graphics Installer,intel-linux-graphics-installer,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
 Intel Graphics Installer,intel-graphics-update-tool,/usr/share/intel-linux-graphics-installer/images/logo.png,intel-installer
+Intellij IDE,idea,/opt/idea/bin/idea.png,idea
 Intellij IDE,intellij-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea,hardcoded,idea
 Intellij IDE,jetbrains-idea-ce,hardcoded,idea
@@ -278,6 +281,7 @@ Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
 pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
 pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
+PHP Storm,phpstorm,/opt/phpstorm/bin/webide.png,phpstorm
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm-ce,hardcoded,phpstorm
@@ -289,6 +293,7 @@ Prison Architect,Prison Architect,steam,steam_icon_233450
 ProjectLibre,projectlibre,/usr/share/pixmaps/projectlibre.png,projectlibre
 Pumpa,pumpa,/usr/share/icons/hicolor/32x32/apps/pumpa.png,pumpa
 Pushbullet indicator,extras-pushbullet-indicator,/opt/extras.ubuntu.com/pushbullet-indicator/share/pushbullet-indicator/icons/pushbullet-indicator.svg,pushbullet-indicator
+Pycharm,pycharm,/opt/pycharm/bin/pycharm.png,pycharm
 Pycharm,pycharm,hardcoded,pycharm
 Pycharm,jetbrains-pycharm,hardcoded,pycharm
 Pycharm,jetbrains-pycharm-ce,hardcoded,pycharm
@@ -321,6 +326,7 @@ RFB Receitanet,rfb-receitanet,/opt/Programas RFB/Receitanet/imagens/Receitanet.x
 RFB Receitanet Ajuda,rfb-receitanet-ajuda,/opt/Programas RFB/Receitanet/imagens/Ajuda.xpm,receitanet-ajuda
 Rocket.Chat,rocketchat,/opt/rocketchat/icon.png,rocketchat
 Robomongo,robomongo,robomongo.png,robomongo
+RubyMine,rubymine,/opt/rubymine/bin/RMlogo.svg,rubymine
 RubyMine,jetbrains-rubymine,hardcoded,rubymine
 RubyMine,jetbrains-rubymine-ce,hardcoded,rubymine
 Sabnzbd,sabnzbd,/usr/share/SABnzbd/icons/nzb.ico,SABnzbd
@@ -403,6 +409,7 @@ Viber,viber,/usr/share/pixmaps/viber.png,viber
 Visual Studio,visual-studio-code,hardcoded,visual-studio-code
 Viva,viva,viva.png,viva
 Warmux,warmux,warmux_128x128.png,warmux
+Web Storm,webstorm,/opt/webstorm/bin/webstorm.svg,webide
 Web Storm,jetbrains-webstorm,hardcoded,webide
 Web Storm,jetbrains-webstorm-ce,hardcoded,webide
 Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
