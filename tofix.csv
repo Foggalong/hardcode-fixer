@@ -388,6 +388,10 @@ TV-MAXE,tvmaxe,/usr/share/tv-maxe/tvmaxe.png,tvmaxe
 Typhoon,typhoon,/usr/share/typhoon/media/typhoon.svg,typhoon
 UberWriter,uberwriter,/usr/share/uberwriter/media/uberwriter.svg,uberwriter
 UberWriter,uberwriter,/opt/extras.ubuntu.com/uberwriter/share/uberwriter/media/uberwriter.svg,uberwriter
+Ubuntu IBus Table Setup,ibus-setup-table,/usr/share/ibus-table/icons/chinese.svg,ibus-setup
+Ubuntu Scopes,unity8-dash,/usr/share/unity8/Dash/unity8-dash.png,unity8-dash
+Ubuntu System Settings,ubuntu-system-settings,/usr/share/ubuntu/settings/system/system-settings.png,system-settings
+Ubuntu Terminal,com.ubuntu.terminal,/usr/share/terminal/terminal64.png,terminal
 Ubuntu Web Browser,webbrowser-app,/usr/share/webbrowser-app/webbrowser-app.png,webbrowser-app
 Unison,unison,unison.png,unison
 Unison-GTK,unison-gtk,/usr/share/pixmaps/unison-gtk.svg,unison-gtk
