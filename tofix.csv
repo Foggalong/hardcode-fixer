@@ -115,6 +115,7 @@ git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gitkraken,gitkraken,app,gitkraken
 Gitter,gitter,/opt/Gitter/linux64/logo.png,Gitter
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
+GNOME ALSA Mixer,gnome-alsamixer,/usr/share/pixmaps/gnome-alsamixer/gnome-alsamixer-icon.png,gnome-alsamixer-icon
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
 GNOME Wave Cleaner,gwc,gwc.xpm,gwc
