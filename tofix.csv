@@ -361,7 +361,8 @@ Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 Skype,skype,skype.png,skype
 Slack,slack,/usr/share/pixmaps/slack.png,slack
 Slingscold,slingscold,/usr/share/icons/slingscold.png,slingscold
-SmartHitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
+SmartGitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
+SmartGit,smartgit.sh,/usr/share/smartgit/bin/smartgit-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
 SmartGit,syntevo-smartgit,syntevo-smartgit.png,smartgithg
 Snapshot,Snapshot,steam,steam_icon_204220
