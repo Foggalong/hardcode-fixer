@@ -39,32 +39,32 @@ function backup() {
     new_icon=$2
     is_local=$3
     extension="${current##*.}"
-	if [ -f "$current" ]; then # checks if icon exists to copy
-	    if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-	            if [ $is_local == "1" ]; then
-        	        if [ ! -f "$local_icon$new_icon" ] ;then
-        		        cp "$current" "$local_icon$new_icon"
-        		        chown -R  $username:$username "$local_icon$new_icon"
-    		        fi
-    		    else
-    		        if [ ! -f "$global_icon$new_icon" ] ;then
-        		        cp "$current" "$global_icon$new_icon"
-    		        fi
-    		    fi
-	    fi
-	    if [ "$extension" == "svg" ];then
-	        if [ $is_local == "1" ]; then
-    	        if [ ! -f "$local_scalable_icon$new_icon" ] ;then
-    		        cp "$current" "$local_scalable_icon$new_icon"
-    		        chown -R  $username:$username "$local_scalable_icon$new_icon"
-		        fi
-		    else
-		        if [ ! -f "$global_scalable_icon$new_icon" ] ;then
-    		        cp "$current" "$global_scalable_icon$new_icon"
-		        fi
-		    fi
-	    fi
-	fi
+    if [ -f "$current" ]; then # checks if icon exists to copy
+        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+                if [ $is_local == "1" ]; then
+                    if [ ! -f "$local_icon$new_icon" ] ;then
+                        cp "$current" "$local_icon$new_icon"
+                        chown -R  $username:$username "$local_icon$new_icon"
+                    fi
+                else
+                    if [ ! -f "$global_icon$new_icon" ] ;then
+                        cp "$current" "$global_icon$new_icon"
+                    fi
+                fi
+        fi
+        if [ "$extension" == "svg" ];then
+            if [ $is_local == "1" ]; then
+                if [ ! -f "$local_scalable_icon$new_icon" ] ;then
+                    cp "$current" "$local_scalable_icon$new_icon"
+                    chown -R  $username:$username "$local_scalable_icon$new_icon"
+                fi
+            else
+                if [ ! -f "$global_scalable_icon$new_icon" ] ;then
+                    cp "$current" "$global_scalable_icon$new_icon"
+                fi
+            fi
+        fi
+    fi
 }
 
 # Deals with the flags
