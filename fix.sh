@@ -11,14 +11,14 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201606210  # [year][month][date][extra]
+date=201708180  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
 global_apps=("/usr/share/applications/"
-            "/usr/share/applications/kde4"
+            "/usr/share/applications/kde4/"
             "/usr/local/share/applications/"
             "/usr/local/share/applications/kde4/")
 local_apps=("$userhome/.local/share/applications/"
