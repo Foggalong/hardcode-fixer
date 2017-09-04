@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201708180  # [year][month][date][extra]
+date=201709040  # [year][month][date][extra]
 
 # Locations
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
@@ -24,48 +24,36 @@ global_apps=("/usr/share/applications/"
 local_apps=("$userhome/.local/share/applications/"
             "$userhome/.local/share/applications/kde4/"
             "$(sudo -u $username xdg-user-dir DESKTOP)/")
-local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
-global_icon="/usr/share/icons/hicolor/48x48/apps/"
-local_scalable_icon="$userhome/.local/share/icons/hicolor/scalable/apps/"
-global_scalable_icon="/usr/share/icons/hicolor/scalable/apps/"
-steam_icon="${global_icon}steam.png"
 
 
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
 
-# Backup icons
-function backup() {
-    current=$1
-    new_icon=$2
-    is_local=$3
-    extension="${current##*.}"
-    if [ -f "$current" ]; then # checks if icon exists to copy
-        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                if [ $is_local == "1" ]; then
-                    if [ ! -f "$local_icon$new_icon" ] ;then
-                        cp "$current" "$local_icon$new_icon"
-                        chown -R  $username:$username "$local_icon$new_icon"
-                    fi
-                else
-                    if [ ! -f "$global_icon$new_icon" ] ;then
-                        cp "$current" "$global_icon$new_icon"
-                    fi
-                fi
-        fi
-        if [ "$extension" == "svg" ];then
-            if [ $is_local == "1" ]; then
-                if [ ! -f "$local_scalable_icon$new_icon" ] ;then
-                    cp "$current" "$local_scalable_icon$new_icon"
-                    chown -R  $username:$username "$local_scalable_icon$new_icon"
-                fi
-            else
-                if [ ! -f "$global_scalable_icon$new_icon" ] ;then
-                    cp "$current" "$global_scalable_icon$new_icon"
-                fi
-            fi
-        fi
+
+# Fix Launcher
+function fix_launch() {
+    launcher=$1
+    icon=$2
+    type=$3
+    name=$(echo ${launcher} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
+
+    echo "$type: Fixing $name..."
+    if [[ $type == "L" ]] || [[ $type == "G" ]]; then
+        new_icon=$(echo ${name} | sed -e 's/\ /_/' | sed -e 's/\./_/' )
+        echo "    From $icon to $new_icon" # debug code
+    elif [[ $type == "S" ]]; then
+        exec=$(grep '^Exec=' ${file} | sed -e 's/.*Exec=//' )
+        new_icon=steam_icon_$(echo $exec | sed -e 's/steam\ steam:\/\/rungameid\/*//' )
+        echo "    From $icon to $new_icon" # debug code
     fi
+    # TODO make this code functional
+    # if [[ $type == "L" ]] || [[ $type == "S" ]]; then
+    #     cp $launcher "${launcher}.old"
+    #     # make edit to icon line of original launcher
+    # elif [[ $type == "G" ]]
+    #     cp $launcher "$userhome/.local/share/applications/"
+    #     # make edit to icon line of local copy of global launcher
+    # fi
 }
 
 # Deals with the flags
@@ -104,16 +92,9 @@ else
             gerror
     esac
 fi
-# Creates the missing folders
-if [ ! -d "$local_scalable_icon" ]; then
-    su -c "mkdir '$local_scalable_icon' -p" "$username"
-fi
-if [ ! -d "$local_icon" ]; then
-    su -c "mkdir '$local_icon' -p" "$username"
-fi
 
 
-
+# TODO this entire 40+ LOC is just for checking for updates. should this still be here?
 # Verifies if 'curl' is installed
 if ! type "curl" >> /dev/null 2>&1; then
     echo -e \
@@ -153,12 +134,10 @@ if [ "$date" -lt "$new_date" ]; then
     done
 fi
 
-# Downloads latest version of the list
-curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
-sed -i -e "1d" "/tmp/tofix.csv" # crops header line
-chown "$username" "/tmp/tofix.csv"
 
 # Checks for root
+# TODO assess whether this code is actually needed anymore. It would seem to me that under the new system
+# TODO of fixing the difference between local and global is in method, not in privilage required
 if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     echo "The script must be run as root to (un)fix global launchers."
     while true; do
@@ -176,121 +155,44 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     done
 fi
 
-# Itterating over lines of tofix.csv, each split into an array
-IFS=","
-while read -r name launcher current new_icon; do
-    # Basic corrections
-    name=$(echo "$name" | sed -e "s/\r//g")
-    launcher=$(echo "$launcher".desktop | sed -e "s/\r//g")
-    current=$(echo "$current" | sed -e "s/\r//g")
-    new_icon=$(echo "$new_icon" | sed -e "s/\r//g")
-    filename=$(basename "$current")
-    extension="${filename##*.}"
-    # Escape non-standard and special characters in file names by creating a new variable
-    old_icon="${current//\\/\\\\}" # escape backslashes
-    old_icon="${old_icon//\//\\/}" # escape slashes
-    # Fixing code
-    if [ "$current" == "hardcoded" ]; then #checks if the icon path is hardcoded
-        if [ "$mode" == "local" ]; then
-            combined_apps=("${local_apps[@]}")
-        else
-            combined_apps=("${local_apps[@]}" "${global_apps[@]}")
-        fi
 
-        for app_location in "${combined_apps[@]}"
-        do  
-            if [ -f "$new_current" ]; then
-                break
-            fi 
-            if [ -f "$app_location$launcher" ]; then
-                new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
-            fi
-        done
-        if [ -f "$new_current" ];then
-            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "tofix.csv"
-            sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "/tmp/tofix.csv"
-        fi
-    fi
-    if [ ! -d "$local_scalable_icon" ]; then
-        su -c "mkdir '$local_scalable_icon' -p" "$username"
-    fi
-    if [ ! -d "$local_icon" ]; then
-        su -c "mkdir '$local_icon' -p" "$username}"
-    fi
-    if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
-        # Local & Steam launchers
-        for local_app in "${local_apps[@]}"
-        do
-            if [ -f "$local_app$launcher" ]; then
-                if [ "$current" != "steam" ]; then
-                    if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
-                        # Local launchers
-                        echo "L: Fixing $name..."
-                        backup $current $new_icon "1"
-                        sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/" "$local_app$launcher"
-                    fi
-                else
-                    # Steam launchers
-                    if [ -f "$steam_icon" ]; then # checks if steam icon exists to copy
-                        if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
-                            echo "S: Fixing $name..."
-                            if [ ! -d "$local_icon" ]; then
-                                su -c "mkdir '$local_icon' -p" "$username"
-                            fi
-                            if [ ! -f "$local_icon${new_icon}.png" ];then
-                                cp "$steam_icon" "$local_icon${new_icon}.png"
-                            fi
-                            sed -i "s/Icon\s*=\s*steam.*/Icon=$new_icon/" "$local_app$launcher"
-                        fi
+if [ "$mode" == "local" ] || [ "$mode" == "fix" ]; then
+    if [ "$mode" == "fix" ]; then
+        # Iterate over all the global launcher locations
+        for location in ${global_apps[@]}; do
+            # Iterate over the files in those locations
+            for file in ${location}*; do
+                # Check if the file is a launcher
+                if [[ ${file} == *.desktop ]]; then
+                    icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
+                    # Check for signs of hardcoding
+                    if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
+                        # What to do if the icon line is standard hardcoded
+                        fix_launch ${file} ${icon} "G"
                     fi
                 fi
-            fi
-        done
-        # Global launchers
-        for global_app in "${global_apps[@]}"
-        do
-            if [ $mode != "local" ] && [ -f "$global_app$launcher" ]; then
-                if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
-                    echo "G: Fixing $name..."
-                    backup $current $new_icon "0"
-                    sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
-                fi
-            fi
-        done
-    # Reversion code
-    elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
-        # Local revert
-        for local_app in "${local_apps[@]}"
-        do
-            if [ -f "$local_app$launcher" ]; then
-                if grep -Gq "Icon\s*=\s*$new_icon$" "$local_app$launcher"; then
-                    echo "F: Reverting $name..."
-                    rm -f "$local_icon$new_icon"*
-                    rm -f "$local_scalable_icon$new_icon"*
-                    sed -i "s/Icon=${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
-                fi
-            fi
-            # Steam revert
-            if [ -f "$local_app$launcher" ] && [ -f "$steam_icon" ]; then
-                if grep -Gq "Icon\s*=\s*$new_icon$" "$local_app$launcher"; then
-                    echo "S: Reverting $name..."
-                    rm -f "$local_icon$new_icon"*
-                    rm -f "$local_scalable_icon$new_icon"*
-                    sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$local_app$launcher"
-                fi
-            fi
-        done
-        # Global revert
-        for global_app in "${global_apps[@]}"
-        do
-            if [ $mode != "l-revert" ] && [ -f "$global_app$launcher" ]; then
-                if grep -Gq "Icon\s*=\s*$new_icon$" "$global_app$launcher"; then
-                    echo "G: Reverting $name..."
-                    rm -f "$global_icon$new_icon"*
-                    rm -f "$global_scalable_icon$new_icon"*
-                    sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
-                fi
-            fi
+            done
         done
     fi
-done < "/tmp/tofix.csv"
+    # Iterate over all the local launcher locations
+    for location in ${local_apps[@]}; do
+        # Iterate over the files in those locations
+        for file in ${location}*; do
+            # Check if the file is a launcher
+            if [[ ${file} == *.desktop ]]; then
+                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
+                # Check for signs of hardcoding
+                if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
+                    # What to do if the icon line is standard hardcoded
+                    fix_launch ${file} ${icon} "L"
+                elif [[ $icon == "steam" ]] && [[ ${name} != "steam" ]]; then
+                    # What to do if it's using the generic Steam icon
+                    fix_launch ${file} ${icon} "S"
+                fi
+            fi
+        done
+    done
+elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
+    # TODO add in the reversion code
+    sleep 0
+fi
