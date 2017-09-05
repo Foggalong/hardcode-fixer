@@ -17,14 +17,16 @@ date=201709040  # [year][month][date][extra]
 git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
-global_apps=("/usr/share/applications/"
-            "/usr/share/applications/kde4/"
-            "/usr/local/share/applications/"
-            "/usr/local/share/applications/kde4/")
-local_apps=("$userhome/.local/share/applications/"
-            "$userhome/.local/share/applications/kde4/"
-            "$(sudo -u $username xdg-user-dir DESKTOP)/")
-
+app_dirs=("$userhome/.local/share/applications/"
+          "$userhome/.local/share/applications/kde4/"
+          "$(sudo -u $username xdg-user-dir DESKTOP)/"
+          "/usr/share/applications/"
+          "/usr/share/applications/kde4/"
+          "/usr/local/share/applications/"
+          "/usr/local/share/applications/kde4/")
+local_apps="$userhome/.local/share/applications/"
+local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
+steam_icon="/usr/share/icons/hicolor/48x48/apps/steam.png"
 
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
@@ -33,28 +35,40 @@ function gerror() { sleep 3; exit 1; }
 # Fix Launcher
 function fix_launch() {
     launcher=$1
-    icon=$2
-    type=$3
-    name=$(echo ${launcher} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
+    name=$2
+    icon=$3
+    type=$4
 
-    echo "$type: Fixing $name..."
-    # Determining new icon name
-    if [[ $type == "L" ]] || [[ $type == "G" ]]; then
-        new_icon=$(echo ${name} | sed -e 's/\ /_/' | sed -e 's/\./_/' )
+    # Check if already fixed, if not create marked launcher copy
+    local_version="$local_apps$name.desktop"
+    if [ -f "$local_version" ]; then
+        line=$(head -n 1 $local_version)
+        if [[ $line == "# HC"* ]]; then
+            return
+        else
+            cp "$local_version" "$local_version.old"
+            sed -i '1i# HC:Local' "$local_version"
+        fi
+    else
+        cp "$launcher" "$local_version"
+        sed -i '1i# HC:Global' "$local_version"
+    fi
+
+    echo -n "$type: Fixing $name..."
+
+    # Making copy of needed icon and determining new icon name
+    if [[ $type == "H" ]]; then
+        new_icon=$(echo ${name} | sed -e 's/\ /_/' ) # | sed -e 's/\./_/' )
+        ext=$(echo ${icon} | sed -e 's/.*\.//' )
+        cp $icon $local_icon$new_icon.$ext
     elif [[ $type == "S" ]]; then
         exec=$(grep '^Exec=' ${file} | sed -e 's/.*Exec=//' )
         new_icon=steam_icon_$(echo $exec | sed -e 's/steam\ steam:\/\/rungameid\/*//' )
+        cp $steam_icon "$local_icon$new_icon.png"
     fi
-    echo "    From $icon to $new_icon" # debug code
-    # Creating fixed launcher
-    # TODO make this code functional
-    # if [[ $type == "L" ]] || [[ $type == "S" ]]; then
-    #     cp $launcher "${launcher}.old"
-    #     # make edit to icon line of original launcher
-    # elif [[ $type == "G" ]]
-    #     cp $launcher "$userhome/.local/share/applications/"
-    #     # make edit to icon line of local copy of global launcher
-    # fi
+
+    sed -i "s|Icon=${icon}.*|Icon=${new_icon}|g" $local_version
+    echo " done"
 }
 
 # Deals with the flags
@@ -133,40 +147,40 @@ if [ "$date" -lt "$new_date" ]; then
 fi
 
 if [ "$mode" == "fix" ]; then
-    # Iterate over all the global launcher locations
-    for location in ${global_apps[@]}; do
+    # Iterate over all the launcher locations
+    for location in ${app_dirs[@]}; do
         # Iterate over the files in those locations
         for file in ${location}*; do
             # Check if the file is a launcher
             if [[ ${file} == *.desktop ]]; then
+                name=$(echo ${file} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
                 icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
                 # Check for signs of hardcoding
-                if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
+                if [[ $icon == *"/"* ]]; then
                     # What to do if the icon line is standard hardcoded
-                    fix_launch ${file} ${icon} "G"
-                fi
-            fi
-        done
-    done
-    # Iterate over all the local launcher locations
-    for location in ${local_apps[@]}; do
-        # Iterate over the files in those locations
-        for file in ${location}*; do
-            # Check if the file is a launcher
-            if [[ ${file} == *.desktop ]]; then
-                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
-                # Check for signs of hardcoding
-                if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
-                    # What to do if the icon line is standard hardcoded
-                    fix_launch ${file} ${icon} "L"
+                    fix_launch ${file} ${name} ${icon} "H"
                 elif [[ $icon == "steam" ]] && [[ ${name} != "steam" ]]; then
                     # What to do if it's using the generic Steam icon
-                    fix_launch ${file} ${icon} "S"
+                    fix_launch ${file} ${name} ${icon} "S"
+                # elif [[ $icon = *"."* ]]; then
+                #     # What to do if it's extension hardcoded
+                #     fix_launch ${file} ${name} ${icon} "E"
                 fi
             fi
         done
     done
 elif [ "$mode" == "revert" ]; then
-    # TODO add in the reversion code
-    sleep 0
+    for file in ${local_apps}*; do
+        if [[ ${file} == *.desktop ]]; then
+            # Check if launcher is product of hc-fix
+            line=$(head -n 1 $file)
+            if [[ $line == "# HC:Local" ]]; then
+                echo Local revert on $file
+                # TODO add in the reversion code
+            elif [[ $line == "# HC:Global" ]]; then
+                echo Global revert on $file
+                # TODO add in the reversion code
+            fi
+        fi
+    done
 fi
