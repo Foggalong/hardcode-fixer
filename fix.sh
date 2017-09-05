@@ -28,6 +28,7 @@ local_apps="$userhome/.local/share/applications/"
 local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
 steam_icon="/usr/share/icons/hicolor/48x48/apps/steam.png"
 
+
 # Allows timeout when launched via 'Run in Terminal'
 function gerror() { sleep 3; exit 1; }
 
@@ -71,6 +72,7 @@ function fix_launch() {
     echo " done"
 }
 
+
 # Deals with the flags
 if [ -z "$1" ]; then
     mode="fix"
@@ -91,7 +93,7 @@ else
                 "Usage: ./$(basename -- $0) [OPTION]\n" \
                 "\rFixes hardcoded icons of installed applications.\n\n" \
                 "\rCurrently supported options:\n" \
-                "\r  -r, --revert \t Reverts any changes made.\n" \
+                "\r  -r, --revert \t\t Reverts any changes made.\n" \
                 "\r  -h, --help \t\t Displays this help menu.\n" \
                 "\r  -v, --version \t Displays program version.\n"
             exit 0 ;;
@@ -146,6 +148,7 @@ if [ "$date" -lt "$new_date" ]; then
     done
 fi
 
+
 if [ "$mode" == "fix" ]; then
     # Iterate over all the launcher locations
     for location in ${app_dirs[@]}; do
@@ -174,12 +177,17 @@ elif [ "$mode" == "revert" ]; then
         if [[ ${file} == *.desktop ]]; then
             # Check if launcher is product of hc-fix
             line=$(head -n 1 $file)
-            if [[ $line == "# HC:Local" ]]; then
-                echo Local revert on $file
-                # TODO add in the reversion code
-            elif [[ $line == "# HC:Global" ]]; then
-                echo Global revert on $file
-                # TODO add in the reversion code
+            name=$(echo ${file} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
+            if [[ $line == "# HC:"* ]]; then
+                echo -n "Reverting $name..."
+                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
+                if [[ $line == "# HC:Global" ]]; then
+                    rm $file
+                elif [[ $line == "# HC:Local" ]]; then
+                    mv -f "$file.old" $file
+                fi
+                rm $local_icon$icon.*
+                echo " done"
             fi
         fi
     done
