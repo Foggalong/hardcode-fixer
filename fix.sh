@@ -38,14 +38,15 @@ function fix_launch() {
     name=$(echo ${launcher} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
 
     echo "$type: Fixing $name..."
+    # Determining new icon name
     if [[ $type == "L" ]] || [[ $type == "G" ]]; then
         new_icon=$(echo ${name} | sed -e 's/\ /_/' | sed -e 's/\./_/' )
-        echo "    From $icon to $new_icon" # debug code
     elif [[ $type == "S" ]]; then
         exec=$(grep '^Exec=' ${file} | sed -e 's/.*Exec=//' )
         new_icon=steam_icon_$(echo $exec | sed -e 's/steam\ steam:\/\/rungameid\/*//' )
-        echo "    From $icon to $new_icon" # debug code
     fi
+    echo "    From $icon to $new_icon" # debug code
+    # Creating fixed launcher
     # TODO make this code functional
     # if [[ $type == "L" ]] || [[ $type == "S" ]]; then
     #     cp $launcher "${launcher}.old"
@@ -61,8 +62,6 @@ if [ -z "$1" ]; then
     mode="fix"
 else
     case $1 in
-        -l|--local)
-            mode="local";;
         -r|--revert)
             echo "This will undo all changes previously made."
             while true; do
@@ -78,7 +77,6 @@ else
                 "Usage: ./$(basename -- $0) [OPTION]\n" \
                 "\rFixes hardcoded icons of installed applications.\n\n" \
                 "\rCurrently supported options:\n" \
-                "\r  -l, --local \t Only fixes local launchers.\n" \
                 "\r  -r, --revert \t Reverts any changes made.\n" \
                 "\r  -h, --help \t\t Displays this help menu.\n" \
                 "\r  -v, --version \t Displays program version.\n"
@@ -134,46 +132,22 @@ if [ "$date" -lt "$new_date" ]; then
     done
 fi
 
-
-# Checks for root
-# TODO assess whether this code is actually needed anymore. It would seem to me that under the new system
-# TODO of fixing the difference between local and global is in method, not in privilage required
-if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
-    echo "The script must be run as root to (un)fix global launchers."
-    while true; do
-        read -r -p "Do you want to continue in local mode? " answer
-        case $answer in
-            [Yy]* )
-                if [ "$mode" == "fix" ]; then
-                    mode="local"; break
-                elif [ "$mode" == "revert" ]; then
-                    mode="l-revert"; break
-                fi;;
-            [Nn]* ) exit;;
-            * ) echo "Please answer [Y/y]es or [N/n]o.";;
-        esac
-    done
-fi
-
-
-if [ "$mode" == "local" ] || [ "$mode" == "fix" ]; then
-    if [ "$mode" == "fix" ]; then
-        # Iterate over all the global launcher locations
-        for location in ${global_apps[@]}; do
-            # Iterate over the files in those locations
-            for file in ${location}*; do
-                # Check if the file is a launcher
-                if [[ ${file} == *.desktop ]]; then
-                    icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
-                    # Check for signs of hardcoding
-                    if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
-                        # What to do if the icon line is standard hardcoded
-                        fix_launch ${file} ${icon} "G"
-                    fi
+if [ "$mode" == "fix" ]; then
+    # Iterate over all the global launcher locations
+    for location in ${global_apps[@]}; do
+        # Iterate over the files in those locations
+        for file in ${location}*; do
+            # Check if the file is a launcher
+            if [[ ${file} == *.desktop ]]; then
+                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
+                # Check for signs of hardcoding
+                if [[ $icon == *"/"* ]] || [[ $icon = *"."* ]]; then
+                    # What to do if the icon line is standard hardcoded
+                    fix_launch ${file} ${icon} "G"
                 fi
-            done
+            fi
         done
-    fi
+    done
     # Iterate over all the local launcher locations
     for location in ${local_apps[@]}; do
         # Iterate over the files in those locations
@@ -192,7 +166,7 @@ if [ "$mode" == "local" ] || [ "$mode" == "fix" ]; then
             fi
         done
     done
-elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
+elif [ "$mode" == "revert" ]; then
     # TODO add in the reversion code
     sleep 0
 fi
