@@ -216,13 +216,18 @@ get_from_db() {
 translate_from_app_name() {
 	local desktop_file="$1"
 
-	# 1. to lowercase
-	# 2. delete invalid characters
-	# 3. replace spaces with minus
+	# 1. remove text between parentheses
+	# 2. replace spaces with hyphens
+	# 3. replace two or more hyphens by one
+	# 4. to lowercase
+	# 5. delete invalid characters
 	get_app_name "$desktop_file" \
+		| sed \
+			-e 's/[ ]([^)]\+)//g' \
+			-e 's/[ ]/-/g' \
+			-e 's/-\+/-/g' \
 		| tr '[:upper:]' '[:lower:]' \
-		| tr -cd '[:alnum:]-_. ' \
-		| sed -e 's/[ ]/-/g'
+		| tr -cd '[:alnum:]-_'
 }
 
 backup_desktop_file() {
