@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script for fixing hardcoded icons. Written and maintained on GitHub
 # at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
@@ -10,185 +10,515 @@
 # a copy of the GNU General Public License along with this program.
 # If not, see <http://www.gnu.org/licenses/>.
 
-# Version info
-date=201709040  # [year][month][date][extra]
+if test -z "$BASH_VERSION"; then
+	printf "Error: this script only works in bash.\n" >&2
+	exit 1
+fi
 
-# Locations
-git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-username=${SUDO_USER:-$USER}
-userhome="/home/$username"
-app_dirs=("$userhome/.local/share/applications/"
-          "$userhome/.local/share/applications/kde4/"
-          "$(sudo -u $username xdg-user-dir DESKTOP)/"
-          "/usr/share/applications/"
-          "/usr/share/applications/kde4/"
-          "/usr/local/share/applications/"
-          "/usr/local/share/applications/kde4/")
-local_apps="$userhome/.local/share/applications/"
-local_icon="$userhome/.local/share/icons/hicolor/48x48/apps/"
-steam_icon="/usr/share/icons/hicolor/48x48/apps/steam.png"
+# set -x  # Uncomment to debug this shell script
+set -o errexit \
+	-o noclobber \
+	-o pipefail
 
+unset GREP_OPTIONS  # avoid mess up
 
-# Allows timeout when launched via 'Run in Terminal'
-function gerror() { sleep 3; exit 1; }
+readonly SCRIPT_NAME="$(basename -- "$0")"
+readonly SCRIPT_DIR="$(dirname -- "$0")"
+readonly -a ARGS=("$@")
 
+readonly PROGNAME="hardcode-fixer"
+declare -i VERSION=201710140  # [year][month][date][extra]
+# date=999999990  # deprecate the previous version
 
-# Fix Launcher
-function fix_launch() {
-    launcher=$1
-    name=$2
-    icon=$3
-    type=$4
-
-    # Check if already fixed, if not create marked launcher copy
-    local_version="$local_apps$name.desktop"
-    if [ -f "$local_version" ]; then
-        line=$(head -n 1 $local_version)
-        if [[ $line == "# HC"* ]]; then
-            return
-        else
-            cp "$local_version" "$local_version.old"
-            sed -i '1i# HC:Local' "$local_version"
-        fi
-    else
-        cp "$launcher" "$local_version"
-        sed -i '1i# HC:Global' "$local_version"
-    fi
-
-    echo -n "$type: Fixing $name..."
-
-    # Making copy of needed icon and determining new icon name
-    if [[ $type == "H" ]]; then
-        new_icon=$(echo ${name} | sed -e 's/\ /_/' ) # | sed -e 's/\./_/' )
-        ext=$(echo ${icon} | sed -e 's/.*\.//' )
-        cp $icon $local_icon$new_icon.$ext
-    elif [[ $type == "S" ]]; then
-        exec=$(grep '^Exec=' ${file} | sed -e 's/.*Exec=//' )
-        new_icon=steam_icon_$(echo $exec | sed -e 's/steam\ steam:\/\/rungameid\/*//' )
-        cp $steam_icon "$local_icon$new_icon.png"
-    fi
-
-    sed -i "s|Icon=${icon}.*|Icon=${new_icon}|g" $local_version
-    echo " done"
+message() {
+	printf "%s: %b\n" "$PROGNAME" "$*" >&2
 }
 
+verbose() {
+	[ "$VERBOSE" = 1 ] || return 0
+	message "INFO:" "$@"
+}
 
-# Deals with the flags
-if [ -z "$1" ]; then
-    mode="fix"
-else
-    case $1 in
-        -r|--revert)
-            echo "This will undo all changes previously made."
-            while true; do
-                read -r -p "Are you sure you want to continue? " answer
-                case $answer in
-                    [Yy]* ) mode="revert"; break;;
-                    [Nn]* ) exit;;
-                    * ) echo "Please answer [Y/y]es or [N/n]o.";;
-                esac
-            done;;
-        -h|--help)
-            echo -e \
-                "Usage: ./$(basename -- $0) [OPTION]\n" \
-                "\rFixes hardcoded icons of installed applications.\n\n" \
-                "\rCurrently supported options:\n" \
-                "\r  -r, --revert \t\t Reverts any changes made.\n" \
-                "\r  -h, --help \t\t Displays this help menu.\n" \
-                "\r  -v, --version \t Displays program version.\n"
-            exit 0 ;;
-        -v|--version)
-            echo -e "$(basename -- $0) $date\n"
-            exit 0 ;;
-        *)
-            echo -e "$(basename -- $0): invalid option -- '$1'"
-            echo -e "Try '$(basename -- $0) --help' for more information."
-            gerror
-    esac
-fi
+warning() {
+	message "WARN:" "$@"
+}
 
+fail() {
+	message "ERR:" "$@"
+	exit 1
+}
 
-# TODO this entire 40+ LOC is just for checking for updates. should this still be here?
-# Verifies if 'curl' is installed
-if ! type "curl" >> /dev/null 2>&1; then
-    echo -e \
-        "$0: This script requires 'curl' to be installed\n" \
-        "\rto fetch the required files and check for updates.\n" \
-        "\rPlease install it and rerun this script."
-    gerror
-fi
+_is_hardcoded() {
+	local desktop_file="$1"
+	LANG=C grep -q '^Icon=.*/.*' -- "$desktop_file"
+}
 
-# Checks for having internet access
-if eval "curl -sk https://github.com/" >> /dev/null 2>&1; then
-    : # pass
-else
-    echo -e \
-        "No internet connection available. This script\n" \
-        "\rrequires internet access to connect to GitHub\n" \
-        "\rto check for updates and download 'to-fix' info."
-    gerror
-fi
+_is_hardcoded_steam_app() {
+	local desktop_file="$1"
+	local icon_name
 
-# Check for newer version of fix.sh
-new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
-if [ "$date" -lt "$new_date" ]; then
-    echo -e \
-        "You're running an out of date version of\n" \
-        "\rthe script. Please download the latest\n" \
-        "\rverison from the GitHub page or update\n" \
-        "\rvia your package manager. If you continue\n" \
-        "\rwithout updating you may run into problems."
-    while true; do
-        read -r -p "Would you like to [e]xit, or [c]ontinue?" answer
-        case $answer in
-            [Ee]* ) exit;;
-            [Cc]* ) break;;
-            * ) echo "Please answer [e]xit or [c]ontinue";;
-        esac
-    done
-fi
+	if LANG=C grep -q 'steam://run' -- "$desktop_file"; then
+		icon_name="$(get_icon_name "$desktop_file")"
+		if [ "$icon_name" = "steam" ]; then
+			return 0
+		fi
+	fi
 
+	return 1
+}
 
-if [ "$mode" == "fix" ]; then
-    # Iterate over all the launcher locations
-    for location in ${app_dirs[@]}; do
-        # Iterate over the files in those locations
-        for file in ${location}*; do
-            # Check if the file is a launcher
-            if [[ ${file} == *.desktop ]]; then
-                name=$(echo ${file} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
-                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
-                # Check for signs of hardcoding
-                if [[ $icon == *"/"* ]]; then
-                    # What to do if the icon line is standard hardcoded
-                    fix_launch ${file} ${name} ${icon} "H"
-                elif [[ $icon == "steam" ]] && [[ ${name} != "steam" ]]; then
-                    # What to do if it's using the generic Steam icon
-                    fix_launch ${file} ${name} ${icon} "S"
-                # elif [[ $icon = *"."* ]]; then
-                #     # What to do if it's extension hardcoded
-                #     fix_launch ${file} ${name} ${icon} "E"
-                fi
-            fi
-        done
-    done
-elif [ "$mode" == "revert" ]; then
-    for file in ${local_apps}*; do
-        if [[ ${file} == *.desktop ]]; then
-            # Check if launcher is product of hc-fix
-            line=$(head -n 1 $file)
-            name=$(echo ${file} | sed -e 's/.*\///' | sed -e 's/\.desktop//' )
-            if [[ $line == "# HC:"* ]]; then
-                echo -n "Reverting $name..."
-                icon=$(grep '^Icon=' ${file} | sed -e 's/.*Icon=//' )
-                if [[ $line == "# HC:Global" ]]; then
-                    rm $file
-                elif [[ $line == "# HC:Local" ]]; then
-                    mv -f "$file.old" $file
-                fi
-                rm $local_icon$icon.*
-                echo " done"
-            fi
-        fi
-    done
-fi
+_is_local() {
+	# checks if file or dir in LOCAL_APPS_DIRS
+	local dir="$1"
+
+	[ -d "$dir" ] || dir="$(dirname "$dir")"
+
+	for i in "${LOCAL_APPS_DIRS[@]}"; do
+		[ "$i" == "$dir" ] || continue
+		return 0
+	done
+
+	return 1
+}
+
+get_app_name() {
+	local desktop_file="$1"
+	awk -F= '/^Name/ { print $2; exit }' "$desktop_file"
+}
+
+get_icon_name() {
+	local desktop_file="$1"
+	awk -F= '/^Icon/ { print $2; exit }' "$desktop_file"
+}
+
+set_icon_name() {
+	# changes an icon for the desktop entry
+	local desktop_file="$1"
+	local icon_name="$2"
+
+	sed -i -e "/^Icon=/c \
+	Icon=${icon_name}
+	" "$desktop_file"
+}
+
+get_marker_value() {
+	local desktop_file="$1"
+	awk -F= '/^X-Hardcode-Fixer-Marker/ { print $2; exit }' "$desktop_file"
+}
+
+set_marker_value() {
+	local desktop_file="$1"
+	local marker_value="${2:-local}"
+
+	# append after Icon
+	sed -i -e "/^Icon=/a \
+	X-Hardcode-Fixer-Marker=${marker_value}
+	" "$desktop_file"
+}
+
+icon_lookup() {
+	# returns path to an icon (icon lookup for poor man)
+	local icon_name="$1"
+	local -a icons_dirs=(
+		"/usr/share/icons/hicolor/48x48/apps"
+		"/usr/share/icons/hicolor"
+		"/usr/local/share/icons/hicolor/48x48/apps"
+		"/usr/local/share/icons/hicolor"
+		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor/48x48/apps"
+		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor"
+		"/usr/share/pixmaps"
+		"/usr/local/share/pixmaps"
+	)
+
+	for icons_dir in "${icons_dirs[@]}"; do
+		for icon_path in "$icons_dir/$icon_name".*; do
+			[ -f "$icon_path" ] || continue
+			printf '%s' "$icon_path"
+		done
+	done
+}
+
+get_icon_path() {
+	local desktop_file="$1"
+	local icon_value icon_path
+
+	icon_value="$(get_icon_name "$desktop_file")"
+
+	if [ "${icon_value:0:1}" = "/" ]; then
+		# it's absolute path
+		icon_path="$icon_value"
+	else
+		icon_path="$(icon_lookup "$icon_value")"
+	fi
+
+	printf '%s' "$icon_path"
+}
+
+copy_icon_file() {
+	local icon_path="$1"
+	local icon_name="$2"
+	local icon_ext="${icon_path##*.}"
+
+	if [ -f "$icon_path" ]; then
+		mkdir -p "$LOCAL_ICONS_DIR"
+		cp -f "$icon_path" "$LOCAL_ICONS_DIR/${icon_name}.${icon_ext}"
+	else
+		warning "Cannot find an icon for '$icon_name'."
+		return 1
+	fi
+}
+
+get_local_path() {
+	local desktop_file="$1"
+	local base_name
+
+	base_name="$(basename "$desktop_file")"
+
+	printf "%s/%s" "$LOCAL_APPS_DIR" "$base_name"
+}
+
+download_file() {
+	local url="$1"
+	local file="${2:--}"  # is not a typo, output to stdout by default
+
+	verbose "Downloading '$url' ..."
+
+	if command -v wget > /dev/null 2>&1; then
+		wget --no-check-certificate -q -O "$file" "$url" \
+			|| fail "Fail to download '$url'."
+	elif command -v curl > /dev/null 2>&1; then
+		curl -sk -o "$file" "$url" \
+			|| fail "Fail to download '$url'."
+	else
+		fail "\n" \
+		"\r This script requires 'wget' to be installed\n" \
+		"\r to fetch the required files and check for updates.\n" \
+		"\r Please install it and rerun this script."
+	fi
+}
+
+get_from_db() {
+	# returns icon name if find it
+	local desktop_file="$1"
+	local app_name
+
+	app_name="$(get_app_name "$desktop_file")"
+
+	awk -F, -v app_name="$app_name" '
+	BEGIN { IGNORECASE = 1; }
+	$1 == app_name {
+		print $4
+		exit
+	}
+	' "$DB_FILE"
+}
+
+translate_from_app_name() {
+	local desktop_file="$1"
+
+	# 1. to lowercase
+	# 2. delete invalid characters
+	# 3. replace spaces with minus
+	get_app_name "$desktop_file" \
+		| tr '[:upper:]' '[:lower:]' \
+		| tr -cd '[:alnum:]-_. ' \
+		| sed -e 's/[ ]/-/g'
+}
+
+backup_desktop_file() {
+	local desktop_file="$1"
+	local dir_name base_name new_file_path
+
+	dir_name="$(dirname "$desktop_file")"
+	base_name="$(basename "$desktop_file")"
+	new_file_path="${dir_name}/.${base_name}.orig"
+
+	if [ -f "$new_file_path" ]; then
+		versbose "Backup file already exists"
+		return 1
+	fi
+
+	cp -a "$desktop_file" "$new_file_path"
+}
+
+restore_desktop_file() {
+	local desktop_file="$1"
+	local dir_name base_name file_path
+
+	dir_name="$(dirname "$desktop_file")"
+	base_name="$(basename "$desktop_file")"
+	file_path="${dir_name}/.${base_name}.orig"
+
+	[ -f "$file_path" ] || return 1
+	mv -f "$file_path" "$desktop_file"
+}
+
+fix_hardcoded_steam_app() {
+	local desktop_file="$1"
+	local app_name app_id icon_path new_icon_name
+
+	app_name="$(get_app_name "$desktop_file")"
+	icon_path="$(get_icon_path "$desktop_file")"
+	app_id="$(sed -n '/^Exec/ s/.*\/\([0-9]\+\)/\1/p' "$desktop_file")"
+	new_icon_name="steam_icon_${app_id}"
+
+	message "Fixing '$app_name' ..."
+
+	backup_desktop_file "$desktop_file"
+
+	set_marker_value "$desktop_file"
+	set_icon_name "$desktop_file" "$new_icon_name"
+	copy_icon_file "$icon_path" "$new_icon_name"
+}
+
+fix_hardcoded_app() {
+	local desktop_file="$1"
+	local app_name new_icon_name new_file_path marker_value
+
+	app_name="$(get_app_name "$desktop_file")"
+	icon_path="$(get_icon_name "$desktop_file")"
+	new_icon_name="$(get_from_db "$desktop_file")"
+
+	if [ -z "$new_icon_name" ]; then
+		new_icon_name="$(translate_from_app_name "$desktop_file")"
+	fi
+
+	if _is_local "$desktop_file"; then
+		backup_desktop_file "$desktop_file"
+		marker_value="local"
+	else
+		new_file_path="$(get_local_path "$desktop_file")"
+
+		if [ -e "$new_file_path" ]; then
+			verbose "'$app_name' already in local apps"
+			return 1
+		fi
+
+		mkdir -p "$(dirname "$new_file_path")"
+		cp -a "$desktop_file" "$new_file_path"
+
+		desktop_file="$new_file_path"
+		marker_value="global"
+	fi
+
+	message "Fixing '$app_name'..."
+
+	set_icon_name "$desktop_file" "$new_icon_name"
+	set_marker_value "$desktop_file" "$marker_value"
+	copy_icon_file "$icon_path" "$new_icon_name"
+}
+
+apply() {
+	local app_dir file
+
+	if [ "$FORCE_DOWNLOAD" = 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
+		DB_FILE="$SCRIPT_DIR/tofix.csv"
+	else
+		DB_FILE="$(mktemp -u -t hardcode_db_XXXXX.csv)"
+
+		message "Downloading DB into '$DB_FILE' file ..."
+		download_file "$DB_URL" "$DB_FILE"
+
+		# remove csv file when exit
+		cleanup() {
+			verbose "Removing '$DB_FILE' ..."
+			rm -f "$DB_FILE"
+			unset DB_FILE
+		}
+
+		trap cleanup EXIT HUP INT TERM
+	fi
+
+	for app_dir in "${GLOBAL_APPS_DIRS[@]}" "${LOCAL_APPS_DIRS[@]}"; do
+		for desktop_file in "$app_dir"/*.desktop; do
+			[ -f "$desktop_file" ] || continue
+			if _is_hardcoded "$desktop_file"; then
+				fix_hardcoded_app "$desktop_file" || continue
+			elif _is_hardcoded_steam_app "$desktop_file"; then
+				fix_hardcoded_steam_app "$desktop_file" || continue
+			else
+				continue
+			fi
+		done
+	done
+}
+
+revert() {
+	local app_name app_dir file marker_value
+
+	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
+		for desktop_file in "$app_dir"/*.desktop; do
+			[ -f "$desktop_file" ] || continue
+
+			app_name="$(get_app_name "$desktop_file")"
+			marker_value="$(get_marker_value "$desktop_file")"
+
+			if [ -n "$marker_value" ]; then
+				message "Reverting '$app_name' ..."
+
+				if [ "$marker_value" = "local" ]; then
+					restore_desktop_file "$desktop_file"
+				else
+					rm -f "$desktop_file"
+				fi
+			fi
+		done
+	done
+}
+
+cmdline() {
+	local arg action
+
+	show_usage() {
+		cat >&2 <<- EOF
+		usage:
+		 $SCRIPT_NAME {-a --apply}  [options]
+		 $SCRIPT_NAME {-r --revert} [options]
+
+		ACTIONS:
+		 -a, --apply          fixes hardcoded icons of installed applications
+		 -r, --revert         reverts any changes made
+
+		OPTIONS:
+		 -d --force-download  download the new database (ignore the local DB)
+		 -V --version         print $PROGNAME version and exit
+		 -v --verbose         be verbose
+		 -h --help            show this help
+		EOF
+	}
+
+	for arg in "${ARGS[@]}"; do
+		case "$arg" in
+			-a|--apply)
+				action="apply"
+				;;
+			-r|--revert)
+				action="revert"
+				;;
+			-d|--force-download)
+				FORCE_DOWNLOAD=1
+				;;
+			-v|--verbose)
+				VERBOSE=1
+				;;
+			-V|--version)
+				printf "%s (version: %s)\n" "$PROGNAME" "$VERSION"
+				exit 0
+				;;
+			-h|--help)
+				show_usage
+				exit 0
+				;;
+			*)
+				message "illegal option -- '$arg'"
+				show_usage
+				exit 2
+				;;
+		esac
+	done
+
+	case "$action" in
+		apply)
+			apply
+			;;
+		revert)
+			revert
+			;;
+		*)
+			fail "You must choose an action.\n" \
+				"\rType '$SCRIPT_NAME --help' to display help."
+			;;
+	esac
+
+	message "Done!"
+}
+
+show_menu() {
+	local -a menu_items=( "apply" "revert" "verbose" "help" "quit" )
+	local num_items="${#menu_items[@]}"
+	local PS3="[1-${num_items}]> "  # set custom prompt
+	local COLUMNS=1  # force listing to be vertical
+
+	cat >&2 <<- EOF
+	Welcome to $PROGNAME ($VERSION)!
+	Type 'help' to view a list of commands or enter
+	the number of the action you want to execute.
+
+	EOF
+
+	select menu_item in "${menu_items[@]}"; do
+		case "${menu_item:-$REPLY}" in
+			apply|[aA]*)
+				apply
+				break
+				;;
+			revert|[rR]*)
+				revert
+				break
+				;;
+			verbose|verb*)
+				VERBOSE=1
+				message "Verbose mode is enabled."
+				;;
+			help|[hH]*)
+				cat >&2 <<- EOF
+
+				 apply     —  Fixes hardcoded icons of installed applications
+				 revert    —  Reverts any changes made
+				 verbose   -  Be verbose
+				 help      —  Displays this help menu
+				 quit      -  Quit "$PROGNAME"
+
+				EOF
+				;;
+			quit|[qQ]*)
+				exit 0
+				;;
+			*)
+				echo "$REPLY -- invalid command"
+				;;
+		esac
+	done < /dev/tty  # don't read from stdin
+
+	message "Done!"
+
+	# Allows pause when launched via 'Run in Terminal'
+	read -r -p 'Press [Enter] to close' < /dev/tty  # don't read from stdin
+}
+
+main() {
+	if [ "$(id -u)" -eq 0 ]; then
+		fail "This script must be run as normal user."
+	fi
+
+	declare DB_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/tofix.csv"
+	declare LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+	declare LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
+
+	declare -a GLOBAL_APPS_DIRS=(
+		"/usr/share/applications"
+		"/usr/share/applications/kde4"
+		"/usr/local/share/applications"
+		"/usr/local/share/applications/kde4"
+	)
+
+	declare -a LOCAL_APPS_DIRS=(
+		"${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+		"${XDG_DATA_HOME:-$HOME/.local/share}/applications/kde4"
+		"$(xdg-user-dir DESKTOP)"
+	)
+
+	# default values of options
+	declare -i FORCE_DOWNLOAD=0
+	declare -i VERBOSE=0
+
+	if [ "${#ARGS[@]}" -gt 0 ]; then
+		cmdline
+	else
+		show_menu
+	fi
+}
+
+main
+
+exit 0
