@@ -356,6 +356,7 @@ revert() {
 			[ -f "$desktop_file" ] || continue
 
 			app_name="$(get_app_name "$desktop_file")"
+			icon_name="$(get_icon_name "$desktop_file")"
 			marker_value="$(get_marker_value "$desktop_file")"
 
 			if [ -n "$marker_value" ]; then
@@ -364,8 +365,15 @@ revert() {
 				if [ "$marker_value" = "local" ]; then
 					restore_desktop_file "$desktop_file"
 				else
-					rm -f "$desktop_file"
+					rm -f -- "$desktop_file"
 				fi
+
+				verbose "Removing '$icon_name' icon ..."
+				for ext in png svg xpm; do
+					[ -f "$LOCAL_ICONS_DIR/$icon_name.$ext" ] || continue
+					rm -- "$LOCAL_ICONS_DIR/$icon_name.$ext"
+					break
+				done
 			fi
 		done
 	done
