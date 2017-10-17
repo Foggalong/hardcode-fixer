@@ -67,20 +67,6 @@ _is_hardcoded_steam_app() {
 	return 1
 }
 
-_is_local() {
-	# checks if file or dir in LOCAL_APPS_DIRS
-	local dir="$1"
-
-	[ -d "$dir" ] || dir="$(dirname "$dir")"
-
-	for i in "${LOCAL_APPS_DIRS[@]}"; do
-		[ "$i" == "$dir" ] || continue
-		return 0
-	done
-
-	return 1
-}
-
 get_app_name() {
 	local desktop_file="$1"
 	awk -F= '/^Name/ { print $2; exit }' "$desktop_file"
@@ -89,6 +75,18 @@ get_app_name() {
 get_icon_name() {
 	local desktop_file="$1"
 	awk -F= '/^Icon/ { print $2; exit }' "$desktop_file"
+}
+
+get_steam_app_id() {
+	# returns id of the Steam app
+	local desktop_file="$1"
+	sed -n '/^Exec/ s/.*\/\([0-9]\+\)/\1/p' "$desktop_file"
+}
+
+get_steam_icon_name() {
+	# returns name of the Steam icon (steam_icon_ID)
+	local desktop_file="$1"
+	printf 'steam_icon_%s' "$(get_steam_app_id "$desktop_file")"
 }
 
 set_icon_name() {
@@ -125,7 +123,7 @@ icon_lookup() {
 		"/usr/local/share/icons/hicolor/48x48/apps"
 		"/usr/local/share/icons/hicolor"
 		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor/48x48/apps"
-		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor"
+		"${XDG_DATA_HOME:-$HOME/.local/share}/icons"
 		"/usr/share/pixmaps"
 		"/usr/local/share/pixmaps"
 	)
@@ -134,6 +132,7 @@ icon_lookup() {
 		for icon_path in "$icons_dir/$icon_name".*; do
 			[ -f "$icon_path" ] || continue
 			printf '%s' "$icon_path"
+			return 0  # only the first match
 		done
 	done
 }
@@ -166,15 +165,6 @@ copy_icon_file() {
 		warning "Cannot find an icon for '$icon_name'."
 		return 1
 	fi
-}
-
-get_local_path() {
-	local desktop_file="$1"
-	local base_name
-
-	base_name="$(basename "$desktop_file")"
-
-	printf "%s/%s" "$LOCAL_APPS_DIR" "$base_name"
 }
 
 download_file() {
@@ -258,58 +248,49 @@ restore_desktop_file() {
 	mv -f "$file_path" "$desktop_file"
 }
 
-fix_hardcoded_steam_app() {
+fix_hardcoded_app() {
 	local desktop_file="$1"
-	local app_name app_id icon_path new_icon_name
+	local method="$2"
+	local app_name icon_path new_icon_name local_desktop_file
 
 	app_name="$(get_app_name "$desktop_file")"
 	icon_path="$(get_icon_path "$desktop_file")"
-	app_id="$(sed -n '/^Exec/ s/.*\/\([0-9]\+\)/\1/p' "$desktop_file")"
-	new_icon_name="steam_icon_${app_id}"
-
-	message "Fixing '$app_name' ..."
-
-	backup_desktop_file "$desktop_file"
-
-	set_marker_value "$desktop_file"
-	set_icon_name "$desktop_file" "$new_icon_name"
-	copy_icon_file "$icon_path" "$new_icon_name"
-}
-
-fix_hardcoded_app() {
-	local desktop_file="$1"
-	local app_name new_icon_name new_file_path marker_value
-
-	app_name="$(get_app_name "$desktop_file")"
-	icon_path="$(get_icon_name "$desktop_file")"
 	new_icon_name="$(get_from_db "$desktop_file")"
+
+	case "$method" in
+		global)
+			local_desktop_file="$LOCAL_APPS_DIR/$(basename "$desktop_file")"
+
+			if [ -e "$local_desktop_file" ]; then
+				verbose "'$app_name' already exists in local apps. Skipping."
+				return 1
+			fi
+
+			mkdir -p "$(dirname "$local_desktop_file")"
+			cp -a "$desktop_file" "$local_desktop_file"
+
+			desktop_file="$local_desktop_file"
+			;;
+		local)
+			backup_desktop_file "$desktop_file"
+			;;
+		steam)
+			backup_desktop_file "$desktop_file"
+			new_icon_name="$(get_steam_icon_name "$desktop_file")"
+			;;
+		*)
+			warning "illegal method -- $method"
+			return 1
+	esac
 
 	if [ -z "$new_icon_name" ]; then
 		new_icon_name="$(translate_from_app_name "$desktop_file")"
 	fi
 
-	if _is_local "$desktop_file"; then
-		backup_desktop_file "$desktop_file"
-		marker_value="local"
-	else
-		new_file_path="$(get_local_path "$desktop_file")"
-
-		if [ -e "$new_file_path" ]; then
-			verbose "'$app_name' already in local apps"
-			return 1
-		fi
-
-		mkdir -p "$(dirname "$new_file_path")"
-		cp -a "$desktop_file" "$new_file_path"
-
-		desktop_file="$new_file_path"
-		marker_value="global"
-	fi
-
-	message "Fixing '$app_name'..."
+	message "Fixing '$app_name' [$method] ..."
 
 	set_icon_name "$desktop_file" "$new_icon_name"
-	set_marker_value "$desktop_file" "$marker_value"
+	set_marker_value "$desktop_file" "$method"
 	copy_icon_file "$icon_path" "$new_icon_name"
 }
 
@@ -334,13 +315,23 @@ apply() {
 		trap cleanup EXIT HUP INT TERM
 	fi
 
-	for app_dir in "${GLOBAL_APPS_DIRS[@]}" "${LOCAL_APPS_DIRS[@]}"; do
+	for app_dir in "${GLOBAL_APPS_DIRS[@]}"; do
 		for desktop_file in "$app_dir"/*.desktop; do
 			[ -f "$desktop_file" ] || continue
 			if _is_hardcoded "$desktop_file"; then
-				fix_hardcoded_app "$desktop_file" || continue
+				fix_hardcoded_app "$desktop_file" "global" || continue
+				continue
+			fi
+		done
+	done
+
+	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
+		for desktop_file in "$app_dir"/*.desktop; do
+			[ -f "$desktop_file" ] || continue
+			if _is_hardcoded "$desktop_file"; then
+				fix_hardcoded_app "$desktop_file" "local" || continue
 			elif _is_hardcoded_steam_app "$desktop_file"; then
-				fix_hardcoded_steam_app "$desktop_file" || continue
+				fix_hardcoded_app "$desktop_file" "steam" || continue
 			else
 				continue
 			fi
@@ -362,11 +353,14 @@ revert() {
 			if [ -n "$marker_value" ]; then
 				message "Reverting '$app_name' ..."
 
-				if [ "$marker_value" = "local" ]; then
-					restore_desktop_file "$desktop_file"
-				else
-					rm -f -- "$desktop_file"
-				fi
+				case "$marker_value" in
+					global)
+						rm -f -- "$desktop_file"
+						;;
+					local|steam)
+						restore_desktop_file "$desktop_file"
+						;;
+				esac
 
 				verbose "Removing '$icon_name' icon ..."
 				for ext in png svg xpm; do
