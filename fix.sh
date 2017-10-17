@@ -27,7 +27,7 @@ readonly SCRIPT_DIR="$(dirname -- "$0")"
 readonly -a ARGS=("$@")
 
 readonly PROGNAME="hardcode-fixer"
-declare -i VERSION=201710140  # [year][month][date][extra]
+declare -i VERSION=201710170  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
 message() {
@@ -244,8 +244,12 @@ restore_desktop_file() {
 	base_name="$(basename "$desktop_file")"
 	file_path="${dir_name}/.${base_name}.orig"
 
-	[ -f "$file_path" ] || return 1
-	mv -f "$file_path" "$desktop_file"
+	if [ -f "$file_path" ]; then
+		mv -f "$file_path" "$desktop_file"
+	else
+		warning "Can't find the backup file. Skipping."
+		return 1
+	fi
 }
 
 fix_hardcoded_app() {
@@ -358,7 +362,7 @@ revert() {
 						rm -f -- "$desktop_file"
 						;;
 					local|steam)
-						restore_desktop_file "$desktop_file"
+						restore_desktop_file "$desktop_file" || continue
 						;;
 				esac
 
