@@ -423,7 +423,7 @@ cmdline() {
 			*)
 				message "illegal option -- '$arg'"
 				show_usage
-				exit 2
+				exit 128
 				;;
 		esac
 	done
