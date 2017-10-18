@@ -30,6 +30,27 @@ readonly PROGNAME="hardcode-fixer"
 declare -i VERSION=201710170  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
+declare DB_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/tofix.csv"
+declare LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+declare LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
+
+declare -a GLOBAL_APPS_DIRS=(
+	"/usr/share/applications"
+	"/usr/share/applications/kde4"
+	"/usr/local/share/applications"
+	"/usr/local/share/applications/kde4"
+)
+
+declare -a LOCAL_APPS_DIRS=(
+	"${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+	"${XDG_DATA_HOME:-$HOME/.local/share}/applications/kde4"
+	"$(xdg-user-dir DESKTOP)"
+)
+
+# default values of options
+declare -i FORCE_DOWNLOAD=0
+declare -i VERBOSE=0
+
 message() {
 	printf "%s: %b\n" "$PROGNAME" "$*" >&2
 }
@@ -501,27 +522,6 @@ main() {
 	if [ "$(id -u)" -eq 0 ]; then
 		fail "This script must be run as normal user."
 	fi
-
-	declare DB_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/tofix.csv"
-	declare LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
-	declare LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
-
-	declare -a GLOBAL_APPS_DIRS=(
-		"/usr/share/applications"
-		"/usr/share/applications/kde4"
-		"/usr/local/share/applications"
-		"/usr/local/share/applications/kde4"
-	)
-
-	declare -a LOCAL_APPS_DIRS=(
-		"${XDG_DATA_HOME:-$HOME/.local/share}/applications"
-		"${XDG_DATA_HOME:-$HOME/.local/share}/applications/kde4"
-		"$(xdg-user-dir DESKTOP)"
-	)
-
-	# default values of options
-	declare -i FORCE_DOWNLOAD=0
-	declare -i VERBOSE=0
 
 	if [ "${#ARGS[@]}" -gt 0 ]; then
 		cmdline
