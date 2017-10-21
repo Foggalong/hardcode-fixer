@@ -48,8 +48,8 @@ declare -a LOCAL_APPS_DIRS=(
 )
 
 # default values of options
-declare -i FORCE_DOWNLOAD=0
-declare -i VERBOSE=0
+declare -i FORCE_DOWNLOAD="${FORCE_DOWNLOAD:-0}"
+declare -i VERBOSE="${VERBOSE:-0}"
 
 message() {
 	printf "%s: %b\n" "$PROGNAME" "$*" >&2
@@ -345,7 +345,6 @@ apply() {
 			[ -f "$desktop_file" ] || continue
 			if _is_hardcoded "$desktop_file"; then
 				fix_hardcoded_app "$desktop_file" "global" || continue
-				continue
 			fi
 		done
 	done
@@ -357,8 +356,6 @@ apply() {
 				fix_hardcoded_app "$desktop_file" "local" || continue
 			elif _is_hardcoded_steam_app "$desktop_file"; then
 				fix_hardcoded_app "$desktop_file" "steam" || continue
-			else
-				continue
 			fi
 		done
 	done
@@ -466,10 +463,8 @@ cmdline() {
 }
 
 show_menu() {
-	local -a menu_items=( "apply" "revert" "verbose" "help" "quit" )
-	local num_items="${#menu_items[@]}"
-	local PS3="[1-${num_items}]> "  # set custom prompt
-	local COLUMNS=1  # force listing to be vertical
+	local -a menu_items=( "apply" "revert" "help" "quit" )
+	local PS3="($PROGNAME)> "  # set custom prompt
 
 	cat >&2 <<- EOF
 	Welcome to $PROGNAME ($VERSION)!
@@ -488,22 +483,15 @@ show_menu() {
 				revert
 				break
 				;;
-			verbose|verb*)
-				VERBOSE=1
-				message "Verbose mode is enabled."
-				;;
 			help|[hH]*)
 				cat >&2 <<- EOF
-
 				 apply     —  Fixes hardcoded icons of installed applications
 				 revert    —  Reverts any changes made
-				 verbose   -  Be verbose
 				 help      —  Displays this help menu
 				 quit      -  Quit "$PROGNAME"
-
 				EOF
 				;;
-			quit|[qQ]*)
+			quit|[qQ]*|[eE]*)
 				exit 0
 				;;
 			*)
