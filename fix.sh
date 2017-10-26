@@ -70,11 +70,13 @@ fail() {
 }
 
 _is_hardcoded() {
+	# returns true if Icon contains a path
 	local desktop_file="$1"
 	LANG=C grep -q '^Icon=.*/.*' -- "$desktop_file"
 }
 
 _is_hardcoded_steam_app() {
+	# returns true if is a Steam launcher and Icon equals 'steam'
 	local desktop_file="$1"
 	local icon_name
 
@@ -149,7 +151,7 @@ set_marker_value() {
 }
 
 icon_lookup() {
-	# returns path to an icon (icon lookup for poor man)
+	# looks for icon in the list of dirs and returns absolute path to the icon
 	local icon_name="$1"
 	local -a icons_dirs=(
 		"/usr/share/icons/hicolor/48x48/apps"
@@ -172,6 +174,7 @@ icon_lookup() {
 }
 
 get_icon_path() {
+	# returns absolute path to the icon
 	local desktop_file="$1"
 	local icon_value icon_path
 
