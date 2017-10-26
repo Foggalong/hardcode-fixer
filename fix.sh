@@ -30,7 +30,7 @@ readonly PROGNAME="hardcode-fixer"
 declare -i VERSION=201710170  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
-declare DB_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master/tofix.csv"
+declare UPSTREAM_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 declare LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 declare LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
 
@@ -83,6 +83,19 @@ _is_hardcoded_steam_app() {
 		if [ "$icon_name" = "steam" ]; then
 			return 0
 		fi
+	fi
+
+	return 1
+}
+
+_is_update_available() {
+	# returns true if the upstream version bigger than current
+	local -i upstream_version
+
+	upstream_version="$(get_upstream_version)"
+
+	if [ "$VERSION" -lt "$upstream_version" ]; then
+		return 0
 	fi
 
 	return 1
@@ -208,6 +221,15 @@ download_file() {
 	fi
 }
 
+get_upstream_version() {
+	local upstream_file="$UPSTREAM_URL/fix.sh"
+
+	download_file "$upstream_file" \
+		| LANG=C grep -o 'date=[0-9]\+' \
+		| head -1 \
+		| tr -dc '[0-9]'
+}
+
 get_from_db() {
 	# returns icon name if find it
 	local desktop_file="$1"
@@ -325,10 +347,25 @@ apply() {
 	if [ "$FORCE_DOWNLOAD" = 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
 		DB_FILE="$SCRIPT_DIR/tofix.csv"
 	else
+		if _is_update_available; then
+			cat >&2 <<- EOF
+
+			You're running an out of date version of the script.
+			Please download the latest verison from the GitHub page
+			or update via your package manager. If you continue
+			without updating you may run into problems.
+
+			Press [ENTER] to continue or Ctrl-c to exit
+			EOF
+
+			# Wait for user to read the message
+			read -r < /dev/tty  # don't read from stdin
+		fi
+
 		DB_FILE="$(mktemp -u -t hardcode_db_XXXXX.csv)"
 
 		message "Downloading DB into '$DB_FILE' file ..."
-		download_file "$DB_URL" "$DB_FILE"
+		download_file "$UPSTREAM_URL/tofix.csv" "$DB_FILE"
 
 		# remove csv file when exit
 		cleanup() {
@@ -431,7 +468,10 @@ cmdline() {
 				VERBOSE=1
 				;;
 			-V|--version)
-				printf "%s (version: %s)\n" "$PROGNAME" "$VERSION"
+				printf "%s (version %s)\n" "$PROGNAME" "$VERSION"
+				if _is_update_available; then
+					message "update is available."
+				fi
 				exit 0
 				;;
 			-h|--help)
@@ -503,7 +543,7 @@ show_menu() {
 	message "Done!"
 
 	# Allows pause when launched via 'Run in Terminal'
-	read -r -p 'Press [Enter] to close' < /dev/tty  # don't read from stdin
+	read -r -p 'Press [ENTER] to close' < /dev/tty  # don't read from stdin
 }
 
 main() {
