@@ -230,7 +230,7 @@ get_upstream_version() {
 	download_file "$upstream_file" \
 		| LANG=C grep -o 'date=[0-9]\+' \
 		| head -1 \
-		| tr -dc '[0-9]'
+		| tr -cd '[:digit:]'
 }
 
 get_from_db() {
