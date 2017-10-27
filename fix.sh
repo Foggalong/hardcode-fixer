@@ -195,13 +195,34 @@ copy_icon_file() {
 	local icon_name="$2"
 	local icon_ext="${icon_path##*.}"
 
-	if [ -f "$icon_path" ]; then
-		mkdir -p "$LOCAL_ICONS_DIR"
-		cp -f "$icon_path" "$LOCAL_ICONS_DIR/${icon_name}.${icon_ext}"
-	else
+	if [ ! -f "$icon_path" ]; then
 		warning "Cannot find an icon for '$icon_name'."
 		return 1
 	fi
+
+	mkdir -p "$LOCAL_ICONS_DIR"
+
+	case "$icon_ext" in
+		png|svg|svgz|xpm)
+			cp "$icon_path" "$LOCAL_ICONS_DIR/${icon_name}.${icon_ext}"
+			;;
+		gif|ico|jpg)
+			if ! command -v convert > /dev/null 2>&1; then
+				warning "imagemagick is not installed." \
+					"Icon '${icon_name}.${icon_ext}' cannot be converted."
+				return 1
+			fi
+
+			verbose "Converting '${icon_name}.${icon_ext}' to" \
+				"'${icon_name}.png' ..."
+			convert "$icon_path" -alpha on -background none -thumbnail 48x48 \
+				-flatten "$LOCAL_ICONS_DIR/${icon_name}.png"
+			;;
+		*)
+			warning "'${icon_name}.${icon_ext}' has invalid icon format."
+			return 1
+			;;
+	esac
 }
 
 download_file() {
