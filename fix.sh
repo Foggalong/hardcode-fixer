@@ -420,6 +420,8 @@ apply() {
 			fi
 		done
 	done
+
+	message "${FUNCNAME[0]}: Done!"
 }
 
 revert() {
@@ -454,76 +456,87 @@ revert() {
 			fi
 		done
 	done
+
+	message "${FUNCNAME[0]}: Done!"
 }
 
-cmdline() {
-	local arg action
+parse_opts() {
+	local opt command
+	local -a opts=()
+	local -a commands=()
 
-	show_usage() {
+	usage() {
+		local exit_code="$1"
+
 		cat >&2 <<- EOF
-		usage:
-		 $SCRIPT_NAME {-a --apply}  [options]
-		 $SCRIPT_NAME {-r --revert} [options]
+		usage: $SCRIPT_NAME [command] [options]
 
-		ACTIONS:
-		 -a, --apply          fixes hardcoded icons of installed applications
-		 -r, --revert         reverts any changes made
+		commands:
+		 -A, --apply           fixes hardcoded icons of installed applications
+		 -R, --revert          reverts any changes made
+		 -V, --version         print $PROGNAME version and exit
+		 -h, --help            show this help
 
-		OPTIONS:
-		 -d --force-download  download the new database (ignore the local DB)
-		 -V --version         print $PROGNAME version and exit
-		 -v --verbose         be verbose
-		 -h --help            show this help
+		options:
+		 -d, --force-download  download the new database (ignore the local DB)
+		 -v, --verbose         be verbose
+
+		Long commands without double '--' are also allowed.
 		EOF
+
+		exit "$exit_code"
 	}
 
-	for arg in "${ARGS[@]}"; do
-		case "$arg" in
-			-a|--apply)
-				action="apply"
+	# Translate --gnu-long-options and commands to -g (short options)
+	for opt; do
+		case "$opt" in
+			--apply|apply)     opts+=( -A ) ;;
+			--revert|revert)   opts+=( -R ) ;;
+			--version|version) opts+=( -V ) ;;
+			--force-download)  opts+=( -d ) ;;
+			--help|help)       opts+=( -h ) ;;
+			--verbose)         opts+=( -v ) ;;
+			--[0-9a-Z]*)
+				message "illegal option -- '$opt'"
+				usage 128
 				;;
-			-r|--revert)
-				action="revert"
+			*) opts+=( "$opt" ) ;;
+		esac
+	done
+
+	while getopts ":ARVdhv" opt "${opts[@]}"; do
+		case "$opt" in
+			A ) commands+=( "apply" )   ;;
+			R ) commands+=( "revert" )  ;;
+			V ) commands+=( "version" ) ;;
+			d ) FORCE_DOWNLOAD=1        ;;
+			h ) usage 0                 ;;
+			v ) VERBOSE=1               ;;
+			\?)
+				message "illegal option -- '-$OPTARG'"
+				usage 128
 				;;
-			-d|--force-download)
-				FORCE_DOWNLOAD=1
-				;;
-			-v|--verbose)
-				VERBOSE=1
-				;;
-			-V|--version)
+		esac
+	done
+
+	for command in "${commands[@]}"; do
+		case "$command" in
+			apply)  apply  ;;
+			revert) revert ;;
+			version)
 				printf "%s (version %s)\n" "$PROGNAME" "$VERSION"
 				if _is_update_available; then
 					message "update is available."
 				fi
 				exit 0
 				;;
-			-h|--help)
-				show_usage
-				exit 0
-				;;
-			*)
-				message "illegal option -- '$arg'"
-				show_usage
-				exit 128
-				;;
 		esac
 	done
 
-	case "$action" in
-		apply)
-			apply
-			;;
-		revert)
-			revert
-			;;
-		*)
-			fail "You must choose an action.\n" \
-				"\rType '$SCRIPT_NAME --help' to display help."
-			;;
-	esac
-
-	message "Done!"
+	# display interactive menu, if no commands were passed
+	if [ "${#commands[@]}" -eq 0 ]; then
+		show_menu
+	fi
 }
 
 show_menu() {
@@ -541,11 +554,9 @@ show_menu() {
 		case "${menu_item:-$REPLY}" in
 			apply|[aA]*)
 				apply
-				break
 				;;
 			revert|[rR]*)
 				revert
-				break
 				;;
 			help|[hH]*)
 				cat >&2 <<- EOF
@@ -563,11 +574,6 @@ show_menu() {
 				;;
 		esac
 	done < /dev/tty  # don't read from stdin
-
-	message "Done!"
-
-	# Allows pause when launched via 'Run in Terminal'
-	read -r -p 'Press [ENTER] to close' < /dev/tty  # don't read from stdin
 }
 
 main() {
@@ -576,7 +582,7 @@ main() {
 	fi
 
 	if [ "${#ARGS[@]}" -gt 0 ]; then
-		cmdline
+		parse_opts "${ARGS[@]}"
 	else
 		show_menu
 	fi
