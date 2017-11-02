@@ -15,7 +15,6 @@ if test -z "$BASH_VERSION"; then
 	exit 1
 fi
 
-# set -x  # Uncomment to debug this shell script
 set -o errexit \
 	-o noclobber \
 	-o pipefail
@@ -24,15 +23,15 @@ unset GREP_OPTIONS  # avoid mess up
 
 readonly SCRIPT_NAME="$(basename -- "$0")"
 readonly SCRIPT_DIR="$(dirname -- "$0")"
-readonly -a ARGS=("$@")
+readonly -a ARGS=( "$@" )
 
 readonly PROGNAME="hardcode-fixer"
 declare -i VERSION=201710170  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
-declare UPSTREAM_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-declare LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
-declare LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
+UPSTREAM_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
+LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
+LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
 
 declare -a GLOBAL_APPS_DIRS=(
 	"/usr/share/applications"
@@ -51,21 +50,25 @@ declare -a LOCAL_APPS_DIRS=(
 declare -i FORCE_DOWNLOAD="${FORCE_DOWNLOAD:-0}"
 declare -i VERBOSE="${VERBOSE:-0}"
 
-message() {
+msg() {
 	printf "%s: %b\n" "$PROGNAME" "$*" >&2
 }
 
-verbose() {
-	[ "$VERBOSE" = 1 ] || return 0
-	message "INFO:" "$@"
+verb() {
+	[ "$VERBOSE" -eq 1 ] || return 0
+	msg "INFO:" "$*"
 }
 
-warning() {
-	message "WARN:" "$@"
+warn() {
+	msg "WARNING:" "$*"
 }
 
-fail() {
-	message "ERR:" "$@"
+err() {
+	msg "ERROR:" "$*"
+}
+
+fatal() {
+	err "$*"
 	exit 1
 }
 
@@ -76,7 +79,7 @@ _is_hardcoded() {
 }
 
 _is_hardcoded_steam_app() {
-	# returns true if is a Steam launcher and Icon equals 'steam'
+	# returns true if it's a Steam launcher and Icon equals 'steam'
 	local desktop_file="$1"
 	local icon_name
 
@@ -91,7 +94,7 @@ _is_hardcoded_steam_app() {
 }
 
 _is_update_available() {
-	# returns true if the upstream version bigger than current
+	# returns true if the upstream version is greater than current
 	local -i upstream_version
 
 	upstream_version="$(get_upstream_version)"
@@ -101,6 +104,12 @@ _is_update_available() {
 	fi
 
 	return 1
+}
+
+_has_marker() {
+	# returns true if desktop file has a marker
+	local desktop_file="$1"
+	LANG=C grep -q '^X-Hardcode-Fixer-Marker=' -- "$desktop_file"
 }
 
 get_app_name() {
@@ -142,26 +151,27 @@ get_marker_value() {
 
 set_marker_value() {
 	local desktop_file="$1"
-	local marker_value="${2:-local}"
+	local marker_value="$2"
 
-	# append after Icon
+	# add after Icon
 	sed -i -e "/^Icon=/a \
 	X-Hardcode-Fixer-Marker=${marker_value}
 	" "$desktop_file"
 }
 
 icon_lookup() {
-	# looks for icon in the list of dirs and returns absolute path to the icon
+	# looks for icon in dirs in the list and returns absolute path to the icon
 	local icon_name="$1"
+	local icons_dir icon_path
 	local -a icons_dirs=(
 		"/usr/share/icons/hicolor/48x48/apps"
 		"/usr/share/icons/hicolor"
+		"/usr/share/pixmaps"
 		"/usr/local/share/icons/hicolor/48x48/apps"
 		"/usr/local/share/icons/hicolor"
+		"/usr/local/share/pixmaps"
 		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor/48x48/apps"
 		"${XDG_DATA_HOME:-$HOME/.local/share}/icons"
-		"/usr/share/pixmaps"
-		"/usr/local/share/pixmaps"
 	)
 
 	for icons_dir in "${icons_dirs[@]}"; do
@@ -190,72 +200,15 @@ get_icon_path() {
 	printf '%s' "$icon_path"
 }
 
-copy_icon_file() {
-	local icon_path="$1"
-	local icon_name="$2"
-	local icon_ext="${icon_path##*.}"
-
-	if [ ! -f "$icon_path" ]; then
-		warning "Cannot find an icon for '$icon_name'."
-		return 1
-	fi
-
-	mkdir -p "$LOCAL_ICONS_DIR"
-
-	case "$icon_ext" in
-		png|svg|svgz|xpm)
-			cp "$icon_path" "$LOCAL_ICONS_DIR/${icon_name}.${icon_ext}"
-			;;
-		gif|ico|jpg)
-			if ! command -v convert > /dev/null 2>&1; then
-				warning "imagemagick is not installed." \
-					"Icon '${icon_name}.${icon_ext}' cannot be converted."
-				return 1
-			fi
-
-			verbose "Converting '${icon_name}.${icon_ext}' to" \
-				"'${icon_name}.png' ..."
-			convert "$icon_path" -alpha on -background none -thumbnail 48x48 \
-				-flatten "$LOCAL_ICONS_DIR/${icon_name}.png"
-			;;
-		*)
-			warning "'${icon_name}.${icon_ext}' has invalid icon format."
-			return 1
-			;;
-	esac
-}
-
-download_file() {
-	local url="$1"
-	local file="${2:--}"  # is not a typo, output to stdout by default
-
-	verbose "Downloading '$url' ..."
-
-	if command -v wget > /dev/null 2>&1; then
-		wget --no-check-certificate -q -O "$file" "$url" \
-			|| fail "Fail to download '$url'."
-	elif command -v curl > /dev/null 2>&1; then
-		curl -sk -o "$file" "$url" \
-			|| fail "Fail to download '$url'."
-	else
-		fail "\n" \
-		"\r This script requires 'wget' to be installed\n" \
-		"\r to fetch the required files and check for updates.\n" \
-		"\r Please install it and rerun this script."
-	fi
-}
-
 get_upstream_version() {
-	local upstream_file="$UPSTREAM_URL/fix.sh"
-
-	download_file "$upstream_file" \
+	download_file "$UPSTREAM_URL/fix.sh" 2> /dev/null \
 		| LANG=C grep -o 'date=[0-9]\+' \
 		| head -1 \
 		| tr -cd '[:digit:]'
 }
 
 get_from_db() {
-	# returns icon name if find it
+	# returns icon name if found it
 	local desktop_file="$1"
 	local app_name
 
@@ -270,7 +223,61 @@ get_from_db() {
 	' "$DB_FILE"
 }
 
+copy_icon_file() {
+	local icon_path="$1"
+	local icon_name="$2"
+	local icon_ext="${icon_path##*.}"
+
+	if [ ! -f "$icon_path" ]; then
+		warn "Failed to copy '$icon_name' icon." \
+			"File '$icon_path' does not exist."
+		return 1
+	fi
+
+	mkdir -p "$LOCAL_ICONS_DIR"
+
+	case "$icon_ext" in
+		png|svg|svgz|xpm)
+			cp -f "$icon_path" "$LOCAL_ICONS_DIR/${icon_name}.${icon_ext}"
+			;;
+		gif|ico|jpg|jpeg)
+			if ! command -v convert > /dev/null 2>&1; then
+				warn "imagemagick is not installed." \
+					"Icon '${icon_name}.${icon_ext}' cannot be converted."
+				return 1
+			fi
+
+			verb "Converting '${icon_name}.${icon_ext}' to" \
+				"'${icon_name}.png' ..."
+			convert "$icon_path" -alpha on -background none -thumbnail 48x48 \
+				-flatten "$LOCAL_ICONS_DIR/${icon_name}.png"
+			;;
+		*)
+			warn "'${icon_name}.${icon_ext}' has invalid icon format."
+			return 1
+	esac
+}
+
+download_file() {
+	local url="$1"
+	local file="${2:--}"  # it's not a typo, output to stdout by default
+
+	if command -v wget > /dev/null 2>&1; then
+		wget --no-check-certificate -q -O "$file" "$url" \
+			|| fatal "Fail to download '$url' (wget exit code: $?)."
+	elif command -v curl > /dev/null 2>&1; then
+		curl -sk -o "$file" "$url" \
+			|| fatal "Fail to download '$url' (curl exit code: $?)."
+	else
+		fatal "Fail to download '$url'.\n" \
+			"\r This script requires 'wget' to be installed\n" \
+			"\r to fetch the required files and check for updates.\n" \
+			"\r Please install it and rerun this script."
+	fi
+}
+
 translate_from_app_name() {
+	# converts app name to icon name
 	local desktop_file="$1"
 
 	# 1. remove text between parentheses
@@ -289,32 +296,32 @@ translate_from_app_name() {
 
 backup_desktop_file() {
 	local desktop_file="$1"
-	local dir_name base_name new_file_path
+	local dir_name base_name backup_file
 
 	dir_name="$(dirname "$desktop_file")"
 	base_name="$(basename "$desktop_file")"
-	new_file_path="${dir_name}/.${base_name}.orig"
+	backup_file="${dir_name}/.${base_name}.orig"
 
-	if [ -f "$new_file_path" ]; then
-		versbose "Backup file already exists"
+	if [ -f "$backup_file" ]; then
+		err "Backup file already exists."
 		return 1
 	fi
 
-	cp -a "$desktop_file" "$new_file_path"
+	cp "$desktop_file" "$backup_file"
 }
 
 restore_desktop_file() {
 	local desktop_file="$1"
-	local dir_name base_name file_path
+	local dir_name base_name backup_file
 
 	dir_name="$(dirname "$desktop_file")"
 	base_name="$(basename "$desktop_file")"
-	file_path="${dir_name}/.${base_name}.orig"
+	backup_file="${dir_name}/.${base_name}.orig"
 
-	if [ -f "$file_path" ]; then
-		mv -f "$file_path" "$desktop_file"
+	if [ -f "$backup_file" ]; then
+		mv -f "$backup_file" "$desktop_file"
 	else
-		warning "Can't find the backup file. Skipping."
+		err "Fail to find the backup file."
 		return 1
 	fi
 }
@@ -322,7 +329,7 @@ restore_desktop_file() {
 fix_hardcoded_app() {
 	local desktop_file="$1"
 	local method="$2"
-	local app_name icon_path new_icon_name local_desktop_file
+	local app_name icon_path new_icon_name desktop_file_name local_desktop_file
 
 	app_name="$(get_app_name "$desktop_file")"
 	icon_path="$(get_icon_path "$desktop_file")"
@@ -330,15 +337,16 @@ fix_hardcoded_app() {
 
 	case "$method" in
 		global)
-			local_desktop_file="$LOCAL_APPS_DIR/$(basename "$desktop_file")"
+			desktop_file_name="$(basename "$desktop_file")"
+			local_desktop_file="$LOCAL_APPS_DIR/$desktop_file_name"
 
 			if [ -e "$local_desktop_file" ]; then
-				verbose "'$app_name' already exists in local apps. Skipping."
+				verb "'$app_name' already exists in local apps. Skipping."
 				return 1
 			fi
 
 			mkdir -p "$(dirname "$local_desktop_file")"
-			cp -a "$desktop_file" "$local_desktop_file"
+			cp "$desktop_file" "$local_desktop_file"
 
 			desktop_file="$local_desktop_file"
 			;;
@@ -350,7 +358,7 @@ fix_hardcoded_app() {
 			new_icon_name="$(get_steam_icon_name "$desktop_file")"
 			;;
 		*)
-			warning "illegal method -- $method"
+			err "illegal method -- '$method'"
 			return 1
 	esac
 
@@ -358,7 +366,7 @@ fix_hardcoded_app() {
 		new_icon_name="$(translate_from_app_name "$desktop_file")"
 	fi
 
-	message "Fixing '$app_name' [$method] ..."
+	msg "Fixing '$app_name' [$method] ..."
 
 	set_icon_name "$desktop_file" "$new_icon_name"
 	set_marker_value "$desktop_file" "$method"
@@ -366,11 +374,12 @@ fix_hardcoded_app() {
 }
 
 apply() {
-	local app_dir file
+	local app_dir desktop_file
 
-	if [ "$FORCE_DOWNLOAD" = 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
+	if [ "$FORCE_DOWNLOAD" -eq 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
 		DB_FILE="$SCRIPT_DIR/tofix.csv"
 	else
+		verb "Checking for update ..."
 		if _is_update_available; then
 			cat >&2 <<- EOF
 
@@ -388,12 +397,12 @@ apply() {
 
 		DB_FILE="$(mktemp -u -t hardcode_db_XXXXX.csv)"
 
-		message "Downloading DB into '$DB_FILE' file ..."
+		msg "Downloading DB into '$DB_FILE' file ..."
 		download_file "$UPSTREAM_URL/tofix.csv" "$DB_FILE"
 
-		# remove csv file when exit
+		# delete CSV file when exiting
 		cleanup() {
-			verbose "Removing '$DB_FILE' ..."
+			verb "Removing '$DB_FILE' ..."
 			rm -f "$DB_FILE"
 			unset DB_FILE
 		}
@@ -404,6 +413,7 @@ apply() {
 	for app_dir in "${GLOBAL_APPS_DIRS[@]}"; do
 		for desktop_file in "$app_dir"/*.desktop; do
 			[ -f "$desktop_file" ] || continue
+
 			if _is_hardcoded "$desktop_file"; then
 				fix_hardcoded_app "$desktop_file" "global" || continue
 			fi
@@ -413,6 +423,7 @@ apply() {
 	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
 		for desktop_file in "$app_dir"/*.desktop; do
 			[ -f "$desktop_file" ] || continue
+
 			if _is_hardcoded "$desktop_file"; then
 				fix_hardcoded_app "$desktop_file" "local" || continue
 			elif _is_hardcoded_steam_app "$desktop_file"; then
@@ -421,22 +432,22 @@ apply() {
 		done
 	done
 
-	message "${FUNCNAME[0]}: Done!"
+	msg "${FUNCNAME[0]}: Done!"
 }
 
 revert() {
-	local app_name app_dir file marker_value
+	local app_dir app_name desktop_file icon_ext icon_name marker_value
 
 	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
 		for desktop_file in "$app_dir"/*.desktop; do
 			[ -f "$desktop_file" ] || continue
 
-			app_name="$(get_app_name "$desktop_file")"
-			icon_name="$(get_icon_name "$desktop_file")"
-			marker_value="$(get_marker_value "$desktop_file")"
+			if _has_marker "$desktop_file"; then
+				app_name="$(get_app_name "$desktop_file")"
+				icon_name="$(get_icon_name "$desktop_file")"
+				marker_value="$(get_marker_value "$desktop_file")"
 
-			if [ -n "$marker_value" ]; then
-				message "Reverting '$app_name' ..."
+				msg "Reverting '$app_name' ..."
 
 				case "$marker_value" in
 					global)
@@ -445,19 +456,23 @@ revert() {
 					local|steam)
 						restore_desktop_file "$desktop_file" || continue
 						;;
+					*)
+						err "invalid marker value -- '$marker_value'"
+						continue
 				esac
 
-				verbose "Removing '$icon_name' icon ..."
-				for ext in png svg xpm; do
-					[ -f "$LOCAL_ICONS_DIR/$icon_name.$ext" ] || continue
-					rm -- "$LOCAL_ICONS_DIR/$icon_name.$ext"
-					break
+				for icon_ext in png svg svgz xpm; do
+					if [ -f "$LOCAL_ICONS_DIR/$icon_name.$icon_ext" ]; then
+						verb "Removing '$icon_name.$icon_ext' ..."
+						rm -- "$LOCAL_ICONS_DIR/$icon_name.$icon_ext"
+						break
+					fi
 				done
 			fi
 		done
 	done
 
-	message "${FUNCNAME[0]}: Done!"
+	msg "${FUNCNAME[0]}: Done!"
 }
 
 parse_opts() {
@@ -469,7 +484,7 @@ parse_opts() {
 		local exit_code="$1"
 
 		cat >&2 <<- EOF
-		usage: $SCRIPT_NAME [command] [options]
+		usage: $SCRIPT_NAME [command ...] [options]
 
 		commands:
 		 -A, --apply           fixes hardcoded icons of installed applications
@@ -497,10 +512,10 @@ parse_opts() {
 			--help|help)       opts+=( -h ) ;;
 			--verbose)         opts+=( -v ) ;;
 			--[0-9a-Z]*)
-				message "illegal option -- '$opt'"
+				err "illegal option -- '$opt'"
 				usage 128
 				;;
-			*) opts+=( "$opt" ) ;;
+			*) opts+=( "$opt" )
 		esac
 	done
 
@@ -513,7 +528,7 @@ parse_opts() {
 			h ) usage 0                 ;;
 			v ) VERBOSE=1               ;;
 			\?)
-				message "illegal option -- '-$OPTARG'"
+				err "illegal option -- '-$OPTARG'"
 				usage 128
 				;;
 		esac
@@ -526,7 +541,7 @@ parse_opts() {
 			version)
 				printf "%s (version %s)\n" "$PROGNAME" "$VERSION"
 				if _is_update_available; then
-					message "update is available."
+					msg "update is available."
 				fi
 				exit 0
 				;;
@@ -540,6 +555,7 @@ parse_opts() {
 }
 
 show_menu() {
+	local menu_item
 	local -a menu_items=( "apply" "revert" "help" "quit" )
 	local PS3="($PROGNAME)> "  # set custom prompt
 
@@ -552,33 +568,25 @@ show_menu() {
 
 	select menu_item in "${menu_items[@]}"; do
 		case "${menu_item:-$REPLY}" in
-			apply|[aA]*)
-				apply
-				;;
-			revert|[rR]*)
-				revert
-				;;
+			apply|[aA]*)  apply  ;;
+			revert|[rR]*) revert ;;
 			help|[hH]*)
 				cat >&2 <<- EOF
-				 apply     —  Fixes hardcoded icons of installed applications
-				 revert    —  Reverts any changes made
-				 help      —  Displays this help menu
-				 quit      -  Quit "$PROGNAME"
+				 apply     -  fixes hardcoded icons of installed applications
+				 revert    -  reverts any changes made
+				 help      -  displays this help menu
+				 quit      -  quit $PROGNAME
 				EOF
 				;;
-			quit|[qQ]*|[eE]*)
-				exit 0
-				;;
-			*)
-				echo "$REPLY -- invalid command"
-				;;
+			quit|[qQeE]*) exit 0 ;;
+			*) err "invalid command -- '$REPLY'"
 		esac
 	done < /dev/tty  # don't read from stdin
 }
 
 main() {
 	if [ "$(id -u)" -eq 0 ]; then
-		fail "This script must be run as normal user."
+		fatal "This script must be run as normal user."
 	fi
 
 	if [ "${#ARGS[@]}" -gt 0 ]; then
