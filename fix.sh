@@ -15,10 +15,16 @@ if test -z "$BASH_VERSION"; then
 	exit 1
 fi
 
+if [ "${BASH_VERSINFO[0]}" -lt 4 ]; then
+	printf "Error: this script requires bash version >= 4\n" >&2
+	exit 1
+fi
+
 set -o errexit \
 	-o noclobber \
 	-o pipefail
 
+shopt -s globstar  # enable **/*.deskop path expansion
 unset GREP_OPTIONS  # avoid mess up
 
 readonly SCRIPT_NAME="$(basename -- "$0")"
@@ -29,22 +35,20 @@ readonly PROGNAME="hardcode-fixer"
 declare -i VERSION=201710170  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
+# Import XDG user dirs variables
+if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs.dirs" ]; then
+	# shellcheck disable=SC1090
+	source "${XDG_CONFIG_HOME:-$HOME/.config}/user-dirs.dirs"
+fi
+
+# Get data directories from XDG_DATA_DIRS variable and
+# convert colon-separated list into bash array
+IFS=: read -ra DATA_DIRS \
+	<<< "${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
 UPSTREAM_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
-
-declare -a GLOBAL_APPS_DIRS=(
-	"/usr/share/applications"
-	"/usr/share/applications/kde4"
-	"/usr/local/share/applications"
-	"/usr/local/share/applications/kde4"
-)
-
-declare -a LOCAL_APPS_DIRS=(
-	"${XDG_DATA_HOME:-$HOME/.local/share}/applications"
-	"${XDG_DATA_HOME:-$HOME/.local/share}/applications/kde4"
-	"$(xdg-user-dir DESKTOP)"
-)
 
 # default values of options
 declare -i FORCE_DOWNLOAD="${FORCE_DOWNLOAD:-0}"
@@ -162,23 +166,23 @@ set_marker_value() {
 icon_lookup() {
 	# looks for icon in dirs in the list and returns absolute path to the icon
 	local icon_name="$1"
-	local icons_dir icon_path
-	local -a icons_dirs=(
-		"/usr/share/icons/hicolor/48x48/apps"
-		"/usr/share/icons/hicolor"
-		"/usr/share/pixmaps"
-		"/usr/local/share/icons/hicolor/48x48/apps"
-		"/usr/local/share/icons/hicolor"
-		"/usr/local/share/pixmaps"
-		"${XDG_DATA_HOME:-$HOME/.local/share}/icons/hicolor/48x48/apps"
-		"${XDG_DATA_HOME:-$HOME/.local/share}/icons"
-	)
+	local data_dir icons_dir icon_path
 
-	for icons_dir in "${icons_dirs[@]}"; do
-		for icon_path in "$icons_dir/$icon_name".*; do
-			[ -f "$icon_path" ] || continue
-			printf '%s' "$icon_path"
-			return 0  # only the first match
+	for data_dir in \
+		"${DATA_DIRS[@]}" \
+		"${XDG_DATA_HOME:-$HOME/.local/share}"
+	do
+		for icons_dir in \
+			"$data_dir/icons/hicolor/48x48/apps" \
+			"$data_dir/icons/hicolor" \
+			"$data_dir/icons" \
+			"$data_dir/pixmaps"
+		do
+			for icon_path in "$icons_dir/$icon_name".*; do
+				[ -f "$icon_path" ] || continue
+				printf '%s' "$icon_path"
+				return 0  # only the first match
+			done
 		done
 	done
 }
@@ -374,7 +378,7 @@ fix_hardcoded_app() {
 }
 
 apply() {
-	local app_dir desktop_file
+	local data_dir desktop_file
 
 	if [ "$FORCE_DOWNLOAD" -eq 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
 		DB_FILE="$SCRIPT_DIR/tofix.csv"
@@ -410,8 +414,8 @@ apply() {
 		trap cleanup EXIT HUP INT TERM
 	fi
 
-	for app_dir in "${GLOBAL_APPS_DIRS[@]}"; do
-		for desktop_file in "$app_dir"/*.desktop; do
+	for data_dir in "${DATA_DIRS[@]}"; do
+		for desktop_file in "$data_dir"/applications/**/*.desktop; do
 			[ -f "$desktop_file" ] || continue
 
 			if _is_hardcoded "$desktop_file"; then
@@ -420,56 +424,58 @@ apply() {
 		done
 	done
 
-	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
-		for desktop_file in "$app_dir"/*.desktop; do
-			[ -f "$desktop_file" ] || continue
+	for desktop_file in \
+		"${XDG_DATA_HOME:-$HOME/.local/share}"/applications/*.desktop \
+		"${XDG_DESKTOP_DIR:-$HOME/Desktop}"/**/*.desktop
+	do
+		[ -f "$desktop_file" ] || continue
 
-			if _is_hardcoded "$desktop_file"; then
-				fix_hardcoded_app "$desktop_file" "local" || continue
-			elif _is_hardcoded_steam_app "$desktop_file"; then
-				fix_hardcoded_app "$desktop_file" "steam" || continue
-			fi
-		done
+		if _is_hardcoded "$desktop_file"; then
+			fix_hardcoded_app "$desktop_file" "local" || continue
+		elif _is_hardcoded_steam_app "$desktop_file"; then
+			fix_hardcoded_app "$desktop_file" "steam" || continue
+		fi
 	done
 
 	msg "${FUNCNAME[0]}: Done!"
 }
 
 revert() {
-	local app_dir app_name desktop_file icon_ext icon_name marker_value
+	local app_name desktop_file icon_ext icon_name marker_value
 
-	for app_dir in "${LOCAL_APPS_DIRS[@]}"; do
-		for desktop_file in "$app_dir"/*.desktop; do
-			[ -f "$desktop_file" ] || continue
+	for desktop_file in \
+		"$LOCAL_APPS_DIR"/*.desktop \
+		"${XDG_DESKTOP_DIR:-$HOME/Desktop}"/**/*.desktop
+	do
+		[ -f "$desktop_file" ] || continue
 
-			if _has_marker "$desktop_file"; then
-				app_name="$(get_app_name "$desktop_file")"
-				icon_name="$(get_icon_name "$desktop_file")"
-				marker_value="$(get_marker_value "$desktop_file")"
+		if _has_marker "$desktop_file"; then
+			app_name="$(get_app_name "$desktop_file")"
+			icon_name="$(get_icon_name "$desktop_file")"
+			marker_value="$(get_marker_value "$desktop_file")"
 
-				msg "Reverting '$app_name' ..."
+			msg "Reverting '$app_name' ..."
 
-				case "$marker_value" in
-					global)
-						rm -f -- "$desktop_file"
-						;;
-					local|steam)
-						restore_desktop_file "$desktop_file" || continue
-						;;
-					*)
-						err "invalid marker value -- '$marker_value'"
-						continue
-				esac
+			case "$marker_value" in
+				global)
+					rm -f -- "$desktop_file"
+					;;
+				local|steam)
+					restore_desktop_file "$desktop_file" || continue
+					;;
+				*)
+					err "invalid marker value -- '$marker_value'"
+					continue
+			esac
 
-				for icon_ext in png svg svgz xpm; do
-					if [ -f "$LOCAL_ICONS_DIR/$icon_name.$icon_ext" ]; then
-						verb "Removing '$icon_name.$icon_ext' ..."
-						rm -- "$LOCAL_ICONS_DIR/$icon_name.$icon_ext"
-						break
-					fi
-				done
-			fi
-		done
+			for icon_ext in png svg svgz xpm; do
+				if [ -f "$LOCAL_ICONS_DIR/$icon_name.$icon_ext" ]; then
+					verb "Removing '$icon_name.$icon_ext' ..."
+					rm -- "$LOCAL_ICONS_DIR/$icon_name.$icon_ext"
+					break
+				fi
+			done
+		fi
 	done
 
 	msg "${FUNCNAME[0]}: Done!"
