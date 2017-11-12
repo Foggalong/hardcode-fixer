@@ -51,14 +51,14 @@ LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 LOCAL_ICONS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/icons"
 
 # default values of options
-declare -i FORCE_DOWNLOAD="${FORCE_DOWNLOAD:-0}"
+declare -i NO_DOWNLOAD="${NO_DOWNLOAD:-0}"
 declare -i VERBOSE="${VERBOSE:-0}"
 
 msg() {
 	printf "%s: %b\n" "$PROGNAME" "$*" >&2
 }
 
-verb() {
+verbose() {
 	[ "$VERBOSE" -eq 1 ] || return 0
 	msg "INFO:" "$*"
 }
@@ -72,7 +72,7 @@ err() {
 }
 
 fatal() {
-	err "$*"
+	msg "FATAL:" "$*"
 	exit 1
 }
 
@@ -216,6 +216,8 @@ get_from_db() {
 	local desktop_file="$1"
 	local app_name
 
+	[ -f "$DB_FILE" ] || return 1
+
 	app_name="$(get_app_name "$desktop_file")"
 
 	awk -F, -v app_name="$app_name" '
@@ -251,7 +253,7 @@ copy_icon_file() {
 				return 1
 			fi
 
-			verb "Converting '${icon_name}.${icon_ext}' to" \
+			verbose "Converting '${icon_name}.${icon_ext}' to" \
 				"'${icon_name}.png' ..."
 			convert "$icon_path" -alpha on -background none -thumbnail 48x48 \
 				-flatten "$LOCAL_ICONS_DIR/${icon_name}.png"
@@ -265,19 +267,27 @@ copy_icon_file() {
 download_file() {
 	local url="$1"
 	local file="${2:--}"  # it's not a typo, output to stdout by default
+	local cmd
+	local -i exit_code=0
 
 	if command -v wget > /dev/null 2>&1; then
 		wget --no-check-certificate -q -O "$file" "$url" \
-			|| fatal "Fail to download '$url' (wget exit code: $?)."
+			|| cmd="wget" exit_code="$?"
 	elif command -v curl > /dev/null 2>&1; then
 		curl -sk -o "$file" "$url" \
-			|| fatal "Fail to download '$url' (curl exit code: $?)."
+			|| cmd="curl" exit_code="$?"
 	else
 		fatal "Fail to download '$url'.\n" \
 			"\r This script requires 'wget' to be installed\n" \
 			"\r to fetch the required files and check for updates.\n" \
 			"\r Please install it and rerun this script."
 	fi
+
+	if [ "$exit_code" -ne 0 ]; then
+		err "Fail to download '$url' ($cmd returns exit code $exit_code)."
+	fi
+
+	return "$exit_code"
 }
 
 translate_from_app_name() {
@@ -345,7 +355,7 @@ fix_hardcoded_app() {
 			local_desktop_file="$LOCAL_APPS_DIR/$desktop_file_name"
 
 			if [ -e "$local_desktop_file" ]; then
-				verb "'$app_name' already exists in local apps. Skipping."
+				verbose "'$app_name' already exists in local apps. Skipping."
 				return 1
 			fi
 
@@ -380,10 +390,16 @@ fix_hardcoded_app() {
 apply() {
 	local data_dir desktop_file
 
-	if [ "$FORCE_DOWNLOAD" -eq 0 ] && [ -f "$SCRIPT_DIR/tofix.csv" ]; then
-		DB_FILE="$SCRIPT_DIR/tofix.csv"
+	# do not download if $DB_FILE already set
+	if [ -z "$DB_FILE" ]; then
+		DB_FILE="${XDG_CACHE_HOME:-$HOME/.cache}/${PROGNAME}_db.csv"
 	else
-		verb "Checking for update ..."
+		verbose "Using '$DB_FILE' file."
+		NO_DOWNLOAD=1
+	fi
+
+	if [ "$NO_DOWNLOAD" -eq 0 ]; then
+		verbose "Checking for $PROGNAME update ..."
 		if _is_update_available; then
 			cat >&2 <<- EOF
 
@@ -399,19 +415,21 @@ apply() {
 			read -r < /dev/tty  # don't read from stdin
 		fi
 
-		DB_FILE="$(mktemp -u -t hardcode_db_XXXXX.csv)"
+		msg "Downloading DB ..."
+		download_file "$UPSTREAM_URL/tofix.csv" "${DB_FILE}.new" \
+			|| warn "Will use the last saved database."
 
-		msg "Downloading DB into '$DB_FILE' file ..."
-		download_file "$UPSTREAM_URL/tofix.csv" "$DB_FILE"
+		# Rename the file if download is successful
+		if [ -f "${DB_FILE}.new" ] && [ -s "${DB_FILE}.new" ]; then
+			mv -f "${DB_FILE}.new" "$DB_FILE"
+		else
+			rm -f "${DB_FILE}.new"
+		fi
+	fi
 
-		# delete CSV file when exiting
-		cleanup() {
-			verb "Removing '$DB_FILE' ..."
-			rm -f "$DB_FILE"
-			unset DB_FILE
-		}
-
-		trap cleanup EXIT HUP INT TERM
+	# exit if DB_FILE not exists or empty
+	if [ ! -f "$DB_FILE" ] || [ ! -s "$DB_FILE" ]; then
+		fatal "Database '$DB_FILE' not exists or empty."
 	fi
 
 	for data_dir in "${DATA_DIRS[@]}"; do
@@ -470,7 +488,7 @@ revert() {
 
 			for icon_ext in png svg svgz xpm; do
 				if [ -f "$LOCAL_ICONS_DIR/$icon_name.$icon_ext" ]; then
-					verb "Removing '$icon_name.$icon_ext' ..."
+					verbose "Removing '$icon_name.$icon_ext' ..."
 					rm -- "$LOCAL_ICONS_DIR/$icon_name.$icon_ext"
 					break
 				fi
@@ -482,9 +500,9 @@ revert() {
 }
 
 parse_opts() {
-	local opt command
+	local opt cmd
 	local -a opts=()
-	local -a commands=()
+	local -a cmds=()
 
 	usage() {
 		local exit_code="$1"
@@ -493,14 +511,15 @@ parse_opts() {
 		usage: $SCRIPT_NAME [command ...] [options]
 
 		commands:
-		 -A, --apply           fixes hardcoded icons of installed applications
-		 -R, --revert          reverts any changes made
-		 -V, --version         print $PROGNAME version and exit
-		 -h, --help            show this help
+		 -A, --apply            fixes hardcoded icons of installed applications
+		 -R, --revert           reverts any changes made
+		 -V, --version          print $PROGNAME version and exit
+		 -h, --help             show this help
 
 		options:
-		 -d, --force-download  download the new database (ignore the local DB)
-		 -v, --verbose         be verbose
+		 -f, --csv-file <file>  read from the <file> instead of downloading
+		 -n, --no-download      do not check for any updates
+		 -v, --verbose          be verbose
 
 		Long commands without double '--' are also allowed.
 		EOF
@@ -514,8 +533,9 @@ parse_opts() {
 			--apply|apply)     opts+=( -A ) ;;
 			--revert|revert)   opts+=( -R ) ;;
 			--version|version) opts+=( -V ) ;;
-			--force-download)  opts+=( -d ) ;;
+			--csv-file)        opts+=( -f ) ;;
 			--help|help)       opts+=( -h ) ;;
+			--no-download)     opts+=( -n ) ;;
 			--verbose)         opts+=( -v ) ;;
 			--[0-9a-Z]*)
 				err "illegal option -- '$opt'"
@@ -525,23 +545,26 @@ parse_opts() {
 		esac
 	done
 
-	while getopts ":ARVdhv" opt "${opts[@]}"; do
+	while getopts ":ARVf:hnv" opt "${opts[@]}"; do
 		case "$opt" in
-			A ) commands+=( "apply" )   ;;
-			R ) commands+=( "revert" )  ;;
-			V ) commands+=( "version" ) ;;
-			d ) FORCE_DOWNLOAD=1        ;;
-			h ) usage 0                 ;;
-			v ) VERBOSE=1               ;;
-			\?)
-				err "illegal option -- '-$OPTARG'"
+			A ) cmds+=( "apply" )   ;;
+			R ) cmds+=( "revert" )  ;;
+			V ) cmds+=( "version" ) ;;
+			f ) DB_FILE="$OPTARG"   ;;
+			h ) usage 0             ;;
+			n ) NO_DOWNLOAD=1       ;;
+			v ) VERBOSE=1           ;;
+			: ) err "option requires an argument -- '-$OPTARG'"
+				usage 128
+				;;
+			\?) err "illegal option -- '-$OPTARG'"
 				usage 128
 				;;
 		esac
 	done
 
-	for command in "${commands[@]}"; do
-		case "$command" in
+	for cmd in "${cmds[@]}"; do
+		case "$cmd" in
 			apply)  apply  ;;
 			revert) revert ;;
 			version)
@@ -555,7 +578,7 @@ parse_opts() {
 	done
 
 	# display interactive menu, if no commands were passed
-	if [ "${#commands[@]}" -eq 0 ]; then
+	if [ "${#cmds[@]}" -eq 0 ]; then
 		show_menu
 	fi
 }
