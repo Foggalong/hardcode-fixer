@@ -20,9 +20,9 @@ if [ "${BASH_VERSINFO[0]}" -lt 4 ]; then
 	exit 1
 fi
 
-set -o errexit \
-	-o noclobber \
-	-o pipefail
+set -o errexit
+set -o noclobber
+set -o pipefail
 
 shopt -s globstar  # enable **/*.deskop path expansion
 unset GREP_OPTIONS  # avoid mess up
@@ -32,7 +32,7 @@ readonly SCRIPT_DIR="$(dirname -- "$0")"
 readonly -a ARGS=( "$@" )
 
 readonly PROGNAME="hardcode-fixer"
-declare -i VERSION=201710170  # [year][month][date][extra]
+declare -i VERSION=201711130  # [year][month][date][extra]
 # date=999999990  # deprecate the previous version
 
 # Import XDG user dirs variables
@@ -43,8 +43,7 @@ fi
 
 # Get data directories from XDG_DATA_DIRS variable and
 # convert colon-separated list into bash array
-IFS=: read -ra DATA_DIRS \
-	<<< "${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+IFS=: read -ra DATA_DIRS <<< "${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
 
 UPSTREAM_URL="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 LOCAL_APPS_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
@@ -113,7 +112,7 @@ _is_update_available() {
 _has_marker() {
 	# returns true if desktop file has a marker
 	local desktop_file="$1"
-	LANG=C grep -q '^X-Hardcode-Fixer-Marker=' -- "$desktop_file"
+	LANG=C grep -q '^X-HardcodeFixer-Marker=' -- "$desktop_file"
 }
 
 get_app_name() {
@@ -150,7 +149,7 @@ set_icon_name() {
 
 get_marker_value() {
 	local desktop_file="$1"
-	awk -F= '/^X-Hardcode-Fixer-Marker/ { print $2; exit }' "$desktop_file"
+	awk -F= '/^X-HardcodeFixer-Marker/ { print $2; exit }' "$desktop_file"
 }
 
 set_marker_value() {
@@ -159,7 +158,7 @@ set_marker_value() {
 
 	# add after Icon
 	sed -i -e "/^Icon=/a \
-	X-Hardcode-Fixer-Marker=${marker_value}
+	X-HardcodeFixer-Marker=${marker_value}
 	" "$desktop_file"
 }
 
@@ -206,7 +205,7 @@ get_icon_path() {
 
 get_upstream_version() {
 	download_file "$UPSTREAM_URL/fix.sh" 2> /dev/null \
-		| LANG=C grep -o 'date=[0-9]\+' \
+		| LANG=C grep -o 'VERSION=[0-9]\+' \
 		| head -1 \
 		| tr -cd '[:digit:]'
 }
@@ -359,7 +358,7 @@ fix_hardcoded_app() {
 				return 1
 			fi
 
-			mkdir -p "$(dirname "$local_desktop_file")"
+			mkdir -p "$LOCAL_APPS_DIR"
 			cp "$desktop_file" "$local_desktop_file"
 
 			desktop_file="$local_desktop_file"
@@ -432,16 +431,6 @@ apply() {
 		fatal "Database '$DB_FILE' not exists or empty."
 	fi
 
-	for data_dir in "${DATA_DIRS[@]}"; do
-		for desktop_file in "$data_dir"/applications/**/*.desktop; do
-			[ -f "$desktop_file" ] || continue
-
-			if _is_hardcoded "$desktop_file"; then
-				fix_hardcoded_app "$desktop_file" "global" || continue
-			fi
-		done
-	done
-
 	for desktop_file in \
 		"${XDG_DATA_HOME:-$HOME/.local/share}"/applications/*.desktop \
 		"${XDG_DESKTOP_DIR:-$HOME/Desktop}"/**/*.desktop
@@ -453,6 +442,16 @@ apply() {
 		elif _is_hardcoded_steam_app "$desktop_file"; then
 			fix_hardcoded_app "$desktop_file" "steam" || continue
 		fi
+	done
+
+	for data_dir in "${DATA_DIRS[@]}"; do
+		for desktop_file in "$data_dir"/applications/**/*.desktop; do
+			[ -f "$desktop_file" ] || continue
+
+			if _is_hardcoded "$desktop_file"; then
+				fix_hardcoded_app "$desktop_file" "global" || continue
+			fi
+		done
 	done
 
 	msg "${FUNCNAME[0]}: Done!"
@@ -505,7 +504,7 @@ parse_opts() {
 	local -a cmds=()
 
 	usage() {
-		local exit_code="$1"
+		local exit_code="${1:-0}"
 
 		cat >&2 <<- EOF
 		usage: $SCRIPT_NAME [command ...] [options]
@@ -604,9 +603,11 @@ show_menu() {
 				 apply     -  fixes hardcoded icons of installed applications
 				 revert    -  reverts any changes made
 				 help      -  displays this help menu
+				 clear     -  clear the screen
 				 quit      -  quit $PROGNAME
 				EOF
 				;;
+			clear|[cC]*)  clear  ;;
 			quit|[qQeE]*) exit 0 ;;
 			*) err "invalid command -- '$REPLY'"
 		esac
