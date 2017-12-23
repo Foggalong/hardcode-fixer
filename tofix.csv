@@ -374,6 +374,7 @@ SmartGitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,s
 SmartGit,smartgit.sh,/usr/share/smartgit/bin/smartgit-128.png,smartgithg
 SmartGitHG,smartgithg,/opt/smartgithg/bin/smartgithg-256.png,smartgithg
 SmartGit,syntevo-smartgit,syntevo-smartgit.png,smartgithg
+SmartGit,syntevo-smartgit,/usr/share/smartgit/bin/smartgit-128.png,smartgithg
 Snapshot,Snapshot,steam,steam_icon_204220
 Soap UI 5.1.3,SoapUI-5.1.3,/opt/SmartBear/SoapUI-5.1.3/.install4j/SoapUI-5.1.3.png,soapui
 SportsTracker,SportsTracker,/opt/SportsTracker/SportsTracker.png,sportstracker
