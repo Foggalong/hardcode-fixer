@@ -125,7 +125,7 @@ gFTP,gftp,gftp.png,gftp
 Gigolo,gigolo,gtk-network,gigolo
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gitkraken,gitkraken,app,gitkraken
-Gitkraken (snap),gitkraken_gitkraken,app,gitkraken
+Gitkraken (snap),gitkraken_gitkraken,/snap/gitkraken/58/usr/share/pixmaps/app.png,gitkraken
 Gitter,gitter,/opt/Gitter/linux64/logo.png,Gitter
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
 GNOME ALSA Mixer,gnome-alsamixer,/usr/share/pixmaps/gnome-alsamixer/gnome-alsamixer-icon.png,gnome-alsamixer-icon
