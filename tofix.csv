@@ -125,11 +125,11 @@ gFTP,gftp,gftp.png,gftp
 Gigolo,gigolo,gtk-network,gigolo
 git-cola,git-cola,/usr/share/git-cola/icons/git.svg,git-cola
 Gitkraken,gitkraken,app,gitkraken
-Gitkraken (snap),gitkraken_gitkraken,/snap/gitkraken/58/usr/share/pixmaps/app.png,gitkraken
+Gitkraken (snap),gitkraken_gitkraken,/snap/gitkraken/.*/usr/share/pixmaps/app.png,gitkraken
 Gitter,gitter,/opt/Gitter/linux64/logo.png,Gitter
 Gmsh,gmsh,/usr/share/pixmaps/gmsh_32x32.xpm,gmsh
 GNOME ALSA Mixer,gnome-alsamixer,/usr/share/pixmaps/gnome-alsamixer/gnome-alsamixer-icon.png,gnome-alsamixer-icon
-GNOME Characters,gnome-characters_gnome-characters,/snap/gnome-characters/96/meta/gui/gnome-characters.png, gnome-characters
+GNOME Characters,gnome-characters_gnome-characters,/snap/gnome-characters/.*/meta/gui/gnome-characters.png, gnome-characters
 GNOME Schedule,gnome-schedule,/usr/share/pixmaps/gnome-schedule/gnome-schedule.svg,gnome-schedule
 GNOME Split,gnome-split,/usr/share/pixmaps/gnome-split.png,gnome-split
 GNOME Wave Cleaner,gwc,gwc.xpm,gwc
@@ -388,7 +388,7 @@ SSH Tunnel Manager,gstm,gSTM.png,gSTM
 Starbound,Starbound,steam,steam_icon_211820
 Steam Skin Manager,???,/usr/share/pixmaps/steamskinmanager.svg,steamskinmanager
 Streamtuner2,streamtuner2,streamtuner2.png,streamtuner2
-Sublime Text,sublime-text_subl,/snap/sublime-text/18/opt/sublime_text/Icon/256x256/sublime-text.png, sublime_text
+Sublime Text,sublime-text_subl,/snap/sublime-text/.*/opt/sublime_text/Icon/256x256/sublime-text.png, sublime_text
 SuperTuxKart,supertuxkart,/usr/share/pixmaps/supertuxkart_128.png,supertuxkart
 SVG Cleaner,svgcleaner,/usr/share/icons/hicolor/scalable/apps/svgcleaner.svg,svgcleaner
 Syncthing-GTK,syncthing-gtk,/usr/share/syncthing-gtk/icons/st-logo-128.png,syncthing-gtk
