@@ -20,7 +20,8 @@ userhome="/home/$username"
 global_apps=("/usr/share/applications/"
             "/usr/share/applications/kde4/"
             "/usr/local/share/applications/"
-            "/usr/local/share/applications/kde4/")
+            "/usr/local/share/applications/kde4/"
+            "/var/lib/snapd/desktop/applications/")
 local_apps=("$userhome/.local/share/applications/"
             "$userhome/.local/share/applications/kde4/"
             "$(sudo -u $username xdg-user-dir DESKTOP)/")
