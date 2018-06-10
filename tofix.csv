@@ -296,6 +296,7 @@ Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
 pgAdmin3,pgadmin3,/usr/share/pgadmin3/pgAdmin3.png,pgAdmin3
 pgModeler,pgmodeler,/etc/pgmodeler/pgmodeler_logo.png,pgmodeler
 Photoshop CS6,Photoshop CS6,hardcoded,AdobePhotoshop
+PHP Storm,jetbrains-phpstorm,/opt/PHPStorm/bin/phpstorm.png,phpstorm
 PHP Storm,phpstorm,/opt/phpstorm/bin/webide.png,phpstorm
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
@@ -430,6 +431,7 @@ Variety,extras-variety,/opt/extras.ubuntu.com/variety/share/variety/media/variet
 Viber,viber,/usr/share/pixmaps/viber.png,viber
 Visual Studio,visual-studio-code,hardcoded,visual-studio-code
 Viva,viva,viva.png,viva
+VPaint,vpaint,/usr/share/pixmaps/vpaint.png,vpaint
 Warmux,warmux,warmux_128x128.png,warmux
 Web Storm,webstorm,/opt/webstorm/bin/webstorm.svg,webide
 Web Storm,jetbrains-webstorm,hardcoded,webide
