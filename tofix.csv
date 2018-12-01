@@ -206,6 +206,7 @@ Jupyter Qt console,jupyter-qtconsole,/usr/lib/python3.6/site-packages/qtconsole/
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
 Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
+Koala,koala,/usr/share/koala/koala.png,koala
 Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
 LaTeXDraw,latexdraw,/usr/share/pixmaps/latexdraw32.xpm,latexdraw
 Layout Editor,layout,/usr/share/icons/hicolor/48x48/apps/layout.png,layout
@@ -230,6 +231,7 @@ Mandelbulber,mandelbulber,/usr/share/mandelbulber/icons/mandelbulber.png,mandelb
 Master PDF Editor,MasterPdfEditor,/opt/master-pdf-editor/master-pdf-editor.png,master-pdf-editor
 Master PDF Editor 3,masterpdfeditor3,masterpdfeditor3.png,master-pdf-editor
 Master PDF Editor 3,masterpdfeditor3,/opt/master-pdf-editor-3/masterpdfeditor3.png,master-pdf-editor
+Master PDF Editor 5,masterpdfeditor5,/opt/master-pdf-editor-5/masterpdfeditor5.png,master-pdf-editor
 Matlab,matlab,/usr/share/icons/hicolor/48x48/apps/matlab.png,matlab
 Maya 2017,maya,/usr/autodesk/maya2017/icons/mayaico.png,maya
 MediaElch,MediaElch,/usr/share/pixmaps/MediaElch.png,mediaelch
