@@ -448,6 +448,8 @@ wxMEdit,wxmedit,/usr/share/pixmaps/wxmedit.png,wxmedit
 X-Diagnose,xdiagnose,/usr/share/xdiagnose/icons/microscope.svg,xdiagnose
 Xjump,xjump,xjump-icon.xpm,xjump-icon
 Xmind,xmind,/usr/local/xmind/xmind-logo-36.png,xmind
+XnViewMP,XnView,/opt/XnView/xnview.png,xnview
+XnViewMP,xnviewmp,/opt/xnviewmp/xnview.png,xnview
 Xonotic,xonotic,/usr/share/pixmaps/xonotic.png,xonotic
 YATE,yate-qt4,/usr/share/pixmaps/null_team-48.png,yate
 YATE,yate-qt4,null_team-48.png,yate
