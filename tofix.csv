@@ -59,6 +59,7 @@ DataGrip,datagrip,/opt/datagrip/bin/product.png,datagrip
 Desura,desura,hardcoded,desura
 diffpdf,diffpdf,/usr/share/pixmaps/diffpdf.png,diffpdf
 Discord,Discord,/usr/share/pixmaps/discord.png,discord
+Discord,discord,/usr/lib64/discord/discord.png,discord
 Discord Canary,DiscordCanary,/usr/share/pixmaps/discord-canary.png,discord-canary
 Docear,docear,/usr/share/docear/docear.png,docear
 Dogecoin QT,dogecoin,/usr/share/pixmaps/dogecoin.png,dogecoin
