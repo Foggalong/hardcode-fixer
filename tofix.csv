@@ -4,6 +4,7 @@ Application,Launcher,Path,Icon Name
 4Pane,4Pane,/usr/share/4Pane/bitmaps/4PaneIcon48.png,4Pane
 8BitMMO,8BitMMO,steam,steam_icon_250420
 Aard Dictionary,aarddict,aarddict.png,aarddict
+Alsa Mixer GUI,alsamixergui,/usr/share/pixmaps/alsamixergui.xpm,alsamixergui
 AltYo,altyo,altyo.png,altyo
 AltYo,altyo_standalone,altyo.png,altyo
 amSynth,amsynth,/usr/share/pixmaps/amsynth.png,amsynth
@@ -26,6 +27,7 @@ Armagetron Advanced,armagetronad,/usr/share/pixmaps/armagetronad/icons/large/arm
 Arronax,arronax,/usr/share/arronax/icons/arronax.png,arronax
 Ascii Design,ascii-design,ascii-design.png,ascii-design
 AstroMenace,astromenace,/usr/share/pixmaps/astromenace.png,astromenace
+Atom,Atom,/usr/share/atom/atom.png,atom
 Bastion,Bastion,steam,steam_icon_107100
 Beat Hazard,Beat Hazard,steam,steam_icon_49600
 Beat Hazard 2,Beat Hazard 2,steam,steam_icon_49610
@@ -174,6 +176,7 @@ HotShots,hotshots,/usr/share/pixmaps/hotshots.png,hotshots
 HP Fax address book,hp-fab,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Lip,hplip,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HP Printer,hplj1020,/usr/share/pixmaps/hplj1020_icon.png,printer
+HP UIScan,hp-uiscan,/usr/share/icons/Humanity/devices/48/printer.svg,printer
 HPLIP Fax Utility,hp-sendfax,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HPLIP Toolbox,hplip-kubuntu,/usr/share/hplip/data/images/128x128/hp_logo.png,hp_logo
 HTTraQt,httraqt,httraqt.xpm,httraqt
@@ -220,6 +223,7 @@ Lingot,lingot,/usr/share/pixmaps/lingot/lingot-icon.svg,lingot-icon
 Linphone,linphone,/usr/share/pixmaps/linphone/linphone.png,linphone
 LinSSID,linssid,/usr/share/pixmaps/linssid48.png,linssid
 Little Inferno,Little Inferno,steam,steam_icon_221260
+LSHW,gtk-lshw,/usr/share/lshw/artwork/logo.svg,lshw
 Ltris,ltris,/usr/share/icons/ltris48.gif,ltris
 Lucky Backup,luckybackup,/usr/share/pixmaps/luckybackup.png,luckybackup
 Lucky Backup (KDE),luckybackup-kde-su,/usr/share/pixmaps/luckybackup.png,luckybackup
@@ -296,6 +300,7 @@ Pamac (Update),pamac-update,/usr/share/pamac/icons/32x32/apps/pamac.png,system-s
 Parano,parano,parano-icon.png,parano
 Pasaffe,pasaffe,/usr/share/pasaffe/media/pasaffe.svg,pasaffe
 PDFsam,pdfsam,/usr/share/pdfsam/pdf.png,pdfsam
+PDFsam Basic,pdfsam-basic,/opt/pdfsam-basic/icon.svg,pdfsam
 Pencil,pencil,/usr/share/pencil/skin/classic/icon.svg,pencil
 Penumbra: Black Plague,Penumbra: Black Plague,steam,steam_icon_22120
 Penumbra: Overture,Penumbra: Overture,steam,steam_icon_22180
@@ -308,6 +313,7 @@ PHP Storm,phpstorm,/opt/phpstorm/bin/webide.png,phpstorm
 PHP Storm,phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm,hardcoded,phpstorm
 PHP Storm,jetbrains-phpstorm-ce,hardcoded,phpstorm
+Pingus,pingus,/usr/share/pingus/images/core/editor/actions.png,pingus
 Pixeluvo,pixeluvo,/opt/pixeluvo/pixeluvo.png,pixeluvo
 Pixeluvo,pixeluvo,/usr/share/pixeluvo/pixeluvo.png,pixeluvo
 Playbox,playbox,/opt/playbox/icon.xpm,playbox
@@ -366,6 +372,7 @@ ScreenRuler,gnome-screenruler,screenruler-icon-32x32.png,screenruler
 Scribus,scribus,/usr/share/scribus/icons/scribus.png,scribus
 ScudCloud,scudcloud,/opt/scudcloud/resources/scudcloud.png,scudcloud
 ScudCloud,scudcloud,/usr/share/pixmaps/scudcloud.png,scudcloud
+Sejda PDF,sejda-desktop,/opt/sejda-desktop/icon.svg,sejda
 SelekTOR,selekTOR,/usr/share/icons/selektoricon.png,selektoricon
 SelekTOR,selektor,/opt/selektor/resources/selektoricon.png,selektoricon
 SelekTOR,selektor,/usr/share/icons/selektor-app.png,selektoricon
@@ -379,6 +386,7 @@ Sid Meier's Civilization V,Sid Meier's Civilization V,steam,steam_icon_8930
 Sigram,telegram,/opt/sigram/icons/icon.png,sigram
 Skype,skype,skype.png,skype
 Slack,slack,/usr/share/pixmaps/slack.png,slack
+Slideshow,slideshow,/usr/share/racket/slideshow-exe-icon.png,slideshow
 Slingscold,slingscold,/usr/share/icons/slingscold.png,slingscold
 SmartGitHG,syntevo-smartgithg-5,/usr/share/smartgithg-5/bin/smartgithg-128.png,smartgithg
 SmartGit,smartgit.sh,/usr/share/smartgit/bin/smartgit-128.png,smartgithg
@@ -433,6 +441,7 @@ Ubuntu Terminal,com.ubuntu.terminal,/usr/share/terminal/terminal64.png,terminal
 Ubuntu Web Browser,webbrowser-app,/usr/share/webbrowser-app/webbrowser-app.png,webbrowser-app
 Unison,unison,unison.png,unison
 Unison-GTK,unison-gtk,/usr/share/pixmaps/unison-gtk.svg,unison-gtk
+Upwork,upwork,upwork.png,upwork
 Valentina Studio,VStudio,/opt/VStudio/Resources/vstudio.png,vstudio
 Variety,variety,/usr/share/variety/media/variety.svg,variety
 Variety,variety,/opt/extras.ubuntu.com/variety/share/variety/media/variety.svg,variety
@@ -449,6 +458,8 @@ Widelands,widelands,/usr/share/games/widelands/pics/wl-ico-64.png,widelands
 Wings3D,wings3d,/usr/share/icons/wings3d.xpm,wings3d
 WinUSB,winusbgui,winusbgui-icon.png,winusb
 Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps/WireframeSketcher.png,wireframe-sketcher
+Wolfenstein MP,wolfmp,/usr/share/pixmaps/WolfMP.xpm,wolfmp
+Wolfenstein SP,wolfsp,/usr/share/pixmaps/WolfSP.xpm,wolfsp
 Wordpress Desktop Client,wordpress-com,/usr/local/WordPress.com/WordPress.png,wordpress
 wxFormBuilder,wxformbuilder,wxformbuilder.png,wxformbuilder
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
