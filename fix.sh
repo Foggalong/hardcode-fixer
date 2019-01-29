@@ -14,7 +14,7 @@
 date=201708180  # [year][month][date][extra]
 
 # Locations
-git_locate="https://raw.githubusercontent.com/slothds/hardcode-fixer/master"
+git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
 global_apps=("/usr/share/applications/"
