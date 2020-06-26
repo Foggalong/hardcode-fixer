@@ -11,10 +11,17 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201708180  # [year][month][date][extra]
+date=202006260  # [year][month][date][extra]
 
 # Locations
-git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
+download_source=${HARDCODE_FIXER_SOURCE:-github}
+download_source_github_url="https://github.com/"
+download_source_github_git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
+download_source_gitee_url="https://gitee.com/"
+download_source_gitee_git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
+download_source_jsdelivr_url="https://cdn.jsdelivr.net/"
+download_source_jsdelivr_git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
+
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
 global_apps=("/usr/share/applications/"
@@ -124,8 +131,26 @@ if ! type "curl" >> /dev/null 2>&1; then
     gerror
 fi
 
+# set upgrade url
+network_check_url=
+git_locate=
+if [ "$download_source" == "gitee" ]; then
+  network_check_url=$download_source_gitee_url
+  git_locate=$download_source_gitee_git_locate
+elif [ "$download_source" == "jsdelivr" ]; then
+  network_check_url=$download_source_jsdelivr_url
+  git_locate=$download_source_jsdelivr_git_locate
+else
+  network_check_url=$download_source_github_url
+  git_locate=$download_source_github_git_locate
+fi
+echo -e \
+  "HARDCODE_FIXER_SOURCE use $download_source\n" \
+  "Check network by $network_check_url\n" \
+  "Git locate is: $git_locate."
+
 # Checks for having internet access
-if eval "curl -sk https://github.com/" >> /dev/null 2>&1; then
+if eval "curl -sk $network_check_url" >> /dev/null 2>&1; then
     : # pass
 else
     echo -e \
@@ -137,7 +162,7 @@ fi
 
 # Check for newer version of fix.sh
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
-if [ "$date" -lt "$new_date" ]; then
+if [ -n "$new_date" ] && [ "$date" -lt "$new_date" ]; then
     echo -e \
         "You're running an out of date version of\n" \
         "\rthe script. Please download the latest\n" \

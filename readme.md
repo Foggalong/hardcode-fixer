@@ -2,6 +2,8 @@
 
 This program aims to be a safe, easy and standardised solution to the problem of hardcoded application icons in Linux. All it is is [this one bash script](https://github.com/Foggalong/hardcode-fixer/blob/master/fix.sh) - simply copy it to somewhere on your PC and run. Use ```./fix.sh -h``` for help.
 
+if you met some network issues about GitHub resource access, you cloud set an environment variable `HARDCODE_FIXER_SOURCE` by `gitee` or `jsdelivr` to use another resource on the Internet.
+
 If you're an Arch user it's also available in the [AUR](https://aur.archlinux.org/packages/hardcode-fixer-git/).
 
 ### More information:
