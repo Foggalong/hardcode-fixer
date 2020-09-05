@@ -35,6 +35,7 @@ Bibfilex,bibfilex-qt,/opt/bibfilex/icon.png,bibfilex
 Bibfilex,bibfilex-gtk,/opt/bibfilex/icon.png,bibfilex
 BioShock Infinite,BioShock Infinite,steam,steam_icon_8870
 BitDefender,bitdefender,/opt/BitDefender-scanner/share/doc/examples/icons/hicolor/128x128/apps/bitdefender.png,bitdefender
+Bitmask,bitmask,/opt/bitmask/icon.png,bitmask
 Bitwig Studio,bitwig-studio,/usr/share/icons/hicolor/scalable/apps/bitwig-studio.svg,bitwig-studio
 Bitwig Studio,bitwig-studio,bitwig-studio.png,bitwig-studio
 Blam,blam,blam.png,blam
@@ -74,6 +75,7 @@ dreamchess,dreamchess,/usr/share/dreamchess/icon.png,dreamchess
 Dr. Geo,drgeo2,drgeo2.png,drgeo
 Dr. Geo,drgeo,drgeo_32x32.xpm,drgeo
 Driver Manager,driver-manager,/usr/share/icons/hicolor/scalable/apps/driver-manager.svg,driver-manager
+DupeGuru,dupeguru,/usr/share/dupeguru/dgse_logo_128.png,dupeguru
 DupeGuru,dupeguru_se,/usr/share/dupeguru_se/dgse_logo_128.png,dupeguru
 Dwarfs!?,Dwarfs!,steam,steam_icon_35480
 Dwarfs?! - F2P,Dwarfs! - F2P,steam,steam_icon_213650
@@ -185,6 +187,7 @@ IBus Typing Booster Setup,ibus-setup-typing-booster,/usr/share/ibus-typing-boost
 IBus LibZhuyin Setup,ibus-setup-libzhuyin,/usr/share/ibus-libzhuyin/icons/ibus-zhuyin.svg,ibus-setup
 IBus LibPinyin Setup,ibus-setup-libpinyin,/usr/share/ibus-libpinyin/icons/ibus-pinyin.svg,ibus-pinyin
 IBus LibBopomofo Preferences,ibus-setup-libbopomofo,/usr/share/ibus-libpinyin/icons/ibus-bopomofo.svg,ibus-bopomofo
+Ice,ice,/usr/share/pixmaps/ice.png,ice
 I-Nex,i-nex,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 I-Nex Library,i-nex-library,/usr/share/pixmaps/i-nex-128.png,i-nex-128
 IDLE,idle,/usr/share/pixmaps/idle.xpm,python-idle
@@ -214,6 +217,7 @@ Kerbal Space Program,Kerbal Space Program,steam,steam_icon_220200
 Klavaro,klavaro,/usr/share/icons/hicolor/24x24/apps/klavaro.png,klavaro
 Koala,koala,/usr/share/koala/koala.png,koala
 Komodo Edit,komodo-edit,/opt/komodo-edit/share/icons/komodo48.png,komodo
+LANShare,LANShare,/usr/share/pixmaps/lanshare-icon.png,lanshare
 LaTeXDraw,latexdraw,/usr/share/pixmaps/latexdraw32.xpm,latexdraw
 Layout Editor,layout,/usr/share/icons/hicolor/48x48/apps/layout.png,layout
 Layout Editor,layout,layout.png,layout
@@ -266,6 +270,7 @@ Mint Upload Manager,mintupload,/usr/lib/linuxmint/mintUpload/icon.svg,mintUpload
 Mint Upload Manager,mintupload,/usr/share/pixmaps/mintupload/icon.svg,mintUpload
 MKV Extractor GUI,mkv-extractor-gui,/usr/share/icons/hicolor/256x256/apps/mkv-extractor-gui.png,mkv-extractor-gui
 Money Manager Ex,mmex,/usr/share/icons/hicolor/scalable/apps/mmex.svg,mmex
+Motix,motix,/usr/share/icons/motrix.png,motix
 MultiBootUSB,multibootusb,/usr/share/pixmaps/multibootusb.png,multibootusb
 MultiBootUSB,multibootusb,multibootusb.png,multibootusb
 Mundus,mundus,/usr/share/pixmaps/mundus.svg,mundus
@@ -301,9 +306,11 @@ Pamac (Install),pamac-install,/usr/share/pamac/icons/32x32/apps/pamac.png,system
 Pamac (Update),pamac-update,/usr/share/pamac/icons/32x32/apps/pamac.png,system-software-update
 Parano,parano,parano-icon.png,parano
 Pasaffe,pasaffe,/usr/share/pasaffe/media/pasaffe.svg,pasaffe
+pdf2png,pdf2png,/usr/share/pixmaps/pdf2png.png,pdf2png
 PDFsam,pdfsam,/usr/share/pdfsam/pdf.png,pdfsam
 PDFsam Basic,pdfsam-basic,/opt/pdfsam-basic/icon.svg,pdfsam
 Pencil,pencil,/usr/share/pencil/skin/classic/icon.svg,pencil
+Pencil,pencil,/usr/share/pencil/icon.png,pencil
 Penumbra: Black Plague,Penumbra: Black Plague,steam,steam_icon_22120
 Penumbra: Overture,Penumbra: Overture,steam,steam_icon_22180
 Penumbra: Requiem,Penumbra: Requiem,steam,steam_icon_22140
@@ -348,12 +355,14 @@ qPDFview,qpdfview,/usr/share/qpdfview/qpdfview.svg,qpdfview
 Qucs,qucs,/usr/share/pixmaps/big.qucs.xpm,qucs
 R,r,/usr/share/pixmaps/r.png,rlogo_icon
 Raccoon,raccoon,/usr/share/pixmaps/raccoon.svg,raccoon
+Radiotray-NG,radiotray-ng,/usr/share/icons/hicolor/256x256/apps/radiotray-ng-notification.png,radiotray-ng
 R Commander,Rcmdr,/usr/lib/R/site-library/Rcmdr/etc/linux/Rcmdr.svg,rcmdr
 RedisDesktopManager,rdm,/usr/share/redis-desktop-manager/bin/rdm.png,rdm
 Reditr,reditr,/opt/reditr/128x128.png,reditr
 Remarkable,remarkable,/usr/share/remarkable/media/remarkable.svg,remarkable
 RemoteBox,remotebox,remotebox.png,remotebox
 Report Bug,reportbug,/usr/share/reportbug/debian-swirl.svg,debian-swirl
+Retroshare,retroshare,/usr/share/pixmaps/retroshare.xpm,retroshare
 Ring GNOME CLient,gnome-ring,/usr/share/icons/hicolor/scalable/apps/ring.svg,ring
 Risk of Rain,Risk of Rain,steam,steam_icon_248820
 RFB Receitanet,rfb-receitanet,/opt/Programas RFB/Receitanet/imagens/Receitanet.xpm,receitanet
@@ -423,6 +432,7 @@ Telegram,telegram,/usr/share/pixmaps/telegram.png,telegram
 Telegram,telegram,/opt/telegram/telegram.svg,telegram
 Terra Terminal Emulator,terra,/usr/share/terra/image/terra.svg,terra
 TimeShift,TimeShift,/usr/share/pixmaps/timeshift.png,timeshift
+Tixati,tixati,/usr/share/icons/hicolor/48x48/apps/tixati.png,tixati
 Tkabber,tkabber,/usr/share/pixmaps/tkabber.xpm,tkabber
 tkPacman,tkpacman,Icon=/usr/share/tkpacman/icons/tkpacman-icon.png,tkpacman
 Tomate,tomate,/usr/share/tomate/media/tomate.png,tomate
