@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script for fixing hardcoded icons. Written and maintained on GitHub
-# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
+# at https://github.com/Foggalong/hardcode-fixer - additions welcome!
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -11,10 +11,9 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=201708180  # [year][month][date][extra]
+date=202006261  # [year][month][date][extra]
 
 # Locations
-git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
 global_apps=("/usr/share/applications/"
@@ -124,20 +123,30 @@ if ! type "curl" >> /dev/null 2>&1; then
     gerror
 fi
 
-# Checks for having internet access
-if eval "curl -sk https://github.com/" >> /dev/null 2>&1; then
-    : # pass
+# Choses online resource location from GitHub, Gitee, and jsDelivr
+git_locate="local"
+echo -n "Choosing host for updates... "
+if eval "curl -sk https://raw.githubusercontent.com" >> /dev/null 2>&1; then
+    echo -e "connected to GitHub!"
+    git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
+elif eval "curl -sk https://gitee.com" >> /dev/null 2>&1; then
+    echo -e "Connected to Gitee!"
+    git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
+elif eval "curl -sk https://cdn.jsdelivr.net" >> /dev/null 2>&1; then
+    echo -e "Connected to jsDelivr!"
+    git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
 else
+    echo -e "failed!\n"
     echo -e \
         "No internet connection available. This script\n" \
-        "\rrequires internet access to connect to GitHub\n" \
-        "\rto check for updates and download 'to-fix' info."
+        "\rrequires internet access to check for updates\n" \
+        "\rand download the latest 'to-fix' info."
     gerror
 fi
 
 # Check for newer version of fix.sh
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
-if [ "$date" -lt "$new_date" ]; then
+if [ -n "$new_date" ] && [ "$date" -lt "$new_date" ]; then
     echo -e \
         "You're running an out of date version of\n" \
         "\rthe script. Please download the latest\n" \
@@ -153,6 +162,7 @@ if [ "$date" -lt "$new_date" ]; then
         esac
     done
 fi
+
 
 # Downloads latest version of the list
 curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
@@ -177,6 +187,7 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     done
 fi
 
+
 # Itterating over lines of tofix.csv, each split into an array
 IFS=","
 while read -r name launcher current new_icon; do
@@ -199,10 +210,10 @@ while read -r name launcher current new_icon; do
         fi
 
         for app_location in "${combined_apps[@]}"
-        do  
+        do
             if [ -f "$new_current" ]; then
                 break
-            fi 
+            fi
             if [ -f "$app_location$launcher" ]; then
                 new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
             fi
