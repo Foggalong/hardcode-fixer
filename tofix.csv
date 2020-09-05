@@ -205,6 +205,7 @@ IPython/Jupyter QtConsole,jupyter-qtconsole,gnome-netstatus-idle,ipython
 IPYthon/Jupyter QtConsole,jupyter-qtconsole,/usr/lib/python3.5/site-packages/qtconsole/resources/icon/JupyterConsole.svg,ipython
 ISO Master,isomaster,/usr/share/isomaster/icons/isomaster.png,isomaster
 Itch.io,itch,itch.png,itch
+JetBrains Toolbox,jetbrains-toolbox,/opt/toolbox/toolbox.svg,jetbrains-toolbox
 Jitsi,jitsi,/usr/share/pixmaps/jitsi.svg,jitsi
 Jupyter Qt console,jupyter-qtconsole,/usr/lib/python3.6/site-packages/qtconsole/resources/icon/JupyterConsole.svg,JupyterConsole
 Kana Kanji Conversion Preferences,ibus-setup-kkc,/usr/share/ibus-kkc/icons/ibus-kkc.svg,ibus-setup
@@ -461,6 +462,9 @@ Wireframe Sketcher,wireframesketcherstudio,/usr/share/icons/hicolor/128x128/apps
 Wolfenstein MP,wolfmp,/usr/share/pixmaps/WolfMP.xpm,wolfmp
 Wolfenstein SP,wolfsp,/usr/share/pixmaps/WolfSP.xpm,wolfsp
 Wordpress Desktop Client,wordpress-com,/usr/local/WordPress.com/WordPress.png,wordpress
+WPS Presentation,wps-office-wpp,/usr/share/icons/hicolor/48x48/apps/wps-office-wppmain.png,wps-office-wppmain
+WPS Spreadsheet,wps-office-et,/usr/share/icons/hicolor/48x48/apps/wps-office-etmain.png,wps-office-etmain
+WPS Writer,wps-office-wps,/usr/share/icons/hicolor/48x48/apps/wps-office-wpsmain.png,wps-office-wpsmain
 wxFormBuilder,wxformbuilder,wxformbuilder.png,wxformbuilder
 wxMaxima,wxmaxima,/usr/share/wxMaxima/wxmaxima.png,wxmaxima
 wxMEdit,wxmedit,/usr/share/pixmaps/wxmedit.png,wxmedit
