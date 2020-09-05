@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script for fixing hardcoded icons. Written and maintained on GitHub
-# at https://github.com/Foggalong/hardcode-fixer - addtions welcome!
+# at https://github.com/Foggalong/hardcode-fixer - additions welcome!
 
 # Copyright (C) 2014
 # This program is free software: you can redistribute it and/or modify
@@ -11,17 +11,9 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=202006260  # [year][month][date][extra]
+date=202006261  # [year][month][date][extra]
 
 # Locations
-download_source=${HARDCODE_FIXER_SOURCE:-github}
-download_source_github_url="https://github.com/"
-download_source_github_git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
-download_source_gitee_url="https://gitee.com/"
-download_source_gitee_git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
-download_source_jsdelivr_url="https://cdn.jsdelivr.net/"
-download_source_jsdelivr_git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
-
 username=${SUDO_USER:-$USER}
 userhome="/home/$username"
 global_apps=("/usr/share/applications/"
@@ -131,32 +123,24 @@ if ! type "curl" >> /dev/null 2>&1; then
     gerror
 fi
 
-# set upgrade url
-network_check_url=
-git_locate=
-if [ "$download_source" == "gitee" ]; then
-  network_check_url=$download_source_gitee_url
-  git_locate=$download_source_gitee_git_locate
-elif [ "$download_source" == "jsdelivr" ]; then
-  network_check_url=$download_source_jsdelivr_url
-  git_locate=$download_source_jsdelivr_git_locate
+# Choses online resource location from GitHub, Gitee, and jsDelivr
+git_locate="local"
+echo -n "Choosing host for updates... "
+if eval "curl -sk https://raw.githubusercontent.com" >> /dev/null 2>&1; then
+    echo -e "connected to GitHub!"
+    git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
+elif eval "curl -sk https://gitee.com" >> /dev/null 2>&1; then
+    echo -e "Connected to Gitee!"
+    git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
+elif eval "curl -sk https://cdn.jsdelivr.net" >> /dev/null 2>&1; then
+    echo -e "Connected to jsDelivr!"
+    git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
 else
-  network_check_url=$download_source_github_url
-  git_locate=$download_source_github_git_locate
-fi
-echo -e \
-  "HARDCODE_FIXER_SOURCE use $download_source\n" \
-  "Check network by $network_check_url\n" \
-  "Git locate is: $git_locate."
-
-# Checks for having internet access
-if eval "curl -sk $network_check_url" >> /dev/null 2>&1; then
-    : # pass
-else
+    echo -e "failed!\n"
     echo -e \
         "No internet connection available. This script\n" \
-        "\rrequires internet access to connect to GitHub\n" \
-        "\rto check for updates and download 'to-fix' info."
+        "\rrequires internet access to check for updates\n" \
+        "\rand download the latest 'to-fix' info."
     gerror
 fi
 
@@ -178,6 +162,7 @@ if [ -n "$new_date" ] && [ "$date" -lt "$new_date" ]; then
         esac
     done
 fi
+
 
 # Downloads latest version of the list
 curl -sk -o "/tmp/tofix.csv" "${git_locate}/tofix.csv"
@@ -202,6 +187,7 @@ if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
     done
 fi
 
+
 # Itterating over lines of tofix.csv, each split into an array
 IFS=","
 while read -r name launcher current new_icon; do
@@ -224,10 +210,10 @@ while read -r name launcher current new_icon; do
         fi
 
         for app_location in "${combined_apps[@]}"
-        do  
+        do
             if [ -f "$new_current" ]; then
                 break
-            fi 
+            fi
             if [ -f "$app_location$launcher" ]; then
                 new_current=$(grep -Gq "Icon=*$" "$app_location$launcher")
             fi
