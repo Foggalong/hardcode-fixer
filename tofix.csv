@@ -492,6 +492,8 @@ YouTubeDL GUI,youtube-dlg,/usr/share/pixmaps/youtube-dlg.png,youtube-dlg
 Zenmap,zenmap,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zenmap (root),zenmap-root,/usr/share/zenmap/pixmaps/zenmap.png,zenmap
 Zoom,Zoom,Zoom.png,Zoom
+Zoom,Zoom,zoom,Zoom
+Zotero,zotero,/usr/lib/zotero/chrome/icons/default/default256.png,zotero
 ZuluCrypt,zuluCrypt,zuluCrypt.png,zulucrypt
 ZuluCrypt Key Server,zuluCryptKeyServer,zuluCrypt.png,zulucrypt
 ZuluMount,zuluMount,zuluMount.png,zulumount
