@@ -11,7 +11,7 @@
 # If not, see <http://www.gnu.org/licenses/>.
 
 # Version info
-date=202006261  # [year][month][date][extra]
+date=202009200  # [year][month][date][extra]
 
 # Locations
 username=${SUDO_USER:-$USER}
@@ -31,42 +31,53 @@ global_scalable_icon="/usr/share/icons/hicolor/scalable/apps/"
 steam_icon="${global_icon}steam.png"
 
 
-# Allows timeout when launched via 'Run in Terminal'
-function gerror() { sleep 3; exit 1; }
+function gerror() {
+    # Allows timeout when launched via 'Run in Terminal'
+    sleep 3; exit 1;
+}
 
-# Backup icons
+
 function backup() {
-    current=$1
-    new_icon=$2
-    is_local=$3
-    extension="${current##*.}"
-    if [ -f "$current" ]; then # checks if icon exists to copy
-        if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
-                if [ $is_local == "1" ]; then
-                    if [ ! -f "$local_icon$new_icon" ] ;then
-                        cp "$current" "$local_icon$new_icon"
-                        chown -R  $username:$username "$local_icon$new_icon"
-                    fi
-                else
-                    if [ ! -f "$global_icon$new_icon" ] ;then
-                        cp "$current" "$global_icon$new_icon"
-                    fi
-                fi
+    # Function for moving an icon from its hardcoded location into a standard
+    # icon directory. It takes three arguments as follows:
+
+    current=$1   # hardcoded icon location, including extension
+    new_icon=$2  # new icon name, taken from tofix.csv
+    is_local=$3  # boolean of whether the related launcher is local or global
+
+    extension="${current##*.}"  # extract the icon extension (e.g. png)
+
+    # if icon dosn't exists to copy, terminate backup
+    if [ ! -f "$current" ]; then
+        echo -e "ERROR: Couldn't find $current!"; return 1
+    fi
+
+    # determine the appropriate icon destination
+    if [ "$extension" == "png" ] || [ "$extension" == "xpm" ];then
+        if [ $is_local == "1" ]; then
+            destination=$local_icon$new_icon
+        else
+            destination=$global_icon$new_icon
         fi
-        if [ "$extension" == "svg" ];then
-            if [ $is_local == "1" ]; then
-                if [ ! -f "$local_scalable_icon$new_icon" ] ;then
-                    cp "$current" "$local_scalable_icon$new_icon"
-                    chown -R  $username:$username "$local_scalable_icon$new_icon"
-                fi
-            else
-                if [ ! -f "$global_scalable_icon$new_icon" ] ;then
-                    cp "$current" "$global_scalable_icon$new_icon"
-                fi
-            fi
+    elif [ "$extension" == "svg" ];then
+        if [ $is_local == "1" ]; then
+            destination=$local_scalable_icon$new_icon
+        else
+            destination=$global_scalable_icon$new_icon
         fi
     fi
+
+    # if destination doesn't exist, can proceeed to copying
+    if [ ! -f "$destination" ] ;then
+        cp "$current" "$destination"
+        if [ $is_local == "0" ]; then
+            chown -R  $username:$username "$destination"
+        fi
+    else
+        echo -e "ERROR: Couldn't find $current!"; return 1
+    fi
 }
+
 
 # Deals with the flags
 if [ -z "$1" ]; then
