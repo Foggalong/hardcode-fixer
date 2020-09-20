@@ -239,8 +239,7 @@ while read -r name launcher current new_icon; do
             combined_apps=("${local_apps[@]}" "${global_apps[@]}")
         fi
 
-        for app_location in "${combined_apps[@]}"
-        do
+        for app_location in "${combined_apps[@]}"; do
             if [ -f "$new_current" ]; then
                 break
             fi
@@ -263,8 +262,7 @@ while read -r name launcher current new_icon; do
 
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
-        for local_app in "${local_apps[@]}"
-        do
+        for local_app in "${local_apps[@]}"; do
             if [ -f "$local_app$launcher" ]; then
                 if [ "$current" != "steam" ]; then
                     if grep -Gq "Icon\s*=\s*$current$" "$local_app$launcher"; then
@@ -292,8 +290,7 @@ while read -r name launcher current new_icon; do
         done
         # Global launchers
         if [ $mode != "local" ]; then
-            for global_app in "${global_apps[@]}"
-            do
+            for global_app in "${global_apps[@]}"; do
                 if [ -f "$global_app$launcher" ]; then
                     if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
                         echo "G: Fixing $name..."
@@ -308,8 +305,7 @@ while read -r name launcher current new_icon; do
     # hardcoded state.
     elif [ "$mode" == "revert" ] || [ "$mode" == "l-revert" ]; then
         # Local and steam revert
-        for local_app in "${local_apps[@]}"
-        do
+        for local_app in "${local_apps[@]}"; do
             if [ -f "$local_app$launcher" ]; then
                 if [ $old_icon == "steam" ]; then
                     echo "S: Reverting $name..."
@@ -321,8 +317,7 @@ while read -r name launcher current new_icon; do
         done
         # Global revert
         if [ $mode != "l-revert" ]; then
-            for global_app in "${global_apps[@]}"
-            do
+            for global_app in "${global_apps[@]}"; do
                 if [ -f "$global_app$launcher" ]; then
                     echo "G: Reverting $name..."
                     revert $new_icon $old_icon $global_app$launcher $global_icon $global_scalable_icon
