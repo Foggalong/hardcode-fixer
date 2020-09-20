@@ -291,16 +291,18 @@ while read -r name launcher current new_icon; do
             fi
         done
         # Global launchers
-        for global_app in "${global_apps[@]}"
-        do
-            if [ $mode != "local" ] && [ -f "$global_app$launcher" ]; then
-                if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
-                    echo "G: Fixing $name..."
-                    backup $current $new_icon "0"
-                    sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
+        if [ $mode != "local" ]; then
+            for global_app in "${global_apps[@]}"
+            do
+                if [ -f "$global_app$launcher" ]; then
+                    if grep -Gq "Icon\s*=\s*$current$" "$global_app$launcher"; then
+                        echo "G: Fixing $name..."
+                        backup $current $new_icon "0"
+                        sed -i "s/Icon\s*=\s*${old_icon}.*/Icon=$new_icon/g" "$global_app$launcher"
+                    fi
                 fi
-            fi
-        done
+            done
+        fi
 
     # This code block handles the reversion of an app into its original hardcoded
     # hardcoded state.
@@ -318,12 +320,14 @@ while read -r name launcher current new_icon; do
             fi
         done
         # Global revert
-        for global_app in "${global_apps[@]}"
-        do
-            if [ $mode != "l-revert" ] && [ -f "$global_app$launcher" ]; then
-                echo "G: Reverting $name..."
-                revert $new_icon $old_icon $global_app$launcher $global_icon $global_scalable_icon
-            fi
-        done
+        if [ $mode != "l-revert" ]; then
+            for global_app in "${global_apps[@]}"
+            do
+                if [ -f "$global_app$launcher" ]; then
+                    echo "G: Reverting $name..."
+                    revert $new_icon $old_icon $global_app$launcher $global_icon $global_scalable_icon
+                fi
+            done
+        fi
     fi
 done < "/tmp/tofix.csv"
