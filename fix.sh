@@ -68,6 +68,14 @@ function backup() {
     fi
 }
 
+function info() {
+    echo -e "$@" > /dev/stderr
+}
+
+function infos() {
+    echo -en "$@" > /dev/stderr
+}
+
 # Deals with the flags
 if [ -z "$1" ]; then
     mode="fix"
@@ -78,7 +86,7 @@ else
         -p|--print)
             mode="print";;
         -r|--revert)
-            echo "This will undo all changes previously made."
+            info "This will undo all changes previously made."
             while true; do
                 read -r -p "Are you sure you want to continue? " answer
                 case $answer in
@@ -130,15 +138,15 @@ fi
 
 # Choses online resource location from GitHub, Gitee, and jsDelivr
 git_locate="local"
-echo -n "Choosing host for updates... "
+infos "Choosing host for updates... "
 if eval "curl -sk https://raw.githubusercontent.com" >> /dev/null 2>&1; then
-    echo -e "connected to GitHub!"
+    info "connected to GitHub!"
     git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 elif eval "curl -sk https://gitee.com" >> /dev/null 2>&1; then
-    echo -e "Connected to Gitee!"
+    info "Connected to Gitee!"
     git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
 elif eval "curl -sk https://cdn.jsdelivr.net" >> /dev/null 2>&1; then
-    echo -e "Connected to jsDelivr!"
+    info "Connected to jsDelivr!"
     git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
 else
     echo -e "failed!\n"
@@ -152,7 +160,7 @@ fi
 # Check for newer version of fix.sh
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
 if [ -n "$new_date" ] && [ "$date" -lt "$new_date" ]; then
-    echo -e \
+    info \
         "You're running an out of date version of\n" \
         "\rthe script. Please download the latest\n" \
         "\rverison from the GitHub page or update\n" \
