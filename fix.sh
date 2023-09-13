@@ -68,6 +68,14 @@ function backup() {
     fi
 }
 
+function info() {
+    echo -e "$@" > /dev/stderr
+}
+
+function infos() {
+    echo -en "$@" > /dev/stderr
+}
+
 # Deals with the flags
 if [ -z "$1" ]; then
     mode="fix"
@@ -75,8 +83,10 @@ else
     case $1 in
         -l|--local)
             mode="local";;
+        -p|--print)
+            mode="print";;
         -r|--revert)
-            echo "This will undo all changes previously made."
+            info "This will undo all changes previously made."
             while true; do
                 read -r -p "Are you sure you want to continue? " answer
                 case $answer in
@@ -90,8 +100,9 @@ else
                 "Usage: ./$(basename -- $0) [OPTION]\n" \
                 "\rFixes hardcoded icons of installed applications.\n\n" \
                 "\rCurrently supported options:\n" \
-                "\r  -l, --local \t Only fixes local launchers.\n" \
-                "\r  -r, --revert \t Reverts any changes made.\n" \
+                "\r  -l, --local \t\t Only fixes local launchers.\n" \
+                "\r  -r, --revert \t\t Reverts any changes made.\n" \
+                "\r  -p, --print \t\t Only prints and make no chages.\n" \
                 "\r  -h, --help \t\t Displays this help menu.\n" \
                 "\r  -v, --version \t Displays program version.\n"
             exit 0 ;;
@@ -104,14 +115,16 @@ else
             gerror
     esac
 fi
-# Creates the missing folders
-if [ ! -d "$local_scalable_icon" ]; then
-    su -c "mkdir '$local_scalable_icon' -p" "$username"
-fi
-if [ ! -d "$local_icon" ]; then
-    su -c "mkdir '$local_icon' -p" "$username"
-fi
 
+# Creates the missing folders
+if [ "${mode}" != 'print' ]; then
+    if [ ! -d "$local_scalable_icon" ]; then
+        su -c "mkdir '$local_scalable_icon' -p" "$username"
+    fi
+    if [ ! -d "$local_icon" ]; then
+        su -c "mkdir '$local_icon' -p" "$username"
+    fi
+fi
 
 
 # Verifies if 'curl' is installed
@@ -125,15 +138,15 @@ fi
 
 # Choses online resource location from GitHub, Gitee, and jsDelivr
 git_locate="local"
-echo -n "Choosing host for updates... "
+infos "Choosing host for updates... "
 if eval "curl -sk https://raw.githubusercontent.com" >> /dev/null 2>&1; then
-    echo -e "connected to GitHub!"
+    info "connected to GitHub!"
     git_locate="https://raw.githubusercontent.com/Foggalong/hardcode-fixer/master"
 elif eval "curl -sk https://gitee.com" >> /dev/null 2>&1; then
-    echo -e "Connected to Gitee!"
+    info "Connected to Gitee!"
     git_locate="https://gitee.com/gh-mirror/hardcode-fixer/raw/master"
 elif eval "curl -sk https://cdn.jsdelivr.net" >> /dev/null 2>&1; then
-    echo -e "Connected to jsDelivr!"
+    info "Connected to jsDelivr!"
     git_locate="https://cdn.jsdelivr.net/gh/Foggalong/hardcode-fixer@master"
 else
     echo -e "failed!\n"
@@ -147,7 +160,7 @@ fi
 # Check for newer version of fix.sh
 new_date=$(curl -sk "${git_locate}"/fix.sh | grep "date=[0-9]\{9\}" | sed "s/[^0-9]//g")
 if [ -n "$new_date" ] && [ "$date" -lt "$new_date" ]; then
-    echo -e \
+    info \
         "You're running an out of date version of\n" \
         "\rthe script. Please download the latest\n" \
         "\rverison from the GitHub page or update\n" \
@@ -170,7 +183,7 @@ sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 chown "$username" "/tmp/tofix.csv"
 
 # Checks for root
-if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
+if [[ $UID -ne 0 ]] && [ "$mode" != 'local' ] && [ "$mode" != 'print' ]; then
     echo "The script must be run as root to (un)fix global launchers."
     while true; do
         read -r -p "Do you want to continue in local mode? " answer
@@ -223,11 +236,13 @@ while read -r name launcher current new_icon; do
             sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "/tmp/tofix.csv"
         fi
     fi
-    if [ ! -d "$local_scalable_icon" ]; then
-        su -c "mkdir '$local_scalable_icon' -p" "$username"
-    fi
-    if [ ! -d "$local_icon" ]; then
-        su -c "mkdir '$local_icon' -p" "$username}"
+    if [ "$mode" != 'print' ]; then
+        if [ ! -d "$local_scalable_icon" ]; then
+            su -c "mkdir '$local_scalable_icon' -p" "$username"
+        fi
+        if [ ! -d "$local_icon" ]; then
+            su -c "mkdir '$local_icon' -p" "$username}"
+        fi
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
@@ -302,6 +317,20 @@ while read -r name launcher current new_icon; do
                     rm -f "$global_scalable_icon$new_icon"*
                     sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
                 fi
+            fi
+        done
+    # Listing code
+    elif [ "$mode" == 'print' ]; then
+        for local_app in "${local_apps[@]}"
+        do
+            if [ -f "$local_app$launcher" ]; then
+                echo -e "$name\t$local_app$launcher"
+            fi
+        done
+        for global_app in "${global_apps[@]}"
+        do
+            if [ -f "$global_app$launcher" ]; then
+                echo -e "$name\t$global_app$launcher"
             fi
         done
     fi
