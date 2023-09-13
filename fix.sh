@@ -75,6 +75,8 @@ else
     case $1 in
         -l|--local)
             mode="local";;
+        -p|--print)
+            mode="print";;
         -r|--revert)
             echo "This will undo all changes previously made."
             while true; do
@@ -90,8 +92,9 @@ else
                 "Usage: ./$(basename -- $0) [OPTION]\n" \
                 "\rFixes hardcoded icons of installed applications.\n\n" \
                 "\rCurrently supported options:\n" \
-                "\r  -l, --local \t Only fixes local launchers.\n" \
-                "\r  -r, --revert \t Reverts any changes made.\n" \
+                "\r  -l, --local \t\t Only fixes local launchers.\n" \
+                "\r  -r, --revert \t\t Reverts any changes made.\n" \
+                "\r  -p, --print \t\t Only prints and make no chages.\n" \
                 "\r  -h, --help \t\t Displays this help menu.\n" \
                 "\r  -v, --version \t Displays program version.\n"
             exit 0 ;;
@@ -104,14 +107,16 @@ else
             gerror
     esac
 fi
-# Creates the missing folders
-if [ ! -d "$local_scalable_icon" ]; then
-    su -c "mkdir '$local_scalable_icon' -p" "$username"
-fi
-if [ ! -d "$local_icon" ]; then
-    su -c "mkdir '$local_icon' -p" "$username"
-fi
 
+# Creates the missing folders
+if [ "${mode}" != 'print' ]; then
+    if [ ! -d "$local_scalable_icon" ]; then
+        su -c "mkdir '$local_scalable_icon' -p" "$username"
+    fi
+    if [ ! -d "$local_icon" ]; then
+        su -c "mkdir '$local_icon' -p" "$username"
+    fi
+fi
 
 
 # Verifies if 'curl' is installed
@@ -170,7 +175,7 @@ sed -i -e "1d" "/tmp/tofix.csv" # crops header line
 chown "$username" "/tmp/tofix.csv"
 
 # Checks for root
-if [[ $UID -ne 0 ]] && [ $mode != "local" ]; then
+if [[ $UID -ne 0 ]] && [ "$mode" != 'local' ] && [ "$mode" != 'print' ]; then
     echo "The script must be run as root to (un)fix global launchers."
     while true; do
         read -r -p "Do you want to continue in local mode? " answer
@@ -223,11 +228,13 @@ while read -r name launcher current new_icon; do
             sed -i "s/$name,$launcher,$current,$new_icon/$name,$launcher,$new_current,$new_icon/" "/tmp/tofix.csv"
         fi
     fi
-    if [ ! -d "$local_scalable_icon" ]; then
-        su -c "mkdir '$local_scalable_icon' -p" "$username"
-    fi
-    if [ ! -d "$local_icon" ]; then
-        su -c "mkdir '$local_icon' -p" "$username}"
+    if [ "$mode" != 'print' ]; then
+        if [ ! -d "$local_scalable_icon" ]; then
+            su -c "mkdir '$local_scalable_icon' -p" "$username"
+        fi
+        if [ ! -d "$local_icon" ]; then
+            su -c "mkdir '$local_icon' -p" "$username}"
+        fi
     fi
     if [ "$mode" == "fix" ] || [ "$mode" == "local" ]; then
         # Local & Steam launchers
@@ -302,6 +309,20 @@ while read -r name launcher current new_icon; do
                     rm -f "$global_scalable_icon$new_icon"*
                     sed -i "s/Icon\s*=\s*${new_icon}.*/Icon=$old_icon/" "$global_app$launcher"
                 fi
+            fi
+        done
+    # Listing code
+    elif [ "$mode" == 'print' ]; then
+        for local_app in "${local_apps[@]}"
+        do
+            if [ -f "$local_app$launcher" ]; then
+                echo -e "$name\t$local_app$launcher"
+            fi
+        done
+        for global_app in "${global_apps[@]}"
+        do
+            if [ -f "$global_app$launcher" ]; then
+                echo -e "$name\t$global_app$launcher"
             fi
         done
     fi
